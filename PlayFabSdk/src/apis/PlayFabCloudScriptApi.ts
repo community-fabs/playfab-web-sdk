@@ -1,6 +1,5 @@
 import type { ApiCallback } from "../types/Playfab";
-import { PlayFabCommon } from "../PlayFabCommon";
-import {
+import type {
   ExecuteEntityCloudScriptRequest,
   ExecuteCloudScriptResult,
   ExecuteFunctionRequest,
@@ -22,6 +21,7 @@ import {
   RegisterQueuedFunctionRequest,
   UnregisterFunctionRequest,
 } from "../types/PlayFabCloudScriptApi";
+import { PlayFabCommon } from "../PlayFabCommon";
 
 export class PlayFabCloudScriptApi extends PlayFabCommon {
   /**

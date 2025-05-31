@@ -1,6 +1,5 @@
 import type { ApiCallback } from "../types/Playfab";
-import { PlayFabCommon } from "../PlayFabCommon";
-import {
+import type {
   GetGlobalPolicyRequest,
   GetGlobalPolicyResponse,
   GetEntityProfileRequest,
@@ -20,6 +19,7 @@ import {
   SetEntityProfilePolicyRequest,
   SetEntityProfilePolicyResponse,
 } from "../types/PlayFabProfilesApi";
+import { PlayFabCommon } from "../PlayFabCommon";
 
 export class PlayFabProfilesApi extends PlayFabCommon {
   /**

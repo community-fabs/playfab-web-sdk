@@ -1,5 +1,5 @@
-import { PlayFabCommon } from "../PlayFabCommon";
-import {
+import type { ApiCallback, EmptyResponse } from "../types/common";
+import type {
   AuthenticateCustomIdRequest,
   AuthenticateCustomIdResult,
   DeleteRequest,
@@ -7,10 +7,10 @@ import {
   GetEntityTokenResponse,
   ValidateEntityTokenRequest,
   ValidateEntityTokenResponse,
-} from "../types/auth";
-import { ApiCallback, EmptyResponse } from "../types/common";
+} from "../types/PlayFabAuthenticationApis";
+import { PlayFabCommon } from "../PlayFabCommon";
 
-export class AuthenticationApi extends PlayFabCommon {
+export class PlayFabAuthenticationApi extends PlayFabCommon {
   ForgetAllCredentials() {
     this.sessionTicket = null;
     this.entityToken = null;

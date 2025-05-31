@@ -1,5 +1,4 @@
-import { IPlayFabRequestCommon, IPlayFabResultCommon } from "./common";
-import { EntityKey, EntityLineage, EntityTokenResponse } from "./entity";
+import type { IPlayFabRequestCommon, IPlayFabResultCommon } from "./common";
 
 export interface AuthenticateCustomIdRequest extends IPlayFabRequestCommon {
   /**
@@ -25,6 +24,39 @@ export interface DeleteRequest extends IPlayFabRequestCommon {
   Entity: EntityKey;
 }
 
+export interface EmptyResponse extends IPlayFabResultCommon {}
+
+export interface EntityKey {
+  /** Unique ID of the entity. */
+  Id: string;
+  /** Entity type. See https://docs.microsoft.com/gaming/playfab/features/data/entities/available-built-in-entity-types */
+  Type?: string;
+}
+
+export interface EntityLineage {
+  /** The Character Id of the associated entity. */
+  CharacterId?: string;
+  /** The Group Id of the associated entity. */
+  GroupId?: string;
+  /** The Master Player Account Id of the associated entity. */
+  MasterPlayerAccountId?: string;
+  /** The Namespace Id of the associated entity. */
+  NamespaceId?: string;
+  /** The Title Id of the associated entity. */
+  TitleId?: string;
+  /** The Title Player Account Id of the associated entity. */
+  TitlePlayerAccountId?: string;
+}
+
+export interface EntityTokenResponse {
+  /** The entity id and type. */
+  Entity?: EntityKey;
+  /** The token used to set X-EntityToken for all entity based API calls. */
+  EntityToken?: string;
+  /** The time the token will expire, if it is an expiring token, in UTC. */
+  TokenExpiration?: string;
+}
+
 export interface GetEntityTokenRequest extends IPlayFabRequestCommon {
   /** The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.). */
   CustomTags?: { [key: string]: string | null };
@@ -41,7 +73,7 @@ export interface GetEntityTokenResponse extends IPlayFabResultCommon {
   TokenExpiration?: string;
 }
 
-export type IdentifiedDeviceType =
+type IdentifiedDeviceType =
   | "Unknown"
   | "XboxOne"
   | "Scarlett"
@@ -53,7 +85,7 @@ export type IdentifiedDeviceType =
   | "PlayStation"
   | "Nintendo";
 
-export type LoginIdentityProvider =
+type LoginIdentityProvider =
   | "Unknown"
   | "PlayFab"
   | "Custom"

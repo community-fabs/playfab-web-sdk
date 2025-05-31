@@ -1,5 +1,9 @@
 import constants, { ISettings } from "./constants";
-import { ApiCallback, IPlayFabResultCommon } from "./types/common";
+import {
+  ApiCallback,
+  IPlayFabError,
+  IPlayFabResultCommon,
+} from "./types/common";
 
 const AuthInfoMap = {
   "X-EntityToken": {
@@ -262,5 +266,15 @@ export class PlayFabCommon {
       customData,
       extraHeaders
     );
+  }
+
+  GenerateErrorReport(error: IPlayFabError | null): string {
+    if (error == null) return "";
+    var fullErrors = error.errorMessage;
+    for (var paramName in error.errorDetails)
+      for (var msgIdx in error.errorDetails[paramName])
+        fullErrors +=
+          "\n" + paramName + ": " + error.errorDetails[paramName][msgIdx];
+    return fullErrors;
   }
 }

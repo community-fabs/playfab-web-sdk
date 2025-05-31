@@ -34,7 +34,7 @@ export class PlayFabEventsApi extends PlayFabCommon {
     request: CreateTelemetryKeyRequest,
     callback: ApiCallback<CreateTelemetryKeyResponse>,
     customData?: any,
-    extraHeaders?: { [key: string]: string }
+    extraHeaders?: Record<string, string>
   ) {
     return this.ExecuteRequestWrapper(
       "/Event/CreateTelemetryKey",
@@ -53,7 +53,7 @@ export class PlayFabEventsApi extends PlayFabCommon {
     request: DeleteDataConnectionRequest,
     callback: ApiCallback<DeleteDataConnectionResponse>,
     customData?: any,
-    extraHeaders?: { [key: string]: string }
+    extraHeaders?: Record<string, string>
   ) {
     return this.ExecuteRequestWrapper(
       "/Event/DeleteDataConnection",
@@ -72,7 +72,7 @@ export class PlayFabEventsApi extends PlayFabCommon {
     request: DeleteTelemetryKeyRequest,
     callback: ApiCallback<DeleteTelemetryKeyResponse>,
     customData?: any,
-    extraHeaders?: { [key: string]: string }
+    extraHeaders?: Record<string, string>
   ) {
     return this.ExecuteRequestWrapper(
       "/Event/DeleteTelemetryKey",
@@ -91,7 +91,7 @@ export class PlayFabEventsApi extends PlayFabCommon {
     request: GetDataConnectionRequest,
     callback: ApiCallback<GetDataConnectionResponse>,
     customData?: any,
-    extraHeaders?: { [key: string]: string }
+    extraHeaders?: Record<string, string>
   ) {
     return this.ExecuteRequestWrapper(
       "/Event/GetDataConnection",
@@ -111,7 +111,7 @@ export class PlayFabEventsApi extends PlayFabCommon {
     request: GetTelemetryKeyRequest,
     callback: ApiCallback<GetTelemetryKeyResponse>,
     customData?: any,
-    extraHeaders?: { [key: string]: string }
+    extraHeaders?: Record<string, string>
   ) {
     return this.ExecuteRequestWrapper(
       "/Event/GetTelemetryKey",
@@ -131,7 +131,7 @@ export class PlayFabEventsApi extends PlayFabCommon {
     request: ListDataConnectionsRequest,
     callback: ApiCallback<ListDataConnectionsResponse>,
     customData?: any,
-    extraHeaders?: { [key: string]: string }
+    extraHeaders?: Record<string, string>
   ) {
     return this.ExecuteRequestWrapper(
       "/Event/ListDataConnections",
@@ -151,7 +151,7 @@ export class PlayFabEventsApi extends PlayFabCommon {
     request: ListTelemetryKeysRequest,
     callback: ApiCallback<ListTelemetryKeysResponse>,
     customData?: any,
-    extraHeaders?: { [key: string]: string }
+    extraHeaders?: Record<string, string>
   ) {
     return this.ExecuteRequestWrapper(
       "/Event/ListTelemetryKeys",
@@ -171,7 +171,7 @@ export class PlayFabEventsApi extends PlayFabCommon {
     request: SetDataConnectionRequest,
     callback: ApiCallback<SetDataConnectionResponse>,
     customData?: any,
-    extraHeaders?: { [key: string]: string }
+    extraHeaders?: Record<string, string>
   ) {
     return this.ExecuteRequestWrapper(
       "/Event/SetDataConnection",
@@ -191,7 +191,7 @@ export class PlayFabEventsApi extends PlayFabCommon {
     request: SetDataConnectionActiveRequest,
     callback: ApiCallback<SetDataConnectionActiveResponse>,
     customData?: any,
-    extraHeaders?: { [key: string]: string }
+    extraHeaders?: Record<string, string>
   ) {
     return this.ExecuteRequestWrapper(
       "/Event/SetDataConnectionActive",
@@ -211,7 +211,7 @@ export class PlayFabEventsApi extends PlayFabCommon {
     request: SetTelemetryKeyActiveRequest,
     callback: ApiCallback<SetTelemetryKeyActiveResponse>,
     customData?: any,
-    extraHeaders?: { [key: string]: string }
+    extraHeaders?: Record<string, string>
   ) {
     return this.ExecuteRequestWrapper(
       "/Event/SetTelemetryKeyActive",
@@ -231,7 +231,7 @@ export class PlayFabEventsApi extends PlayFabCommon {
     request: WriteEventsRequest,
     callback: ApiCallback<WriteEventsResponse>,
     customData?: any,
-    extraHeaders?: { [key: string]: string }
+    extraHeaders?: Record<string, string>
   ) {
     return this.ExecuteRequestWrapper(
       "/Event/WriteEvents",
@@ -252,7 +252,7 @@ export class PlayFabEventsApi extends PlayFabCommon {
     request: WriteEventsRequest,
     callback: ApiCallback<WriteEventsResponse>,
     customData?: any,
-    extraHeaders?: { [key: string]: string }
+    extraHeaders?: Record<string, string>
   ) {
     return this.ExecuteRequestWrapper(
       "/Event/WriteTelemetryEvents",

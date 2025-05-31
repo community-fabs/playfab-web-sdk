@@ -14,7 +14,7 @@ export class PlayFabLocalizationApi extends PlayFabCommon {
     request: GetLanguageListRequest,
     callback: ApiCallback<GetLanguageListResponse>,
     customData?: any,
-    extraHeaders?: { [key: string]: string }
+    extraHeaders?: Record<string, string>
   ) {
     return this.ExecuteRequestWrapper(
       "/Locale/GetLanguageList",

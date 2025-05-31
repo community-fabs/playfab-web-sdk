@@ -78,7 +78,7 @@ export class PlayFabAuthenticationApi extends PlayFabCommon {
       var authInfo = this.GetAuthInfo(request, (authKey = "X-Authorization"));
       (authKey = authInfo.authKey), (authValue = authInfo.authValue);
     }
-    if (!authKey && PlayFab.settings.developerSecretKey) {
+    if (!authKey && this.settings.developerSecretKey) {
       var authInfo = this.GetAuthInfo(request, (authKey = "X-SecretKey"));
       (authKey = authInfo.authKey), (authValue = authInfo.authValue);
     }

@@ -36,10 +36,13 @@ export class PlayFabCommon {
     sdk: constants.sdkFingerprint,
   } as const;
   sessionTicket: string | null = null;
-  errorTitleId: "Must be have PlayFab.settings.titleId set to call this method";
-  errorLoggedIn: "Must be logged in to call this method";
-  errorEntityToken: "You must successfully call GetEntityToken before calling this";
-  errorSecretKey: "Must have PlayFab.settings.developerSecretKey set to call this method";
+  errorTitleId =
+    "Must be have PlayFab.settings.titleId set to call this method";
+  errorLoggedIn = "Must be logged in to call this method";
+  errorEntityToken =
+    "You must successfully call GetEntityToken before calling this";
+  errorSecretKey =
+    "Must have settings.developerSecretKey set to call this method";
 
   constructor(settings: Partial<ISettings>) {
     Object.assign(this.settings, settings);
@@ -81,7 +84,7 @@ export class PlayFabCommon {
     customData: any,
     extraHeaders?: Record<string, string>
   ) {
-    var resultPromise = new Promise(function (resolve, reject) {
+    var resultPromise = new Promise((resolve, reject) => {
       if (callback != null && typeof callback !== "function")
         throw "Callback must be null or a function";
 
@@ -103,7 +106,7 @@ export class PlayFabCommon {
           }
           urlArr.push(key);
           urlArr.push("=");
-          urlArr.push(getParams[key]);
+          urlArr.push(getParams[key as keyof typeof getParams]);
         }
       }
 
@@ -120,10 +123,10 @@ export class PlayFabCommon {
       if (authkey != null) {
         xhr.setRequestHeader(authkey, authValue!);
       }
-      this.InjectHeaders(xhr, this.GlobalHeaderInjection);
+      this.InjectHeaders(xhr, this.settings.GlobalHeaderInjection);
       this.InjectHeaders(xhr, extraHeaders);
 
-      xhr.onloadend = function () {
+      xhr.onloadend = () => {
         if (callback == null) return;
 
         var result = this.GetPlayFabResponse(body, xhr, startTime, customData);
@@ -132,31 +135,31 @@ export class PlayFabCommon {
         } else {
           callback(null, result);
         }
-      }.bind(this);
+      };
 
-      xhr.onerror = function () {
+      xhr.onerror = () => {
         if (callback == null) return;
 
         var result = this.GetPlayFabResponse(body, xhr, startTime, customData);
         callback(null, result);
-      }.bind(this);
+      };
 
       xhr.send(requestBody);
-      xhr.onreadystatechange = function () {
-        if (this.readyState === 4) {
+      xhr.onreadystatechange = () => {
+        if (xhr.readyState === 4) {
           var xhrResult = this.GetPlayFabResponse(
             body,
-            this,
+            xhr,
             startTime,
             customData
           );
-          if (this.status === 200) {
+          if (xhr.status === 200) {
             resolve(xhrResult);
           } else {
             reject(xhrResult);
           }
         }
-      }.bind(this);
+      };
     });
     // Return a Promise so that calls to various API methods can be handled asynchronously
     return resultPromise as Promise<ApiCallback<T>>;
@@ -228,8 +231,8 @@ export class PlayFabCommon {
 
   GetAuthInfo(request: any, authKey: string) {
     // Use the most-recently saved authKey, unless one was provided in the request via the AuthenticationContext
-    var authError = AuthInfoMap[authKey].authError;
-    var authAttr = AuthInfoMap[authKey].authAttr;
+    var authError = AuthInfoMap[authKey as keyof typeof AuthInfoMap].authError;
+    var authAttr = AuthInfoMap[authKey as keyof typeof AuthInfoMap].authAttr;
     var defaultAuthValue: string | null = null;
     if (authAttr === "entityToken") defaultAuthValue = this.entityToken;
     else if (authAttr === "sessionTicket")

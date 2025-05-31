@@ -64,11 +64,6 @@ import type {
 import { PlayFabCommon } from "../PlayFabCommon";
 
 export class PlayFabAddonApi extends PlayFabCommon {
-  ForgetAllCredentials() {
-    this.sessionTicket = null;
-    this.entityToken = null;
-  }
-
   /**
    * Creates the Apple addon on a title, or updates it if it already exists.
    * https://docs.microsoft.com/rest/api/playfab/addon/addon/createorupdateapple

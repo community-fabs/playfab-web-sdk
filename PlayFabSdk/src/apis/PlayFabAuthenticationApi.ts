@@ -11,11 +11,6 @@ import type {
 import { PlayFabCommon } from "../PlayFabCommon";
 
 export class PlayFabAuthenticationApi extends PlayFabCommon {
-  ForgetAllCredentials() {
-    this.sessionTicket = null;
-    this.entityToken = null;
-  }
-
   /**
    * Create a game_server entity token and return a new or existing game_server entity.
    * https://docs.microsoft.com/rest/api/playfab/authentication/authentication/authenticategameserverwithcustomid

@@ -277,4 +277,9 @@ export class PlayFabCommon {
           "\n" + paramName + ": " + error.errorDetails[paramName][msgIdx];
     return fullErrors;
   }
+
+  ForgetAllCredentials() {
+    this.sessionTicket = null;
+    this.entityToken = null;
+  }
 }

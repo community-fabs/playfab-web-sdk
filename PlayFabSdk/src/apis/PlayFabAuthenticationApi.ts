@@ -21,7 +21,7 @@ export class PlayFabAuthenticationApi extends PlayFabCommon {
     customData?: any,
     extraHeaders?: Record<string, string>
   ) {
-    var overloadCallback: typeof callback = function (result, error) {
+    var overloadCallback: typeof callback = (result, error) => {
       if (
         result != null &&
         result.data.EntityToken != null &&
@@ -82,10 +82,7 @@ export class PlayFabAuthenticationApi extends PlayFabCommon {
       var authInfo = this.GetAuthInfo(request, (authKey = "X-SecretKey"));
       (authKey = authInfo.authKey), (authValue = authInfo.authValue);
     }
-    var overloadCallback: ApiCallback<GetEntityTokenResponse> = function (
-      result,
-      error
-    ) {
+    var overloadCallback: typeof callback = (result, error) => {
       if (result != null && result.data.EntityToken != null)
         this.entityToken = result.data.EntityToken;
       if (callback != null && typeof callback === "function")

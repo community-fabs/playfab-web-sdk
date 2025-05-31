@@ -3,7 +3,7 @@ import {
   ApiCallback,
   IPlayFabError,
   IPlayFabResultCommon,
-} from "./types/common";
+} from "./types/Playfab";
 
 const AuthInfoMap = {
   "X-EntityToken": {

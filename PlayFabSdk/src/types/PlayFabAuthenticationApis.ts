@@ -1,4 +1,4 @@
-import type { IPlayFabRequestCommon, IPlayFabResultCommon } from "./common";
+import type { IPlayFabRequestCommon, IPlayFabResultCommon } from "./Playfab";
 
 export interface AuthenticateCustomIdRequest extends IPlayFabRequestCommon {
   /**

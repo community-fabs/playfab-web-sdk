@@ -1,4 +1,4 @@
-import type { ApiCallback, EmptyResponse } from "../types/common";
+import type { ApiCallback, EmptyResponse } from "../types/Playfab";
 import type {
   AuthenticateCustomIdRequest,
   AuthenticateCustomIdResult,

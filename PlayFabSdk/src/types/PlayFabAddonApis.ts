@@ -1,4 +1,4 @@
-import type { IPlayFabRequestCommon, IPlayFabResultCommon } from "./common";
+import type { IPlayFabRequestCommon, IPlayFabResultCommon } from "./Playfab";
 
 export interface CreateOrUpdateAppleRequest extends IPlayFabRequestCommon {
   /** iOS App Bundle ID obtained after setting up your app in the App Store. */

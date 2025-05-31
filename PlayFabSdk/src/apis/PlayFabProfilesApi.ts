@@ -1,4 +1,4 @@
-import type { ApiCallback } from "../types/common";
+import type { ApiCallback } from "../types/Playfab";
 import { PlayFabCommon } from "../PlayFabCommon";
 import {
   GetGlobalPolicyRequest,

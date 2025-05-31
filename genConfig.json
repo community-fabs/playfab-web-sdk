@@ -1,7 +1,7 @@
 {
     "default": {
         "buildFlags": "requiresoptionalvaluesupport",
-        "templateFolder": "javascript",
+        "templateFolder": "javascript-async",
         "versionKey": "javascript"
     }
 }

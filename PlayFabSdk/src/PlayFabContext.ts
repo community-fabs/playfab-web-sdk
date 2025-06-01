@@ -1,4 +1,4 @@
-import constants, { ISettings } from "./constants";
+import constants, { type ISettings } from "./constants";
 
 export type AuthContext = {
   PlayFabId: string | null;
@@ -20,6 +20,10 @@ export class PlayFabContext {
     SessionTicket: null,
     EntityToken: null,
   };
+
+  sessionTicket: string | null = null;
+
+  entityToken: string | null = null;
 
   private constructor() {}
 

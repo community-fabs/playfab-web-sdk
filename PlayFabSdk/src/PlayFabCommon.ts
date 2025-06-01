@@ -4,11 +4,9 @@ import { IPlayFabError, IPlayFabResultCommon } from "./types/PlayFab";
 
 export class PlayFabCommon {
   buildIdentifier: string = constants.buildIdentifier;
-  entityToken: string | null = null;
   requestGetParams = {
     sdk: constants.sdkFingerprint,
   } as const;
-  sessionTicket: string | null = null;
   errorTitleId = "Must be have settings.titleId set to call this method";
   errorLoggedIn = "Must be logged in to call this method";
   errorEntityToken =
@@ -29,6 +27,22 @@ export class PlayFabCommon {
 
   get authenticationContext() {
     return this._context.authenticationContext;
+  }
+
+  get sessionTicket() {
+    return this._context.sessionTicket;
+  }
+
+  set sessionTicket(value: string | null) {
+    this._context.sessionTicket = value;
+  }
+
+  get entityToken() {
+    return this._context.entityToken;
+  }
+
+  set entityToken(value: string | null) {
+    this._context.entityToken = value;
   }
 
   GetServerUrl() {
@@ -224,7 +238,7 @@ export class PlayFabCommon {
   }
 
   ForgetAllCredentials() {
-    this.sessionTicket = null;
-    this.entityToken = null;
+    this._context.sessionTicket = null;
+    this._context.entityToken = null;
   }
 }

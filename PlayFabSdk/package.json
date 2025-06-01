@@ -6,12 +6,13 @@
   "scripts": {
     "build": "tsup"
   },
+  "main": "dist/index.js",
   "files": [
     "/dist"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/r3pwn/async-playfab-web-sdk"
+    "url": "git+https://github.com/r3pwn/async-playfab-web-sdk.git"
   },
   "devDependencies": {
     "@rollup/rollup-linux-x64-gnu": "^4.41.1",

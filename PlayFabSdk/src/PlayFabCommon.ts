@@ -2,6 +2,7 @@ import constants, { ISettings, AuthInfoMap } from "./constants";
 import { AuthContext, PlayFabContext } from "./PlayFabContext";
 import { IPlayFabError, IPlayFabResultCommon } from "./types/PlayFab";
 
+// testing CI stuff
 export class PlayFabCommon {
   buildIdentifier: string = constants.buildIdentifier;
   requestGetParams = {

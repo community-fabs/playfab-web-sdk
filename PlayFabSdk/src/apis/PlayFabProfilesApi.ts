@@ -1,205 +1,99 @@
-import type { ApiCallback } from "../types/Playfab";
 import type {
+
   GetGlobalPolicyRequest,
-  GetGlobalPolicyResponse,
   GetEntityProfileRequest,
-  GetEntityProfileResponse,
   GetEntityProfilesRequest,
-  GetEntityProfilesResponse,
   GetTitlePlayersFromMasterPlayerAccountIdsRequest,
-  GetTitlePlayersFromMasterPlayerAccountIdsResponse,
   GetTitlePlayersFromXboxLiveIDsRequest,
-  GetTitlePlayersFromProviderIDsResponse,
   SetDisplayNameRequest,
-  SetDisplayNameResponse,
   SetGlobalPolicyRequest,
-  SetGlobalPolicyResponse,
   SetProfileLanguageRequest,
-  SetProfileLanguageResponse,
   SetEntityProfilePolicyRequest,
+  GetGlobalPolicyResponse,
+  GetEntityProfileResponse,
+  GetEntityProfilesResponse,
+  GetTitlePlayersFromMasterPlayerAccountIdsResponse,
+  GetTitlePlayersFromProviderIDsResponse,
+  SetDisplayNameResponse,
+  SetGlobalPolicyResponse,
+  SetProfileLanguageResponse,
   SetEntityProfilePolicyResponse,
 } from "../types/PlayFabProfilesApi";
 import { PlayFabCommon } from "../PlayFabCommon";
 
-export class PlayFabProfilesApi extends PlayFabCommon {
-  /**
-   * Gets the global title access policy
-   * https://docs.microsoft.com/rest/api/playfab/profiles/account-management/getglobalpolicy
-   */
-  GetGlobalPolicy(
-    request: GetGlobalPolicyRequest,
-    callback: ApiCallback<GetGlobalPolicyResponse>,
-    customData?: any,
-    extraHeaders?: Record<string, string>
-  ) {
-    return this.ExecuteRequestWrapper(
-      "/Profile/GetGlobalPolicy",
-      request,
-      "X-EntityToken",
-      callback,
-      customData,
-      extraHeaders
-    );
-  }
+export default class PlayFabProfilesApi extends PlayFabCommon {
 
-  /**
-   * Retrieves the entity's profile.
-   * https://docs.microsoft.com/rest/api/playfab/profiles/account-management/getprofile
-   */
-  GetProfile(
-    request: GetEntityProfileRequest,
-    callback: ApiCallback<GetEntityProfileResponse>,
-    customData?: any,
-    extraHeaders?: Record<string, string>
-  ) {
-    return this.ExecuteRequestWrapper(
-      "/Profile/GetProfile",
-      request,
-      "X-EntityToken",
-      callback,
-      customData,
-      extraHeaders
-    );
-  }
+    /**
+     * Gets the global title access policy
+     * https://docs.microsoft.com/rest/api/playfab/profiles/account-management/getglobalpolicy
+     */
+    GetGlobalPolicy (request: GetGlobalPolicyRequest, customData?: any, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetGlobalPolicyResponse>("/Profile/GetGlobalPolicy", request, "X-EntityToken", customData, extraHeaders);
+    }
 
-  /**
-   * Retrieves the entity's profile.
-   * https://docs.microsoft.com/rest/api/playfab/profiles/account-management/getprofiles
-   */
-  GetProfiles(
-    request: GetEntityProfilesRequest,
-    callback: ApiCallback<GetEntityProfilesResponse>,
-    customData?: any,
-    extraHeaders?: Record<string, string>
-  ) {
-    return this.ExecuteRequestWrapper(
-      "/Profile/GetProfiles",
-      request,
-      "X-EntityToken",
-      callback,
-      customData,
-      extraHeaders
-    );
-  }
+    /**
+     * Retrieves the entity's profile.
+     * https://docs.microsoft.com/rest/api/playfab/profiles/account-management/getprofile
+     */
+    GetProfile (request: GetEntityProfileRequest, customData?: any, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetEntityProfileResponse>("/Profile/GetProfile", request, "X-EntityToken", customData, extraHeaders);
+    }
 
-  /**
-   * Retrieves the title player accounts associated with the given master player account.
-   * https://docs.microsoft.com/rest/api/playfab/profiles/account-management/gettitleplayersfrommasterplayeraccountids
-   */
-  GetTitlePlayersFromMasterPlayerAccountIds(
-    request: GetTitlePlayersFromMasterPlayerAccountIdsRequest,
-    callback: ApiCallback<GetTitlePlayersFromMasterPlayerAccountIdsResponse>,
-    customData?: any,
-    extraHeaders?: Record<string, string>
-  ) {
-    return this.ExecuteRequestWrapper(
-      "/Profile/GetTitlePlayersFromMasterPlayerAccountIds",
-      request,
-      "X-EntityToken",
-      callback,
-      customData,
-      extraHeaders
-    );
-  }
+    /**
+     * Retrieves the entity's profile.
+     * https://docs.microsoft.com/rest/api/playfab/profiles/account-management/getprofiles
+     */
+    GetProfiles (request: GetEntityProfilesRequest, customData?: any, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetEntityProfilesResponse>("/Profile/GetProfiles", request, "X-EntityToken", customData, extraHeaders);
+    }
 
-  /**
-   * Retrieves the title player accounts associated with the given XUIDs.
-   * https://docs.microsoft.com/rest/api/playfab/profiles/account-management/gettitleplayersfromxboxliveids
-   */
-  GetTitlePlayersFromXboxLiveIDs(
-    request: GetTitlePlayersFromXboxLiveIDsRequest,
-    callback: ApiCallback<GetTitlePlayersFromProviderIDsResponse>,
-    customData?: any,
-    extraHeaders?: Record<string, string>
-  ) {
-    return this.ExecuteRequestWrapper(
-      "/Profile/GetTitlePlayersFromXboxLiveIDs",
-      request,
-      "X-EntityToken",
-      callback,
-      customData,
-      extraHeaders
-    );
-  }
+    /**
+     * Retrieves the title player accounts associated with the given master player account.
+     * https://docs.microsoft.com/rest/api/playfab/profiles/account-management/gettitleplayersfrommasterplayeraccountids
+     */
+    GetTitlePlayersFromMasterPlayerAccountIds (request: GetTitlePlayersFromMasterPlayerAccountIdsRequest, customData?: any, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetTitlePlayersFromMasterPlayerAccountIdsResponse>("/Profile/GetTitlePlayersFromMasterPlayerAccountIds", request, "X-EntityToken", customData, extraHeaders);
+    }
 
-  /**
-   * Update the display name of the entity
-   * https://docs.microsoft.com/rest/api/playfab/profiles/account-management/setdisplayname
-   */
-  SetDisplayName(
-    request: SetDisplayNameRequest,
-    callback: ApiCallback<SetDisplayNameResponse>,
-    customData?: any,
-    extraHeaders?: Record<string, string>
-  ) {
-    return this.ExecuteRequestWrapper(
-      "/Profile/SetDisplayName",
-      request,
-      "X-EntityToken",
-      callback,
-      customData,
-      extraHeaders
-    );
-  }
+    /**
+     * Retrieves the title player accounts associated with the given XUIDs.
+     * https://docs.microsoft.com/rest/api/playfab/profiles/account-management/gettitleplayersfromxboxliveids
+     */
+    GetTitlePlayersFromXboxLiveIDs (request: GetTitlePlayersFromXboxLiveIDsRequest, customData?: any, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetTitlePlayersFromProviderIDsResponse>("/Profile/GetTitlePlayersFromXboxLiveIDs", request, "X-EntityToken", customData, extraHeaders);
+    }
 
-  /**
-   * Sets the global title access policy
-   * https://docs.microsoft.com/rest/api/playfab/profiles/account-management/setglobalpolicy
-   */
-  SetGlobalPolicy(
-    request: SetGlobalPolicyRequest,
-    callback: ApiCallback<SetGlobalPolicyResponse>,
-    customData?: any,
-    extraHeaders?: Record<string, string>
-  ) {
-    return this.ExecuteRequestWrapper(
-      "/Profile/SetGlobalPolicy",
-      request,
-      "X-EntityToken",
-      callback,
-      customData,
-      extraHeaders
-    );
-  }
+    /**
+     * Update the display name of the entity
+     * https://docs.microsoft.com/rest/api/playfab/profiles/account-management/setdisplayname
+     */
+    SetDisplayName (request: SetDisplayNameRequest, customData?: any, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<SetDisplayNameResponse>("/Profile/SetDisplayName", request, "X-EntityToken", customData, extraHeaders);
+    }
 
-  /**
-   * Updates the entity's language. The precedence hierarchy for communication to the player is Title Player Account
-   * language, Master Player Account language, and then title default language if the first two aren't set or supported.
-   * https://docs.microsoft.com/rest/api/playfab/profiles/account-management/setprofilelanguage
-   */
-  SetProfileLanguage(
-    request: SetProfileLanguageRequest,
-    callback: ApiCallback<SetProfileLanguageResponse>,
-    customData?: any,
-    extraHeaders?: Record<string, string>
-  ) {
-    return this.ExecuteRequestWrapper(
-      "/Profile/SetProfileLanguage",
-      request,
-      "X-EntityToken",
-      callback,
-      customData,
-      extraHeaders
-    );
-  }
+    /**
+     * Sets the global title access policy
+     * https://docs.microsoft.com/rest/api/playfab/profiles/account-management/setglobalpolicy
+     */
+    SetGlobalPolicy (request: SetGlobalPolicyRequest, customData?: any, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<SetGlobalPolicyResponse>("/Profile/SetGlobalPolicy", request, "X-EntityToken", customData, extraHeaders);
+    }
 
-  /**
-   * Sets the profiles access policy
-   * https://docs.microsoft.com/rest/api/playfab/profiles/account-management/setprofilepolicy
-   */
-  SetProfilePolicy(
-    request: SetEntityProfilePolicyRequest,
-    callback: ApiCallback<SetEntityProfilePolicyResponse>,
-    customData?: any,
-    extraHeaders?: Record<string, string>
-  ) {
-    return this.ExecuteRequestWrapper(
-      "/Profile/SetProfilePolicy",
-      request,
-      "X-EntityToken",
-      callback,
-      customData,
-      extraHeaders
-    );
-  }
-}
+    /**
+     * Updates the entity's language. The precedence hierarchy for communication to the player is Title Player Account
+     * language, Master Player Account language, and then title default language if the first two aren't set or supported.
+     * https://docs.microsoft.com/rest/api/playfab/profiles/account-management/setprofilelanguage
+     */
+    SetProfileLanguage (request: SetProfileLanguageRequest, customData?: any, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<SetProfileLanguageResponse>("/Profile/SetProfileLanguage", request, "X-EntityToken", customData, extraHeaders);
+    }
+
+    /**
+     * Sets the profiles access policy
+     * https://docs.microsoft.com/rest/api/playfab/profiles/account-management/setprofilepolicy
+     */
+    SetProfilePolicy (request: SetEntityProfilePolicyRequest, customData?: any, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<SetEntityProfilePolicyResponse>("/Profile/SetProfilePolicy", request, "X-EntityToken", customData, extraHeaders);
+    }
+
+};

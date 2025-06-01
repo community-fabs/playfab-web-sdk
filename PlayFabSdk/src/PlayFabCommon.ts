@@ -1,51 +1,34 @@
-import constants, { ISettings } from "./constants";
-import {
-  ApiCallback,
-  IPlayFabError,
-  IPlayFabResultCommon,
-} from "./types/Playfab";
-
-const AuthInfoMap = {
-  "X-EntityToken": {
-    authAttr: "entityToken",
-    authError: "errorEntityToken",
-  },
-  "X-Authorization": {
-    authAttr: "sessionTicket",
-    authError: "errorLoggedIn",
-  },
-  "X-SecretKey": {
-    authAttr: "developerSecretKey",
-    authError: "errorSecretKey",
-  },
-};
-
-type AuthContext = {
-  PlayFabId: string | null;
-  EntityId: string | null;
-  EntityType: string | null;
-  SessionTicket: string | null;
-  EntityToken: string | null;
-};
+import constants, { ISettings, AuthInfoMap } from "./constants";
+import { AuthContext, PlayFabContext } from "./PlayFabContext";
+import { IPlayFabError, IPlayFabResultCommon } from "./types/PlayFab";
 
 export class PlayFabCommon {
   buildIdentifier: string = constants.buildIdentifier;
-  settings: ISettings = constants.defaultSettings;
   entityToken: string | null = null;
   requestGetParams = {
     sdk: constants.sdkFingerprint,
   } as const;
   sessionTicket: string | null = null;
-  errorTitleId =
-    "Must be have PlayFab.settings.titleId set to call this method";
+  errorTitleId = "Must be have settings.titleId set to call this method";
   errorLoggedIn = "Must be logged in to call this method";
   errorEntityToken =
     "You must successfully call GetEntityToken before calling this";
   errorSecretKey =
     "Must have settings.developerSecretKey set to call this method";
+  private _context = PlayFabContext.instance;
 
-  constructor(settings: Partial<ISettings>) {
-    Object.assign(this.settings, settings);
+  constructor(settings: Partial<ISettings> | undefined = undefined) {
+    if (settings) {
+      Object.assign(this._context.settings, settings);
+    }
+  }
+
+  get settings() {
+    return this._context.settings;
+  }
+
+  get authenticationContext() {
+    return this._context.authenticationContext;
   }
 
   GetServerUrl() {
@@ -80,14 +63,10 @@ export class PlayFabCommon {
     body: any,
     authkey: string | null,
     authValue: string | null,
-    callback: ApiCallback<T>,
     customData: any,
     extraHeaders?: Record<string, string>
-  ) {
-    var resultPromise = new Promise((resolve, reject) => {
-      if (callback != null && typeof callback !== "function")
-        throw "Callback must be null or a function";
-
+  ): Promise<T> {
+    return new Promise((resolve, reject) => {
       if (body == null) body = {};
 
       var startTime = new Date().getTime();
@@ -127,42 +106,21 @@ export class PlayFabCommon {
       this.InjectHeaders(xhr, extraHeaders);
 
       xhr.onloadend = () => {
-        if (callback == null) return;
-
         var result = this.GetPlayFabResponse(body, xhr, startTime, customData);
         if (result.code === 200) {
-          callback(result, null);
+          resolve(result);
         } else {
-          callback(null, result);
+          reject(result);
         }
       };
 
       xhr.onerror = () => {
-        if (callback == null) return;
-
         var result = this.GetPlayFabResponse(body, xhr, startTime, customData);
-        callback(null, result);
+        reject(result);
       };
 
       xhr.send(requestBody);
-      xhr.onreadystatechange = () => {
-        if (xhr.readyState === 4) {
-          var xhrResult = this.GetPlayFabResponse(
-            body,
-            xhr,
-            startTime,
-            customData
-          );
-          if (xhr.status === 200) {
-            resolve(xhrResult);
-          } else {
-            reject(xhrResult);
-          }
-        }
-      };
     });
-    // Return a Promise so that calls to various API methods can be handled asynchronously
-    return resultPromise as Promise<ApiCallback<T>>;
   }
 
   GetPlayFabResponse(
@@ -191,41 +149,27 @@ export class PlayFabCommon {
     return result;
   }
 
-  authenticationContext: AuthContext = {
-    PlayFabId: null,
-    EntityId: null,
-    EntityType: null,
-    SessionTicket: null,
-    EntityToken: null,
-  };
-
   UpdateAuthenticationContext(currentAuthContext: AuthContext, result: any) {
     var authenticationContextUpdates = {} as AuthContext;
-    if (result.data.PlayFabId !== null) {
-      this.authenticationContext.PlayFabId = result.data.PlayFabId;
-      authenticationContextUpdates.PlayFabId = result.data.PlayFabId;
+    if (result.PlayFabId !== null) {
+      authenticationContextUpdates.PlayFabId = result.PlayFabId;
     }
-    if (result.data.SessionTicket !== null) {
-      this.authenticationContext.SessionTicket = result.data.SessionTicket;
-      authenticationContextUpdates.SessionTicket = result.data.SessionTicket;
+    if (result.SessionTicket !== null) {
+      authenticationContextUpdates.SessionTicket = result.SessionTicket;
     }
-    if (result.data.EntityToken !== null) {
-      this.authenticationContext.EntityId = result.data.EntityToken.Entity.Id;
-      authenticationContextUpdates.EntityId = result.data.EntityToken.Entity.Id;
-      this.authenticationContext.EntityType =
-        result.data.EntityToken.Entity.Type;
-      authenticationContextUpdates.EntityType =
-        result.data.EntityToken.Entity.Type;
-      this.authenticationContext.EntityToken =
-        result.data.EntityToken.EntityToken;
-      authenticationContextUpdates.EntityToken =
-        result.data.EntityToken.EntityToken;
+    if (result.EntityToken !== null) {
+      authenticationContextUpdates.EntityId = result.EntityToken.Entity.Id;
+      authenticationContextUpdates.EntityType = result.EntityToken.Entity.Type;
+      authenticationContextUpdates.EntityToken = result.EntityToken.EntityToken;
     }
     // Update the authenticationContext with values from the result
     currentAuthContext = Object.assign(
       currentAuthContext,
       authenticationContextUpdates
     );
+
+    this._context.authenticationContext = currentAuthContext;
+
     return currentAuthContext;
   }
 
@@ -249,7 +193,6 @@ export class PlayFabCommon {
     apiURL: string,
     request: any,
     authKey: string | null,
-    callback: ApiCallback<T>,
     customData: any,
     extraHeaders?: Record<string, string>
   ) {
@@ -260,12 +203,11 @@ export class PlayFabCommon {
       authValue = authInfo.authValue;
       if (!authValue) throw authError;
     }
-    return this.ExecuteRequest(
+    return this.ExecuteRequest<T>(
       this.GetServerUrl() + apiURL,
       request,
       authKey,
       authValue,
-      callback,
       customData,
       extraHeaders
     );

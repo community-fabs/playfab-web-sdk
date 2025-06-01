@@ -6,17 +6,33 @@ export interface ISettings {
   productionServerUrl: string;
   GlobalHeaderInjection?: { [key: string]: string };
   /** The name of a customer vertical. This is only for customers running a private cluster. Generally you shouldn't touch this */
-  verticalName?: string;
+  verticalName?: string | null;
 }
+
+export const AuthInfoMap = {
+  "X-EntityToken": {
+    authAttr: "entityToken",
+    authError: "errorEntityToken",
+  },
+  "X-Authorization": {
+    authAttr: "sessionTicket",
+    authError: "errorLoggedIn",
+  },
+  "X-SecretKey": {
+    authAttr: "developerSecretKey",
+    authError: "errorSecretKey",
+  },
+};
 
 export default {
   sdkVersion: "1.192.250526",
   sdkFingerprint: "JavaScriptSDK-1.192.250526",
-  buildIdentifier: "adobuild_javascriptsdk_8",
+  buildIdentifier: "custom_async-javascriptsdk",
   defaultSettings: {
     titleId: "",
     developerSecretKey: "",
     GlobalHeaderInjection: {},
     productionServerUrl: ".playfabapi.com",
-  } as ISettings,
+    verticalName: null
+  } as ISettings
 };

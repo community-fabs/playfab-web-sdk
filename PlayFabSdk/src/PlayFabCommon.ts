@@ -108,7 +108,7 @@ export class PlayFabCommon {
       xhr.onloadend = () => {
         var result = this.GetPlayFabResponse(body, xhr, startTime, customData);
         if (result.code === 200) {
-          resolve(result);
+          resolve(result.data || result);
         } else {
           reject(result);
         }
@@ -151,13 +151,13 @@ export class PlayFabCommon {
 
   UpdateAuthenticationContext(currentAuthContext: AuthContext, result: any) {
     var authenticationContextUpdates = {} as AuthContext;
-    if (result.PlayFabId !== null) {
+    if (result?.PlayFabId) {
       authenticationContextUpdates.PlayFabId = result.PlayFabId;
     }
-    if (result.SessionTicket !== null) {
+    if (result?.SessionTicket) {
       authenticationContextUpdates.SessionTicket = result.SessionTicket;
     }
-    if (result.EntityToken !== null) {
+    if (result?.EntityToken) {
       authenticationContextUpdates.EntityId = result.EntityToken.Entity.Id;
       authenticationContextUpdates.EntityType = result.EntityToken.Entity.Type;
       authenticationContextUpdates.EntityToken = result.EntityToken.EntityToken;

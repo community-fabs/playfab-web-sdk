@@ -5,7 +5,7 @@ export interface IPlayFabError {
   error: string;
   errorCode: number;
   errorMessage: string;
-  errorDetails?: { [key: string]: string[] };
+  errorDetails?: Record<string, string[]>;
   request?: any;
   customData?: any;
   retryAfterSeconds?: number;

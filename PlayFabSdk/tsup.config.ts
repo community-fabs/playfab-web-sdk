@@ -21,10 +21,9 @@ export default defineConfig({
     Addon: "src/apis/PlayFabAddonApi.ts",
   },
   tsconfig: "tsconfig.json",
-  splitting: false,
   sourcemap: true,
   clean: true,
   dts: true,
-  format: ["esm", "cjs"],
+  format: "esm",
   platform: "browser",
 });

@@ -1,4 +1,4 @@
-import constants, { ISettings, AuthInfoMap } from "./constants";
+import constants, { ISettings, AuthInfoMap, ErrorMessages } from "./constants";
 import { AuthContext, PlayFabContext } from "./PlayFabContext";
 import { IPlayFabError, IPlayFabResultCommon } from "./types/PlayFab";
 
@@ -7,12 +7,7 @@ export class PlayFabCommon {
   requestGetParams = {
     sdk: constants.sdkFingerprint,
   } as const;
-  errorTitleId = "Must be have settings.titleId set to call this method";
-  errorLoggedIn = "Must be logged in to call this method";
-  errorEntityToken =
-    "You must successfully call GetEntityToken before calling this";
-  errorSecretKey =
-    "Must have settings.developerSecretKey set to call this method";
+  errorTitleId = ErrorMessages.titleId;
   private _context = PlayFabContext.instance;
 
   constructor(settings: Partial<ISettings> | undefined = undefined) {
@@ -72,95 +67,43 @@ export class PlayFabCommon {
     }
   }
 
-  ExecuteRequest<T extends IPlayFabResultCommon>(
+  async ExecuteRequest<T extends IPlayFabResultCommon>(
     url: string,
     body: any,
     authkey: string | null,
     authValue: string | null,
-    customData: any,
     extraHeaders?: Record<string, string>
-  ): Promise<T> {
-    return new Promise((resolve, reject) => {
-      if (body == null) body = {};
-
-      var startTime = new Date().getTime();
-      var requestBody = JSON.stringify(body);
-
-      var urlArr = [url];
-      var getParams = this.requestGetParams;
-      if (getParams != null) {
-        var firstParam = true;
-        for (var key in getParams) {
-          if (firstParam) {
-            urlArr.push("?");
-            firstParam = false;
-          } else {
-            urlArr.push("&");
-          }
-          urlArr.push(key);
-          urlArr.push("=");
-          urlArr.push(getParams[key as keyof typeof getParams]);
-        }
-      }
-
-      var completeUrl = urlArr.join("");
-
-      var xhr = new XMLHttpRequest();
-      xhr.open("POST", completeUrl, true);
-
-      xhr.setRequestHeader("Content-Type", "application/json");
-      xhr.setRequestHeader(
-        "X-PlayFabSDK",
-        "JavaScriptSDK-" + constants.sdkVersion
-      );
-      if (authkey != null) {
-        xhr.setRequestHeader(authkey, authValue!);
-      }
-      this.InjectHeaders(xhr, this.settings.GlobalHeaderInjection);
-      this.InjectHeaders(xhr, extraHeaders);
-
-      xhr.onloadend = () => {
-        var result = this.GetPlayFabResponse(body, xhr, startTime, customData);
-        if (result.code === 200) {
-          resolve(result.data || result);
-        } else {
-          reject(result);
-        }
-      };
-
-      xhr.onerror = () => {
-        var result = this.GetPlayFabResponse(body, xhr, startTime, customData);
-        reject(result);
-      };
-
-      xhr.send(requestBody);
-    });
-  }
-
-  GetPlayFabResponse(
-    request: any,
-    xhr: XMLHttpRequest,
-    startTime: number,
-    customData: any
   ) {
-    var result = null as any;
-    try {
-      // window.console.log("parsing json result: " + xhr.responseText);
-      result = JSON.parse(xhr.responseText);
-    } catch (e) {
-      result = {
-        code: 503, // Service Unavailable
-        status: "Service Unavailable",
-        error: "Connection error",
-        errorCode: 2, // PlayFabErrorCode.ConnectionError
-        errorMessage: xhr.responseText,
-      };
+    if (body == null) {
+      body = {};
     }
 
-    result.CallBackTimeMS = new Date().getTime() - startTime;
-    result.Request = request;
-    result.CustomData = customData;
-    return result;
+    const requestBody = JSON.stringify(body);
+
+    const apiParams = new URLSearchParams(this.requestGetParams);
+    const apiUrl = new URL(
+      apiParams.size ? `${url}?${apiParams.toString()}` : url
+    );
+
+    const response = await fetch(apiUrl.toString(), {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-PlayFabSDK": "JavaScriptSDK-" + constants.sdkVersion,
+        ...this.settings.globalHeaders,
+        ...extraHeaders,
+        ...(authkey && authValue ? { [authkey]: authValue } : {}),
+      },
+      body: requestBody,
+    });
+
+    const jsonResponse = await response.json();
+
+    if (!response.ok) {
+      throw new Error(jsonResponse);
+    }
+
+    return jsonResponse as { data: T };
   }
 
   UpdateAuthenticationContext(currentAuthContext: AuthContext, result: any) {
@@ -203,11 +146,10 @@ export class PlayFabCommon {
     return { authKey, authValue, authError };
   }
 
-  ExecuteRequestWrapper<T extends IPlayFabResultCommon>(
+  async ExecuteRequestWrapper<T extends IPlayFabResultCommon>(
     apiURL: string,
     request: any,
     authKey: string | null,
-    customData: any,
     extraHeaders?: Record<string, string>
   ) {
     var authValue = null;
@@ -217,14 +159,15 @@ export class PlayFabCommon {
       authValue = authInfo.authValue;
       if (!authValue) throw authError;
     }
-    return this.ExecuteRequest<T>(
-      this.GetServerUrl() + apiURL,
-      request,
-      authKey,
-      authValue,
-      customData,
-      extraHeaders
-    );
+    return (
+      await this.ExecuteRequest<T>(
+        this.GetServerUrl() + apiURL,
+        request,
+        authKey,
+        authValue,
+        extraHeaders
+      )
+    ).data;
   }
 
   GenerateErrorReport(error: IPlayFabError | null): string {

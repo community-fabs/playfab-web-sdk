@@ -1,5 +1,4 @@
 import type {
-
   InsightsEmptyRequest,
   InsightsGetOperationStatusRequest,
   InsightsGetPendingOperationsRequest,
@@ -20,8 +19,8 @@ export default class PlayFabInsightsApi extends PlayFabCommon {
      * performance and data storage retention limits.
      * https://docs.microsoft.com/rest/api/playfab/insights/analytics/getdetails
      */
-    GetDetails (request: InsightsEmptyRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<InsightsGetDetailsResponse>("/Insights/GetDetails", request, "X-EntityToken", customData, extraHeaders);
+    GetDetails (request: InsightsEmptyRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<InsightsGetDetailsResponse>("/Insights/GetDetails", request, "X-EntityToken", extraHeaders);
     }
 
     /**
@@ -29,40 +28,40 @@ export default class PlayFabInsightsApi extends PlayFabCommon {
      * for each performance level.
      * https://docs.microsoft.com/rest/api/playfab/insights/analytics/getlimits
      */
-    GetLimits (request: InsightsEmptyRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<InsightsGetLimitsResponse>("/Insights/GetLimits", request, "X-EntityToken", customData, extraHeaders);
+    GetLimits (request: InsightsEmptyRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<InsightsGetLimitsResponse>("/Insights/GetLimits", request, "X-EntityToken", extraHeaders);
     }
 
     /**
      * Gets the status of a SetPerformance or SetStorageRetention operation.
      * https://docs.microsoft.com/rest/api/playfab/insights/analytics/getoperationstatus
      */
-    GetOperationStatus (request: InsightsGetOperationStatusRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<InsightsGetOperationStatusResponse>("/Insights/GetOperationStatus", request, "X-EntityToken", customData, extraHeaders);
+    GetOperationStatus (request: InsightsGetOperationStatusRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<InsightsGetOperationStatusResponse>("/Insights/GetOperationStatus", request, "X-EntityToken", extraHeaders);
     }
 
     /**
      * Gets a list of pending SetPerformance and/or SetStorageRetention operations for the title.
      * https://docs.microsoft.com/rest/api/playfab/insights/analytics/getpendingoperations
      */
-    GetPendingOperations (request: InsightsGetPendingOperationsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<InsightsGetPendingOperationsResponse>("/Insights/GetPendingOperations", request, "X-EntityToken", customData, extraHeaders);
+    GetPendingOperations (request: InsightsGetPendingOperationsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<InsightsGetPendingOperationsResponse>("/Insights/GetPendingOperations", request, "X-EntityToken", extraHeaders);
     }
 
     /**
      * Sets the Insights performance level value for the title.
      * https://docs.microsoft.com/rest/api/playfab/insights/analytics/setperformance
      */
-    SetPerformance (request: InsightsSetPerformanceRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<InsightsOperationResponse>("/Insights/SetPerformance", request, "X-EntityToken", customData, extraHeaders);
+    SetPerformance (request: InsightsSetPerformanceRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<InsightsOperationResponse>("/Insights/SetPerformance", request, "X-EntityToken", extraHeaders);
     }
 
     /**
      * Sets the Insights data storage retention days value for the title.
      * https://docs.microsoft.com/rest/api/playfab/insights/analytics/setstorageretention
      */
-    SetStorageRetention (request: InsightsSetStorageRetentionRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<InsightsOperationResponse>("/Insights/SetStorageRetention", request, "X-EntityToken", customData, extraHeaders);
+    SetStorageRetention (request: InsightsSetStorageRetentionRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<InsightsOperationResponse>("/Insights/SetStorageRetention", request, "X-EntityToken", extraHeaders);
     }
 
 };

@@ -7,7 +7,6 @@ export interface IPlayFabError {
   errorMessage: string;
   errorDetails?: Record<string, string[]>;
   request?: any;
-  customData?: any;
   retryAfterSeconds?: number;
 }
 

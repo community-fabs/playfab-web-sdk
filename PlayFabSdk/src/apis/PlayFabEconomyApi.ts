@@ -1,5 +1,4 @@
 import type {
-
   AddInventoryItemsRequest,
   CreateDraftItemRequest,
   CreateUploadUrlsRequest,
@@ -101,16 +100,16 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
      * Add inventory items. Up to 10,000 stacks of items can be added to a single inventory collection. Stack size is uncapped.
      * https://docs.microsoft.com/rest/api/playfab/economy/inventory/addinventoryitems
      */
-    AddInventoryItems (request: AddInventoryItemsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<AddInventoryItemsResponse>("/Inventory/AddInventoryItems", request, "X-EntityToken", customData, extraHeaders);
+    AddInventoryItems (request: AddInventoryItemsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<AddInventoryItemsResponse>("/Inventory/AddInventoryItems", request, "X-EntityToken", extraHeaders);
     }
 
     /**
      * Creates a new item in the working catalog using provided metadata. Note: SAS tokens provided are valid for 1 hour.
      * https://docs.microsoft.com/rest/api/playfab/economy/catalog/createdraftitem
      */
-    CreateDraftItem (request: CreateDraftItemRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<CreateDraftItemResponse>("/Catalog/CreateDraftItem", request, "X-EntityToken", customData, extraHeaders);
+    CreateDraftItem (request: CreateDraftItemRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<CreateDraftItemResponse>("/Catalog/CreateDraftItem", request, "X-EntityToken", extraHeaders);
     }
 
     /**
@@ -120,16 +119,16 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
      * https://learn.microsoft.com/en-us/gaming/playfab/features/pricing/meters/catalog-meters
      * https://docs.microsoft.com/rest/api/playfab/economy/catalog/createuploadurls
      */
-    CreateUploadUrls (request: CreateUploadUrlsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<CreateUploadUrlsResponse>("/Catalog/CreateUploadUrls", request, "X-EntityToken", customData, extraHeaders);
+    CreateUploadUrls (request: CreateUploadUrlsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<CreateUploadUrlsResponse>("/Catalog/CreateUploadUrls", request, "X-EntityToken", extraHeaders);
     }
 
     /**
      * Deletes all reviews, helpfulness votes, and ratings submitted by the entity specified.
      * https://docs.microsoft.com/rest/api/playfab/economy/catalog/deleteentityitemreviews
      */
-    DeleteEntityItemReviews (request: DeleteEntityItemReviewsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<DeleteEntityItemReviewsResponse>("/Catalog/DeleteEntityItemReviews", request, "X-EntityToken", customData, extraHeaders);
+    DeleteEntityItemReviews (request: DeleteEntityItemReviewsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<DeleteEntityItemReviewsResponse>("/Catalog/DeleteEntityItemReviews", request, "X-EntityToken", extraHeaders);
     }
 
     /**
@@ -137,24 +136,24 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
      * https://learn.microsoft.com/en-us/gaming/playfab/features/economy-v2/inventory/collections
      * https://docs.microsoft.com/rest/api/playfab/economy/inventory/deleteinventorycollection
      */
-    DeleteInventoryCollection (request: DeleteInventoryCollectionRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<DeleteInventoryCollectionResponse>("/Inventory/DeleteInventoryCollection", request, "X-EntityToken", customData, extraHeaders);
+    DeleteInventoryCollection (request: DeleteInventoryCollectionRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<DeleteInventoryCollectionResponse>("/Inventory/DeleteInventoryCollection", request, "X-EntityToken", extraHeaders);
     }
 
     /**
      * Delete inventory items
      * https://docs.microsoft.com/rest/api/playfab/economy/inventory/deleteinventoryitems
      */
-    DeleteInventoryItems (request: DeleteInventoryItemsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<DeleteInventoryItemsResponse>("/Inventory/DeleteInventoryItems", request, "X-EntityToken", customData, extraHeaders);
+    DeleteInventoryItems (request: DeleteInventoryItemsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<DeleteInventoryItemsResponse>("/Inventory/DeleteInventoryItems", request, "X-EntityToken", extraHeaders);
     }
 
     /**
      * Removes an item from working catalog and all published versions from the public catalog.
      * https://docs.microsoft.com/rest/api/playfab/economy/catalog/deleteitem
      */
-    DeleteItem (request: DeleteItemRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<DeleteItemResponse>("/Catalog/DeleteItem", request, "X-EntityToken", customData, extraHeaders);
+    DeleteItem (request: DeleteItemRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<DeleteItemResponse>("/Catalog/DeleteItem", request, "X-EntityToken", extraHeaders);
     }
 
     /**
@@ -164,8 +163,8 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
      * RPS compared to an individual inventory operation with Player Entities limited to 60 requests in 90 seconds.
      * https://docs.microsoft.com/rest/api/playfab/economy/inventory/executeinventoryoperations
      */
-    ExecuteInventoryOperations (request: ExecuteInventoryOperationsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<ExecuteInventoryOperationsResponse>("/Inventory/ExecuteInventoryOperations", request, "X-EntityToken", customData, extraHeaders);
+    ExecuteInventoryOperations (request: ExecuteInventoryOperationsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<ExecuteInventoryOperationsResponse>("/Inventory/ExecuteInventoryOperations", request, "X-EntityToken", extraHeaders);
     }
 
     /**
@@ -175,8 +174,8 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
      * within 1 day of the request by passing the TransactionToken to the GetInventoryOperationStatus API.
      * https://docs.microsoft.com/rest/api/playfab/economy/inventory/executetransferoperations
      */
-    ExecuteTransferOperations (request: ExecuteTransferOperationsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<ExecuteTransferOperationsResponse>("/Inventory/ExecuteTransferOperations", request, "X-EntityToken", customData, extraHeaders);
+    ExecuteTransferOperations (request: ExecuteTransferOperationsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<ExecuteTransferOperationsResponse>("/Inventory/ExecuteTransferOperations", request, "X-EntityToken", extraHeaders);
     }
 
     /**
@@ -185,8 +184,8 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
      * https://learn.microsoft.com/en-us/gaming/playfab/features/economy-v2/settings
      * https://docs.microsoft.com/rest/api/playfab/economy/catalog/getcatalogconfig
      */
-    GetCatalogConfig (request: GetCatalogConfigRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetCatalogConfigResponse>("/Catalog/GetCatalogConfig", request, "X-EntityToken", customData, extraHeaders);
+    GetCatalogConfig (request: GetCatalogConfigRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetCatalogConfigResponse>("/Catalog/GetCatalogConfig", request, "X-EntityToken", extraHeaders);
     }
 
     /**
@@ -196,8 +195,8 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
      * valid for 1 hour.
      * https://docs.microsoft.com/rest/api/playfab/economy/catalog/getdraftitem
      */
-    GetDraftItem (request: GetDraftItemRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetDraftItemResponse>("/Catalog/GetDraftItem", request, "X-EntityToken", customData, extraHeaders);
+    GetDraftItem (request: GetDraftItemRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetDraftItemResponse>("/Catalog/GetDraftItem", request, "X-EntityToken", extraHeaders);
     }
 
     /**
@@ -206,8 +205,8 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
      * SAS tokens provided are valid for 1 hour.
      * https://docs.microsoft.com/rest/api/playfab/economy/catalog/getdraftitems
      */
-    GetDraftItems (request: GetDraftItemsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetDraftItemsResponse>("/Catalog/GetDraftItems", request, "X-EntityToken", customData, extraHeaders);
+    GetDraftItems (request: GetDraftItemsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetDraftItemsResponse>("/Catalog/GetDraftItems", request, "X-EntityToken", extraHeaders);
     }
 
     /**
@@ -216,8 +215,8 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
      * GetEntityDraftItems does not work off a cache of the Catalog and should be used when trying to get recent item updates.
      * https://docs.microsoft.com/rest/api/playfab/economy/catalog/getentitydraftitems
      */
-    GetEntityDraftItems (request: GetEntityDraftItemsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetEntityDraftItemsResponse>("/Catalog/GetEntityDraftItems", request, "X-EntityToken", customData, extraHeaders);
+    GetEntityDraftItems (request: GetEntityDraftItemsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetEntityDraftItemsResponse>("/Catalog/GetEntityDraftItems", request, "X-EntityToken", extraHeaders);
     }
 
     /**
@@ -225,8 +224,8 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
      * in near real time with delays within a few seconds.
      * https://docs.microsoft.com/rest/api/playfab/economy/catalog/getentityitemreview
      */
-    GetEntityItemReview (request: GetEntityItemReviewRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetEntityItemReviewResponse>("/Catalog/GetEntityItemReview", request, "X-EntityToken", customData, extraHeaders);
+    GetEntityItemReview (request: GetEntityItemReviewRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetEntityItemReviewResponse>("/Catalog/GetEntityItemReview", request, "X-EntityToken", extraHeaders);
     }
 
     /**
@@ -235,16 +234,16 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
      * new collection Ids to show up.
      * https://docs.microsoft.com/rest/api/playfab/economy/inventory/getinventorycollectionids
      */
-    GetInventoryCollectionIds (request: GetInventoryCollectionIdsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetInventoryCollectionIdsResponse>("/Inventory/GetInventoryCollectionIds", request, "X-EntityToken", customData, extraHeaders);
+    GetInventoryCollectionIds (request: GetInventoryCollectionIdsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetInventoryCollectionIdsResponse>("/Inventory/GetInventoryCollectionIds", request, "X-EntityToken", extraHeaders);
     }
 
     /**
      * Get current inventory items.
      * https://docs.microsoft.com/rest/api/playfab/economy/inventory/getinventoryitems
      */
-    GetInventoryItems (request: GetInventoryItemsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetInventoryItemsResponse>("/Inventory/GetInventoryItems", request, "X-EntityToken", customData, extraHeaders);
+    GetInventoryItems (request: GetInventoryItemsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetInventoryItemsResponse>("/Inventory/GetInventoryItems", request, "X-EntityToken", extraHeaders);
     }
 
     /**
@@ -252,8 +251,8 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
      * within 1 day of the request by passing the TransactionToken to the this API.
      * https://docs.microsoft.com/rest/api/playfab/economy/inventory/getinventoryoperationstatus
      */
-    GetInventoryOperationStatus (request: GetInventoryOperationStatusRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetInventoryOperationStatusResponse>("/Inventory/GetInventoryOperationStatus", request, "X-EntityToken", customData, extraHeaders);
+    GetInventoryOperationStatus (request: GetInventoryOperationStatusRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetInventoryOperationStatusResponse>("/Inventory/GetInventoryOperationStatus", request, "X-EntityToken", extraHeaders);
     }
 
     /**
@@ -262,8 +261,8 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
      * for changes to propagate.
      * https://docs.microsoft.com/rest/api/playfab/economy/catalog/getitem
      */
-    GetItem (request: GetItemRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetItemResponse>("/Catalog/GetItem", request, "X-EntityToken", customData, extraHeaders);
+    GetItem (request: GetItemRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetItemResponse>("/Catalog/GetItem", request, "X-EntityToken", extraHeaders);
     }
 
     /**
@@ -273,8 +272,8 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
      * seconds and Title Entities limited to 100 requests in 10 seconds.
      * https://docs.microsoft.com/rest/api/playfab/economy/catalog/getitemcontainers
      */
-    GetItemContainers (request: GetItemContainersRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetItemContainersResponse>("/Catalog/GetItemContainers", request, "X-EntityToken", customData, extraHeaders);
+    GetItemContainers (request: GetItemContainersRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetItemContainersResponse>("/Catalog/GetItemContainers", request, "X-EntityToken", extraHeaders);
     }
 
     /**
@@ -282,16 +281,16 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
      * moderation states can be found here: https://learn.microsoft.com/en-us/gaming/playfab/features/economy-v2/ugc/moderation
      * https://docs.microsoft.com/rest/api/playfab/economy/catalog/getitemmoderationstate
      */
-    GetItemModerationState (request: GetItemModerationStateRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetItemModerationStateResponse>("/Catalog/GetItemModerationState", request, "X-EntityToken", customData, extraHeaders);
+    GetItemModerationState (request: GetItemModerationStateRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetItemModerationStateResponse>("/Catalog/GetItemModerationState", request, "X-EntityToken", extraHeaders);
     }
 
     /**
      * Gets the status of a publish of an item.
      * https://docs.microsoft.com/rest/api/playfab/economy/catalog/getitempublishstatus
      */
-    GetItemPublishStatus (request: GetItemPublishStatusRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetItemPublishStatusResponse>("/Catalog/GetItemPublishStatus", request, "X-EntityToken", customData, extraHeaders);
+    GetItemPublishStatus (request: GetItemPublishStatusRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetItemPublishStatusResponse>("/Catalog/GetItemPublishStatus", request, "X-EntityToken", extraHeaders);
     }
 
     /**
@@ -299,8 +298,8 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
      * real time with delays within a few seconds.
      * https://docs.microsoft.com/rest/api/playfab/economy/catalog/getitemreviews
      */
-    GetItemReviews (request: GetItemReviewsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetItemReviewsResponse>("/Catalog/GetItemReviews", request, "X-EntityToken", customData, extraHeaders);
+    GetItemReviews (request: GetItemReviewsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetItemReviewsResponse>("/Catalog/GetItemReviews", request, "X-EntityToken", extraHeaders);
     }
 
     /**
@@ -308,8 +307,8 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
      * data coming within 15 minutes.
      * https://docs.microsoft.com/rest/api/playfab/economy/catalog/getitemreviewsummary
      */
-    GetItemReviewSummary (request: GetItemReviewSummaryRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetItemReviewSummaryResponse>("/Catalog/GetItemReviewSummary", request, "X-EntityToken", customData, extraHeaders);
+    GetItemReviewSummary (request: GetItemReviewSummaryRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetItemReviewSummaryResponse>("/Catalog/GetItemReviewSummary", request, "X-EntityToken", extraHeaders);
     }
 
     /**
@@ -318,16 +317,16 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
      * cached and may take a few moments for changes to propagate.
      * https://docs.microsoft.com/rest/api/playfab/economy/catalog/getitems
      */
-    GetItems (request: GetItemsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetItemsResponse>("/Catalog/GetItems", request, "X-EntityToken", customData, extraHeaders);
+    GetItems (request: GetItemsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetItemsResponse>("/Catalog/GetItems", request, "X-EntityToken", extraHeaders);
     }
 
     /**
      * Gets the access tokens.
      * https://docs.microsoft.com/rest/api/playfab/economy/inventory/getmicrosoftstoreaccesstokens
      */
-    GetMicrosoftStoreAccessTokens (request: GetMicrosoftStoreAccessTokensRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetMicrosoftStoreAccessTokensResponse>("/Inventory/GetMicrosoftStoreAccessTokens", request, "X-EntityToken", customData, extraHeaders);
+    GetMicrosoftStoreAccessTokens (request: GetMicrosoftStoreAccessTokensRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetMicrosoftStoreAccessTokensResponse>("/Inventory/GetMicrosoftStoreAccessTokens", request, "X-EntityToken", extraHeaders);
     }
 
     /**
@@ -336,8 +335,8 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
      * getting a Player's inventory with Player Entities having a limit of 30 requests in 300 seconds.
      * https://docs.microsoft.com/rest/api/playfab/economy/inventory/gettransactionhistory
      */
-    GetTransactionHistory (request: GetTransactionHistoryRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetTransactionHistoryResponse>("/Inventory/GetTransactionHistory", request, "X-EntityToken", customData, extraHeaders);
+    GetTransactionHistory (request: GetTransactionHistoryRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetTransactionHistoryResponse>("/Inventory/GetTransactionHistory", request, "X-EntityToken", extraHeaders);
     }
 
     /**
@@ -345,8 +344,8 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
      * to track the state of the item publish.
      * https://docs.microsoft.com/rest/api/playfab/economy/catalog/publishdraftitem
      */
-    PublishDraftItem (request: PublishDraftItemRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<PublishDraftItemResponse>("/Catalog/PublishDraftItem", request, "X-EntityToken", customData, extraHeaders);
+    PublishDraftItem (request: PublishDraftItemRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<PublishDraftItemResponse>("/Catalog/PublishDraftItem", request, "X-EntityToken", extraHeaders);
     }
 
     /**
@@ -354,72 +353,72 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
      * uncapped.
      * https://docs.microsoft.com/rest/api/playfab/economy/inventory/purchaseinventoryitems
      */
-    PurchaseInventoryItems (request: PurchaseInventoryItemsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<PurchaseInventoryItemsResponse>("/Inventory/PurchaseInventoryItems", request, "X-EntityToken", customData, extraHeaders);
+    PurchaseInventoryItems (request: PurchaseInventoryItemsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<PurchaseInventoryItemsResponse>("/Inventory/PurchaseInventoryItems", request, "X-EntityToken", extraHeaders);
     }
 
     /**
      * Redeem items.
      * https://docs.microsoft.com/rest/api/playfab/economy/inventory/redeemappleappstoreinventoryitems
      */
-    RedeemAppleAppStoreInventoryItems (request: RedeemAppleAppStoreInventoryItemsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<RedeemAppleAppStoreInventoryItemsResponse>("/Inventory/RedeemAppleAppStoreInventoryItems", request, "X-EntityToken", customData, extraHeaders);
+    RedeemAppleAppStoreInventoryItems (request: RedeemAppleAppStoreInventoryItemsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<RedeemAppleAppStoreInventoryItemsResponse>("/Inventory/RedeemAppleAppStoreInventoryItems", request, "X-EntityToken", extraHeaders);
     }
 
     /**
      * Redeem items.
      * https://docs.microsoft.com/rest/api/playfab/economy/inventory/redeemgoogleplayinventoryitems
      */
-    RedeemGooglePlayInventoryItems (request: RedeemGooglePlayInventoryItemsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<RedeemGooglePlayInventoryItemsResponse>("/Inventory/RedeemGooglePlayInventoryItems", request, "X-EntityToken", customData, extraHeaders);
+    RedeemGooglePlayInventoryItems (request: RedeemGooglePlayInventoryItemsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<RedeemGooglePlayInventoryItemsResponse>("/Inventory/RedeemGooglePlayInventoryItems", request, "X-EntityToken", extraHeaders);
     }
 
     /**
      * Redeem items.
      * https://docs.microsoft.com/rest/api/playfab/economy/inventory/redeemmicrosoftstoreinventoryitems
      */
-    RedeemMicrosoftStoreInventoryItems (request: RedeemMicrosoftStoreInventoryItemsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<RedeemMicrosoftStoreInventoryItemsResponse>("/Inventory/RedeemMicrosoftStoreInventoryItems", request, "X-EntityToken", customData, extraHeaders);
+    RedeemMicrosoftStoreInventoryItems (request: RedeemMicrosoftStoreInventoryItemsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<RedeemMicrosoftStoreInventoryItemsResponse>("/Inventory/RedeemMicrosoftStoreInventoryItems", request, "X-EntityToken", extraHeaders);
     }
 
     /**
      * Redeem items.
      * https://docs.microsoft.com/rest/api/playfab/economy/inventory/redeemnintendoeshopinventoryitems
      */
-    RedeemNintendoEShopInventoryItems (request: RedeemNintendoEShopInventoryItemsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<RedeemNintendoEShopInventoryItemsResponse>("/Inventory/RedeemNintendoEShopInventoryItems", request, "X-EntityToken", customData, extraHeaders);
+    RedeemNintendoEShopInventoryItems (request: RedeemNintendoEShopInventoryItemsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<RedeemNintendoEShopInventoryItemsResponse>("/Inventory/RedeemNintendoEShopInventoryItems", request, "X-EntityToken", extraHeaders);
     }
 
     /**
      * Redeem items.
      * https://docs.microsoft.com/rest/api/playfab/economy/inventory/redeemplaystationstoreinventoryitems
      */
-    RedeemPlayStationStoreInventoryItems (request: RedeemPlayStationStoreInventoryItemsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<RedeemPlayStationStoreInventoryItemsResponse>("/Inventory/RedeemPlayStationStoreInventoryItems", request, "X-EntityToken", customData, extraHeaders);
+    RedeemPlayStationStoreInventoryItems (request: RedeemPlayStationStoreInventoryItemsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<RedeemPlayStationStoreInventoryItemsResponse>("/Inventory/RedeemPlayStationStoreInventoryItems", request, "X-EntityToken", extraHeaders);
     }
 
     /**
      * Redeem items.
      * https://docs.microsoft.com/rest/api/playfab/economy/inventory/redeemsteaminventoryitems
      */
-    RedeemSteamInventoryItems (request: RedeemSteamInventoryItemsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<RedeemSteamInventoryItemsResponse>("/Inventory/RedeemSteamInventoryItems", request, "X-EntityToken", customData, extraHeaders);
+    RedeemSteamInventoryItems (request: RedeemSteamInventoryItemsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<RedeemSteamInventoryItemsResponse>("/Inventory/RedeemSteamInventoryItems", request, "X-EntityToken", extraHeaders);
     }
 
     /**
      * Submit a report for an item, indicating in what way the item is inappropriate.
      * https://docs.microsoft.com/rest/api/playfab/economy/catalog/reportitem
      */
-    ReportItem (request: ReportItemRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<ReportItemResponse>("/Catalog/ReportItem", request, "X-EntityToken", customData, extraHeaders);
+    ReportItem (request: ReportItemRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<ReportItemResponse>("/Catalog/ReportItem", request, "X-EntityToken", extraHeaders);
     }
 
     /**
      * Submit a report for a review
      * https://docs.microsoft.com/rest/api/playfab/economy/catalog/reportitemreview
      */
-    ReportItemReview (request: ReportItemReviewRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<ReportItemReviewResponse>("/Catalog/ReportItemReview", request, "X-EntityToken", customData, extraHeaders);
+    ReportItemReview (request: ReportItemReviewRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<ReportItemReviewResponse>("/Catalog/ReportItemReview", request, "X-EntityToken", extraHeaders);
     }
 
     /**
@@ -428,8 +427,8 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
      * https://learn.microsoft.com/en-us/gaming/playfab/features/economy-v2/catalog/ratings#ratings-design-and-caching
      * https://docs.microsoft.com/rest/api/playfab/economy/catalog/reviewitem
      */
-    ReviewItem (request: ReviewItemRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<ReviewItemResponse>("/Catalog/ReviewItem", request, "X-EntityToken", customData, extraHeaders);
+    ReviewItem (request: ReviewItemRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<ReviewItemResponse>("/Catalog/ReviewItem", request, "X-EntityToken", extraHeaders);
     }
 
     /**
@@ -439,8 +438,8 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
      * found here: https://learn.microsoft.com/en-us/gaming/playfab/features/economy-v2/catalog/search
      * https://docs.microsoft.com/rest/api/playfab/economy/catalog/searchitems
      */
-    SearchItems (request: SearchItemsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<SearchItemsResponse>("/Catalog/SearchItems", request, "X-EntityToken", customData, extraHeaders);
+    SearchItems (request: SearchItemsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<SearchItemsResponse>("/Catalog/SearchItems", request, "X-EntityToken", extraHeaders);
     }
 
     /**
@@ -448,32 +447,32 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
      * moderation states can be found here: https://learn.microsoft.com/en-us/gaming/playfab/features/economy-v2/ugc/moderation
      * https://docs.microsoft.com/rest/api/playfab/economy/catalog/setitemmoderationstate
      */
-    SetItemModerationState (request: SetItemModerationStateRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<SetItemModerationStateResponse>("/Catalog/SetItemModerationState", request, "X-EntityToken", customData, extraHeaders);
+    SetItemModerationState (request: SetItemModerationStateRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<SetItemModerationStateResponse>("/Catalog/SetItemModerationState", request, "X-EntityToken", extraHeaders);
     }
 
     /**
      * Submit a vote for a review, indicating whether the review was helpful or unhelpful.
      * https://docs.microsoft.com/rest/api/playfab/economy/catalog/submititemreviewvote
      */
-    SubmitItemReviewVote (request: SubmitItemReviewVoteRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<SubmitItemReviewVoteResponse>("/Catalog/SubmitItemReviewVote", request, "X-EntityToken", customData, extraHeaders);
+    SubmitItemReviewVote (request: SubmitItemReviewVoteRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<SubmitItemReviewVoteResponse>("/Catalog/SubmitItemReviewVote", request, "X-EntityToken", extraHeaders);
     }
 
     /**
      * Subtract inventory items.
      * https://docs.microsoft.com/rest/api/playfab/economy/inventory/subtractinventoryitems
      */
-    SubtractInventoryItems (request: SubtractInventoryItemsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<SubtractInventoryItemsResponse>("/Inventory/SubtractInventoryItems", request, "X-EntityToken", customData, extraHeaders);
+    SubtractInventoryItems (request: SubtractInventoryItemsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<SubtractInventoryItemsResponse>("/Inventory/SubtractInventoryItems", request, "X-EntityToken", extraHeaders);
     }
 
     /**
      * Submit a request to takedown one or more reviews.
      * https://docs.microsoft.com/rest/api/playfab/economy/catalog/takedownitemreviews
      */
-    TakedownItemReviews (request: TakedownItemReviewsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<TakedownItemReviewsResponse>("/Catalog/TakedownItemReviews", request, "X-EntityToken", customData, extraHeaders);
+    TakedownItemReviews (request: TakedownItemReviewsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<TakedownItemReviewsResponse>("/Catalog/TakedownItemReviews", request, "X-EntityToken", extraHeaders);
     }
 
     /**
@@ -485,8 +484,8 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
      * https://learn.microsoft.com/en-us/gaming/playfab/features/economy-v2/inventory/?tabs=inventory-game-manager#transfer-inventory-items
      * https://docs.microsoft.com/rest/api/playfab/economy/inventory/transferinventoryitems
      */
-    TransferInventoryItems (request: TransferInventoryItemsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<TransferInventoryItemsResponse>("/Inventory/TransferInventoryItems", request, "X-EntityToken", customData, extraHeaders);
+    TransferInventoryItems (request: TransferInventoryItemsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<TransferInventoryItemsResponse>("/Inventory/TransferInventoryItems", request, "X-EntityToken", extraHeaders);
     }
 
     /**
@@ -495,24 +494,24 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
      * https://learn.microsoft.com/en-us/gaming/playfab/features/economy-v2/settings
      * https://docs.microsoft.com/rest/api/playfab/economy/catalog/updatecatalogconfig
      */
-    UpdateCatalogConfig (request: UpdateCatalogConfigRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<UpdateCatalogConfigResponse>("/Catalog/UpdateCatalogConfig", request, "X-EntityToken", customData, extraHeaders);
+    UpdateCatalogConfig (request: UpdateCatalogConfigRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<UpdateCatalogConfigResponse>("/Catalog/UpdateCatalogConfig", request, "X-EntityToken", extraHeaders);
     }
 
     /**
      * Update the metadata for an item in the working catalog. Note: SAS tokens provided are valid for 1 hour.
      * https://docs.microsoft.com/rest/api/playfab/economy/catalog/updatedraftitem
      */
-    UpdateDraftItem (request: UpdateDraftItemRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<UpdateDraftItemResponse>("/Catalog/UpdateDraftItem", request, "X-EntityToken", customData, extraHeaders);
+    UpdateDraftItem (request: UpdateDraftItemRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<UpdateDraftItemResponse>("/Catalog/UpdateDraftItem", request, "X-EntityToken", extraHeaders);
     }
 
     /**
      * Update inventory items
      * https://docs.microsoft.com/rest/api/playfab/economy/inventory/updateinventoryitems
      */
-    UpdateInventoryItems (request: UpdateInventoryItemsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<UpdateInventoryItemsResponse>("/Inventory/UpdateInventoryItems", request, "X-EntityToken", customData, extraHeaders);
+    UpdateInventoryItems (request: UpdateInventoryItemsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<UpdateInventoryItemsResponse>("/Inventory/UpdateInventoryItems", request, "X-EntityToken", extraHeaders);
     }
 
 };

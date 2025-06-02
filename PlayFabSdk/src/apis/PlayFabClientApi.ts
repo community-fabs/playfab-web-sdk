@@ -1,6 +1,5 @@
 import type { EmptyResponse } from "../types/PlayFab";
 import type {
-
   AcceptTradeRequest,
   AddFriendRequest,
   AddGenericIDRequest,
@@ -318,8 +317,8 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * items will be swapped between the two players' inventories.
      * https://docs.microsoft.com/rest/api/playfab/client/trading/accepttrade
      */
-    AcceptTrade (request: AcceptTradeRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<AcceptTradeResponse>("/Client/AcceptTrade", request, "X-Authorization", customData, extraHeaders);
+    AcceptTrade (request: AcceptTradeRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<AcceptTradeResponse>("/Client/AcceptTrade", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -327,8 +326,8 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * least one of FriendPlayFabId,FriendUsername,FriendEmail, or FriendTitleDisplayName should be initialized.
      * https://docs.microsoft.com/rest/api/playfab/client/friend-list-management/addfriend
      */
-    AddFriend (request: AddFriendRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<AddFriendResult>("/Client/AddFriend", request, "X-Authorization", customData, extraHeaders);
+    AddFriend (request: AddFriendRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<AddFriendResult>("/Client/AddFriend", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -337,16 +336,16 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * authentication credentials, as the intent is that it is easily accessible by other players.
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/addgenericid
      */
-    AddGenericID (request: AddGenericIDRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<AddGenericIDResult>("/Client/AddGenericID", request, "X-Authorization", customData, extraHeaders);
+    AddGenericID (request: AddGenericIDRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<AddGenericIDResult>("/Client/AddGenericID", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Adds or updates a contact email to the player's profile.
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/addorupdatecontactemail
      */
-    AddOrUpdateContactEmail (request: AddOrUpdateContactEmailRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<AddOrUpdateContactEmailResult>("/Client/AddOrUpdateContactEmail", request, "X-Authorization", customData, extraHeaders);
+    AddOrUpdateContactEmail (request: AddOrUpdateContactEmailRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<AddOrUpdateContactEmailResult>("/Client/AddOrUpdateContactEmail", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -355,8 +354,8 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * please see our guide: https://docs.microsoft.com/gaming/playfab/features/social/groups/using-shared-group-data
      * https://docs.microsoft.com/rest/api/playfab/client/shared-group-data/addsharedgroupmembers
      */
-    AddSharedGroupMembers (request: AddSharedGroupMembersRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<AddSharedGroupMembersResult>("/Client/AddSharedGroupMembers", request, "X-Authorization", customData, extraHeaders);
+    AddSharedGroupMembers (request: AddSharedGroupMembersRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<AddSharedGroupMembersResult>("/Client/AddSharedGroupMembers", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -364,8 +363,8 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * ID login.
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/addusernamepassword
      */
-    AddUsernamePassword (request: AddUsernamePasswordRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<AddUsernamePasswordResult>("/Client/AddUsernamePassword", request, "X-Authorization", customData, extraHeaders);
+    AddUsernamePassword (request: AddUsernamePasswordRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<AddUsernamePasswordResult>("/Client/AddUsernamePassword", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -373,24 +372,24 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * version 2._ Increments the user's balance of the specified virtual currency by the stated amount
      * https://docs.microsoft.com/rest/api/playfab/client/player-item-management/adduservirtualcurrency
      */
-    AddUserVirtualCurrency (request: AddUserVirtualCurrencyRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<ModifyUserVirtualCurrencyResult>("/Client/AddUserVirtualCurrency", request, "X-Authorization", customData, extraHeaders);
+    AddUserVirtualCurrency (request: AddUserVirtualCurrencyRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<ModifyUserVirtualCurrencyResult>("/Client/AddUserVirtualCurrency", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Registers the Android device to receive push notifications
      * https://docs.microsoft.com/rest/api/playfab/client/platform-specific-methods/androiddevicepushnotificationregistration
      */
-    AndroidDevicePushNotificationRegistration (request: AndroidDevicePushNotificationRegistrationRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<AndroidDevicePushNotificationRegistrationResult>("/Client/AndroidDevicePushNotificationRegistration", request, "X-Authorization", customData, extraHeaders);
+    AndroidDevicePushNotificationRegistration (request: AndroidDevicePushNotificationRegistrationRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<AndroidDevicePushNotificationRegistrationResult>("/Client/AndroidDevicePushNotificationRegistration", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Attributes an install for advertisment.
      * https://docs.microsoft.com/rest/api/playfab/client/advertising/attributeinstall
      */
-    AttributeInstall (request: AttributeInstallRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<AttributeInstallResult>("/Client/AttributeInstall", request, "X-Authorization", customData, extraHeaders);
+    AttributeInstall (request: AttributeInstallRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<AttributeInstallResult>("/Client/AttributeInstall", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -399,8 +398,8 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * players from accepting them, for trades that can be claimed by more than one player).
      * https://docs.microsoft.com/rest/api/playfab/client/trading/canceltrade
      */
-    CancelTrade (request: CancelTradeRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<CancelTradeResponse>("/Client/CancelTrade", request, "X-Authorization", customData, extraHeaders);
+    CancelTrade (request: CancelTradeRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<CancelTradeResponse>("/Client/CancelTrade", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -409,8 +408,8 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * virtual currency balances as appropriate
      * https://docs.microsoft.com/rest/api/playfab/client/player-item-management/confirmpurchase
      */
-    ConfirmPurchase (request: ConfirmPurchaseRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<ConfirmPurchaseResult>("/Client/ConfirmPurchase", request, "X-Authorization", customData, extraHeaders);
+    ConfirmPurchase (request: ConfirmPurchaseRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<ConfirmPurchaseResult>("/Client/ConfirmPurchase", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -419,16 +418,16 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * inventory.
      * https://docs.microsoft.com/rest/api/playfab/client/player-item-management/consumeitem
      */
-    ConsumeItem (request: ConsumeItemRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<ConsumeItemResult>("/Client/ConsumeItem", request, "X-Authorization", customData, extraHeaders);
+    ConsumeItem (request: ConsumeItemRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<ConsumeItemResult>("/Client/ConsumeItem", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Grants the player's current entitlements from Microsoft Store's Collection API
      * https://docs.microsoft.com/rest/api/playfab/client/platform-specific-methods/consumemicrosoftstoreentitlements
      */
-    ConsumeMicrosoftStoreEntitlements (request: ConsumeMicrosoftStoreEntitlementsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<ConsumeMicrosoftStoreEntitlementsResponse>("/Client/ConsumeMicrosoftStoreEntitlements", request, "X-Authorization", customData, extraHeaders);
+    ConsumeMicrosoftStoreEntitlements (request: ConsumeMicrosoftStoreEntitlementsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<ConsumeMicrosoftStoreEntitlementsResponse>("/Client/ConsumeMicrosoftStoreEntitlements", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -436,16 +435,16 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * PlayFab items
      * https://docs.microsoft.com/rest/api/playfab/client/platform-specific-methods/consumeps5entitlements
      */
-    ConsumePS5Entitlements (request: ConsumePS5EntitlementsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<ConsumePS5EntitlementsResult>("/Client/ConsumePS5Entitlements", request, "X-Authorization", customData, extraHeaders);
+    ConsumePS5Entitlements (request: ConsumePS5EntitlementsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<ConsumePS5EntitlementsResult>("/Client/ConsumePS5Entitlements", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Checks for any new consumable entitlements. If any are found, they are consumed and added as PlayFab items
      * https://docs.microsoft.com/rest/api/playfab/client/platform-specific-methods/consumepsnentitlements
      */
-    ConsumePSNEntitlements (request: ConsumePSNEntitlementsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<ConsumePSNEntitlementsResult>("/Client/ConsumePSNEntitlements", request, "X-Authorization", customData, extraHeaders);
+    ConsumePSNEntitlements (request: ConsumePSNEntitlementsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<ConsumePSNEntitlementsResult>("/Client/ConsumePSNEntitlements", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -453,8 +452,8 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * player's PlayFab inventory. This call is idempotent and will not grant previously granted items to the player.
      * https://docs.microsoft.com/rest/api/playfab/client/platform-specific-methods/consumexboxentitlements
      */
-    ConsumeXboxEntitlements (request: ConsumeXboxEntitlementsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<ConsumeXboxEntitlementsResult>("/Client/ConsumeXboxEntitlements", request, "X-Authorization", customData, extraHeaders);
+    ConsumeXboxEntitlements (request: ConsumeXboxEntitlementsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<ConsumeXboxEntitlementsResult>("/Client/ConsumeXboxEntitlements", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -464,16 +463,16 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * https://docs.microsoft.com/gaming/playfab/features/social/groups/using-shared-group-data
      * https://docs.microsoft.com/rest/api/playfab/client/shared-group-data/createsharedgroup
      */
-    CreateSharedGroup (request: CreateSharedGroupRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<CreateSharedGroupResult>("/Client/CreateSharedGroup", request, "X-Authorization", customData, extraHeaders);
+    CreateSharedGroup (request: CreateSharedGroupRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<CreateSharedGroupResult>("/Client/CreateSharedGroup", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Deletes title-specific custom properties for a player
      * https://docs.microsoft.com/rest/api/playfab/client/player-data-management/deleteplayercustomproperties
      */
-    DeletePlayerCustomProperties (request: DeletePlayerCustomPropertiesRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<DeletePlayerCustomPropertiesResult>("/Client/DeletePlayerCustomProperties", request, "X-Authorization", customData, extraHeaders);
+    DeletePlayerCustomProperties (request: DeletePlayerCustomPropertiesRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<DeletePlayerCustomPropertiesResult>("/Client/DeletePlayerCustomProperties", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -481,24 +480,24 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * PlayFab ID is the entity ID of the player's master_player_account entity.
      * https://docs.microsoft.com/rest/api/playfab/client/server-side-cloud-script/executecloudscript
      */
-    ExecuteCloudScript (request: ExecuteCloudScriptRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<ExecuteCloudScriptResult>("/Client/ExecuteCloudScript", request, "X-Authorization", customData, extraHeaders);
+    ExecuteCloudScript (request: ExecuteCloudScriptRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<ExecuteCloudScriptResult>("/Client/ExecuteCloudScript", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Retrieves the user's PlayFab account details
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/getaccountinfo
      */
-    GetAccountInfo (request: GetAccountInfoRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetAccountInfoResult>("/Client/GetAccountInfo", request, "X-Authorization", customData, extraHeaders);
+    GetAccountInfo (request: GetAccountInfoRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetAccountInfoResult>("/Client/GetAccountInfo", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Returns a list of ad placements and a reward for each
      * https://docs.microsoft.com/rest/api/playfab/client/advertising/getadplacements
      */
-    GetAdPlacements (request: GetAdPlacementsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetAdPlacementsResult>("/Client/GetAdPlacements", request, "X-Authorization", customData, extraHeaders);
+    GetAdPlacements (request: GetAdPlacementsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetAdPlacementsResult>("/Client/GetAdPlacements", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -506,8 +505,8 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * evaluated with the parent PlayFabId to guarantee uniqueness.
      * https://docs.microsoft.com/rest/api/playfab/client/characters/getalluserscharacters
      */
-    GetAllUsersCharacters (request: ListUsersCharactersRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<ListUsersCharactersResult>("/Client/GetAllUsersCharacters", request, "X-Authorization", customData, extraHeaders);
+    GetAllUsersCharacters (request: ListUsersCharactersRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<ListUsersCharactersResult>("/Client/GetAllUsersCharacters", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -515,16 +514,16 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * version 2._ Retrieves the specified version of the title's catalog of virtual goods, including all defined properties
      * https://docs.microsoft.com/rest/api/playfab/client/title-wide-data-management/getcatalogitems
      */
-    GetCatalogItems (request: GetCatalogItemsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetCatalogItemsResult>("/Client/GetCatalogItems", request, "X-Authorization", customData, extraHeaders);
+    GetCatalogItems (request: GetCatalogItemsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetCatalogItemsResult>("/Client/GetCatalogItems", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Retrieves the title-specific custom data for the character which is readable and writable by the client
      * https://docs.microsoft.com/rest/api/playfab/client/character-data/getcharacterdata
      */
-    GetCharacterData (request: GetCharacterDataRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetCharacterDataResult>("/Client/GetCharacterData", request, "X-Authorization", customData, extraHeaders);
+    GetCharacterData (request: GetCharacterDataRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetCharacterDataResult>("/Client/GetCharacterData", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -532,32 +531,32 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * version 2._ Retrieves the specified character's current inventory of virtual goods
      * https://docs.microsoft.com/rest/api/playfab/client/player-item-management/getcharacterinventory
      */
-    GetCharacterInventory (request: GetCharacterInventoryRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetCharacterInventoryResult>("/Client/GetCharacterInventory", request, "X-Authorization", customData, extraHeaders);
+    GetCharacterInventory (request: GetCharacterInventoryRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetCharacterInventoryResult>("/Client/GetCharacterInventory", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Retrieves a list of ranked characters for the given statistic, starting from the indicated point in the leaderboard
      * https://docs.microsoft.com/rest/api/playfab/client/characters/getcharacterleaderboard
      */
-    GetCharacterLeaderboard (request: GetCharacterLeaderboardRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetCharacterLeaderboardResult>("/Client/GetCharacterLeaderboard", request, "X-Authorization", customData, extraHeaders);
+    GetCharacterLeaderboard (request: GetCharacterLeaderboardRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetCharacterLeaderboardResult>("/Client/GetCharacterLeaderboard", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Retrieves the title-specific custom data for the character which can only be read by the client
      * https://docs.microsoft.com/rest/api/playfab/client/character-data/getcharacterreadonlydata
      */
-    GetCharacterReadOnlyData (request: GetCharacterDataRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetCharacterDataResult>("/Client/GetCharacterReadOnlyData", request, "X-Authorization", customData, extraHeaders);
+    GetCharacterReadOnlyData (request: GetCharacterDataRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetCharacterDataResult>("/Client/GetCharacterReadOnlyData", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Retrieves the details of all title-specific statistics for the user
      * https://docs.microsoft.com/rest/api/playfab/client/characters/getcharacterstatistics
      */
-    GetCharacterStatistics (request: GetCharacterStatisticsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetCharacterStatisticsResult>("/Client/GetCharacterStatistics", request, "X-Authorization", customData, extraHeaders);
+    GetCharacterStatistics (request: GetCharacterStatisticsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetCharacterStatisticsResult>("/Client/GetCharacterStatistics", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -569,8 +568,8 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * please be aware that the Content service is specifically PlayFab's CDN offering, for which standard CDN rates apply.
      * https://docs.microsoft.com/rest/api/playfab/client/content/getcontentdownloadurl
      */
-    GetContentDownloadUrl (request: GetContentDownloadUrlRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetContentDownloadUrlResult>("/Client/GetContentDownloadUrl", request, "X-Authorization", customData, extraHeaders);
+    GetContentDownloadUrl (request: GetContentDownloadUrlRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetContentDownloadUrlResult>("/Client/GetContentDownloadUrl", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -578,8 +577,8 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * the leaderboard
      * https://docs.microsoft.com/rest/api/playfab/client/player-data-management/getfriendleaderboard
      */
-    GetFriendLeaderboard (request: GetFriendLeaderboardRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetLeaderboardResult>("/Client/GetFriendLeaderboard", request, "X-Authorization", customData, extraHeaders);
+    GetFriendLeaderboard (request: GetFriendLeaderboardRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetLeaderboardResult>("/Client/GetFriendLeaderboard", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -587,8 +586,8 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * user. If PlayFabId is empty or null will return currently logged in user.
      * https://docs.microsoft.com/rest/api/playfab/client/player-data-management/getfriendleaderboardaroundplayer
      */
-    GetFriendLeaderboardAroundPlayer (request: GetFriendLeaderboardAroundPlayerRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetFriendLeaderboardAroundPlayerResult>("/Client/GetFriendLeaderboardAroundPlayer", request, "X-Authorization", customData, extraHeaders);
+    GetFriendLeaderboardAroundPlayer (request: GetFriendLeaderboardAroundPlayerRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetFriendLeaderboardAroundPlayerResult>("/Client/GetFriendLeaderboardAroundPlayer", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -596,24 +595,24 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * linked accounts (Facebook, Steam) are also included. You may optionally exclude some linked services' friends.
      * https://docs.microsoft.com/rest/api/playfab/client/friend-list-management/getfriendslist
      */
-    GetFriendsList (request: GetFriendsListRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetFriendsListResult>("/Client/GetFriendsList", request, "X-Authorization", customData, extraHeaders);
+    GetFriendsList (request: GetFriendsListRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetFriendsListResult>("/Client/GetFriendsList", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Retrieves a list of ranked users for the given statistic, starting from the indicated point in the leaderboard
      * https://docs.microsoft.com/rest/api/playfab/client/player-data-management/getleaderboard
      */
-    GetLeaderboard (request: GetLeaderboardRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetLeaderboardResult>("/Client/GetLeaderboard", request, "X-Authorization", customData, extraHeaders);
+    GetLeaderboard (request: GetLeaderboardRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetLeaderboardResult>("/Client/GetLeaderboard", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Retrieves a list of ranked characters for the given statistic, centered on the requested Character ID
      * https://docs.microsoft.com/rest/api/playfab/client/characters/getleaderboardaroundcharacter
      */
-    GetLeaderboardAroundCharacter (request: GetLeaderboardAroundCharacterRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetLeaderboardAroundCharacterResult>("/Client/GetLeaderboardAroundCharacter", request, "X-Authorization", customData, extraHeaders);
+    GetLeaderboardAroundCharacter (request: GetLeaderboardAroundCharacterRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetLeaderboardAroundCharacterResult>("/Client/GetLeaderboardAroundCharacter", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -621,16 +620,16 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * null will return currently logged in user.
      * https://docs.microsoft.com/rest/api/playfab/client/player-data-management/getleaderboardaroundplayer
      */
-    GetLeaderboardAroundPlayer (request: GetLeaderboardAroundPlayerRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetLeaderboardAroundPlayerResult>("/Client/GetLeaderboardAroundPlayer", request, "X-Authorization", customData, extraHeaders);
+    GetLeaderboardAroundPlayer (request: GetLeaderboardAroundPlayerRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetLeaderboardAroundPlayerResult>("/Client/GetLeaderboardAroundPlayer", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Retrieves a list of all of the user's characters for the given statistic.
      * https://docs.microsoft.com/rest/api/playfab/client/characters/getleaderboardforusercharacters
      */
-    GetLeaderboardForUserCharacters (request: GetLeaderboardForUsersCharactersRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetLeaderboardForUsersCharactersResult>("/Client/GetLeaderboardForUserCharacters", request, "X-Authorization", customData, extraHeaders);
+    GetLeaderboardForUserCharacters (request: GetLeaderboardForUsersCharactersRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetLeaderboardForUsersCharactersResult>("/Client/GetLeaderboardForUserCharacters", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -640,8 +639,8 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * client to create a cart. Poll GetPurchase using the returned OrderId once you've completed the payment.
      * https://docs.microsoft.com/rest/api/playfab/client/player-item-management/getpaymenttoken
      */
-    GetPaymentToken (request: GetPaymentTokenRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetPaymentTokenResult>("/Client/GetPaymentToken", request, "X-Authorization", customData, extraHeaders);
+    GetPaymentToken (request: GetPaymentTokenRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetPaymentTokenResult>("/Client/GetPaymentToken", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -649,40 +648,40 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * https://docs.microsoft.com/gaming/playfab/features/multiplayer/photon/quickstart for more details.
      * https://docs.microsoft.com/rest/api/playfab/client/authentication/getphotonauthenticationtoken
      */
-    GetPhotonAuthenticationToken (request: GetPhotonAuthenticationTokenRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetPhotonAuthenticationTokenResult>("/Client/GetPhotonAuthenticationToken", request, "X-Authorization", customData, extraHeaders);
+    GetPhotonAuthenticationToken (request: GetPhotonAuthenticationTokenRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetPhotonAuthenticationTokenResult>("/Client/GetPhotonAuthenticationToken", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Retrieves all of the user's different kinds of info.
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/getplayercombinedinfo
      */
-    GetPlayerCombinedInfo (request: GetPlayerCombinedInfoRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetPlayerCombinedInfoResult>("/Client/GetPlayerCombinedInfo", request, "X-Authorization", customData, extraHeaders);
+    GetPlayerCombinedInfo (request: GetPlayerCombinedInfoRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetPlayerCombinedInfoResult>("/Client/GetPlayerCombinedInfo", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Retrieves a title-specific custom property value for a player.
      * https://docs.microsoft.com/rest/api/playfab/client/player-data-management/getplayercustomproperty
      */
-    GetPlayerCustomProperty (request: GetPlayerCustomPropertyRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetPlayerCustomPropertyResult>("/Client/GetPlayerCustomProperty", request, "X-Authorization", customData, extraHeaders);
+    GetPlayerCustomProperty (request: GetPlayerCustomPropertyRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetPlayerCustomPropertyResult>("/Client/GetPlayerCustomProperty", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Retrieves the player's profile
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/getplayerprofile
      */
-    GetPlayerProfile (request: GetPlayerProfileRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetPlayerProfileResult>("/Client/GetPlayerProfile", request, "X-Authorization", customData, extraHeaders);
+    GetPlayerProfile (request: GetPlayerProfileRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetPlayerProfileResult>("/Client/GetPlayerProfile", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * List all segments that a player currently belongs to at this moment in time.
      * https://docs.microsoft.com/rest/api/playfab/client/playstream/getplayersegments
      */
-    GetPlayerSegments (request: GetPlayerSegmentsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetPlayerSegmentsResult>("/Client/GetPlayerSegments", request, "X-Authorization", customData, extraHeaders);
+    GetPlayerSegments (request: GetPlayerSegmentsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetPlayerSegmentsResult>("/Client/GetPlayerSegments", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -690,56 +689,56 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * player.
      * https://docs.microsoft.com/rest/api/playfab/client/player-data-management/getplayerstatistics
      */
-    GetPlayerStatistics (request: GetPlayerStatisticsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetPlayerStatisticsResult>("/Client/GetPlayerStatistics", request, "X-Authorization", customData, extraHeaders);
+    GetPlayerStatistics (request: GetPlayerStatisticsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetPlayerStatisticsResult>("/Client/GetPlayerStatistics", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Retrieves the information on the available versions of the specified statistic.
      * https://docs.microsoft.com/rest/api/playfab/client/player-data-management/getplayerstatisticversions
      */
-    GetPlayerStatisticVersions (request: GetPlayerStatisticVersionsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetPlayerStatisticVersionsResult>("/Client/GetPlayerStatisticVersions", request, "X-Authorization", customData, extraHeaders);
+    GetPlayerStatisticVersions (request: GetPlayerStatisticVersionsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetPlayerStatisticVersionsResult>("/Client/GetPlayerStatisticVersions", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Get all tags with a given Namespace (optional) from a player profile.
      * https://docs.microsoft.com/rest/api/playfab/client/playstream/getplayertags
      */
-    GetPlayerTags (request: GetPlayerTagsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetPlayerTagsResult>("/Client/GetPlayerTags", request, "X-Authorization", customData, extraHeaders);
+    GetPlayerTags (request: GetPlayerTagsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetPlayerTagsResult>("/Client/GetPlayerTags", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Gets all trades the player has either opened or accepted, optionally filtered by trade status.
      * https://docs.microsoft.com/rest/api/playfab/client/trading/getplayertrades
      */
-    GetPlayerTrades (request: GetPlayerTradesRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetPlayerTradesResponse>("/Client/GetPlayerTrades", request, "X-Authorization", customData, extraHeaders);
+    GetPlayerTrades (request: GetPlayerTradesRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetPlayerTradesResponse>("/Client/GetPlayerTrades", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Retrieves the unique PlayFab identifiers for the given set of Battle.net account identifiers.
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/getplayfabidsfrombattlenetaccountids
      */
-    GetPlayFabIDsFromBattleNetAccountIds (request: GetPlayFabIDsFromBattleNetAccountIdsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetPlayFabIDsFromBattleNetAccountIdsResult>("/Client/GetPlayFabIDsFromBattleNetAccountIds", request, "X-Authorization", customData, extraHeaders);
+    GetPlayFabIDsFromBattleNetAccountIds (request: GetPlayFabIDsFromBattleNetAccountIdsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetPlayFabIDsFromBattleNetAccountIdsResult>("/Client/GetPlayFabIDsFromBattleNetAccountIds", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Retrieves the unique PlayFab identifiers for the given set of Facebook identifiers.
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/getplayfabidsfromfacebookids
      */
-    GetPlayFabIDsFromFacebookIDs (request: GetPlayFabIDsFromFacebookIDsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetPlayFabIDsFromFacebookIDsResult>("/Client/GetPlayFabIDsFromFacebookIDs", request, "X-Authorization", customData, extraHeaders);
+    GetPlayFabIDsFromFacebookIDs (request: GetPlayFabIDsFromFacebookIDsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetPlayFabIDsFromFacebookIDsResult>("/Client/GetPlayFabIDsFromFacebookIDs", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Retrieves the unique PlayFab identifiers for the given set of Facebook Instant Game identifiers.
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/getplayfabidsfromfacebookinstantgamesids
      */
-    GetPlayFabIDsFromFacebookInstantGamesIds (request: GetPlayFabIDsFromFacebookInstantGamesIdsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetPlayFabIDsFromFacebookInstantGamesIdsResult>("/Client/GetPlayFabIDsFromFacebookInstantGamesIds", request, "X-Authorization", customData, extraHeaders);
+    GetPlayFabIDsFromFacebookInstantGamesIds (request: GetPlayFabIDsFromFacebookInstantGamesIdsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetPlayFabIDsFromFacebookInstantGamesIdsResult>("/Client/GetPlayFabIDsFromFacebookInstantGamesIds", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -747,8 +746,8 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * Programming Guide as the Player Identifier).
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/getplayfabidsfromgamecenterids
      */
-    GetPlayFabIDsFromGameCenterIDs (request: GetPlayFabIDsFromGameCenterIDsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetPlayFabIDsFromGameCenterIDsResult>("/Client/GetPlayFabIDsFromGameCenterIDs", request, "X-Authorization", customData, extraHeaders);
+    GetPlayFabIDsFromGameCenterIDs (request: GetPlayFabIDsFromGameCenterIDsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetPlayFabIDsFromGameCenterIDsResult>("/Client/GetPlayFabIDsFromGameCenterIDs", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -757,8 +756,8 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * added to the player account.
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/getplayfabidsfromgenericids
      */
-    GetPlayFabIDsFromGenericIDs (request: GetPlayFabIDsFromGenericIDsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetPlayFabIDsFromGenericIDsResult>("/Client/GetPlayFabIDsFromGenericIDs", request, "X-Authorization", customData, extraHeaders);
+    GetPlayFabIDsFromGenericIDs (request: GetPlayFabIDsFromGenericIDsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetPlayFabIDsFromGenericIDsResult>("/Client/GetPlayFabIDsFromGenericIDs", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -766,8 +765,8 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * the user accounts, available as "id" in the Google+ People API calls.
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/getplayfabidsfromgoogleids
      */
-    GetPlayFabIDsFromGoogleIDs (request: GetPlayFabIDsFromGoogleIDsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetPlayFabIDsFromGoogleIDsResult>("/Client/GetPlayFabIDsFromGoogleIDs", request, "X-Authorization", customData, extraHeaders);
+    GetPlayFabIDsFromGoogleIDs (request: GetPlayFabIDsFromGoogleIDsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetPlayFabIDsFromGoogleIDsResult>("/Client/GetPlayFabIDsFromGoogleIDs", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -776,8 +775,8 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * calls.
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/getplayfabidsfromgoogleplaygamesplayerids
      */
-    GetPlayFabIDsFromGooglePlayGamesPlayerIDs (request: GetPlayFabIDsFromGooglePlayGamesPlayerIDsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetPlayFabIDsFromGooglePlayGamesPlayerIDsResult>("/Client/GetPlayFabIDsFromGooglePlayGamesPlayerIDs", request, "X-Authorization", customData, extraHeaders);
+    GetPlayFabIDsFromGooglePlayGamesPlayerIDs (request: GetPlayFabIDsFromGooglePlayGamesPlayerIDsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetPlayFabIDsFromGooglePlayGamesPlayerIDsResult>("/Client/GetPlayFabIDsFromGooglePlayGamesPlayerIDs", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -786,40 +785,40 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * http://developers.kongregate.com/docs/client/getUserId).
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/getplayfabidsfromkongregateids
      */
-    GetPlayFabIDsFromKongregateIDs (request: GetPlayFabIDsFromKongregateIDsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetPlayFabIDsFromKongregateIDsResult>("/Client/GetPlayFabIDsFromKongregateIDs", request, "X-Authorization", customData, extraHeaders);
+    GetPlayFabIDsFromKongregateIDs (request: GetPlayFabIDsFromKongregateIDsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetPlayFabIDsFromKongregateIDsResult>("/Client/GetPlayFabIDsFromKongregateIDs", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Retrieves the unique PlayFab identifiers for the given set of Nintendo Service Account identifiers.
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/getplayfabidsfromnintendoserviceaccountids
      */
-    GetPlayFabIDsFromNintendoServiceAccountIds (request: GetPlayFabIDsFromNintendoServiceAccountIdsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetPlayFabIDsFromNintendoServiceAccountIdsResult>("/Client/GetPlayFabIDsFromNintendoServiceAccountIds", request, "X-Authorization", customData, extraHeaders);
+    GetPlayFabIDsFromNintendoServiceAccountIds (request: GetPlayFabIDsFromNintendoServiceAccountIdsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetPlayFabIDsFromNintendoServiceAccountIdsResult>("/Client/GetPlayFabIDsFromNintendoServiceAccountIds", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Retrieves the unique PlayFab identifiers for the given set of Nintendo Switch Device identifiers.
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/getplayfabidsfromnintendoswitchdeviceids
      */
-    GetPlayFabIDsFromNintendoSwitchDeviceIds (request: GetPlayFabIDsFromNintendoSwitchDeviceIdsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetPlayFabIDsFromNintendoSwitchDeviceIdsResult>("/Client/GetPlayFabIDsFromNintendoSwitchDeviceIds", request, "X-Authorization", customData, extraHeaders);
+    GetPlayFabIDsFromNintendoSwitchDeviceIds (request: GetPlayFabIDsFromNintendoSwitchDeviceIdsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetPlayFabIDsFromNintendoSwitchDeviceIdsResult>("/Client/GetPlayFabIDsFromNintendoSwitchDeviceIds", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Retrieves the unique PlayFab identifiers for the given set of PlayStation :tm: Network identifiers.
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/getplayfabidsfrompsnaccountids
      */
-    GetPlayFabIDsFromPSNAccountIDs (request: GetPlayFabIDsFromPSNAccountIDsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetPlayFabIDsFromPSNAccountIDsResult>("/Client/GetPlayFabIDsFromPSNAccountIDs", request, "X-Authorization", customData, extraHeaders);
+    GetPlayFabIDsFromPSNAccountIDs (request: GetPlayFabIDsFromPSNAccountIDsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetPlayFabIDsFromPSNAccountIDsResult>("/Client/GetPlayFabIDsFromPSNAccountIDs", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Retrieves the unique PlayFab identifiers for the given set of PlayStation :tm: Network identifiers.
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/getplayfabidsfrompsnonlineids
      */
-    GetPlayFabIDsFromPSNOnlineIDs (request: GetPlayFabIDsFromPSNOnlineIDsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetPlayFabIDsFromPSNOnlineIDsResult>("/Client/GetPlayFabIDsFromPSNOnlineIDs", request, "X-Authorization", customData, extraHeaders);
+    GetPlayFabIDsFromPSNOnlineIDs (request: GetPlayFabIDsFromPSNOnlineIDsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetPlayFabIDsFromPSNOnlineIDsResult>("/Client/GetPlayFabIDsFromPSNOnlineIDs", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -827,8 +826,8 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * IDs for the user accounts, available as SteamId in the Steamworks Community API calls.
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/getplayfabidsfromsteamids
      */
-    GetPlayFabIDsFromSteamIDs (request: GetPlayFabIDsFromSteamIDsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetPlayFabIDsFromSteamIDsResult>("/Client/GetPlayFabIDsFromSteamIDs", request, "X-Authorization", customData, extraHeaders);
+    GetPlayFabIDsFromSteamIDs (request: GetPlayFabIDsFromSteamIDsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetPlayFabIDsFromSteamIDsResult>("/Client/GetPlayFabIDsFromSteamIDs", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -836,8 +835,8 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * names.
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/getplayfabidsfromsteamnames
      */
-    GetPlayFabIDsFromSteamNames (request: GetPlayFabIDsFromSteamNamesRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetPlayFabIDsFromSteamNamesResult>("/Client/GetPlayFabIDsFromSteamNames", request, "X-Authorization", customData, extraHeaders);
+    GetPlayFabIDsFromSteamNames (request: GetPlayFabIDsFromSteamNamesRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetPlayFabIDsFromSteamNamesResult>("/Client/GetPlayFabIDsFromSteamNames", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -846,24 +845,24 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * https://github.com/justintv/Twitch-API/blob/master/v3_resources/users.md#get-usersuser).
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/getplayfabidsfromtwitchids
      */
-    GetPlayFabIDsFromTwitchIDs (request: GetPlayFabIDsFromTwitchIDsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetPlayFabIDsFromTwitchIDsResult>("/Client/GetPlayFabIDsFromTwitchIDs", request, "X-Authorization", customData, extraHeaders);
+    GetPlayFabIDsFromTwitchIDs (request: GetPlayFabIDsFromTwitchIDsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetPlayFabIDsFromTwitchIDsResult>("/Client/GetPlayFabIDsFromTwitchIDs", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Retrieves the unique PlayFab identifiers for the given set of XboxLive identifiers.
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/getplayfabidsfromxboxliveids
      */
-    GetPlayFabIDsFromXboxLiveIDs (request: GetPlayFabIDsFromXboxLiveIDsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetPlayFabIDsFromXboxLiveIDsResult>("/Client/GetPlayFabIDsFromXboxLiveIDs", request, "X-Authorization", customData, extraHeaders);
+    GetPlayFabIDsFromXboxLiveIDs (request: GetPlayFabIDsFromXboxLiveIDsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetPlayFabIDsFromXboxLiveIDsResult>("/Client/GetPlayFabIDsFromXboxLiveIDs", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Retrieves the key-value store of custom publisher settings
      * https://docs.microsoft.com/rest/api/playfab/client/title-wide-data-management/getpublisherdata
      */
-    GetPublisherData (request: GetPublisherDataRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetPublisherDataResult>("/Client/GetPublisherData", request, "X-Authorization", customData, extraHeaders);
+    GetPublisherData (request: GetPublisherDataRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetPublisherDataResult>("/Client/GetPublisherData", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -872,8 +871,8 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * are still active.
      * https://docs.microsoft.com/rest/api/playfab/client/player-item-management/getpurchase
      */
-    GetPurchase (request: GetPurchaseRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetPurchaseResult>("/Client/GetPurchase", request, "X-Authorization", customData, extraHeaders);
+    GetPurchase (request: GetPurchaseRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetPurchaseResult>("/Client/GetPurchase", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -883,8 +882,8 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * https://docs.microsoft.com/gaming/playfab/features/social/groups/using-shared-group-data
      * https://docs.microsoft.com/rest/api/playfab/client/shared-group-data/getsharedgroupdata
      */
-    GetSharedGroupData (request: GetSharedGroupDataRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetSharedGroupDataResult>("/Client/GetSharedGroupData", request, "X-Authorization", customData, extraHeaders);
+    GetSharedGroupData (request: GetSharedGroupDataRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetSharedGroupDataResult>("/Client/GetSharedGroupData", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -892,56 +891,56 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * version 2._ Retrieves the set of items defined for the specified store, including all prices defined
      * https://docs.microsoft.com/rest/api/playfab/client/title-wide-data-management/getstoreitems
      */
-    GetStoreItems (request: GetStoreItemsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetStoreItemsResult>("/Client/GetStoreItems", request, "X-Authorization", customData, extraHeaders);
+    GetStoreItems (request: GetStoreItemsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetStoreItemsResult>("/Client/GetStoreItems", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Retrieves the current server time
      * https://docs.microsoft.com/rest/api/playfab/client/title-wide-data-management/gettime
      */
-    GetTime (request: GetTimeRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetTimeResult>("/Client/GetTime", request, "X-Authorization", customData, extraHeaders);
+    GetTime (request: GetTimeRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetTimeResult>("/Client/GetTime", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Retrieves the key-value store of custom title settings
      * https://docs.microsoft.com/rest/api/playfab/client/title-wide-data-management/gettitledata
      */
-    GetTitleData (request: GetTitleDataRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetTitleDataResult>("/Client/GetTitleData", request, "X-Authorization", customData, extraHeaders);
+    GetTitleData (request: GetTitleDataRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetTitleDataResult>("/Client/GetTitleData", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Retrieves the title news feed, as configured in the developer portal
      * https://docs.microsoft.com/rest/api/playfab/client/title-wide-data-management/gettitlenews
      */
-    GetTitleNews (request: GetTitleNewsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetTitleNewsResult>("/Client/GetTitleNews", request, "X-Authorization", customData, extraHeaders);
+    GetTitleNews (request: GetTitleNewsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetTitleNewsResult>("/Client/GetTitleNews", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Returns the title's base 64 encoded RSA CSP blob.
      * https://docs.microsoft.com/rest/api/playfab/client/authentication/gettitlepublickey
      */
-    GetTitlePublicKey (request: GetTitlePublicKeyRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetTitlePublicKeyResult>("/Client/GetTitlePublicKey", request, null, customData, extraHeaders);
+    GetTitlePublicKey (request: GetTitlePublicKeyRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetTitlePublicKeyResult>("/Client/GetTitlePublicKey", request, null, extraHeaders);
     }
 
     /**
      * Gets the current status of an existing trade.
      * https://docs.microsoft.com/rest/api/playfab/client/trading/gettradestatus
      */
-    GetTradeStatus (request: GetTradeStatusRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetTradeStatusResponse>("/Client/GetTradeStatus", request, "X-Authorization", customData, extraHeaders);
+    GetTradeStatus (request: GetTradeStatusRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetTradeStatusResponse>("/Client/GetTradeStatus", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Retrieves the title-specific custom data for the user which is readable and writable by the client
      * https://docs.microsoft.com/rest/api/playfab/client/player-data-management/getuserdata
      */
-    GetUserData (request: GetUserDataRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetUserDataResult>("/Client/GetUserData", request, "X-Authorization", customData, extraHeaders);
+    GetUserData (request: GetUserDataRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetUserDataResult>("/Client/GetUserData", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -949,32 +948,32 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * version 2._ Retrieves the user's current inventory of virtual goods
      * https://docs.microsoft.com/rest/api/playfab/client/player-item-management/getuserinventory
      */
-    GetUserInventory (request: GetUserInventoryRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetUserInventoryResult>("/Client/GetUserInventory", request, "X-Authorization", customData, extraHeaders);
+    GetUserInventory (request: GetUserInventoryRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetUserInventoryResult>("/Client/GetUserInventory", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Retrieves the publisher-specific custom data for the user which is readable and writable by the client
      * https://docs.microsoft.com/rest/api/playfab/client/player-data-management/getuserpublisherdata
      */
-    GetUserPublisherData (request: GetUserDataRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetUserDataResult>("/Client/GetUserPublisherData", request, "X-Authorization", customData, extraHeaders);
+    GetUserPublisherData (request: GetUserDataRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetUserDataResult>("/Client/GetUserPublisherData", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Retrieves the publisher-specific custom data for the user which can only be read by the client
      * https://docs.microsoft.com/rest/api/playfab/client/player-data-management/getuserpublisherreadonlydata
      */
-    GetUserPublisherReadOnlyData (request: GetUserDataRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetUserDataResult>("/Client/GetUserPublisherReadOnlyData", request, "X-Authorization", customData, extraHeaders);
+    GetUserPublisherReadOnlyData (request: GetUserDataRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetUserDataResult>("/Client/GetUserPublisherReadOnlyData", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Retrieves the title-specific custom data for the user which can only be read by the client
      * https://docs.microsoft.com/rest/api/playfab/client/player-data-management/getuserreadonlydata
      */
-    GetUserReadOnlyData (request: GetUserDataRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GetUserDataResult>("/Client/GetUserReadOnlyData", request, "X-Authorization", customData, extraHeaders);
+    GetUserReadOnlyData (request: GetUserDataRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GetUserDataResult>("/Client/GetUserReadOnlyData", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -982,56 +981,56 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * with the parent PlayFabId to guarantee uniqueness.
      * https://docs.microsoft.com/rest/api/playfab/client/characters/grantcharactertouser
      */
-    GrantCharacterToUser (request: GrantCharacterToUserRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<GrantCharacterToUserResult>("/Client/GrantCharacterToUser", request, "X-Authorization", customData, extraHeaders);
+    GrantCharacterToUser (request: GrantCharacterToUserRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<GrantCharacterToUserResult>("/Client/GrantCharacterToUser", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Links the Android device identifier to the user's PlayFab account
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/linkandroiddeviceid
      */
-    LinkAndroidDeviceID (request: LinkAndroidDeviceIDRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<LinkAndroidDeviceIDResult>("/Client/LinkAndroidDeviceID", request, "X-Authorization", customData, extraHeaders);
+    LinkAndroidDeviceID (request: LinkAndroidDeviceIDRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<LinkAndroidDeviceIDResult>("/Client/LinkAndroidDeviceID", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Links the Apple account associated with the token to the user's PlayFab account.
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/linkapple
      */
-    LinkApple (request: LinkAppleRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<EmptyResult>("/Client/LinkApple", request, "X-Authorization", customData, extraHeaders);
+    LinkApple (request: LinkAppleRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<EmptyResult>("/Client/LinkApple", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Links the Battle.net account associated with the token to the user's PlayFab account.
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/linkbattlenetaccount
      */
-    LinkBattleNetAccount (request: LinkBattleNetAccountRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<EmptyResponse>("/Client/LinkBattleNetAccount", request, "X-Authorization", customData, extraHeaders);
+    LinkBattleNetAccount (request: LinkBattleNetAccountRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<EmptyResponse>("/Client/LinkBattleNetAccount", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Links the custom identifier, generated by the title, to the user's PlayFab account
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/linkcustomid
      */
-    LinkCustomID (request: LinkCustomIDRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<LinkCustomIDResult>("/Client/LinkCustomID", request, "X-Authorization", customData, extraHeaders);
+    LinkCustomID (request: LinkCustomIDRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<LinkCustomIDResult>("/Client/LinkCustomID", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Links the Facebook account associated with the provided Facebook access token to the user's PlayFab account
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/linkfacebookaccount
      */
-    LinkFacebookAccount (request: LinkFacebookAccountRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<LinkFacebookAccountResult>("/Client/LinkFacebookAccount", request, "X-Authorization", customData, extraHeaders);
+    LinkFacebookAccount (request: LinkFacebookAccountRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<LinkFacebookAccountResult>("/Client/LinkFacebookAccount", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Links the Facebook Instant Games Id to the user's PlayFab account
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/linkfacebookinstantgamesid
      */
-    LinkFacebookInstantGamesId (request: LinkFacebookInstantGamesIdRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<LinkFacebookInstantGamesIdResult>("/Client/LinkFacebookInstantGamesId", request, "X-Authorization", customData, extraHeaders);
+    LinkFacebookInstantGamesId (request: LinkFacebookInstantGamesIdRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<LinkFacebookInstantGamesIdResult>("/Client/LinkFacebookInstantGamesId", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -1041,16 +1040,16 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * page in the PlayFab Game Manager and enabling the 'Require secure authentication only for this app' option.
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/linkgamecenteraccount
      */
-    LinkGameCenterAccount (request: LinkGameCenterAccountRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<LinkGameCenterAccountResult>("/Client/LinkGameCenterAccount", request, "X-Authorization", customData, extraHeaders);
+    LinkGameCenterAccount (request: LinkGameCenterAccountRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<LinkGameCenterAccountResult>("/Client/LinkGameCenterAccount", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Links the currently signed-in user account to their Google account, using their Google account credentials
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/linkgoogleaccount
      */
-    LinkGoogleAccount (request: LinkGoogleAccountRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<LinkGoogleAccountResult>("/Client/LinkGoogleAccount", request, "X-Authorization", customData, extraHeaders);
+    LinkGoogleAccount (request: LinkGoogleAccountRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<LinkGoogleAccountResult>("/Client/LinkGoogleAccount", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -1058,40 +1057,40 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * credentials
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/linkgoogleplaygamesservicesaccount
      */
-    LinkGooglePlayGamesServicesAccount (request: LinkGooglePlayGamesServicesAccountRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<LinkGooglePlayGamesServicesAccountResult>("/Client/LinkGooglePlayGamesServicesAccount", request, "X-Authorization", customData, extraHeaders);
+    LinkGooglePlayGamesServicesAccount (request: LinkGooglePlayGamesServicesAccountRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<LinkGooglePlayGamesServicesAccountResult>("/Client/LinkGooglePlayGamesServicesAccount", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Links the vendor-specific iOS device identifier to the user's PlayFab account
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/linkiosdeviceid
      */
-    LinkIOSDeviceID (request: LinkIOSDeviceIDRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<LinkIOSDeviceIDResult>("/Client/LinkIOSDeviceID", request, "X-Authorization", customData, extraHeaders);
+    LinkIOSDeviceID (request: LinkIOSDeviceIDRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<LinkIOSDeviceIDResult>("/Client/LinkIOSDeviceID", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Links the Kongregate identifier to the user's PlayFab account
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/linkkongregate
      */
-    LinkKongregate (request: LinkKongregateAccountRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<LinkKongregateAccountResult>("/Client/LinkKongregate", request, "X-Authorization", customData, extraHeaders);
+    LinkKongregate (request: LinkKongregateAccountRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<LinkKongregateAccountResult>("/Client/LinkKongregate", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Links the Nintendo account associated with the token to the user's PlayFab account.
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/linknintendoserviceaccount
      */
-    LinkNintendoServiceAccount (request: LinkNintendoServiceAccountRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<EmptyResult>("/Client/LinkNintendoServiceAccount", request, "X-Authorization", customData, extraHeaders);
+    LinkNintendoServiceAccount (request: LinkNintendoServiceAccountRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<EmptyResult>("/Client/LinkNintendoServiceAccount", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Links the NintendoSwitchDeviceId to the user's PlayFab account
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/linknintendoswitchdeviceid
      */
-    LinkNintendoSwitchDeviceId (request: LinkNintendoSwitchDeviceIdRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<LinkNintendoSwitchDeviceIdResult>("/Client/LinkNintendoSwitchDeviceId", request, "X-Authorization", customData, extraHeaders);
+    LinkNintendoSwitchDeviceId (request: LinkNintendoSwitchDeviceIdRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<LinkNintendoSwitchDeviceIdResult>("/Client/LinkNintendoSwitchDeviceId", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -1099,48 +1098,48 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * Open ID Connect provider and the OpenId Connect JWT from that provider.
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/linkopenidconnect
      */
-    LinkOpenIdConnect (request: LinkOpenIdConnectRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<EmptyResult>("/Client/LinkOpenIdConnect", request, "X-Authorization", customData, extraHeaders);
+    LinkOpenIdConnect (request: LinkOpenIdConnectRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<EmptyResult>("/Client/LinkOpenIdConnect", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Links the PlayStation :tm: Network account associated with the provided access code to the user's PlayFab account
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/linkpsnaccount
      */
-    LinkPSNAccount (request: LinkPSNAccountRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<LinkPSNAccountResult>("/Client/LinkPSNAccount", request, "X-Authorization", customData, extraHeaders);
+    LinkPSNAccount (request: LinkPSNAccountRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<LinkPSNAccountResult>("/Client/LinkPSNAccount", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Links the Steam account associated with the provided Steam authentication ticket to the user's PlayFab account
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/linksteamaccount
      */
-    LinkSteamAccount (request: LinkSteamAccountRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<LinkSteamAccountResult>("/Client/LinkSteamAccount", request, "X-Authorization", customData, extraHeaders);
+    LinkSteamAccount (request: LinkSteamAccountRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<LinkSteamAccountResult>("/Client/LinkSteamAccount", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Links the Twitch account associated with the token to the user's PlayFab account.
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/linktwitch
      */
-    LinkTwitch (request: LinkTwitchAccountRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<LinkTwitchAccountResult>("/Client/LinkTwitch", request, "X-Authorization", customData, extraHeaders);
+    LinkTwitch (request: LinkTwitchAccountRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<LinkTwitchAccountResult>("/Client/LinkTwitch", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Links the Xbox Live account associated with the provided access code to the user's PlayFab account
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/linkxboxaccount
      */
-    LinkXboxAccount (request: LinkXboxAccountRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<LinkXboxAccountResult>("/Client/LinkXboxAccount", request, "X-Authorization", customData, extraHeaders);
+    LinkXboxAccount (request: LinkXboxAccountRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<LinkXboxAccountResult>("/Client/LinkXboxAccount", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Retrieves title-specific custom property values for a player.
      * https://docs.microsoft.com/rest/api/playfab/client/player-data-management/listplayercustomproperties
      */
-    ListPlayerCustomProperties (request: ListPlayerCustomPropertiesRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<ListPlayerCustomPropertiesResult>("/Client/ListPlayerCustomProperties", request, "X-Authorization", customData, extraHeaders);
+    ListPlayerCustomProperties (request: ListPlayerCustomPropertiesRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<ListPlayerCustomPropertiesResult>("/Client/ListPlayerCustomProperties", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -1148,12 +1147,12 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * API calls which require an authenticated user
      * https://docs.microsoft.com/rest/api/playfab/client/authentication/loginwithandroiddeviceid
      */
-    LoginWithAndroidDeviceID (request: LoginWithAndroidDeviceIDRequest, customData?: any, extraHeaders?: Record<string, string>) {
+    LoginWithAndroidDeviceID (request: LoginWithAndroidDeviceIDRequest, extraHeaders?: Record<string, string>) {
         request.TitleId = this.settings.titleId ? this.settings.titleId : request.TitleId; if (!request.TitleId) throw this.errorTitleId;
         // this.authenticationContext can be modified by other asynchronous login attempts
         // Deep-copy the authenticationContext here to safely update it
         var authenticationContext = JSON.parse(JSON.stringify(this.authenticationContext));
-        return this.ExecuteRequestWrapper<LoginResult>("/Client/LoginWithAndroidDeviceID", request, null, customData, extraHeaders)
+        return this.ExecuteRequestWrapper<LoginResult>("/Client/LoginWithAndroidDeviceID", request, null, extraHeaders)
         .then(result => {
             if (result) {
                 if(result?.SessionTicket) {
@@ -1173,12 +1172,12 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * Signs in the user with a Sign in with Apple identity token.
      * https://docs.microsoft.com/rest/api/playfab/client/authentication/loginwithapple
      */
-    LoginWithApple (request: LoginWithAppleRequest, customData?: any, extraHeaders?: Record<string, string>) {
+    LoginWithApple (request: LoginWithAppleRequest, extraHeaders?: Record<string, string>) {
         request.TitleId = this.settings.titleId ? this.settings.titleId : request.TitleId; if (!request.TitleId) throw this.errorTitleId;
         // this.authenticationContext can be modified by other asynchronous login attempts
         // Deep-copy the authenticationContext here to safely update it
         var authenticationContext = JSON.parse(JSON.stringify(this.authenticationContext));
-        return this.ExecuteRequestWrapper<LoginResult>("/Client/LoginWithApple", request, null, customData, extraHeaders)
+        return this.ExecuteRequestWrapper<LoginResult>("/Client/LoginWithApple", request, null, extraHeaders)
         .then(result => {
             if (result) {
                 if(result?.SessionTicket) {
@@ -1198,12 +1197,12 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * Sign in the user with a Battle.net identity token
      * https://docs.microsoft.com/rest/api/playfab/client/authentication/loginwithbattlenet
      */
-    LoginWithBattleNet (request: LoginWithBattleNetRequest, customData?: any, extraHeaders?: Record<string, string>) {
+    LoginWithBattleNet (request: LoginWithBattleNetRequest, extraHeaders?: Record<string, string>) {
         request.TitleId = this.settings.titleId ? this.settings.titleId : request.TitleId; if (!request.TitleId) throw this.errorTitleId;
         // this.authenticationContext can be modified by other asynchronous login attempts
         // Deep-copy the authenticationContext here to safely update it
         var authenticationContext = JSON.parse(JSON.stringify(this.authenticationContext));
-        return this.ExecuteRequestWrapper<LoginResult>("/Client/LoginWithBattleNet", request, null, customData, extraHeaders)
+        return this.ExecuteRequestWrapper<LoginResult>("/Client/LoginWithBattleNet", request, null, extraHeaders)
         .then(result => {
             if (result) {
                 if(result?.SessionTicket) {
@@ -1224,12 +1223,12 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * subsequently be used for API calls which require an authenticated user
      * https://docs.microsoft.com/rest/api/playfab/client/authentication/loginwithcustomid
      */
-    LoginWithCustomID (request: LoginWithCustomIDRequest, customData?: any, extraHeaders?: Record<string, string>) {
+    LoginWithCustomID (request: LoginWithCustomIDRequest, extraHeaders?: Record<string, string>) {
         request.TitleId = this.settings.titleId ? this.settings.titleId : request.TitleId; if (!request.TitleId) throw this.errorTitleId;
         // this.authenticationContext can be modified by other asynchronous login attempts
         // Deep-copy the authenticationContext here to safely update it
         var authenticationContext = JSON.parse(JSON.stringify(this.authenticationContext));
-        return this.ExecuteRequestWrapper<LoginResult>("/Client/LoginWithCustomID", request, null, customData, extraHeaders)
+        return this.ExecuteRequestWrapper<LoginResult>("/Client/LoginWithCustomID", request, null, extraHeaders)
         .then(result => {
             if (result) {
                 if(result?.SessionTicket) {
@@ -1252,12 +1251,12 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * RegisterPlayFabUser.
      * https://docs.microsoft.com/rest/api/playfab/client/authentication/loginwithemailaddress
      */
-    LoginWithEmailAddress (request: LoginWithEmailAddressRequest, customData?: any, extraHeaders?: Record<string, string>) {
+    LoginWithEmailAddress (request: LoginWithEmailAddressRequest, extraHeaders?: Record<string, string>) {
         request.TitleId = this.settings.titleId ? this.settings.titleId : request.TitleId; if (!request.TitleId) throw this.errorTitleId;
         // this.authenticationContext can be modified by other asynchronous login attempts
         // Deep-copy the authenticationContext here to safely update it
         var authenticationContext = JSON.parse(JSON.stringify(this.authenticationContext));
-        return this.ExecuteRequestWrapper<LoginResult>("/Client/LoginWithEmailAddress", request, null, customData, extraHeaders)
+        return this.ExecuteRequestWrapper<LoginResult>("/Client/LoginWithEmailAddress", request, null, extraHeaders)
         .then(result => {
             if (result) {
                 if(result?.SessionTicket) {
@@ -1278,12 +1277,12 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * calls which require an authenticated user
      * https://docs.microsoft.com/rest/api/playfab/client/authentication/loginwithfacebook
      */
-    LoginWithFacebook (request: LoginWithFacebookRequest, customData?: any, extraHeaders?: Record<string, string>) {
+    LoginWithFacebook (request: LoginWithFacebookRequest, extraHeaders?: Record<string, string>) {
         request.TitleId = this.settings.titleId ? this.settings.titleId : request.TitleId; if (!request.TitleId) throw this.errorTitleId;
         // this.authenticationContext can be modified by other asynchronous login attempts
         // Deep-copy the authenticationContext here to safely update it
         var authenticationContext = JSON.parse(JSON.stringify(this.authenticationContext));
-        return this.ExecuteRequestWrapper<LoginResult>("/Client/LoginWithFacebook", request, null, customData, extraHeaders)
+        return this.ExecuteRequestWrapper<LoginResult>("/Client/LoginWithFacebook", request, null, extraHeaders)
         .then(result => {
             if (result) {
                 if(result?.SessionTicket) {
@@ -1304,12 +1303,12 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * API calls which require an authenticated user. Requires Facebook Instant Games to be configured.
      * https://docs.microsoft.com/rest/api/playfab/client/authentication/loginwithfacebookinstantgamesid
      */
-    LoginWithFacebookInstantGamesId (request: LoginWithFacebookInstantGamesIdRequest, customData?: any, extraHeaders?: Record<string, string>) {
+    LoginWithFacebookInstantGamesId (request: LoginWithFacebookInstantGamesIdRequest, extraHeaders?: Record<string, string>) {
         request.TitleId = this.settings.titleId ? this.settings.titleId : request.TitleId; if (!request.TitleId) throw this.errorTitleId;
         // this.authenticationContext can be modified by other asynchronous login attempts
         // Deep-copy the authenticationContext here to safely update it
         var authenticationContext = JSON.parse(JSON.stringify(this.authenticationContext));
-        return this.ExecuteRequestWrapper<LoginResult>("/Client/LoginWithFacebookInstantGamesId", request, null, customData, extraHeaders)
+        return this.ExecuteRequestWrapper<LoginResult>("/Client/LoginWithFacebookInstantGamesId", request, null, extraHeaders)
         .then(result => {
             if (result) {
                 if(result?.SessionTicket) {
@@ -1333,12 +1332,12 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * enabling the 'Require secure authentication only for this app' option.
      * https://docs.microsoft.com/rest/api/playfab/client/authentication/loginwithgamecenter
      */
-    LoginWithGameCenter (request: LoginWithGameCenterRequest, customData?: any, extraHeaders?: Record<string, string>) {
+    LoginWithGameCenter (request: LoginWithGameCenterRequest, extraHeaders?: Record<string, string>) {
         request.TitleId = this.settings.titleId ? this.settings.titleId : request.TitleId; if (!request.TitleId) throw this.errorTitleId;
         // this.authenticationContext can be modified by other asynchronous login attempts
         // Deep-copy the authenticationContext here to safely update it
         var authenticationContext = JSON.parse(JSON.stringify(this.authenticationContext));
-        return this.ExecuteRequestWrapper<LoginResult>("/Client/LoginWithGameCenter", request, null, customData, extraHeaders)
+        return this.ExecuteRequestWrapper<LoginResult>("/Client/LoginWithGameCenter", request, null, extraHeaders)
         .then(result => {
             if (result) {
                 if(result?.SessionTicket) {
@@ -1358,12 +1357,12 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * Signs the user in using their Google account credentials
      * https://docs.microsoft.com/rest/api/playfab/client/authentication/loginwithgoogleaccount
      */
-    LoginWithGoogleAccount (request: LoginWithGoogleAccountRequest, customData?: any, extraHeaders?: Record<string, string>) {
+    LoginWithGoogleAccount (request: LoginWithGoogleAccountRequest, extraHeaders?: Record<string, string>) {
         request.TitleId = this.settings.titleId ? this.settings.titleId : request.TitleId; if (!request.TitleId) throw this.errorTitleId;
         // this.authenticationContext can be modified by other asynchronous login attempts
         // Deep-copy the authenticationContext here to safely update it
         var authenticationContext = JSON.parse(JSON.stringify(this.authenticationContext));
-        return this.ExecuteRequestWrapper<LoginResult>("/Client/LoginWithGoogleAccount", request, null, customData, extraHeaders)
+        return this.ExecuteRequestWrapper<LoginResult>("/Client/LoginWithGoogleAccount", request, null, extraHeaders)
         .then(result => {
             if (result) {
                 if(result?.SessionTicket) {
@@ -1383,12 +1382,12 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * Signs the user in using their Google Play Games account credentials
      * https://docs.microsoft.com/rest/api/playfab/client/authentication/loginwithgoogleplaygamesservices
      */
-    LoginWithGooglePlayGamesServices (request: LoginWithGooglePlayGamesServicesRequest, customData?: any, extraHeaders?: Record<string, string>) {
+    LoginWithGooglePlayGamesServices (request: LoginWithGooglePlayGamesServicesRequest, extraHeaders?: Record<string, string>) {
         request.TitleId = this.settings.titleId ? this.settings.titleId : request.TitleId; if (!request.TitleId) throw this.errorTitleId;
         // this.authenticationContext can be modified by other asynchronous login attempts
         // Deep-copy the authenticationContext here to safely update it
         var authenticationContext = JSON.parse(JSON.stringify(this.authenticationContext));
-        return this.ExecuteRequestWrapper<LoginResult>("/Client/LoginWithGooglePlayGamesServices", request, null, customData, extraHeaders)
+        return this.ExecuteRequestWrapper<LoginResult>("/Client/LoginWithGooglePlayGamesServices", request, null, extraHeaders)
         .then(result => {
             if (result) {
                 if(result?.SessionTicket) {
@@ -1409,12 +1408,12 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * be used for API calls which require an authenticated user
      * https://docs.microsoft.com/rest/api/playfab/client/authentication/loginwithiosdeviceid
      */
-    LoginWithIOSDeviceID (request: LoginWithIOSDeviceIDRequest, customData?: any, extraHeaders?: Record<string, string>) {
+    LoginWithIOSDeviceID (request: LoginWithIOSDeviceIDRequest, extraHeaders?: Record<string, string>) {
         request.TitleId = this.settings.titleId ? this.settings.titleId : request.TitleId; if (!request.TitleId) throw this.errorTitleId;
         // this.authenticationContext can be modified by other asynchronous login attempts
         // Deep-copy the authenticationContext here to safely update it
         var authenticationContext = JSON.parse(JSON.stringify(this.authenticationContext));
-        return this.ExecuteRequestWrapper<LoginResult>("/Client/LoginWithIOSDeviceID", request, null, customData, extraHeaders)
+        return this.ExecuteRequestWrapper<LoginResult>("/Client/LoginWithIOSDeviceID", request, null, extraHeaders)
         .then(result => {
             if (result) {
                 if(result?.SessionTicket) {
@@ -1434,12 +1433,12 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * Signs the user in using a Kongregate player account.
      * https://docs.microsoft.com/rest/api/playfab/client/authentication/loginwithkongregate
      */
-    LoginWithKongregate (request: LoginWithKongregateRequest, customData?: any, extraHeaders?: Record<string, string>) {
+    LoginWithKongregate (request: LoginWithKongregateRequest, extraHeaders?: Record<string, string>) {
         request.TitleId = this.settings.titleId ? this.settings.titleId : request.TitleId; if (!request.TitleId) throw this.errorTitleId;
         // this.authenticationContext can be modified by other asynchronous login attempts
         // Deep-copy the authenticationContext here to safely update it
         var authenticationContext = JSON.parse(JSON.stringify(this.authenticationContext));
-        return this.ExecuteRequestWrapper<LoginResult>("/Client/LoginWithKongregate", request, null, customData, extraHeaders)
+        return this.ExecuteRequestWrapper<LoginResult>("/Client/LoginWithKongregate", request, null, extraHeaders)
         .then(result => {
             if (result) {
                 if(result?.SessionTicket) {
@@ -1459,12 +1458,12 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * Signs in the user with a Nintendo service account token.
      * https://docs.microsoft.com/rest/api/playfab/client/authentication/loginwithnintendoserviceaccount
      */
-    LoginWithNintendoServiceAccount (request: LoginWithNintendoServiceAccountRequest, customData?: any, extraHeaders?: Record<string, string>) {
+    LoginWithNintendoServiceAccount (request: LoginWithNintendoServiceAccountRequest, extraHeaders?: Record<string, string>) {
         request.TitleId = this.settings.titleId ? this.settings.titleId : request.TitleId; if (!request.TitleId) throw this.errorTitleId;
         // this.authenticationContext can be modified by other asynchronous login attempts
         // Deep-copy the authenticationContext here to safely update it
         var authenticationContext = JSON.parse(JSON.stringify(this.authenticationContext));
-        return this.ExecuteRequestWrapper<LoginResult>("/Client/LoginWithNintendoServiceAccount", request, null, customData, extraHeaders)
+        return this.ExecuteRequestWrapper<LoginResult>("/Client/LoginWithNintendoServiceAccount", request, null, extraHeaders)
         .then(result => {
             if (result) {
                 if(result?.SessionTicket) {
@@ -1485,12 +1484,12 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * API calls which require an authenticated user
      * https://docs.microsoft.com/rest/api/playfab/client/authentication/loginwithnintendoswitchdeviceid
      */
-    LoginWithNintendoSwitchDeviceId (request: LoginWithNintendoSwitchDeviceIdRequest, customData?: any, extraHeaders?: Record<string, string>) {
+    LoginWithNintendoSwitchDeviceId (request: LoginWithNintendoSwitchDeviceIdRequest, extraHeaders?: Record<string, string>) {
         request.TitleId = this.settings.titleId ? this.settings.titleId : request.TitleId; if (!request.TitleId) throw this.errorTitleId;
         // this.authenticationContext can be modified by other asynchronous login attempts
         // Deep-copy the authenticationContext here to safely update it
         var authenticationContext = JSON.parse(JSON.stringify(this.authenticationContext));
-        return this.ExecuteRequestWrapper<LoginResult>("/Client/LoginWithNintendoSwitchDeviceId", request, null, customData, extraHeaders)
+        return this.ExecuteRequestWrapper<LoginResult>("/Client/LoginWithNintendoSwitchDeviceId", request, null, extraHeaders)
         .then(result => {
             if (result) {
                 if(result?.SessionTicket) {
@@ -1511,12 +1510,12 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * provider.
      * https://docs.microsoft.com/rest/api/playfab/client/authentication/loginwithopenidconnect
      */
-    LoginWithOpenIdConnect (request: LoginWithOpenIdConnectRequest, customData?: any, extraHeaders?: Record<string, string>) {
+    LoginWithOpenIdConnect (request: LoginWithOpenIdConnectRequest, extraHeaders?: Record<string, string>) {
         request.TitleId = this.settings.titleId ? this.settings.titleId : request.TitleId; if (!request.TitleId) throw this.errorTitleId;
         // this.authenticationContext can be modified by other asynchronous login attempts
         // Deep-copy the authenticationContext here to safely update it
         var authenticationContext = JSON.parse(JSON.stringify(this.authenticationContext));
-        return this.ExecuteRequestWrapper<LoginResult>("/Client/LoginWithOpenIdConnect", request, null, customData, extraHeaders)
+        return this.ExecuteRequestWrapper<LoginResult>("/Client/LoginWithOpenIdConnect", request, null, extraHeaders)
         .then(result => {
             if (result) {
                 if(result?.SessionTicket) {
@@ -1539,12 +1538,12 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * RegisterPlayFabUser, or added to existing accounts using AddUsernamePassword.
      * https://docs.microsoft.com/rest/api/playfab/client/authentication/loginwithplayfab
      */
-    LoginWithPlayFab (request: LoginWithPlayFabRequest, customData?: any, extraHeaders?: Record<string, string>) {
+    LoginWithPlayFab (request: LoginWithPlayFabRequest, extraHeaders?: Record<string, string>) {
         request.TitleId = this.settings.titleId ? this.settings.titleId : request.TitleId; if (!request.TitleId) throw this.errorTitleId;
         // this.authenticationContext can be modified by other asynchronous login attempts
         // Deep-copy the authenticationContext here to safely update it
         var authenticationContext = JSON.parse(JSON.stringify(this.authenticationContext));
-        return this.ExecuteRequestWrapper<LoginResult>("/Client/LoginWithPlayFab", request, null, customData, extraHeaders)
+        return this.ExecuteRequestWrapper<LoginResult>("/Client/LoginWithPlayFab", request, null, extraHeaders)
         .then(result => {
             if (result) {
                 if(result?.SessionTicket) {
@@ -1565,12 +1564,12 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * subsequently be used for API calls which require an authenticated user
      * https://docs.microsoft.com/rest/api/playfab/client/authentication/loginwithpsn
      */
-    LoginWithPSN (request: LoginWithPSNRequest, customData?: any, extraHeaders?: Record<string, string>) {
+    LoginWithPSN (request: LoginWithPSNRequest, extraHeaders?: Record<string, string>) {
         request.TitleId = this.settings.titleId ? this.settings.titleId : request.TitleId; if (!request.TitleId) throw this.errorTitleId;
         // this.authenticationContext can be modified by other asynchronous login attempts
         // Deep-copy the authenticationContext here to safely update it
         var authenticationContext = JSON.parse(JSON.stringify(this.authenticationContext));
-        return this.ExecuteRequestWrapper<LoginResult>("/Client/LoginWithPSN", request, null, customData, extraHeaders)
+        return this.ExecuteRequestWrapper<LoginResult>("/Client/LoginWithPSN", request, null, extraHeaders)
         .then(result => {
             if (result) {
                 if(result?.SessionTicket) {
@@ -1591,12 +1590,12 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * API calls which require an authenticated user
      * https://docs.microsoft.com/rest/api/playfab/client/authentication/loginwithsteam
      */
-    LoginWithSteam (request: LoginWithSteamRequest, customData?: any, extraHeaders?: Record<string, string>) {
+    LoginWithSteam (request: LoginWithSteamRequest, extraHeaders?: Record<string, string>) {
         request.TitleId = this.settings.titleId ? this.settings.titleId : request.TitleId; if (!request.TitleId) throw this.errorTitleId;
         // this.authenticationContext can be modified by other asynchronous login attempts
         // Deep-copy the authenticationContext here to safely update it
         var authenticationContext = JSON.parse(JSON.stringify(this.authenticationContext));
-        return this.ExecuteRequestWrapper<LoginResult>("/Client/LoginWithSteam", request, null, customData, extraHeaders)
+        return this.ExecuteRequestWrapper<LoginResult>("/Client/LoginWithSteam", request, null, extraHeaders)
         .then(result => {
             if (result) {
                 if(result?.SessionTicket) {
@@ -1616,12 +1615,12 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * Signs the user in using a Twitch access token.
      * https://docs.microsoft.com/rest/api/playfab/client/authentication/loginwithtwitch
      */
-    LoginWithTwitch (request: LoginWithTwitchRequest, customData?: any, extraHeaders?: Record<string, string>) {
+    LoginWithTwitch (request: LoginWithTwitchRequest, extraHeaders?: Record<string, string>) {
         request.TitleId = this.settings.titleId ? this.settings.titleId : request.TitleId; if (!request.TitleId) throw this.errorTitleId;
         // this.authenticationContext can be modified by other asynchronous login attempts
         // Deep-copy the authenticationContext here to safely update it
         var authenticationContext = JSON.parse(JSON.stringify(this.authenticationContext));
-        return this.ExecuteRequestWrapper<LoginResult>("/Client/LoginWithTwitch", request, null, customData, extraHeaders)
+        return this.ExecuteRequestWrapper<LoginResult>("/Client/LoginWithTwitch", request, null, extraHeaders)
         .then(result => {
             if (result) {
                 if(result?.SessionTicket) {
@@ -1642,12 +1641,12 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * which require an authenticated user
      * https://docs.microsoft.com/rest/api/playfab/client/authentication/loginwithxbox
      */
-    LoginWithXbox (request: LoginWithXboxRequest, customData?: any, extraHeaders?: Record<string, string>) {
+    LoginWithXbox (request: LoginWithXboxRequest, extraHeaders?: Record<string, string>) {
         request.TitleId = this.settings.titleId ? this.settings.titleId : request.TitleId; if (!request.TitleId) throw this.errorTitleId;
         // this.authenticationContext can be modified by other asynchronous login attempts
         // Deep-copy the authenticationContext here to safely update it
         var authenticationContext = JSON.parse(JSON.stringify(this.authenticationContext));
-        return this.ExecuteRequestWrapper<LoginResult>("/Client/LoginWithXbox", request, null, customData, extraHeaders)
+        return this.ExecuteRequestWrapper<LoginResult>("/Client/LoginWithXbox", request, null, extraHeaders)
         .then(result => {
             if (result) {
                 if(result?.SessionTicket) {
@@ -1667,8 +1666,8 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * Opens a new outstanding trade. Note that a given item instance may only be in one open trade at a time.
      * https://docs.microsoft.com/rest/api/playfab/client/trading/opentrade
      */
-    OpenTrade (request: OpenTradeRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<OpenTradeResponse>("/Client/OpenTrade", request, "X-Authorization", customData, extraHeaders);
+    OpenTrade (request: OpenTradeRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<OpenTradeResponse>("/Client/OpenTrade", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -1676,8 +1675,8 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * version 2._ Selects a payment option for purchase order created via StartPurchase
      * https://docs.microsoft.com/rest/api/playfab/client/player-item-management/payforpurchase
      */
-    PayForPurchase (request: PayForPurchaseRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<PayForPurchaseResult>("/Client/PayForPurchase", request, "X-Authorization", customData, extraHeaders);
+    PayForPurchase (request: PayForPurchaseRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<PayForPurchaseResult>("/Client/PayForPurchase", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -1686,8 +1685,8 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * well as what the client believes the price to be. This lets the server fail the purchase if the price has changed.
      * https://docs.microsoft.com/rest/api/playfab/client/player-item-management/purchaseitem
      */
-    PurchaseItem (request: PurchaseItemRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<PurchaseItemResult>("/Client/PurchaseItem", request, "X-Authorization", customData, extraHeaders);
+    PurchaseItem (request: PurchaseItemRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<PurchaseItemResult>("/Client/PurchaseItem", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -1696,24 +1695,24 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * Economy->Catalogs tab in the PlayFab Game Manager.
      * https://docs.microsoft.com/rest/api/playfab/client/player-item-management/redeemcoupon
      */
-    RedeemCoupon (request: RedeemCouponRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<RedeemCouponResult>("/Client/RedeemCoupon", request, "X-Authorization", customData, extraHeaders);
+    RedeemCoupon (request: RedeemCouponRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<RedeemCouponResult>("/Client/RedeemCoupon", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Uses the supplied OAuth code to refresh the internally cached player PlayStation :tm: Network auth token
      * https://docs.microsoft.com/rest/api/playfab/client/platform-specific-methods/refreshpsnauthtoken
      */
-    RefreshPSNAuthToken (request: RefreshPSNAuthTokenRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<EmptyResponse>("/Client/RefreshPSNAuthToken", request, "X-Authorization", customData, extraHeaders);
+    RefreshPSNAuthToken (request: RefreshPSNAuthTokenRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<EmptyResponse>("/Client/RefreshPSNAuthToken", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Registers the iOS device to receive push notifications
      * https://docs.microsoft.com/rest/api/playfab/client/platform-specific-methods/registerforiospushnotification
      */
-    RegisterForIOSPushNotification (request: RegisterForIOSPushNotificationRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<RegisterForIOSPushNotificationResult>("/Client/RegisterForIOSPushNotification", request, "X-Authorization", customData, extraHeaders);
+    RegisterForIOSPushNotification (request: RegisterForIOSPushNotificationRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<RegisterForIOSPushNotificationResult>("/Client/RegisterForIOSPushNotification", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -1721,12 +1720,12 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * require an authenticated user. You must supply a username and an email address.
      * https://docs.microsoft.com/rest/api/playfab/client/authentication/registerplayfabuser
      */
-    RegisterPlayFabUser (request: RegisterPlayFabUserRequest, customData?: any, extraHeaders?: Record<string, string>) {
+    RegisterPlayFabUser (request: RegisterPlayFabUserRequest, extraHeaders?: Record<string, string>) {
         request.TitleId = this.settings.titleId ? this.settings.titleId : request.TitleId; if (!request.TitleId) throw this.errorTitleId;
         // this.authenticationContext can be modified by other asynchronous login attempts
         // Deep-copy the authenticationContext here to safely update it
         var authenticationContext = JSON.parse(JSON.stringify(this.authenticationContext));
-        return this.ExecuteRequestWrapper<RegisterPlayFabUserResult>("/Client/RegisterPlayFabUser", request, null, customData, extraHeaders)
+        return this.ExecuteRequestWrapper<RegisterPlayFabUserResult>("/Client/RegisterPlayFabUser", request, null, extraHeaders)
         .then(result => {
             if (result) {
                 if(result?.SessionTicket) {
@@ -1746,24 +1745,24 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * Removes a contact email from the player's profile.
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/removecontactemail
      */
-    RemoveContactEmail (request: RemoveContactEmailRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<RemoveContactEmailResult>("/Client/RemoveContactEmail", request, "X-Authorization", customData, extraHeaders);
+    RemoveContactEmail (request: RemoveContactEmailRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<RemoveContactEmailResult>("/Client/RemoveContactEmail", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Removes a specified user from the friend list of the local user
      * https://docs.microsoft.com/rest/api/playfab/client/friend-list-management/removefriend
      */
-    RemoveFriend (request: RemoveFriendRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<RemoveFriendResult>("/Client/RemoveFriend", request, "X-Authorization", customData, extraHeaders);
+    RemoveFriend (request: RemoveFriendRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<RemoveFriendResult>("/Client/RemoveFriend", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Removes the specified generic service identifier from the player's PlayFab account.
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/removegenericid
      */
-    RemoveGenericID (request: RemoveGenericIDRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<RemoveGenericIDResult>("/Client/RemoveGenericID", request, "X-Authorization", customData, extraHeaders);
+    RemoveGenericID (request: RemoveGenericIDRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<RemoveGenericIDResult>("/Client/RemoveGenericID", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -1773,16 +1772,16 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * guide: https://docs.microsoft.com/gaming/playfab/features/social/groups/using-shared-group-data
      * https://docs.microsoft.com/rest/api/playfab/client/shared-group-data/removesharedgroupmembers
      */
-    RemoveSharedGroupMembers (request: RemoveSharedGroupMembersRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<RemoveSharedGroupMembersResult>("/Client/RemoveSharedGroupMembers", request, "X-Authorization", customData, extraHeaders);
+    RemoveSharedGroupMembers (request: RemoveSharedGroupMembersRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<RemoveSharedGroupMembersResult>("/Client/RemoveSharedGroupMembers", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Report player's ad activity
      * https://docs.microsoft.com/rest/api/playfab/client/advertising/reportadactivity
      */
-    ReportAdActivity (request: ReportAdActivityRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<ReportAdActivityResult>("/Client/ReportAdActivity", request, "X-Authorization", customData, extraHeaders);
+    ReportAdActivity (request: ReportAdActivityRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<ReportAdActivityResult>("/Client/ReportAdActivity", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -1790,8 +1789,8 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * called directly by developers. Each PlayFab client SDK will eventually report this information automatically.
      * https://docs.microsoft.com/rest/api/playfab/client/analytics/reportdeviceinfo
      */
-    ReportDeviceInfo (request: DeviceInfoRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<EmptyResponse>("/Client/ReportDeviceInfo", request, "X-Authorization", customData, extraHeaders);
+    ReportDeviceInfo (request: DeviceInfoRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<EmptyResponse>("/Client/ReportDeviceInfo", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -1799,8 +1798,8 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * can take action concerning potentially toxic players.
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/reportplayer
      */
-    ReportPlayer (request: ReportPlayerClientRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<ReportPlayerClientResult>("/Client/ReportPlayer", request, "X-Authorization", customData, extraHeaders);
+    ReportPlayer (request: ReportPlayerClientRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<ReportPlayerClientResult>("/Client/ReportPlayer", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -1808,16 +1807,16 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * version 2._ Restores all in-app purchases based on the given restore receipt
      * https://docs.microsoft.com/rest/api/playfab/client/platform-specific-methods/restoreiospurchases
      */
-    RestoreIOSPurchases (request: RestoreIOSPurchasesRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<RestoreIOSPurchasesResult>("/Client/RestoreIOSPurchases", request, "X-Authorization", customData, extraHeaders);
+    RestoreIOSPurchases (request: RestoreIOSPurchasesRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<RestoreIOSPurchasesResult>("/Client/RestoreIOSPurchases", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Reward player's ad activity
      * https://docs.microsoft.com/rest/api/playfab/client/advertising/rewardadactivity
      */
-    RewardAdActivity (request: RewardAdActivityRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<RewardAdActivityResult>("/Client/RewardAdActivity", request, "X-Authorization", customData, extraHeaders);
+    RewardAdActivity (request: RewardAdActivityRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<RewardAdActivityResult>("/Client/RewardAdActivity", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -1826,16 +1825,16 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * be used.
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/sendaccountrecoveryemail
      */
-    SendAccountRecoveryEmail (request: SendAccountRecoveryEmailRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<SendAccountRecoveryEmailResult>("/Client/SendAccountRecoveryEmail", request, null, customData, extraHeaders);
+    SendAccountRecoveryEmail (request: SendAccountRecoveryEmailRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<SendAccountRecoveryEmailResult>("/Client/SendAccountRecoveryEmail", request, null, extraHeaders);
     }
 
     /**
      * Updates the tag list for a specified user in the friend list of the local user
      * https://docs.microsoft.com/rest/api/playfab/client/friend-list-management/setfriendtags
      */
-    SetFriendTags (request: SetFriendTagsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<SetFriendTagsResult>("/Client/SetFriendTags", request, "X-Authorization", customData, extraHeaders);
+    SetFriendTags (request: SetFriendTagsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<SetFriendTagsResult>("/Client/SetFriendTags", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -1843,8 +1842,8 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * secret use the Admin or Server API method SetPlayerSecret.
      * https://docs.microsoft.com/rest/api/playfab/client/authentication/setplayersecret
      */
-    SetPlayerSecret (request: SetPlayerSecretRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<SetPlayerSecretResult>("/Client/SetPlayerSecret", request, "X-Authorization", customData, extraHeaders);
+    SetPlayerSecret (request: SetPlayerSecretRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<SetPlayerSecretResult>("/Client/SetPlayerSecret", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -1852,8 +1851,8 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * version 2._ Creates an order for a list of items from the title catalog
      * https://docs.microsoft.com/rest/api/playfab/client/player-item-management/startpurchase
      */
-    StartPurchase (request: StartPurchaseRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<StartPurchaseResult>("/Client/StartPurchase", request, "X-Authorization", customData, extraHeaders);
+    StartPurchase (request: StartPurchaseRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<StartPurchaseResult>("/Client/StartPurchase", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -1862,64 +1861,64 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * a VC balance negative with this API.
      * https://docs.microsoft.com/rest/api/playfab/client/player-item-management/subtractuservirtualcurrency
      */
-    SubtractUserVirtualCurrency (request: SubtractUserVirtualCurrencyRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<ModifyUserVirtualCurrencyResult>("/Client/SubtractUserVirtualCurrency", request, "X-Authorization", customData, extraHeaders);
+    SubtractUserVirtualCurrency (request: SubtractUserVirtualCurrencyRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<ModifyUserVirtualCurrencyResult>("/Client/SubtractUserVirtualCurrency", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Unlinks the related Android device identifier from the user's PlayFab account
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/unlinkandroiddeviceid
      */
-    UnlinkAndroidDeviceID (request: UnlinkAndroidDeviceIDRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<UnlinkAndroidDeviceIDResult>("/Client/UnlinkAndroidDeviceID", request, "X-Authorization", customData, extraHeaders);
+    UnlinkAndroidDeviceID (request: UnlinkAndroidDeviceIDRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<UnlinkAndroidDeviceIDResult>("/Client/UnlinkAndroidDeviceID", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Unlinks the related Apple account from the user's PlayFab account.
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/unlinkapple
      */
-    UnlinkApple (request: UnlinkAppleRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<EmptyResponse>("/Client/UnlinkApple", request, "X-Authorization", customData, extraHeaders);
+    UnlinkApple (request: UnlinkAppleRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<EmptyResponse>("/Client/UnlinkApple", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Unlinks the related Battle.net account from the user's PlayFab account.
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/unlinkbattlenetaccount
      */
-    UnlinkBattleNetAccount (request: UnlinkBattleNetAccountRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<EmptyResponse>("/Client/UnlinkBattleNetAccount", request, "X-Authorization", customData, extraHeaders);
+    UnlinkBattleNetAccount (request: UnlinkBattleNetAccountRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<EmptyResponse>("/Client/UnlinkBattleNetAccount", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Unlinks the related custom identifier from the user's PlayFab account
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/unlinkcustomid
      */
-    UnlinkCustomID (request: UnlinkCustomIDRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<UnlinkCustomIDResult>("/Client/UnlinkCustomID", request, "X-Authorization", customData, extraHeaders);
+    UnlinkCustomID (request: UnlinkCustomIDRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<UnlinkCustomIDResult>("/Client/UnlinkCustomID", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Unlinks the related Facebook account from the user's PlayFab account
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/unlinkfacebookaccount
      */
-    UnlinkFacebookAccount (request: UnlinkFacebookAccountRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<UnlinkFacebookAccountResult>("/Client/UnlinkFacebookAccount", request, "X-Authorization", customData, extraHeaders);
+    UnlinkFacebookAccount (request: UnlinkFacebookAccountRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<UnlinkFacebookAccountResult>("/Client/UnlinkFacebookAccount", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Unlinks the related Facebook Instant Game Ids from the user's PlayFab account
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/unlinkfacebookinstantgamesid
      */
-    UnlinkFacebookInstantGamesId (request: UnlinkFacebookInstantGamesIdRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<UnlinkFacebookInstantGamesIdResult>("/Client/UnlinkFacebookInstantGamesId", request, "X-Authorization", customData, extraHeaders);
+    UnlinkFacebookInstantGamesId (request: UnlinkFacebookInstantGamesIdRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<UnlinkFacebookInstantGamesIdResult>("/Client/UnlinkFacebookInstantGamesId", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Unlinks the related Game Center account from the user's PlayFab account
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/unlinkgamecenteraccount
      */
-    UnlinkGameCenterAccount (request: UnlinkGameCenterAccountRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<UnlinkGameCenterAccountResult>("/Client/UnlinkGameCenterAccount", request, "X-Authorization", customData, extraHeaders);
+    UnlinkGameCenterAccount (request: UnlinkGameCenterAccountRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<UnlinkGameCenterAccountResult>("/Client/UnlinkGameCenterAccount", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -1927,48 +1926,48 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * (https://developers.google.com/android/reference/com/google/android/gms/auth/GoogleAuthUtil#public-methods).
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/unlinkgoogleaccount
      */
-    UnlinkGoogleAccount (request: UnlinkGoogleAccountRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<UnlinkGoogleAccountResult>("/Client/UnlinkGoogleAccount", request, "X-Authorization", customData, extraHeaders);
+    UnlinkGoogleAccount (request: UnlinkGoogleAccountRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<UnlinkGoogleAccountResult>("/Client/UnlinkGoogleAccount", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Unlinks the related Google Play Games account from the user's PlayFab account.
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/unlinkgoogleplaygamesservicesaccount
      */
-    UnlinkGooglePlayGamesServicesAccount (request: UnlinkGooglePlayGamesServicesAccountRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<UnlinkGooglePlayGamesServicesAccountResult>("/Client/UnlinkGooglePlayGamesServicesAccount", request, "X-Authorization", customData, extraHeaders);
+    UnlinkGooglePlayGamesServicesAccount (request: UnlinkGooglePlayGamesServicesAccountRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<UnlinkGooglePlayGamesServicesAccountResult>("/Client/UnlinkGooglePlayGamesServicesAccount", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Unlinks the related iOS device identifier from the user's PlayFab account
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/unlinkiosdeviceid
      */
-    UnlinkIOSDeviceID (request: UnlinkIOSDeviceIDRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<UnlinkIOSDeviceIDResult>("/Client/UnlinkIOSDeviceID", request, "X-Authorization", customData, extraHeaders);
+    UnlinkIOSDeviceID (request: UnlinkIOSDeviceIDRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<UnlinkIOSDeviceIDResult>("/Client/UnlinkIOSDeviceID", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Unlinks the related Kongregate identifier from the user's PlayFab account
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/unlinkkongregate
      */
-    UnlinkKongregate (request: UnlinkKongregateAccountRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<UnlinkKongregateAccountResult>("/Client/UnlinkKongregate", request, "X-Authorization", customData, extraHeaders);
+    UnlinkKongregate (request: UnlinkKongregateAccountRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<UnlinkKongregateAccountResult>("/Client/UnlinkKongregate", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Unlinks the related Nintendo account from the user's PlayFab account.
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/unlinknintendoserviceaccount
      */
-    UnlinkNintendoServiceAccount (request: UnlinkNintendoServiceAccountRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<EmptyResponse>("/Client/UnlinkNintendoServiceAccount", request, "X-Authorization", customData, extraHeaders);
+    UnlinkNintendoServiceAccount (request: UnlinkNintendoServiceAccountRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<EmptyResponse>("/Client/UnlinkNintendoServiceAccount", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Unlinks the related NintendoSwitchDeviceId from the user's PlayFab account
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/unlinknintendoswitchdeviceid
      */
-    UnlinkNintendoSwitchDeviceId (request: UnlinkNintendoSwitchDeviceIdRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<UnlinkNintendoSwitchDeviceIdResult>("/Client/UnlinkNintendoSwitchDeviceId", request, "X-Authorization", customData, extraHeaders);
+    UnlinkNintendoSwitchDeviceId (request: UnlinkNintendoSwitchDeviceIdRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<UnlinkNintendoSwitchDeviceIdResult>("/Client/UnlinkNintendoSwitchDeviceId", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -1976,40 +1975,40 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * between a title and an Open ID Connect provider.
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/unlinkopenidconnect
      */
-    UnlinkOpenIdConnect (request: UnlinkOpenIdConnectRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<EmptyResponse>("/Client/UnlinkOpenIdConnect", request, "X-Authorization", customData, extraHeaders);
+    UnlinkOpenIdConnect (request: UnlinkOpenIdConnectRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<EmptyResponse>("/Client/UnlinkOpenIdConnect", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Unlinks the related PlayStation :tm: Network account from the user's PlayFab account
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/unlinkpsnaccount
      */
-    UnlinkPSNAccount (request: UnlinkPSNAccountRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<UnlinkPSNAccountResult>("/Client/UnlinkPSNAccount", request, "X-Authorization", customData, extraHeaders);
+    UnlinkPSNAccount (request: UnlinkPSNAccountRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<UnlinkPSNAccountResult>("/Client/UnlinkPSNAccount", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Unlinks the related Steam account from the user's PlayFab account
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/unlinksteamaccount
      */
-    UnlinkSteamAccount (request: UnlinkSteamAccountRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<UnlinkSteamAccountResult>("/Client/UnlinkSteamAccount", request, "X-Authorization", customData, extraHeaders);
+    UnlinkSteamAccount (request: UnlinkSteamAccountRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<UnlinkSteamAccountResult>("/Client/UnlinkSteamAccount", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Unlinks the related Twitch account from the user's PlayFab account.
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/unlinktwitch
      */
-    UnlinkTwitch (request: UnlinkTwitchAccountRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<UnlinkTwitchAccountResult>("/Client/UnlinkTwitch", request, "X-Authorization", customData, extraHeaders);
+    UnlinkTwitch (request: UnlinkTwitchAccountRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<UnlinkTwitchAccountResult>("/Client/UnlinkTwitch", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Unlinks the related Xbox Live account from the user's PlayFab account
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/unlinkxboxaccount
      */
-    UnlinkXboxAccount (request: UnlinkXboxAccountRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<UnlinkXboxAccountResult>("/Client/UnlinkXboxAccount", request, "X-Authorization", customData, extraHeaders);
+    UnlinkXboxAccount (request: UnlinkXboxAccountRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<UnlinkXboxAccountResult>("/Client/UnlinkXboxAccount", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -2019,8 +2018,8 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * be decremented, consistent with the operation of ConsumeItem.
      * https://docs.microsoft.com/rest/api/playfab/client/player-item-management/unlockcontainerinstance
      */
-    UnlockContainerInstance (request: UnlockContainerInstanceRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<UnlockContainerItemResult>("/Client/UnlockContainerInstance", request, "X-Authorization", customData, extraHeaders);
+    UnlockContainerInstance (request: UnlockContainerInstanceRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<UnlockContainerItemResult>("/Client/UnlockContainerInstance", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -2030,24 +2029,24 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * consumable (RemainingUses > 0), their RemainingUses will be decremented, consistent with the operation of ConsumeItem.
      * https://docs.microsoft.com/rest/api/playfab/client/player-item-management/unlockcontaineritem
      */
-    UnlockContainerItem (request: UnlockContainerItemRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<UnlockContainerItemResult>("/Client/UnlockContainerItem", request, "X-Authorization", customData, extraHeaders);
+    UnlockContainerItem (request: UnlockContainerItemRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<UnlockContainerItemResult>("/Client/UnlockContainerItem", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Update the avatar URL of the player
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/updateavatarurl
      */
-    UpdateAvatarUrl (request: UpdateAvatarUrlRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<EmptyResponse>("/Client/UpdateAvatarUrl", request, "X-Authorization", customData, extraHeaders);
+    UpdateAvatarUrl (request: UpdateAvatarUrlRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<EmptyResponse>("/Client/UpdateAvatarUrl", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Creates and updates the title-specific custom data for the user's character which is readable and writable by the client
      * https://docs.microsoft.com/rest/api/playfab/client/character-data/updatecharacterdata
      */
-    UpdateCharacterData (request: UpdateCharacterDataRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<UpdateCharacterDataResult>("/Client/UpdateCharacterData", request, "X-Authorization", customData, extraHeaders);
+    UpdateCharacterData (request: UpdateCharacterDataRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<UpdateCharacterDataResult>("/Client/UpdateCharacterData", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -2055,16 +2054,16 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * permitted to update statistics. Developers may override this setting in the Game Manager > Settings > API Features.
      * https://docs.microsoft.com/rest/api/playfab/client/characters/updatecharacterstatistics
      */
-    UpdateCharacterStatistics (request: UpdateCharacterStatisticsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<UpdateCharacterStatisticsResult>("/Client/UpdateCharacterStatistics", request, "X-Authorization", customData, extraHeaders);
+    UpdateCharacterStatistics (request: UpdateCharacterStatisticsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<UpdateCharacterStatisticsResult>("/Client/UpdateCharacterStatistics", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Updates the title-specific custom property values for a player
      * https://docs.microsoft.com/rest/api/playfab/client/player-data-management/updateplayercustomproperties
      */
-    UpdatePlayerCustomProperties (request: UpdatePlayerCustomPropertiesRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<UpdatePlayerCustomPropertiesResult>("/Client/UpdatePlayerCustomProperties", request, "X-Authorization", customData, extraHeaders);
+    UpdatePlayerCustomProperties (request: UpdatePlayerCustomPropertiesRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<UpdatePlayerCustomPropertiesResult>("/Client/UpdatePlayerCustomProperties", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -2072,8 +2071,8 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * update statistics. Developers may override this setting in the Game Manager > Settings > API Features.
      * https://docs.microsoft.com/rest/api/playfab/client/player-data-management/updateplayerstatistics
      */
-    UpdatePlayerStatistics (request: UpdatePlayerStatisticsRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<UpdatePlayerStatisticsResult>("/Client/UpdatePlayerStatistics", request, "X-Authorization", customData, extraHeaders);
+    UpdatePlayerStatistics (request: UpdatePlayerStatisticsRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<UpdatePlayerStatisticsResult>("/Client/UpdatePlayerStatistics", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -2084,32 +2083,32 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * https://docs.microsoft.com/gaming/playfab/features/social/groups/using-shared-group-data
      * https://docs.microsoft.com/rest/api/playfab/client/shared-group-data/updatesharedgroupdata
      */
-    UpdateSharedGroupData (request: UpdateSharedGroupDataRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<UpdateSharedGroupDataResult>("/Client/UpdateSharedGroupData", request, "X-Authorization", customData, extraHeaders);
+    UpdateSharedGroupData (request: UpdateSharedGroupDataRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<UpdateSharedGroupDataResult>("/Client/UpdateSharedGroupData", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Creates and updates the title-specific custom data for the user which is readable and writable by the client
      * https://docs.microsoft.com/rest/api/playfab/client/player-data-management/updateuserdata
      */
-    UpdateUserData (request: UpdateUserDataRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<UpdateUserDataResult>("/Client/UpdateUserData", request, "X-Authorization", customData, extraHeaders);
+    UpdateUserData (request: UpdateUserDataRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<UpdateUserDataResult>("/Client/UpdateUserData", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Creates and updates the publisher-specific custom data for the user which is readable and writable by the client
      * https://docs.microsoft.com/rest/api/playfab/client/player-data-management/updateuserpublisherdata
      */
-    UpdateUserPublisherData (request: UpdateUserDataRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<UpdateUserDataResult>("/Client/UpdateUserPublisherData", request, "X-Authorization", customData, extraHeaders);
+    UpdateUserPublisherData (request: UpdateUserDataRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<UpdateUserDataResult>("/Client/UpdateUserPublisherData", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Updates the title specific display name for the user
      * https://docs.microsoft.com/rest/api/playfab/client/account-management/updateusertitledisplayname
      */
-    UpdateUserTitleDisplayName (request: UpdateUserTitleDisplayNameRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<UpdateUserTitleDisplayNameResult>("/Client/UpdateUserTitleDisplayName", request, "X-Authorization", customData, extraHeaders);
+    UpdateUserTitleDisplayName (request: UpdateUserTitleDisplayNameRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<UpdateUserTitleDisplayNameResult>("/Client/UpdateUserTitleDisplayName", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -2118,8 +2117,8 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * the purchased catalog item
      * https://docs.microsoft.com/rest/api/playfab/client/platform-specific-methods/validateamazoniapreceipt
      */
-    ValidateAmazonIAPReceipt (request: ValidateAmazonReceiptRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<ValidateAmazonReceiptResult>("/Client/ValidateAmazonIAPReceipt", request, "X-Authorization", customData, extraHeaders);
+    ValidateAmazonIAPReceipt (request: ValidateAmazonReceiptRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<ValidateAmazonReceiptResult>("/Client/ValidateAmazonIAPReceipt", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -2127,8 +2126,8 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * version 2._ Validates a Google Play purchase and gives the corresponding item to the player.
      * https://docs.microsoft.com/rest/api/playfab/client/platform-specific-methods/validategoogleplaypurchase
      */
-    ValidateGooglePlayPurchase (request: ValidateGooglePlayPurchaseRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<ValidateGooglePlayPurchaseResult>("/Client/ValidateGooglePlayPurchase", request, "X-Authorization", customData, extraHeaders);
+    ValidateGooglePlayPurchase (request: ValidateGooglePlayPurchaseRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<ValidateGooglePlayPurchaseResult>("/Client/ValidateGooglePlayPurchase", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -2137,8 +2136,8 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * purchased catalog item
      * https://docs.microsoft.com/rest/api/playfab/client/platform-specific-methods/validateiosreceipt
      */
-    ValidateIOSReceipt (request: ValidateIOSReceiptRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<ValidateIOSReceiptResult>("/Client/ValidateIOSReceipt", request, "X-Authorization", customData, extraHeaders);
+    ValidateIOSReceipt (request: ValidateIOSReceiptRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<ValidateIOSReceiptResult>("/Client/ValidateIOSReceipt", request, "X-Authorization", extraHeaders);
     }
 
     /**
@@ -2147,32 +2146,32 @@ export default class PlayFabClientApi extends PlayFabCommon {
      * matches the purchased catalog item
      * https://docs.microsoft.com/rest/api/playfab/client/platform-specific-methods/validatewindowsstorereceipt
      */
-    ValidateWindowsStoreReceipt (request: ValidateWindowsReceiptRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<ValidateWindowsReceiptResult>("/Client/ValidateWindowsStoreReceipt", request, "X-Authorization", customData, extraHeaders);
+    ValidateWindowsStoreReceipt (request: ValidateWindowsReceiptRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<ValidateWindowsReceiptResult>("/Client/ValidateWindowsStoreReceipt", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Writes a character-based event into PlayStream.
      * https://docs.microsoft.com/rest/api/playfab/client/analytics/writecharacterevent
      */
-    WriteCharacterEvent (request: WriteClientCharacterEventRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<WriteEventResponse>("/Client/WriteCharacterEvent", request, "X-Authorization", customData, extraHeaders);
+    WriteCharacterEvent (request: WriteClientCharacterEventRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<WriteEventResponse>("/Client/WriteCharacterEvent", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Writes a player-based event into PlayStream.
      * https://docs.microsoft.com/rest/api/playfab/client/analytics/writeplayerevent
      */
-    WritePlayerEvent (request: WriteClientPlayerEventRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<WriteEventResponse>("/Client/WritePlayerEvent", request, "X-Authorization", customData, extraHeaders);
+    WritePlayerEvent (request: WriteClientPlayerEventRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<WriteEventResponse>("/Client/WritePlayerEvent", request, "X-Authorization", extraHeaders);
     }
 
     /**
      * Writes a title-based event into PlayStream.
      * https://docs.microsoft.com/rest/api/playfab/client/analytics/writetitleevent
      */
-    WriteTitleEvent (request: WriteTitleEventRequest, customData?: any, extraHeaders?: Record<string, string>) {
-        return this.ExecuteRequestWrapper<WriteEventResponse>("/Client/WriteTitleEvent", request, "X-Authorization", customData, extraHeaders);
+    WriteTitleEvent (request: WriteTitleEventRequest, extraHeaders?: Record<string, string>) {
+        return this.ExecuteRequestWrapper<WriteEventResponse>("/Client/WriteTitleEvent", request, "X-Authorization", extraHeaders);
     }
 
 };

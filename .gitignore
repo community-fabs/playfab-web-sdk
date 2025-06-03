@@ -1,10 +1,4 @@
-**/*[Tt]estTitleData.json*
-
-bin/
-obj/
-.vs/
-
-*.map
-*.user
-
-testTitleData.json
+.env*
+dist
+node_modules
+npm-debug.log

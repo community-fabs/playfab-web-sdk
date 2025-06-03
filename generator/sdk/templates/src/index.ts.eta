@@ -1,0 +1,9 @@
+<% for (const doc of it.docs) { %>
+import PlayFab<%= doc.name %>Api from "./apis/PlayFab<%= doc.name %>Api";
+<% } %>
+
+export {
+<% for (const doc of it.docs) { %>
+  PlayFab<%= doc.name %>Api,
+<% } %>
+};

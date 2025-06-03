@@ -1,0 +1,23 @@
+{
+  "name": "async-playfab-web-sdk",
+  "version": "<%= it.sdkVersion %>",
+  "description": "Asynchronous Playfab SDK for JS client applications",
+  "license": "Apache-2.0",
+  "type": "module",
+  "scripts": {
+    "build": "tsup"
+  },
+  "main": "dist/index.js",
+  "files": [
+    "/dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/r3pwn/async-playfab-web-sdk.git"
+  },
+  "devDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "^4.41.1",
+    "tsup": "^8.5.0",
+    "typescript": "^5.8.3"
+  }
+}

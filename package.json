@@ -1,0 +1,23 @@
+{
+  "name": "sdk-generator",
+  "version": "0.0.1",
+  "scripts": {
+    "generate:sdk": "node generator/build-sdk.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/r3pwn/async-playfab-web-sdk.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/r3pwn/async-playfab-web-sdk/issues"
+  },
+  "homepage": "https://github.com/r3pwn/async-playfab-web-sdk#readme",
+  "description": "",
+  "devDependencies": {
+    "eta": "^3.5.0"
+  }
+}

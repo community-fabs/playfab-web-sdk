@@ -35,12 +35,12 @@ export const AuthInfoMap = {
 export default {
   sdkVersion: "1.192.250526",
   sdkFingerprint: "JavaScriptSDK-1.192.250526",
-  buildIdentifier: "Custom_async-playfab-web-sdk", // test manual change - this should go away after a pipeline run
+  buildIdentifier: "Custom_async-playfab-web-sdk",
   defaultSettings: {
     titleId: "",
     developerSecretKey: "",
     GlobalHeaderInjection: {},
     productionServerUrl: ".playfabapi.com",
-    verticalName: "",
-  } as ISettings,
+    verticalName: ""
+  } as ISettings
 };

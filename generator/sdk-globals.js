@@ -1,6 +1,10 @@
 import { getBuildIdentifier } from "./utils.js";
 
-const { DOCS_LOCATION = "https://raw.githubusercontent.com/PlayFab/API_Specs/master" } = process.env;
+const {
+  DOCS_LOCATION = "https://raw.githubusercontent.com/PlayFab/API_Specs/master",
+  MAKE_METHOD = "makeCombinedAPI",
+  PUBLISH_VERSION_SUFFIX = ""
+} = process.env;
 const SKIP_DOC_TAGS = ["Beta"];
 
 async function getOpenAPIDoc(relPath) {
@@ -22,7 +26,7 @@ async function getPlayFabData() {
   const { sdkVersion } = sdkDocInfo ? await getOpenAPIDoc(sdkDocInfo.relPath) : { sdkVersion: {} };
 
   const docs = await Promise.all(
-    docsInfo.filter(doc => doc.sdkGenMakeMethods?.includes('makeCombinedAPI'))
+    docsInfo.filter(doc => doc.sdkGenMakeMethods?.includes(MAKE_METHOD))
       .map(doc => getOpenAPIDoc(doc.relPath))
   );
 
@@ -42,6 +46,7 @@ export const generateSdkGlobals = async () => {
 
   return {
     ...playfabData,
+    publishVersion: PUBLISH_VERSION_SUFFIX ? `${playfabData.sdkVersion}-${PUBLISH_VERSION_SUFFIX}` : playfabData.sdkVersion,
     buildIdentifier: getBuildIdentifier("async-playfab-web-sdk"),
     verticalName: process.env.VERTICAL_NAME || ''
   }

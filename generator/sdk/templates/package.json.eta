@@ -1,6 +1,6 @@
 {
   "name": "async-playfab-web-sdk",
-  "version": "<%= it.sdkVersion %>",
+  "version": "<%= it.publishVersion %>",
   "description": "Asynchronous Playfab SDK for JS client applications",
   "license": "Apache-2.0",
   "type": "module",

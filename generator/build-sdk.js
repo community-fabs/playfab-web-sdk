@@ -3,7 +3,7 @@ import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import { generateSdkGlobals } from "./sdk-globals.js";
-import { generateApiSummary, getBaseType, getPropertyType, getAuthParams } from "./sdk-utils.js";
+import { generateApiSummary, getBaseType, getPropertyType, getAuthParams, getRequestActions, getResultActions } from "./sdk-utils.js";
 
 console.time("SDK generated")
 
@@ -103,7 +103,9 @@ async function getRenderData() {
     ...sdkGlobals,
     generateDatatype,
     generateApiSummary,
-    getAuthParams
+    getAuthParams,
+    getRequestActions,
+    getResultActions
   };
 }
 

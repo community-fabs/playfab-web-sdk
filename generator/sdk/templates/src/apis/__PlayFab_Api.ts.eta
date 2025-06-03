@@ -22,7 +22,18 @@ export default class PlayFab<%= it.doc.name %>Api extends PlayFabCommon {
 <% for (const apiCall of it.doc.calls) { %>
 <%~ it.generateApiSummary("  ", apiCall, "summary", true) %>
   <%= apiCall.name %> (request: <%~ apiCall.request %>, extraHeaders?: Record<string, string>) {
+<%~ it.getRequestActions("    ", apiCall) %>
+<% const resultActions = it.getResultActions("        ", apiCall); %>
+<% if (resultActions) { %>
+    return this.ExecuteRequestWrapper<<%~ apiCall.result %>>("<%= apiCall.url %>", request, <%~ it.getAuthParams(apiCall) %>, extraHeaders)
+      .then(result => {
+<%~ resultActions %>
+
+        return result;
+      });
+<% } else { %>
     return this.ExecuteRequestWrapper<<%~ apiCall.result %>>("<%= apiCall.url %>", request, <%~ it.getAuthParams(apiCall) %>, extraHeaders);
+<% } %>
   }
 
 <% } %>

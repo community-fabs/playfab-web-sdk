@@ -114,3 +114,37 @@ export function getAuthParams(apiCall) {
 
   return "null";
 }
+
+export function getRequestActions(tabbing, apiCall) {
+  if (apiCall.url === "/Authentication/GetEntityToken")
+    return tabbing + "var authKey: string | null = null; var authValue: string | null = null;\n"
+      + tabbing + "if (!authKey && this.sessionTicket) { var authInfo = this.GetAuthInfo(request, authKey=\"X-Authorization\"); authKey = authInfo.authKey, authValue = authInfo.authValue; }\n"
+      + tabbing + "if (!authKey && this.settings.developerSecretKey) { var authInfo = this.GetAuthInfo(request, authKey=\"X-SecretKey\"); authKey = authInfo.authKey, authValue = authInfo.authValue; }\n";
+  if (apiCall.result === "LoginResult" || apiCall.request === "RegisterPlayFabUserRequest")
+    return tabbing + "request.TitleId = this.settings.titleId ? this.settings.titleId : request.TitleId; if (!request.TitleId) throw this.errorTitleId;\n"
+      + tabbing + "// this.authenticationContext can be modified by other asynchronous login attempts\n"
+      + tabbing + "// Deep-copy the authenticationContext here to safely update it\n"
+      + tabbing + "var authenticationContext = JSON.parse(JSON.stringify(this.authenticationContext));\n";
+  return "";
+}
+
+export function getResultActions(tabbing, apiCall) {
+  if (apiCall.result === "LoginResult" || apiCall.result === "RegisterPlayFabUserResult")
+    return tabbing + "if (result) {\n"
+      + tabbing + "  if(result?.SessionTicket) {\n"
+      + tabbing + "    this.sessionTicket = result.SessionTicket;\n"
+      + tabbing + "  }\n"
+      + tabbing + "  if (result?.EntityToken?.EntityToken) {\n"
+      + tabbing + "    this.entityToken = result.EntityToken.EntityToken;\n"
+      + tabbing + "  }\n"
+      + tabbing + "  // Apply the updates for the AuthenticationContext returned to the client\n"
+      + tabbing + "  authenticationContext = this.UpdateAuthenticationContext(authenticationContext, result);\n"
+      + tabbing + "}";
+  if (apiCall.url === "/Authentication/GetEntityToken")
+    return tabbing + "if (result?.EntityToken)\n"
+      + tabbing + "  this.entityToken = result.EntityToken;";
+  if (apiCall.url === "/GameServerIdentity/AuthenticateGameServerWithCustomId")
+    return tabbing + "if (result?.EntityToken?.EntityToken)\n"
+      + tabbing + "  this.entityToken = result.EntityToken.EntityToken;";
+  return "";
+}

@@ -2,12 +2,13 @@ import { wordWrap } from './utils.js';
 
 function generateApiSummaryLines(apiElement, summaryParam, linkToDocs) {
   let fullSummary;
-  if (!apiElement.hasOwnProperty(summaryParam))
+  if (!apiElement[summaryParam]) {
     fullSummary = [""];
-  else if (!Array.isArray(apiElement[summaryParam]))
+  } else if (!Array.isArray(apiElement[summaryParam])) {
     fullSummary = [apiElement[summaryParam]];
-  else
+  } else {
     fullSummary = apiElement[summaryParam];
+  }
   let lines;
   const joinedSummary = fullSummary.join(" ");
   const wrappedSummary = wordWrap(joinedSummary);
@@ -17,20 +18,44 @@ function generateApiSummaryLines(apiElement, summaryParam, linkToDocs) {
     lines = [];
   }
 
+
+  // Add extra documentation lines linking to PlayFab documentation
+  const apiName = apiElement.url?.split("/")[1];
+  if (linkToDocs && apiElement.url) {
+    lines.push('')
+    const apiCategory = apiElement.subgroup.toLowerCase().replaceAll(" ", "-");
+    const fullApiUrl = "https://docs.microsoft.com/rest/api/playfab/" + apiName.toLowerCase() + "/" + apiCategory + "/" + apiElement.name.toLowerCase();
+    lines.push(`{@link ${fullApiUrl} Microsoft Documentation}`);
+  }
+
   // Add extra documentation lines about deprecation
-  if (apiElement.hasOwnProperty("deprecation") && apiElement.deprecation !== null) {
+  if (apiElement.deprecation) {
     if (apiElement.deprecation.ReplacedBy != null)
       lines.push(`@deprecated Please use ${apiElement.deprecation.ReplacedBy} instead.`);
     else
       lines.push("@deprecated Do not use");
   }
 
-  // Add extra documentation lines linking to PlayFab documentation
-  if (linkToDocs && apiElement.hasOwnProperty("url")) {
-    var apiName = apiElement.url.split("/")[1];
-    var apiCategory = apiElement.subgroup.toLowerCase().replaceAll(" ", "-");
-    var fullApiUrl = "https://docs.microsoft.com/rest/api/playfab/" + apiName.toLowerCase() + "/" + apiCategory + "/" + apiElement.name.toLowerCase();
-    lines.push(`Reference: ${fullApiUrl}`);
+
+  if (!apiElement.deprecation && apiElement.requestExample && apiName) {
+    const exampleLines = apiElement.requestExample.split('\n');
+    const examplePrefix = `await ${apiName.toLowerCase()}Client.${apiElement.name}(`;
+    const exampleSuffix = `);`;
+
+    lines.push('@example');
+    if (exampleLines.length > 1) {
+      lines.push(`${examplePrefix}${exampleLines.at(0)}`);
+      for (let i = 1; i < exampleLines.length - 1; i++) {
+        lines.push(exampleLines[i]);
+      }
+      lines.push(`${exampleLines.at(-1)}${exampleSuffix}`);
+    } else {
+      lines.push(`${examplePrefix}${exampleLines.at(0)}${exampleSuffix}`)
+    }
+  }
+
+  if (lines.at(-1) === '') {
+    lines.pop();
   }
 
   return lines;
@@ -40,7 +65,7 @@ export function generateApiSummary(tabbing, apiElement, summaryParam, addDocsLin
   const lines = generateApiSummaryLines(apiElement, summaryParam, addDocsLink);
 
   for (var i = 0; i < lines.length; i++)
-    if (lines[0].includes("*/"))
+    if (lines[0]?.includes("*/"))
       return ""; // Can't support end-JS block-comment in our JS comments
 
   var output;
@@ -148,3 +173,4 @@ export function getResultActions(tabbing, apiCall) {
       + tabbing + "  this.entityToken = result.EntityToken.EntityToken;";
   return "";
 }
+

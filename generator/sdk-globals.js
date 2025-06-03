@@ -4,7 +4,6 @@ const { DOCS_LOCATION = "https://raw.githubusercontent.com/PlayFab/API_Specs/mas
 const SKIP_DOC_TAGS = ["Beta"];
 
 async function getOpenAPIDoc(relPath) {
-  console.log(`${DOCS_LOCATION}/${relPath}`)
   const document = await fetch(`${DOCS_LOCATION}/${relPath}`);
   return await document.json();
 }

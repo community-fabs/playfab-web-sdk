@@ -1,0 +1,16 @@
+<% if (it.doc.calls.some(api => api.result === 'EmptyResponse')) { %>
+import type { EmptyResponse } from "../types/PlayFab";
+<% } %>
+import type {
+<% for(const request of new Set(it.doc.calls.flatMap(api => api.request))) { %>
+  <%= request %>,
+<% } %>
+<% for(const result of new Set(it.doc.calls.flatMap(api => api.result).filter(type => type !== 'EmptyResponse'))) { %>
+  <%= result %>,
+<% } %>
+} from "../types/PlayFab<%= it.doc.name %>Api";
+import { PlayFabCommon } from "../PlayFabCommon";
+
+export default class PlayFab<%= it.doc.name %>Api extends PlayFabCommon {
+
+};

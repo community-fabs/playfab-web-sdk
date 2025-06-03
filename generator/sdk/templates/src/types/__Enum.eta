@@ -1,0 +1,7 @@
+<% const enumvalues = it.datatype.enumvalues %>
+type <%= it.datatype.name -%> = "<%= enumvalues[0].name %>"
+<% for (let i = 1; i < enumvalues.length; i++) { %>
+  | "<%= enumvalues[i].name %>"<% if (i === enumvalues.length - 1 ) { %>;<% } %>
+
+<% } %>
+

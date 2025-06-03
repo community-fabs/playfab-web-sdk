@@ -1,0 +1,8 @@
+<%= it.generateApiSummary("", it.datatype, "summary")%>
+export interface <%= it.datatype.name %><%= it.getBaseType(it.datatype) %> {
+<% if (it.datatype.properties) { for (const property of it.datatype.properties) { %>
+<%= it.generateApiSummary("  ", property, "description") %>
+  <%= property.name %><%~ it.getPropertyType(property, it.datatype) %>;
+<% } } %>
+}
+

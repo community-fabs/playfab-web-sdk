@@ -1,46 +1,43 @@
 import { wordWrap } from './utils.js';
 
-function generateApiSummaryLines(apiElement, summaryParam, linkToDocs, deprecationLabel) {
-  var fullSummary;
+function generateApiSummaryLines(apiElement, summaryParam, linkToDocs) {
+  let fullSummary;
   if (!apiElement.hasOwnProperty(summaryParam))
     fullSummary = [""];
   else if (!Array.isArray(apiElement[summaryParam]))
     fullSummary = [apiElement[summaryParam]];
   else
     fullSummary = apiElement[summaryParam];
-  var lines;
-  var joinedSummary = fullSummary.join(" ");
-  var wrappedSummary = wordWrap(joinedSummary);
-  if (wrappedSummary && wrappedSummary.length > 0)
+  let lines;
+  const joinedSummary = fullSummary.join(" ");
+  const wrappedSummary = wordWrap(joinedSummary);
+  if (wrappedSummary && wrappedSummary.length > 0) {
     lines = wrappedSummary.split("\n");
-  else
+  } else {
     lines = [];
-  // Add extra documentation lines about deprecation
-  if (deprecationLabel && apiElement.hasOwnProperty("deprecation") && apiElement.deprecation !== null) {
-    if (apiElement.deprecation.ReplacedBy != null)
-      lines.push(deprecationLabel + " Please use " + apiElement.deprecation.ReplacedBy + " instead.");
-    else
-      lines.push(deprecationLabel + " Do not use");
   }
+
+  // Add extra documentation lines about deprecation
+  if (apiElement.hasOwnProperty("deprecation") && apiElement.deprecation !== null) {
+    if (apiElement.deprecation.ReplacedBy != null)
+      lines.push(`@deprecated Please use ${apiElement.deprecation.ReplacedBy} instead.`);
+    else
+      lines.push("@deprecated Do not use");
+  }
+
   // Add extra documentation lines linking to PlayFab documentation
   if (linkToDocs && apiElement.hasOwnProperty("url")) {
     var apiName = apiElement.url.split("/")[1];
     var apiCategory = apiElement.subgroup.toLowerCase().replaceAll(" ", "-");
     var fullApiUrl = "https://docs.microsoft.com/rest/api/playfab/" + apiName.toLowerCase() + "/" + apiCategory + "/" + apiElement.name.toLowerCase();
-    lines.push("API Method Documentation: " + fullApiUrl);
-    if (apiElement.hasOwnProperty("request")) {
-      lines.push("Request Documentation: " + fullApiUrl + "#" + apiElement.request.toLowerCase());
-    }
-    if (apiElement.hasOwnProperty("result")) {
-      lines.push("Response Documentation: " + fullApiUrl + "#" + apiElement.result.toLowerCase());
-    }
+    lines.push(`Reference: ${fullApiUrl}`);
   }
 
   return lines;
 }
 
 export function generateApiSummary(tabbing, apiElement, summaryParam, addDocsLink = false) {
-  const lines = generateApiSummaryLines(apiElement, summaryParam, addDocsLink, "@deprecated");
+  const lines = generateApiSummaryLines(apiElement, summaryParam, addDocsLink);
 
   for (var i = 0; i < lines.length; i++)
     if (lines[0].includes("*/"))
@@ -61,8 +58,8 @@ export function getBaseType(datatype) {
   if (datatype.isRequest)
     return " extends IPlayFabRequestCommon";
   if (datatype.isResult)
-    return " extends IPlayFabResultCommon ";
-  return ""; // If both are -1, then neither is greater
+    return " extends IPlayFabResultCommon";
+  return "";
 }
 
 export function getPropertyType(property, datatype) {
@@ -102,4 +99,18 @@ export function getPropertyType(property, datatype) {
   }
 
   return (isOptional ? "?" : "") + ": " + output;
+}
+
+export function getAuthParams(apiCall) {
+  // Returns the authKey to PlayFab._internalSettings.ExecuteRequestWrapper()
+  if (apiCall.url === "/Authentication/GetEntityToken")
+    return "authKey";
+  if (apiCall.auth === "EntityToken")
+    return "\"X-EntityToken\"";
+  if (apiCall.auth === "SecretKey")
+    return "\"X-SecretKey\"";
+  if (apiCall.auth === "SessionTicket")
+    return "\"X-Authorization\"";
+
+  return "null";
 }

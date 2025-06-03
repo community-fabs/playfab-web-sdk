@@ -13,4 +13,17 @@ import { PlayFabCommon } from "../PlayFabCommon";
 
 export default class PlayFab<%= it.doc.name %>Api extends PlayFabCommon {
 
+<% if (it.usesSessionToken) { %>
+  IsClientLoggedIn () {
+    return this.sessionTicket != null && this.sessionTicket.length > 0;
+  }
+
+<% } %>
+<% for (const apiCall of it.doc.calls) { %>
+<%~ it.generateApiSummary("  ", apiCall, "summary", true) %>
+  <%= apiCall.name %> (request: <%~ apiCall.request %>, extraHeaders?: Record<string, string>) {
+    return this.ExecuteRequestWrapper<<%~ apiCall.result %>>("<%= apiCall.url %>", request, <%~ it.getAuthParams(apiCall) %>, extraHeaders);
+  }
+
+<% } %>
 };

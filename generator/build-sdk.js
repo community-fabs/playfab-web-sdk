@@ -3,7 +3,7 @@ import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import { generateSdkGlobals } from "./sdk-globals.js";
-import { generateApiSummary, getBaseType, getPropertyType } from "./sdk-utils.js";
+import { generateApiSummary, getBaseType, getPropertyType, getAuthParams } from "./sdk-utils.js";
 
 console.time("SDK generated")
 
@@ -86,7 +86,8 @@ function renderCustomTemplates(renderData) {
   for (const doc of docs) {
     // main source file
     const destClientPath = path.join(sdkDir, "src", "apis", `PlayFab${doc.name}Api.ts`);
-    const renderedClient = eta.render(apiClientPath, { doc, ...globals })
+    const usesSessionToken = doc.calls.some(call => call.auth === "SessionTicket");
+    const renderedClient = eta.render(apiClientPath, { doc, ...globals, usesSessionToken })
     fs.writeFileSync(destClientPath, renderedClient);
 
     // generated types
@@ -100,7 +101,9 @@ async function getRenderData() {
   const sdkGlobals = await generateSdkGlobals()
   return {
     ...sdkGlobals,
-    generateDatatype
+    generateDatatype,
+    generateApiSummary,
+    getAuthParams
   };
 }
 

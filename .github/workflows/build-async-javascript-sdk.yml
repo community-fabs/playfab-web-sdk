@@ -1,4 +1,4 @@
-name: Build Async Javascript SDK
+name: Generate SDK
 
 on:
   workflow_dispatch:

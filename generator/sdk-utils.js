@@ -38,7 +38,7 @@ function generateApiSummaryLines(apiElement, summaryParam, linkToDocs) {
 
 
   if (!apiElement.deprecation && apiElement.requestExample && apiName) {
-    const exampleLines = apiElement.requestExample.split('\n');
+    const exampleLines = apiElement.requestExample.replaceAll('*/', '*\\/').split('\n');
     const examplePrefix = `await ${apiName.toLowerCase()}Client.${apiElement.name}(`;
     const exampleSuffix = `);`;
 

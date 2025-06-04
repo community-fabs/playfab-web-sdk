@@ -199,7 +199,7 @@ export default class PlayFabProfilesApi extends PlayFabCommon {
    * await profileClient.SetProfilePolicy({
    *   "Statements": [
    *     {
-   *       "Resource": "pfrn:data--*!*/Profile/Files/avatar.png",
+   *       "Resource": "pfrn:data--*!*\/Profile/Files/avatar.png",
    *       "Action": "Read",
    *       "Effect": "Allow",
    *       "Principal": {

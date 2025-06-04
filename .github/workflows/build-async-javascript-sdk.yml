@@ -2,9 +2,19 @@ name: Generate SDK
 
 on:
   workflow_dispatch:
+    inputs:
+      pub_ver_suffix:
+        description: "Publish Version Suffix"
+        required: false
+      build_prefix:
+        description: "Build Identifier Prefix"
+        required: true
+        default: "ghactions_"
 
 env:
   GITHUB_TOKEN: ${{ secrets.AUTO_COMMIT_PAT }}
+  PUBLISH_VERSION_SUFFIX: ${{ github.event.inputs.pub_ver_suffix }}
+  BUILD_PREFIX: ${{ github.event.inputs.build_prefix }}
 
 jobs:
   build:

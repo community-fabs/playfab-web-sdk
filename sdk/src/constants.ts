@@ -35,7 +35,7 @@ export const AuthInfoMap = {
 export default {
   sdkVersion: "1.192.250526",
   sdkFingerprint: "JavaScriptSDK-1.192.250526",
-  buildIdentifier: "Custom_async-playfab-web-sdk",
+  buildIdentifier: "ghactions_async-playfab-web-sdk",
   defaultSettings: {
     titleId: "",
     developerSecretKey: "",

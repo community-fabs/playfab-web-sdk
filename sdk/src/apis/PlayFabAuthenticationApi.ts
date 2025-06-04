@@ -14,7 +14,12 @@ export default class PlayFabAuthenticationApi extends PlayFabCommon {
 
   /**
    * Create a game_server entity token and return a new or existing game_server entity.
-   * Reference: https://docs.microsoft.com/rest/api/playfab/gameserveridentity/authentication/authenticategameserverwithcustomid
+   * 
+   * {@link https://docs.microsoft.com/rest/api/playfab/gameserveridentity/authentication/authenticategameserverwithcustomid Microsoft Documentation}
+   * @example
+   * await gameserveridentityClient.AuthenticateGameServerWithCustomId({
+   *   "CustomId": "12345678123412341234123456789abc"
+   * });
    */
   AuthenticateGameServerWithCustomId (request: AuthenticateCustomIdRequest, extraHeaders?: Record<string, string>) {
     return this.ExecuteRequestWrapper<AuthenticateCustomIdResult>("/GameServerIdentity/AuthenticateGameServerWithCustomId", request, "X-EntityToken", extraHeaders)
@@ -27,7 +32,16 @@ export default class PlayFabAuthenticationApi extends PlayFabCommon {
 
   /**
    * Delete a game_server entity.
-   * Reference: https://docs.microsoft.com/rest/api/playfab/gameserveridentity/authentication/delete
+   * 
+   * {@link https://docs.microsoft.com/rest/api/playfab/gameserveridentity/authentication/delete Microsoft Documentation}
+   * @example
+   * await gameserveridentityClient.Delete({
+   *   "Entity": {
+   *     "Id": "3D00C64954",
+   *     "Type": "game_server",
+   *     "TypeString": "game_server"
+   *   }
+   * });
    */
   Delete (request: DeleteRequest, extraHeaders?: Record<string, string>) {
     return this.ExecuteRequestWrapper<EmptyResponse>("/GameServerIdentity/Delete", request, "X-EntityToken", extraHeaders);
@@ -36,7 +50,10 @@ export default class PlayFabAuthenticationApi extends PlayFabCommon {
   /**
    * Method to exchange a legacy AuthenticationTicket or title SecretKey for an Entity Token or to refresh a still valid
    * Entity Token.
-   * Reference: https://docs.microsoft.com/rest/api/playfab/authentication/authentication/getentitytoken
+   * 
+   * {@link https://docs.microsoft.com/rest/api/playfab/authentication/authentication/getentitytoken Microsoft Documentation}
+   * @example
+   * await authenticationClient.GetEntityToken({});
    */
   GetEntityToken (request: GetEntityTokenRequest, extraHeaders?: Record<string, string>) {
     var authKey: string | null = null; var authValue: string | null = null;
@@ -52,7 +69,12 @@ export default class PlayFabAuthenticationApi extends PlayFabCommon {
 
   /**
    * Method for a server to validate a client provided EntityToken. Only callable by the title entity.
-   * Reference: https://docs.microsoft.com/rest/api/playfab/authentication/authentication/validateentitytoken
+   * 
+   * {@link https://docs.microsoft.com/rest/api/playfab/authentication/authentication/validateentitytoken Microsoft Documentation}
+   * @example
+   * await authenticationClient.ValidateEntityToken({
+   *   "EntityToken": "50c61b9065b27a124a400ee3b95d404313986969"
+   * });
    */
   ValidateEntityToken (request: ValidateEntityTokenRequest, extraHeaders?: Record<string, string>) {
     return this.ExecuteRequestWrapper<ValidateEntityTokenResponse>("/Authentication/ValidateEntityToken", request, "X-EntityToken", extraHeaders);

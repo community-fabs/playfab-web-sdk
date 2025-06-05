@@ -39,7 +39,7 @@ export default {
   defaultSettings: {
     titleId: "",
     developerSecretKey: "",
-    GlobalHeaderInjection: {},
+    globalHeaders: {},
     productionServerUrl: ".playfabapi.com",
     verticalName: "<%= it.verticalName %>"
   } as ISettings

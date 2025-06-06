@@ -2041,6 +2041,8 @@ export interface TakedownItemReviewsResponse extends IPlayFabResultCommon {
 export interface Transaction {
   /** The API call that caused this transaction. */
   ApiName?: string;
+  /** Additional details about the transaction. Null if it was not a clawback operation. */
+  ClawbackDetails?: TransactionClawbackDetails;
   /** The country of the caller of the operation. */
   CountryCode?: string;
   /** The type of item that the the operation occurred on. */
@@ -2059,6 +2061,11 @@ export interface Transaction {
   TransactionId?: string;
   /** Additional details about the transaction. Null if it was not a transfer operation. */
   TransferDetails?: TransactionTransferDetails;
+}
+
+export interface TransactionClawbackDetails {
+  /** The id of the clawed back operation. */
+  TransactionIdClawedback?: string;
 }
 
 export interface TransactionOperation {

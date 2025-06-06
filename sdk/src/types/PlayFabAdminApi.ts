@@ -2473,6 +2473,9 @@ type GenericErrorCodes = "Success"
   | "GameSaveServiceNotEnabledForTitle"
   | "GameSaveServiceOnboardingPending"
   | "GameSaveManifestNotEligibleAsConflictingVersion"
+  | "GameSaveServiceUnavailable"
+  | "GameSaveConflict"
+  | "GameSaveManifestNotEligibleForRollback"
   | "StateShareForbidden"
   | "StateShareTitleNotInFlight"
   | "StateShareStateNotFound"
@@ -2490,7 +2493,8 @@ type GenericErrorCodes = "Success"
   | "VersionConfigurationCannotBeSpecifiedForLinkedStat"
   | "VersionConfigurationIsRequired"
   | "InvalidEntityTypeForAggregation"
-  | "MultiLevelAggregationNotAllowed";
+  | "MultiLevelAggregationNotAllowed"
+  | "AggregationTypeNotAllowedForLinkedStat";
 
 /** @deprecated Do not use */
 export interface GetActionGroupResult {

@@ -326,8 +326,8 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    *     "Deaths"
    *   ],
    *   "InitialSettingsModelId": "73a2506e-9fd3-4d84-8dd7-570c8e9e02cf",
-   *   "MatchResultStartTimeUtc": "2025-06-06T13:31:58.123Z",
-   *   "MatchResultEndTimeUtc": "2025-06-06T14:01:58.123Z",
+   *   "MatchResultStartTimeUtc": "2025-05-26T17:12:07.326Z",
+   *   "MatchResultEndTimeUtc": "2025-05-26T17:42:07.326Z",
    *   "MaxIterations": 100,
    *   "AnomalousMatchResultIgnoreThreshold": -20.0
    * });
@@ -2663,8 +2663,8 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    *         "Rank": 1
    *       }
    *     ],
-   *     "StartDateTimeUtc": "2025-06-06T13:31:58.114Z",
-   *     "EndDateTimeUtc": "2025-06-06T14:01:58.114Z"
+   *     "StartDateTimeUtc": "2025-05-26T17:12:07.313Z",
+   *     "EndDateTimeUtc": "2025-05-26T17:42:07.313Z"
    *   }
    * });
    */

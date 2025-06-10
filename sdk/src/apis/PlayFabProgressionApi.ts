@@ -259,10 +259,6 @@ export default class PlayFabProgressionApi extends PlayFabCommon {
    * {@link https://docs.microsoft.com/rest/api/playfab/statistic/statistics/getstatistics Microsoft Documentation}
    * @example
    * await statisticClient.GetStatistics({
-   *   "StatisticNames": [
-   *     "SpeedRuns",
-   *     "Boosts"
-   *   ],
    *   "Entity": {
    *     "Id": "A197412JDA",
    *     "Type": "title_player_account",
@@ -291,10 +287,6 @@ export default class PlayFabProgressionApi extends PlayFabCommon {
    *       "Type": "title_player_account",
    *       "TypeString": "title_player_account"
    *     }
-   *   ],
-   *   "StatisticNames": [
-   *     "SpeedRuns",
-   *     "Boosts"
    *   ]
    * });
    */

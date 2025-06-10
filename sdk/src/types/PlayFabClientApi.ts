@@ -2454,9 +2454,7 @@ export interface LinkedPlatformAccountModel {
 
 export interface LinkFacebookAccountRequest extends IPlayFabRequestCommon {
   /** Unique identifier from Facebook for the user. */
-  AccessToken?: string;
-  /** Token used for limited login authentication. */
-  AuthenticationToken?: string;
+  AccessToken: string;
   /** The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.). */
   CustomTags?: Record<string, string | null>;
   /** If another user is already linked to the account, unlink the other user and re-link. */

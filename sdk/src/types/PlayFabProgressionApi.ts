@@ -111,9 +111,9 @@ export interface EntityLeaderboardEntry {
 }
 
 export interface EntityStatistics {
-  /** The entity for which the statistics are returned. */
+  /** Entity key */
   EntityKey?: EntityKey;
-  /** The statistics for the given entity key. */
+  /** All statistics for the given entitykey */
   Statistics?: EntityStatisticValue[];
 }
 
@@ -289,8 +289,6 @@ export interface GetStatisticsForEntitiesRequest extends IPlayFabRequestCommon {
   CustomTags?: Record<string, string | null>;
   /** Collection of Entity IDs to retrieve statistics for. */
   Entities: EntityKey[];
-  /** The list of statistics to return for the user. If set to null, the current version of all statistics are returned. */
-  StatisticNames?: string[];
 }
 
 export interface GetStatisticsForEntitiesResponse extends IPlayFabResultCommon {
@@ -305,8 +303,6 @@ export interface GetStatisticsRequest extends IPlayFabRequestCommon {
   CustomTags?: Record<string, string | null>;
   /** The optional entity to perform this action on. Defaults to the currently logged in entity. */
   Entity?: EntityKey;
-  /** The list of statistics to return for the user. If set to null, the current version of all statistics are returned. */
-  StatisticNames?: string[];
 }
 
 export interface GetStatisticsResponse extends IPlayFabResultCommon {

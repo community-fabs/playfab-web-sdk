@@ -33,13 +33,13 @@ export const AuthInfoMap = {
 };
 
 export default {
-  sdkVersion: "1.192.250526",
-  sdkFingerprint: "JavaScriptSDK-1.192.250526",
+  sdkVersion: "1.193.250606",
+  sdkFingerprint: "JavaScriptSDK-1.193.250606",
   buildIdentifier: "ghactions_async-playfab-web-sdk",
   defaultSettings: {
     titleId: "",
     developerSecretKey: "",
-    GlobalHeaderInjection: {},
+    globalHeaders: {},
     productionServerUrl: ".playfabapi.com",
     verticalName: ""
   } as ISettings

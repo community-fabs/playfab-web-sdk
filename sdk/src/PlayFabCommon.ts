@@ -100,7 +100,7 @@ export class PlayFabCommon {
     const jsonResponse = await response.json();
 
     if (!response.ok || jsonResponse.code !== 200) {
-      throw new Error(jsonResponse);
+      throw jsonResponse as IPlayFabError;
     }
 
     return jsonResponse as { data: T };

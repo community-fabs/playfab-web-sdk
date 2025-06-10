@@ -37,10 +37,17 @@ jobs:
               echo "changes=true" >> "$GITHUB_OUTPUT"; 
           fi
 
+      - name: Validate SDK Changes
+        if: steps.check_changes.outputs.changes == 'true'
+        run: |
+          cd sdk
+          npm install
+          npm run build
+          cd ..
+
       - name: Commit and push SDK changes
         if: steps.check_changes.outputs.changes == 'true'
         run: |
-          npm install
           git config user.name "GitHub Actions"
           git config user.email "gwillard@r3pwn.com"
           git add .

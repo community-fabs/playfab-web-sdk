@@ -40,6 +40,7 @@ jobs:
       - name: Commit and push SDK changes
         if: steps.check_changes.outputs.changes == 'true'
         run: |
+          npm install
           git config user.name "GitHub Actions"
           git config user.email "gwillard@r3pwn.com"
           git add .

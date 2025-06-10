@@ -2,7 +2,6 @@ import constants, { ISettings, AuthInfoMap, ErrorMessages } from "./constants";
 import { AuthContext, PlayFabContext } from "./PlayFabContext";
 import { IPlayFabError, IPlayFabResultCommon } from "./types/PlayFab";
 
-// this comment will automatically get removed
 export class PlayFabCommon {
   buildIdentifier: string = constants.buildIdentifier;
   requestGetParams = {

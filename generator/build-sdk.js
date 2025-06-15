@@ -40,6 +40,7 @@ function cleanSdk() {
 
 function copyStaticFiles() {
   fs.cpSync(staticDir, sdkDir, { recursive: true });
+  fs.cpSync(path.join(__dirname, "..", "README.md"), path.join(sdkDir, "README.md"));
 }
 
 function renderTemplatesToDir(srcDir, destDir, renderData) {

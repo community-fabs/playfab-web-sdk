@@ -1,7 +1,7 @@
 {
-  "name": "async-playfab-web-sdk",
+  "name": "@community-fabs/playfab-web-sdk",
   "version": "<%= it.publishVersion %>",
-  "description": "Asynchronous Playfab SDK for JS client applications",
+  "description": "Unofficial Playfab SDK for JS client applications",
   "license": "Apache-2.0",
   "type": "module",
   "scripts": {
@@ -13,7 +13,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/r3pwn/async-playfab-web-sdk.git"
+    "url": "git+https://github.com/community-fabs/playfab-web-sdk.git"
   },
   "devDependencies": {
     "@rollup/rollup-linux-x64-gnu": "^4.41.1",

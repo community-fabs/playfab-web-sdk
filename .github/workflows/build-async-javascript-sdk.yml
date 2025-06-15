@@ -12,7 +12,6 @@ on:
         default: "ghactions_"
 
 env:
-  GITHUB_TOKEN: ${{ secrets.AUTO_COMMIT_PAT }}
   PUBLISH_VERSION_SUFFIX: ${{ github.event.inputs.pub_ver_suffix }}
   BUILD_PREFIX: ${{ github.event.inputs.build_prefix }}
 
@@ -40,10 +39,8 @@ jobs:
       - name: Validate SDK Changes
         if: steps.check_changes.outputs.changes == 'true'
         run: |
-          cd sdk
           npm install
-          npm run build
-          cd ..
+          npm run build:sdk
 
       - name: Commit and push SDK changes
         if: steps.check_changes.outputs.changes == 'true'

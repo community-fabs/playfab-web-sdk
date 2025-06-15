@@ -45,7 +45,8 @@ jobs:
       - name: Commit and push SDK changes
         if: steps.check_changes.outputs.changes == 'true'
         run: |
-          git config user.name "GitHub Actions"
+          git config user.name "GitHub Actions Bot"
+          git config user.email "action@github.com"
           git add .
           git commit -m "Auto-generated SDK build"
           git push origin HEAD

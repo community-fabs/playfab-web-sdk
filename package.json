@@ -1,23 +1,26 @@
 {
-  "name": "sdk-generator",
-  "version": "0.0.1",
+  "name": "@community-fabs/playfab-web-sdk",
+  "version": "1.193.250606",
+  "description": "Unofficial Playfab SDK for JS client applications",
+  "license": "Apache-2.0",
+  "type": "module",
   "scripts": {
     "generate:sdk": "node generator/build-sdk.js",
+    "build:sdk": "tsup",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "type": "module",
+  "main": "dist/index.js",
+  "files": [
+    "/dist"
+  ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/r3pwn/async-playfab-web-sdk.git"
+    "url": "git+https://github.com/community-fabs/playfab-web-sdk.git"
   },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/r3pwn/async-playfab-web-sdk/issues"
-  },
-  "homepage": "https://github.com/r3pwn/async-playfab-web-sdk#readme",
-  "description": "",
   "devDependencies": {
-    "eta": "^3.5.0"
+    "@rollup/rollup-linux-x64-gnu": "^4.41.1",
+    "eta": "^3.5.0",
+    "tsup": "^8.5.0",
+    "typescript": "^5.8.3"
   }
 }

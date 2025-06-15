@@ -10,7 +10,7 @@ console.time("SDK generated")
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const sdkDir = path.join(__dirname, "..", "sdk");
+const sdkDir = path.join(__dirname, "..");
 const templatesDir = path.join(__dirname, "sdk", "templates");
 const staticDir = path.join(__dirname, "sdk", "static");
 
@@ -24,9 +24,7 @@ function cleanSdk() {
     // delete all source files, but leave behind things like package-lock.json and readme.md
     const itemsToDelete = [
       /^dist$/,
-      /^node_modules$/,
-      /\.js$/,
-      /\.ts$/
+      /^src$/,
     ];
     if (itemsToDelete.some(regex => regex.test(item))) {
       if (stat.isDirectory()) {
@@ -40,7 +38,6 @@ function cleanSdk() {
 
 function copyStaticFiles() {
   fs.cpSync(staticDir, sdkDir, { recursive: true });
-  fs.cpSync(path.join(__dirname, "..", "README.md"), path.join(sdkDir, "README.md"));
 }
 
 function renderTemplatesToDir(srcDir, destDir, renderData) {

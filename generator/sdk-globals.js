@@ -47,7 +47,7 @@ export const generateSdkGlobals = async () => {
   return {
     ...playfabData,
     publishVersion: PUBLISH_VERSION_SUFFIX ? `${playfabData.sdkVersion}-${PUBLISH_VERSION_SUFFIX}` : playfabData.sdkVersion,
-    buildIdentifier: getBuildIdentifier("async-playfab-web-sdk"),
+    buildIdentifier: getBuildIdentifier("community-playfab-web-sdk"),
     verticalName: process.env.VERTICAL_NAME || ''
   }
 }

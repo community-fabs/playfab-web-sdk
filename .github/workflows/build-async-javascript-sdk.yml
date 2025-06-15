@@ -49,8 +49,6 @@ jobs:
         if: steps.check_changes.outputs.changes == 'true'
         run: |
           git config user.name "GitHub Actions"
-          git config user.email "gwillard@r3pwn.com"
           git add .
           git commit -m "Auto-generated SDK build"
-          git remote set-url --push origin https://r3pwn:$GITHUB_TOKEN@github.com/r3pwn/async-playfab-web-sdk
           git push origin HEAD

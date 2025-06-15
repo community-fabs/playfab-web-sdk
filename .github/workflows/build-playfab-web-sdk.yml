@@ -3,6 +3,9 @@ name: Generate SDK
 on:
   workflow_dispatch:
     inputs:
+      commit_reason:
+        description: "Commit Reason"
+        required: false
       pub_ver_suffix:
         description: "Publish Version Suffix"
         required: false
@@ -12,6 +15,7 @@ on:
         default: "ghactions_"
 
 env:
+  COMMIT_REASON: ${{ github.event.inputs.commit_reason && format('({0})', github.event.inputs.commit_reason) || '' }}
   PUBLISH_VERSION_SUFFIX: ${{ github.event.inputs.pub_ver_suffix }}
   BUILD_PREFIX: ${{ github.event.inputs.build_prefix }}
 
@@ -50,5 +54,5 @@ jobs:
           git config user.name "GitHub Actions Bot"
           git config user.email "action@github.com"
           git add .
-          git commit -m "Auto-generated SDK build"
+          git commit -m "chore: generate SDK ${COMMIT_REASON}"
           git push origin HEAD

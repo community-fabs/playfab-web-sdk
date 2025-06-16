@@ -7,15 +7,12 @@
   "scripts": {
     "generate:sdk": "node generator/build-sdk.js",
     "build:sdk": "tsup",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --config jest.config.js"
   },
   "main": "dist/index.js",
   "files": [
     "/dist"
   ],
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/community-fabs/playfab-web-sdk.git"

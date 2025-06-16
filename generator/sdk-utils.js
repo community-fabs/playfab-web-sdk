@@ -94,13 +94,11 @@ export function getPropertyType(property, datatype) {
     output = "string";
   else if (property.actualtype === "Boolean")
     output = "boolean";
-  else if (property.isclass)
+  else if (property.isclass || property.isenum)
     output = property.actualtype;
   else if (property.actualtype.includes("int") || property.actualtype === "float" || property.actualtype === "double")
     output = "number";
   else if (property.actualtype === "DateTime")
-    output = "string";
-  else if (property.isenum)
     output = "string";
   else if (property.actualtype === "object")
     output = "any";

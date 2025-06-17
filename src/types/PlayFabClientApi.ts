@@ -454,7 +454,7 @@ export interface ContactEmailInfoModel {
   /** The name of the email info data */
   Name?: string;
   /** The verification status of the email */
-  VerificationStatus?: string;
+  VerificationStatus?: EmailVerificationStatus;
 }
 
 /** @deprecated Do not use */
@@ -903,7 +903,7 @@ export interface CurrentGamesRequest extends IPlayFabRequestCommon {
   /** Game mode to look for. */
   GameMode?: string;
   /** Region to check for Game Server Instances. */
-  Region?: string;
+  Region?: Region;
   /** Statistic name to find statistic-based matches. */
   StatisticName?: string;
   /** Filter to include and/or exclude Game Server Instances associated with certain tags. */
@@ -1009,7 +1009,7 @@ export interface ExecuteCloudScriptRequest extends IPlayFabRequestCommon {
    * executes the current live, published revision, and &#39;Specific&#39; executes the specified revision. The default value is
    * &#39;Specific&#39;, if the SpeificRevision parameter is specified, otherwise it is &#39;Live&#39;.
    */
-  RevisionSelection?: string;
+  RevisionSelection?: CloudScriptRevisionOption;
   /** The specivic revision to execute, when RevisionSelection is set to &#39;Specific&#39; */
   SpecificRevision?: number;
 }
@@ -1127,7 +1127,7 @@ export interface GameInfo {
    */
   GameServerState?: number;
   /** game specific string denoting server configuration */
-  GameServerStateEnum?: string;
+  GameServerStateEnum?: GameInstanceState;
   /** last heartbeat of the game server instance, used in external game server provider mode */
   LastHeartbeat?: string;
   /** unique lobby identifier for this game server */
@@ -1137,7 +1137,7 @@ export interface GameInfo {
   /** array of current player IDs on this server */
   PlayerUserIds?: string[];
   /** region to which this server is associated */
-  Region?: string;
+  Region?: Region;
   /** duration in seconds this server has been running */
   RunTime: number;
   /**
@@ -1354,7 +1354,7 @@ export interface GetFriendLeaderboardAroundCurrentUserRequest extends IPlayFabRe
    * Indicates which other platforms&#39; friends should be included in the response. In HTTP, it is represented as a
    * comma-separated list of platforms.
    */
-  ExternalPlatformFriends?: string;
+  ExternalPlatformFriends?: ExternalFriendSources;
   /**
    * Indicates whether Facebook friends should be included in the response. Default is true.
    * @deprecated Please use ExternalPlatformFriends instead.
@@ -1390,7 +1390,7 @@ export interface GetFriendLeaderboardAroundPlayerRequest extends IPlayFabRequest
    * Indicates which other platforms&#39; friends should be included in the response. In HTTP, it is represented as a
    * comma-separated list of platforms.
    */
-  ExternalPlatformFriends?: string;
+  ExternalPlatformFriends?: ExternalFriendSources;
   /**
    * Indicates whether Facebook friends should be included in the response. Default is true.
    * @deprecated Please use ExternalPlatformFriends instead.
@@ -1437,7 +1437,7 @@ export interface GetFriendLeaderboardRequest extends IPlayFabRequestCommon {
    * Indicates which other platforms&#39; friends should be included in the response. In HTTP, it is represented as a
    * comma-separated list of platforms.
    */
-  ExternalPlatformFriends?: string;
+  ExternalPlatformFriends?: ExternalFriendSources;
   /**
    * Indicates whether Facebook friends should be included in the response. Default is true.
    * @deprecated Please use ExternalPlatformFriends instead.
@@ -1475,7 +1475,7 @@ export interface GetFriendsListRequest extends IPlayFabRequestCommon {
    * Indicates which other platforms&#39; friends should be included in the response. In HTTP, it is represented as a
    * comma-separated list of platforms.
    */
-  ExternalPlatformFriends?: string;
+  ExternalPlatformFriends?: ExternalFriendSources;
   /**
    * Indicates whether Facebook friends should be included in the response. Default is true.
    * @deprecated Please use ExternalPlatformFriends instead.
@@ -1812,7 +1812,7 @@ export interface GetPlayerTagsResult extends IPlayFabResultCommon {
 
 export interface GetPlayerTradesRequest extends IPlayFabRequestCommon {
   /** Returns only trades with the given status. If null, returns all trades. */
-  StatusFilter?: string;
+  StatusFilter?: TradeStatus;
 }
 
 export interface GetPlayerTradesResponse extends IPlayFabResultCommon {
@@ -2115,7 +2115,7 @@ export interface GetStoreItemsResult extends IPlayFabResultCommon {
   /** Additional data about the store. */
   MarketingData?: StoreMarketingModel;
   /** How the store was last updated (Admin or a third party). */
-  Source?: string;
+  Source?: SourceType;
   /** Array of items which can be purchased from this store. */
   Store?: StoreItem[];
   /** The ID of this store. */
@@ -2445,7 +2445,7 @@ export interface LinkedPlatformAccountModel {
   /** Linked account email of the user on the platform, if available */
   Email?: string;
   /** Authentication platform */
-  Platform?: string;
+  Platform?: LoginIdentityProvider;
   /** Unique account identifier of the user on the platform */
   PlatformUserId?: string;
   /** Linked account username of the user on the platform, if available */
@@ -2700,9 +2700,9 @@ export interface LocationModel {
   /** City name. */
   City?: string;
   /** The two-character continent code for this location */
-  ContinentCode?: string;
+  ContinentCode?: ContinentCode;
   /** The two-character ISO 3166-1 country code for the country associated with the location */
-  CountryCode?: string;
+  CountryCode?: CountryCode;
   /** Latitude coordinate of the geographic location. */
   Latitude?: number;
   /** Longitude coordinate of the geographic location. */
@@ -3363,7 +3363,7 @@ export interface MatchmakeRequest extends IPlayFabRequestCommon {
   /** Lobby identifier to match make against. This is used to select a specific Game Server Instance. */
   LobbyId?: string;
   /** Region to match make against. [Note: Required if LobbyId is not specified] */
-  Region?: string;
+  Region?: Region;
   /** Start a game session if one with an open slot is not found. Defaults to true. */
   StartNewIfNoneFound?: boolean;
   /** Player statistic to use in finding a match. May be null for no stat-based matching. */
@@ -3394,7 +3394,7 @@ export interface MatchmakeResult extends IPlayFabResultCommon {
   /** Public DNS name (if any) of the server */
   ServerPublicDNSName?: string;
   /** result of match making process */
-  Status?: string;
+  Status?: MatchmakeStatus;
   /** server authorization ticket (used by RedeemMatchmakerTicket to validate user insertion into the game) */
   Ticket?: string;
 }
@@ -3519,7 +3519,7 @@ export interface PayForPurchaseResult extends IPlayFabResultCommon {
   /** Cost of the transaction. */
   PurchasePrice: number;
   /** Status of the transaction. */
-  Status?: string;
+  Status?: TransactionStatus;
   /** Virtual currencies granted by the transaction, if any. */
   VCAmount?: Record<string, number>;
   /** Current virtual currency balances for the user. */
@@ -3578,7 +3578,7 @@ export interface PlayerProfileModel {
   /** List of memberships for the player, along with whether are expired. */
   Memberships?: MembershipModel[];
   /** Player account origination */
-  Origination?: string;
+  Origination?: LoginIdentityProvider;
   /** PlayFab player account unique identifier */
   PlayerId?: string;
   /** Publisher this player belongs to */
@@ -3724,7 +3724,7 @@ export interface PushNotificationRegistrationModel {
   /** Notification configured endpoint */
   NotificationEndpointARN?: string;
   /** Push notification platform */
-  Platform?: string;
+  Platform?: PushNotificationPlatform;
 }
 
 export interface RedeemCouponRequest extends IPlayFabRequestCommon {
@@ -3769,7 +3769,7 @@ export interface RegionInfo {
   /** url to ping to get roundtrip time */
   PingUrl?: string;
   /** unique identifier for the region */
-  Region?: string;
+  Region?: Region;
 }
 
 export interface RegisterForIOSPushNotificationRequest extends IPlayFabRequestCommon {
@@ -3877,7 +3877,7 @@ export interface RemoveSharedGroupMembersResult extends IPlayFabResultCommon {
 
 export interface ReportAdActivityRequest extends IPlayFabRequestCommon {
   /** Type of activity, may be Opened, Closed, Start or End */
-  Activity: string;
+  Activity: AdActivity;
   /** The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.). */
   CustomTags?: Record<string, string | null>;
   /** Unique ID of the placement to report for */
@@ -4036,7 +4036,7 @@ export interface SharedGroupDataRecord {
   /** Unique PlayFab identifier of the user to last update this value. */
   LastUpdatedBy?: string;
   /** Indicates whether this data can be read by all users (public) or only members of the group (private). */
-  Permission?: string;
+  Permission?: UserDataPermission;
   /** Data stored for the specified group data key. */
   Value?: string;
 }
@@ -4062,7 +4062,7 @@ export interface StartGameRequest extends IPlayFabRequestCommon {
   /** the title-defined game mode this server is to be running (defaults to 0 if there is only one mode) */
   GameMode: string;
   /** the region to associate this server with for match filtering */
-  Region: string;
+  Region: Region;
   /** player statistic for others to use in finding this game. May be null for no stat-based matching */
   StatisticName?: string;
 }
@@ -4203,7 +4203,7 @@ export interface SubscriptionModel {
   /** Whether this subscription is currently active. That is, if Expiration &gt; now. */
   IsActive: boolean;
   /** The status of this subscription, according to the subscription provider. */
-  Status?: string;
+  Status?: SubscriptionProviderStatus;
   /** The id for this subscription */
   SubscriptionId?: string;
   /** The item id for this subscription from the primary catalog */
@@ -4276,7 +4276,7 @@ export interface TradeInfo {
   /** The catalogItem Ids requested in exchange. */
   RequestedCatalogItemIds?: string[];
   /** Describes the current state of this trade. */
-  Status?: string;
+  Status?: TradeStatus;
   /** The identifier for this trade. */
   TradeId?: string;
 }
@@ -4552,7 +4552,7 @@ export interface UpdateCharacterDataRequest extends IPlayFabRequestCommon {
    */
   KeysToRemove?: string[];
   /** Permission to be applied to all user data keys written in this request. Defaults to &quot;private&quot; if not set. */
-  Permission?: string;
+  Permission?: UserDataPermission;
 }
 
 export interface UpdateCharacterDataResult extends IPlayFabResultCommon {
@@ -4626,7 +4626,7 @@ export interface UpdateSharedGroupDataRequest extends IPlayFabRequestCommon {
    */
   KeysToRemove?: string[];
   /** Permission to be applied to all user data keys in this request. */
-  Permission?: string;
+  Permission?: UserDataPermission;
   /** Unique identifier for the shared group. */
   SharedGroupId: string;
 }
@@ -4651,7 +4651,7 @@ export interface UpdateUserDataRequest extends IPlayFabRequestCommon {
    * Permission to be applied to all user data keys written in this request. Defaults to &quot;private&quot; if not set. This is used
    * for requests by one player for information about another player; those requests will only return Public keys.
    */
-  Permission?: string;
+  Permission?: UserDataPermission;
 }
 
 export interface UpdateUserDataResult extends IPlayFabResultCommon {
@@ -4772,7 +4772,7 @@ export interface UserDataRecord {
    * Indicates whether this data can be read by all users (public) or only the user (private). This is used for GetUserData
    * requests being made by one player about another player.
    */
-  Permission?: string;
+  Permission?: UserDataPermission;
   /** Data stored for the specified user data key. */
   Value?: string;
 }
@@ -4903,11 +4903,11 @@ export interface UserSettings {
 
 export interface UserSteamInfo {
   /** what stage of game ownership the user is listed as being in, from Steam */
-  SteamActivationStatus?: string;
+  SteamActivationStatus?: TitleActivationStatus;
   /** the country in which the player resides, from Steam data */
   SteamCountry?: string;
   /** currency type set in the user Steam account */
-  SteamCurrency?: string;
+  SteamCurrency?: Currency;
   /** Steam identifier */
   SteamId?: string;
   /** Steam display name */
@@ -4934,7 +4934,7 @@ export interface UserTitleInfo {
   /** timestamp for the last user login for this title */
   LastLogin?: string;
   /** source by which the user first joined the game, if known */
-  Origination?: string;
+  Origination?: UserOrigination;
   /** Title player account entity for this user */
   TitlePlayerAccount?: EntityKey;
 }

@@ -22,7 +22,7 @@ export interface ContactEmailInfoModel {
   /** The name of the email info data */
   Name?: string;
   /** The verification status of the email */
-  VerificationStatus?: string;
+  VerificationStatus?: EmailVerificationStatus;
 }
 
 type ContinentCode = "AF"
@@ -369,7 +369,7 @@ export interface ExecuteEntityCloudScriptRequest extends IPlayFabRequestCommon {
    * executes the current live, published revision, and &#39;Specific&#39; executes the specified revision. The default value is
    * &#39;Specific&#39;, if the SpecificRevision parameter is specified, otherwise it is &#39;Live&#39;.
    */
-  RevisionSelection?: string;
+  RevisionSelection?: CloudScriptRevisionOption;
   /** The specific revision to execute, when RevisionSelection is set to &#39;Specific&#39; */
   SpecificRevision?: number;
 }
@@ -453,7 +453,7 @@ export interface LinkedPlatformAccountModel {
   /** Linked account email of the user on the platform, if available */
   Email?: string;
   /** Authentication platform */
-  Platform?: string;
+  Platform?: LoginIdentityProvider;
   /** Unique account identifier of the user on the platform */
   PlatformUserId?: string;
   /** Linked account username of the user on the platform, if available */
@@ -489,9 +489,9 @@ export interface LocationModel {
   /** City name. */
   City?: string;
   /** The two-character continent code for this location */
-  ContinentCode?: string;
+  ContinentCode?: ContinentCode;
   /** The two-character ISO 3166-1 country code for the country associated with the location */
-  CountryCode?: string;
+  CountryCode?: CountryCode;
   /** Latitude coordinate of the geographic location. */
   Latitude?: number;
   /** Longitude coordinate of the geographic location. */
@@ -585,7 +585,7 @@ export interface PlayerProfileModel {
   /** List of memberships for the player, along with whether are expired. */
   Memberships?: MembershipModel[];
   /** Player account origination */
-  Origination?: string;
+  Origination?: LoginIdentityProvider;
   /** PlayFab player account unique identifier */
   PlayerId?: string;
   /** Publisher this player belongs to */
@@ -677,7 +677,7 @@ export interface PushNotificationRegistrationModel {
   /** Notification configured endpoint */
   NotificationEndpointARN?: string;
   /** Push notification platform */
-  Platform?: string;
+  Platform?: PushNotificationPlatform;
 }
 
 export interface QueuedFunctionModel {
@@ -749,7 +749,7 @@ export interface SubscriptionModel {
   /** Whether this subscription is currently active. That is, if Expiration &gt; now. */
   IsActive: boolean;
   /** The status of this subscription, according to the subscription provider. */
-  Status?: string;
+  Status?: SubscriptionProviderStatus;
   /** The id for this subscription */
   SubscriptionId?: string;
   /** The item id for this subscription from the primary catalog */

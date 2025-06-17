@@ -448,7 +448,7 @@ export interface UpdateGroupResponse extends IPlayFabResultCommon {
   /** New version of the group data. */
   ProfileVersion: number;
   /** Indicates which operation was completed, either Created, Updated, Deleted or None. */
-  SetResult?: string;
+  SetResult?: OperationTypes;
 }
 
 export interface UpdateGroupRoleRequest extends IPlayFabRequestCommon {
@@ -474,6 +474,6 @@ export interface UpdateGroupRoleResponse extends IPlayFabResultCommon {
   /** New version of the role data. */
   ProfileVersion: number;
   /** Indicates which operation was completed, either Created, Updated, Deleted or None. */
-  SetResult?: string;
+  SetResult?: OperationTypes;
 }
 

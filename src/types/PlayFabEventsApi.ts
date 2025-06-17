@@ -45,7 +45,7 @@ export interface DataConnectionDetails {
   /** Current status of the data connection, if any. */
   Status?: DataConnectionStatusDetails;
   /** The type of data connection. */
-  Type: string;
+  Type: DataConnectionType;
 }
 
 type DataConnectionErrorState = "OK"
@@ -77,7 +77,7 @@ export interface DataConnectionStatusDetails {
   /** The most recent time of the error affecting the data connection, if any. */
   MostRecentErrorTime?: string;
   /** Indicates if the connection is in a normal state or error state. */
-  State?: string;
+  State?: DataConnectionErrorState;
 }
 
 type DataConnectionType = "AzureBlobStorage"
@@ -276,7 +276,7 @@ export interface SetDataConnectionRequest extends IPlayFabRequestCommon {
   /** The name of the data connection to update or create. */
   Name: string;
   /** The type of data connection. */
-  Type: string;
+  Type: DataConnectionType;
 }
 
 export interface SetDataConnectionResponse extends IPlayFabResultCommon {

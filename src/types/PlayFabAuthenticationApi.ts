@@ -130,9 +130,9 @@ export interface ValidateEntityTokenResponse extends IPlayFabResultCommon {
   /** The entity id and type. */
   Entity?: EntityKey;
   /** The authenticated device for this entity, for the given login */
-  IdentifiedDeviceType?: string;
+  IdentifiedDeviceType?: IdentifiedDeviceType;
   /** The identity provider for this entity, for the given login */
-  IdentityProvider?: string;
+  IdentityProvider?: LoginIdentityProvider;
   /** The ID issued by the identity provider, e.g. a XUID on Xbox Live */
   IdentityProviderIssuedId?: string;
   /** The lineage of this profile. */

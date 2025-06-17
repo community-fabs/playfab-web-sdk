@@ -253,7 +253,7 @@ export interface BuildRegion {
    */
   Status?: string;
   /** Regional override for the VM size the build was created on. */
-  VmSize?: string;
+  VmSize?: AzureVmSize;
 }
 
 export interface BuildRegionParams {
@@ -270,7 +270,7 @@ export interface BuildRegionParams {
   /** The number of standby multiplayer servers for the region. */
   StandbyServers: number;
   /** Regional override for the VM size the build was created on. */
-  VmSize?: string;
+  VmSize?: AzureVmSize;
 }
 
 export interface BuildSelectionCriterion {
@@ -420,7 +420,7 @@ export interface CoreCapacity {
   /** The total core capacity for the (Region, VmFamily) */
   Total: number;
   /** The AzureVmFamily */
-  VmFamily?: string;
+  VmFamily?: AzureVmFamily;
 }
 
 export interface CoreCapacityChange {
@@ -429,7 +429,7 @@ export interface CoreCapacityChange {
   /** Region to change. */
   Region: string;
   /** Virtual machine family to change. */
-  VmFamily: string;
+  VmFamily: AzureVmFamily;
 }
 
 export interface CreateBaseModelRequest extends IPlayFabRequestCommon {
@@ -502,7 +502,7 @@ export interface CreateBuildWithCustomContainerRequest extends IPlayFabRequestCo
   /** The build name. */
   BuildName: string;
   /** The flavor of container to create a build from. */
-  ContainerFlavor?: string;
+  ContainerFlavor?: ContainerFlavor;
   /** The container reference, consisting of the image name and tag. */
   ContainerImageReference?: ContainerImageReference;
   /**
@@ -549,7 +549,7 @@ export interface CreateBuildWithCustomContainerRequest extends IPlayFabRequestCo
    */
   UseStreamingForAssetDownloads?: boolean;
   /** The VM size to create the build on. */
-  VmSize?: string;
+  VmSize?: AzureVmSize;
   /** The configuration for the VmStartupScript for the build */
   VmStartupScriptConfiguration?: VmStartupScriptParams;
 }
@@ -565,7 +565,7 @@ export interface CreateBuildWithCustomContainerResponse extends IPlayFabResultCo
   /** The build name. */
   BuildName?: string;
   /** The flavor of container of the build. */
-  ContainerFlavor?: string;
+  ContainerFlavor?: ContainerFlavor;
   /** The container command to run when the multiplayer server has been allocated, including any arguments. */
   ContainerRunCommand?: string;
   /** The time the build was created in UTC. */
@@ -602,7 +602,7 @@ export interface CreateBuildWithCustomContainerResponse extends IPlayFabResultCo
    */
   UseStreamingForAssetDownloads?: boolean;
   /** The VM size the build was created on. */
-  VmSize?: string;
+  VmSize?: AzureVmSize;
   /** The configuration for the VmStartupScript feature for the build */
   VmStartupScriptConfiguration?: VmStartupScriptConfiguration;
 }
@@ -616,7 +616,7 @@ export interface CreateBuildWithManagedContainerRequest extends IPlayFabRequestC
   /** The build name. */
   BuildName: string;
   /** The flavor of container to create a build from. */
-  ContainerFlavor?: string;
+  ContainerFlavor?: ContainerFlavor;
   /** The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.). */
   CustomTags?: Record<string, string | null>;
   /** The list of game assets related to the build. */
@@ -656,7 +656,7 @@ export interface CreateBuildWithManagedContainerRequest extends IPlayFabRequestC
    */
   UseStreamingForAssetDownloads?: boolean;
   /** The VM size to create the build on. */
-  VmSize?: string;
+  VmSize?: AzureVmSize;
   /** The configuration for the VmStartupScript for the build */
   VmStartupScriptConfiguration?: VmStartupScriptParams;
   /** The crash dump configuration for the build. */
@@ -674,7 +674,7 @@ export interface CreateBuildWithManagedContainerResponse extends IPlayFabResultC
   /** The build name. */
   BuildName?: string;
   /** The flavor of container of the build. */
-  ContainerFlavor?: string;
+  ContainerFlavor?: ContainerFlavor;
   /** The time the build was created in UTC. */
   CreationTime?: string;
   /** The game assets for the build. */
@@ -714,7 +714,7 @@ export interface CreateBuildWithManagedContainerResponse extends IPlayFabResultC
    */
   UseStreamingForAssetDownloads?: boolean;
   /** The VM size the build was created on. */
-  VmSize?: string;
+  VmSize?: AzureVmSize;
   /** The configuration for the VmStartupScript feature for the build */
   VmStartupScriptConfiguration?: VmStartupScriptConfiguration;
 }
@@ -776,7 +776,7 @@ export interface CreateBuildWithProcessBasedServerRequest extends IPlayFabReques
    */
   UseStreamingForAssetDownloads?: boolean;
   /** The VM size to create the build on. */
-  VmSize?: string;
+  VmSize?: AzureVmSize;
   /** The configuration for the VmStartupScript for the build */
   VmStartupScriptConfiguration?: VmStartupScriptParams;
 }
@@ -792,7 +792,7 @@ export interface CreateBuildWithProcessBasedServerResponse extends IPlayFabResul
   /** The build name. */
   BuildName?: string;
   /** The flavor of container of the build. */
-  ContainerFlavor?: string;
+  ContainerFlavor?: ContainerFlavor;
   /** The time the build was created in UTC. */
   CreationTime?: string;
   /** The game assets for the build. */
@@ -840,7 +840,7 @@ export interface CreateBuildWithProcessBasedServerResponse extends IPlayFabResul
    */
   UseStreamingForAssetDownloads?: boolean;
   /** The VM size the build was created on. */
-  VmSize?: string;
+  VmSize?: AzureVmSize;
   /** The configuration for the VmStartupScript feature for the build */
   VmStartupScriptConfiguration?: VmStartupScriptConfiguration;
 }
@@ -853,7 +853,7 @@ export interface CreateLobbyRequest extends IPlayFabRequestCommon {
    * its connection string. Private means the lobby is not visible in queries, and a player must receive an invitation to
    * join. Defaults to &#39;Public&#39; on creation. Can only be changed by the lobby owner.
    */
-  AccessPolicy?: string;
+  AccessPolicy?: AccessPolicy;
   /** The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.). */
   CustomTags?: Record<string, string | null>;
   /**
@@ -879,7 +879,7 @@ export interface CreateLobbyRequest extends IPlayFabRequestCommon {
    * themselves as the current owner. The useConnections property must be true. If client-owned and &#39;None&#39; - Any member can
    * set ownership. The useConnections property can be either true or false.
    */
-  OwnerMigrationPolicy?: string;
+  OwnerMigrationPolicy?: OwnerMigrationPolicy;
   /**
    * A setting that controls whether only the lobby owner can send invites to join the lobby. When true, only the lobby owner
    * can send invites. When false or not specified, any member can send invites. Defaults to false if not specified.
@@ -1183,7 +1183,7 @@ export interface DifferenceRule {
    * Describes the behavior when an attribute is not specified in the ticket creation request or in the user&#39;s entity
    * profile.
    */
-  AttributeNotSpecifiedBehavior: string;
+  AttributeNotSpecifiedBehavior: AttributeNotSpecifiedBehavior;
   /**
    * Collection of fields relating to expanding this rule at set intervals. Only one expansion can be set per rule. When this
    * is set, Difference is ignored.
@@ -1199,7 +1199,7 @@ export interface DifferenceRule {
   /** Collection of fields relating to expanding this rule at set intervals. Only one expansion can be set per rule. */
   LinearExpansion?: LinearDifferenceRuleExpansion;
   /** How values are treated when there are multiple players in a single ticket. */
-  MergeFunction: string;
+  MergeFunction: AttributeMergeFunction;
   /** Friendly name chosen by developer. */
   Name: string;
   /**
@@ -1250,7 +1250,7 @@ export interface EnableMultiplayerServersForTitleRequest extends IPlayFabRequest
 
 export interface EnableMultiplayerServersForTitleResponse extends IPlayFabResultCommon {
   /** The enabled status for the multiplayer server features for the title. */
-  Status?: string;
+  Status?: TitleMultiplayerServerEnabledStatus;
 }
 
 export interface EnablePartiesForTitleRequest extends IPlayFabRequestCommon {
@@ -1291,7 +1291,7 @@ export interface FindFriendLobbiesRequest extends IPlayFabRequestCommon {
    */
   ExcludeSteamFriends?: boolean;
   /** Indicates which other platforms&#39; friends this query should link to. */
-  ExternalPlatformFriends?: string;
+  ExternalPlatformFriends?: ExternalFriendSources;
   /**
    * OData style string that contains one or more filters. Only the following operators are supported: &quot;and&quot; (logical and),
    * &quot;eq&quot; (equal), &quot;ne&quot; (not equals), &quot;ge&quot; (greater than or equal), &quot;gt&quot; (greater than), &quot;le&quot; (less than or equal), and &quot;lt&quot;
@@ -1370,7 +1370,7 @@ export interface FriendLobbySummary {
   /** The maximum number of players allowed in the lobby. */
   MaxPlayers: number;
   /** A setting indicating whether members are allowed to join this lobby. When Locked new members are prevented from joining. */
-  MembershipLock?: string;
+  MembershipLock?: MembershipLock;
   /** The client or server entity which owns this lobby. */
   Owner: EntityKey;
   /** Search data. */
@@ -1470,7 +1470,7 @@ export interface GetBuildResponse extends IPlayFabResultCommon {
   /** The current build status. Valid values are - Deploying, Deployed, DeletingRegion, Unhealthy. */
   BuildStatus?: string;
   /** The flavor of container of he build. */
-  ContainerFlavor?: string;
+  ContainerFlavor?: ContainerFlavor;
   /**
    * The container command to run when the multiplayer server has been allocated, including any arguments. This only applies
    * to custom builds. If the build is a managed build, this field will be null.
@@ -1515,14 +1515,14 @@ export interface GetBuildResponse extends IPlayFabResultCommon {
    */
   UseStreamingForAssetDownloads?: boolean;
   /** The VM size the build was created on. */
-  VmSize?: string;
+  VmSize?: AzureVmSize;
   /** The configuration for the VmStartupScript feature for the build */
   VmStartupScriptConfiguration?: VmStartupScriptConfiguration;
 }
 
 export interface GetCognitiveServicesLocalesRequest extends IPlayFabRequestCommon {
   /** The type of the cognitive service for which locales are being requested. */
-  CognitiveServicesType: string;
+  CognitiveServicesType: CognitiveServicesType;
   /** The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.). */
   CustomTags?: Record<string, string | null>;
   /** The region the client is closest to (A service endpoint will be provided for this region or one nearest one available). */
@@ -1536,7 +1536,7 @@ export interface GetCognitiveServicesLocalesResponse extends IPlayFabResultCommo
 
 export interface GetCognitiveServicesTokenRequest extends IPlayFabRequestCommon {
   /** The type of the cognitive service for which a token is being requested. */
-  CognitiveServicesType: string;
+  CognitiveServicesType: CognitiveServicesType;
   /** The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.). */
   CustomTags?: Record<string, string | null>;
   /** The region the client is closest to (A service endpoint will be provided for this region or one nearest one available). */
@@ -1609,7 +1609,7 @@ export interface GetMatchmakingTicketResult extends IPlayFabResultCommon {
    * The reason why the current ticket was canceled. This field is only set if the ticket is in canceled state.
    * @deprecated Please use CancellationReasonString instead.
    */
-  CancellationReason?: string;
+  CancellationReason?: CancellationReason;
   /**
    * The reason why the current ticket was canceled. This field is only set if the ticket is in canceled state. Please retry
    * if CancellationReason is RetryRequired.
@@ -1957,7 +1957,7 @@ export interface GetServerBackfillTicketResult extends IPlayFabResultCommon {
    * The reason why the current ticket was canceled. This field is only set if the ticket is in canceled state.
    * @deprecated Please use CancellationReasonString instead.
    */
-  CancellationReason?: string;
+  CancellationReason?: CancellationReason;
   /** The reason why the current ticket was canceled. This field is only set if the ticket is in canceled state. */
   CancellationReasonString?: string;
   /** The server date and time at which ticket was created. */
@@ -1985,7 +1985,7 @@ export interface GetTitleEnabledForMultiplayerServersStatusRequest extends IPlay
 
 export interface GetTitleEnabledForMultiplayerServersStatusResponse extends IPlayFabResultCommon {
   /** The enabled status for the multiplayer server features for the title. */
-  Status?: string;
+  Status?: TitleMultiplayerServerEnabledStatus;
 }
 
 export interface GetTitleMultiplayerServersQuotaChangeRequest extends IPlayFabRequestCommon {
@@ -2040,7 +2040,7 @@ export interface JoinArrangedLobbyRequest extends IPlayFabRequestCommon {
    * its connection string. Private means the lobby is not visible in queries, and a player must receive an invitation to
    * join. Defaults to &#39;Public&#39; on creation. Can only be changed by the lobby owner.
    */
-  AccessPolicy?: string;
+  AccessPolicy?: AccessPolicy;
   /**
    * A field which indicates which lobby the user will be joining. This field is opaque to everyone except the Lobby service
    * and the creator of the arrangementString (Matchmaking). This string defines a unique identifier for the arranged lobby
@@ -2067,7 +2067,7 @@ export interface JoinArrangedLobbyRequest extends IPlayFabRequestCommon {
    * themselves as the current owner. The useConnections property must be true. If client-owned and &#39;None&#39; - Any member can
    * set ownership. The useConnections property can be either true or false.
    */
-  OwnerMigrationPolicy?: string;
+  OwnerMigrationPolicy?: OwnerMigrationPolicy;
   /**
    * A setting that controls whether only the lobby owner can send invites to join the lobby. When true, only the lobby owner
    * can send invites. When false or not specified, any member can send invites. Defaults to false if not specified.
@@ -2492,7 +2492,7 @@ export interface ListVirtualMachineSummariesResponse extends IPlayFabResultCommo
 
 export interface Lobby {
   /** A setting indicating who is allowed to join this lobby, as well as see it in queries. */
-  AccessPolicy: string;
+  AccessPolicy: AccessPolicy;
   /** A number that increments once for each request that modifies the lobby. */
   ChangeNumber: number;
   /**
@@ -2509,11 +2509,11 @@ export interface Lobby {
   /** Array of all lobby members. */
   Members?: Member[];
   /** A setting indicating whether members are allowed to join this lobby. When Locked new members are prevented from joining. */
-  MembershipLock: string;
+  MembershipLock: MembershipLock;
   /** The client or server entity which owns this lobby. */
   Owner?: EntityKey;
   /** A setting indicating the owner migration policy. If server owned, this field is not present. */
-  OwnerMigrationPolicy?: string;
+  OwnerMigrationPolicy?: OwnerMigrationPolicy;
   /**
    * An opaque string stored on a SubscribeToLobbyResource call, which indicates the connection an owner or member has with
    * PubSub.
@@ -2557,7 +2557,7 @@ export interface LobbySummary {
   /** The maximum number of players allowed in the lobby. */
   MaxPlayers: number;
   /** A setting indicating whether members are allowed to join this lobby. When Locked new members are prevented from joining. */
-  MembershipLock?: string;
+  MembershipLock?: MembershipLock;
   /** The client or server entity which owns this lobby. */
   Owner: EntityKey;
   /** Search data. */
@@ -2972,7 +2972,7 @@ export interface Port {
   /** The number for the port. */
   Num: number;
   /** The protocol for the port. */
-  Protocol: string;
+  Protocol: ProtocolType;
 }
 
 type ProtocolType = "TCP"
@@ -2998,7 +2998,7 @@ export interface QueueRuleAttribute {
   /** Specifies which attribute in a ticket to use. */
   Path: string;
   /** Specifies which source the attribute comes from. */
-  Source: string;
+  Source: AttributeSource;
 }
 
 export interface QuotaChange {
@@ -3375,7 +3375,7 @@ export interface SetIntersectionRule {
    * Describes the behavior when an attribute is not specified in the ticket creation request or in the user&#39;s entity
    * profile.
    */
-  AttributeNotSpecifiedBehavior: string;
+  AttributeNotSpecifiedBehavior: AttributeNotSpecifiedBehavior;
   /**
    * Collection of fields relating to expanding this rule at set intervals. Only one expansion can be set per rule. When this
    * is set, MinIntersectionSize is ignored.
@@ -3468,7 +3468,7 @@ export interface StringEqualityRule {
    * Describes the behavior when an attribute is not specified in the ticket creation request or in the user&#39;s entity
    * profile.
    */
-  AttributeNotSpecifiedBehavior: string;
+  AttributeNotSpecifiedBehavior: AttributeNotSpecifiedBehavior;
   /**
    * The default value assigned to tickets that are missing the attribute specified by AttributePath (assuming that
    * AttributeNotSpecifiedBehavior is false).
@@ -3516,7 +3516,7 @@ export interface SubscribeToLobbyResourceRequest extends IPlayFabRequestCommon {
    * owner changes. &quot;LobbyInvite&quot; subscriptions allow a player to receive invites to lobbies. A player does not need to be a
    * member of a lobby to receive lobby invites.
    */
-  Type: string;
+  Type: SubscriptionType;
 }
 
 export interface SubscribeToLobbyResourceResult extends IPlayFabResultCommon {
@@ -3642,7 +3642,7 @@ export interface UnsubscribeFromLobbyResourceRequest extends IPlayFabRequestComm
   /** Version number passed for the subscription of this resource. */
   SubscriptionVersion: number;
   /** Subscription type. */
-  Type: string;
+  Type: SubscriptionType;
 }
 
 export interface UnsubscribeFromMatchResourceRequest extends IPlayFabRequestCommon {
@@ -3747,7 +3747,7 @@ export interface UpdateLobbyRequest extends IPlayFabRequestCommon {
    * its connection string. Private means the lobby is not visible in queries, and a player must receive an invitation to
    * join. Defaults to &#39;Public&#39; on creation. Can only be changed by the lobby owner.
    */
-  AccessPolicy?: string;
+  AccessPolicy?: AccessPolicy;
   /** The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.). */
   CustomTags?: Record<string, string | null>;
   /**
@@ -3787,7 +3787,7 @@ export interface UpdateLobbyRequest extends IPlayFabRequestCommon {
    * A setting indicating whether the lobby is locked. May be &#39;Unlocked&#39; or &#39;Locked&#39;. When Locked new members are not allowed
    * to join. Defaults to &#39;Unlocked&#39; on creation. Can only be changed by the lobby owner.
    */
-  MembershipLock?: string;
+  MembershipLock?: MembershipLock;
   /**
    * The lobby owner. Optional. Set to transfer ownership of the lobby. If client - owned and &#39;Automatic&#39; - The Lobby service
    * will automatically assign another connected owner when the current owner leaves or disconnects. useConnections must be
@@ -3924,14 +3924,14 @@ export interface VmStartupScriptPortRequest {
   /** The name for the port. */
   Name: string;
   /** The protocol for the port. */
-  Protocol: string;
+  Protocol: ProtocolType;
 }
 
 export interface VmStartupScriptPortRequestParams {
   /** The name for the port. */
   Name: string;
   /** The protocol for the port. */
-  Protocol: string;
+  Protocol: ProtocolType;
 }
 
 export interface WindowsCrashDumpConfiguration {

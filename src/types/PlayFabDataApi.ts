@@ -194,7 +194,7 @@ export interface SetObjectInfo {
   /** Optional reason to explain why the operation was the result that it was. */
   OperationReason?: string;
   /** Indicates which operation was completed, either Created, Updated, Deleted or None. */
-  SetResult?: string;
+  SetResult?: OperationTypes;
 }
 
 export interface SetObjectsRequest extends IPlayFabRequestCommon {

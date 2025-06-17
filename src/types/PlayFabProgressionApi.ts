@@ -170,7 +170,7 @@ export interface GetFriendLeaderboardForEntityRequest extends IPlayFabRequestCom
    * Indicates which other platforms&#39; friends should be included in the response. In HTTP, it is represented as a
    * comma-separated list of platforms.
    */
-  ExternalFriendSources?: string;
+  ExternalFriendSources?: ExternalFriendSources;
   /** Name of the leaderboard. */
   LeaderboardName: string;
   /** Optional version of the leaderboard, defaults to current version. */
@@ -351,7 +351,7 @@ export interface LeaderboardColumn {
   /** A name for the leaderboard column, unique per leaderboard definition. */
   Name: string;
   /** The sort direction for this column. */
-  SortDirection: string;
+  SortDirection: LeaderboardSortDirection;
 }
 
 export interface LeaderboardDefinition {
@@ -436,7 +436,7 @@ type StatisticAggregationMethod = "Last"
 
 export interface StatisticColumn {
   /** Aggregation method for calculating new value of a statistic. */
-  AggregationMethod: string;
+  AggregationMethod: StatisticAggregationMethod;
   /** Name of the statistic column, as originally configured. */
   Name: string;
 }
@@ -568,6 +568,6 @@ export interface VersionConfiguration {
    * the reset will occur at the start ofthe next Monday in UTC time. When using Month interval the reset will occur at the
    * start of the nextmonth in UTC time.
    */
-  ResetInterval: string;
+  ResetInterval: ResetInterval;
 }
 

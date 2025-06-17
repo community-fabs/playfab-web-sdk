@@ -50,7 +50,7 @@ export interface EntityPermissionStatement {
   /** Additional conditions to be applied for entity resources. */
   Condition?: any;
   /** The effect this statement will have. It may be either Allow or Deny */
-  Effect: string;
+  Effect: EffectType;
   /** The principal this statement will effect. */
   Principal: any;
   /** The resource this statements effects. Similar to &#39;pfrn:data--title![Title ID]/Profile/*&#39; */
@@ -220,7 +220,7 @@ export interface SetAvatarUrlResponse extends IPlayFabResultCommon {
   /** The optional entity to perform this action on. Defaults to the currently logged in entity. */
   Entity?: EntityKey;
   /** The type of operation that occurred on the profile&#39;s avatar URL */
-  OperationResult?: string;
+  OperationResult?: OperationTypes;
   /** The updated version of the profile after the avatar URL update */
   ProfileVersion?: number;
 }
@@ -238,7 +238,7 @@ export interface SetDisplayNameRequest extends IPlayFabRequestCommon {
 
 export interface SetDisplayNameResponse extends IPlayFabResultCommon {
   /** The type of operation that occured on the profile&#39;s display name */
-  OperationResult?: string;
+  OperationResult?: OperationTypes;
   /** The updated version of the profile after the display name update */
   VersionNumber?: number;
 }
@@ -283,7 +283,7 @@ export interface SetProfileLanguageRequest extends IPlayFabRequestCommon {
 
 export interface SetProfileLanguageResponse extends IPlayFabResultCommon {
   /** The type of operation that occured on the profile&#39;s language */
-  OperationResult?: string;
+  OperationResult?: OperationTypes;
   /** The updated version of the profile after the language update */
   VersionNumber?: number;
 }

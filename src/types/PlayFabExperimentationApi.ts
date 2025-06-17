@@ -42,7 +42,7 @@ export interface CreateExperimentRequest extends IPlayFabRequestCommon {
   /** Percentage of exclusion group traffic that will see this experiment. */
   ExclusionGroupTrafficAllocation?: number;
   /** Type of experiment. */
-  ExperimentType?: string;
+  ExperimentType?: ExperimentType;
   /** Friendly name of the experiment. */
   Name: string;
   /** Id of the segment to which this experiment applies. Defaults to the &#39;All Players&#39; segment. */
@@ -114,7 +114,7 @@ export interface Experiment {
   /** Percentage of exclusion group traffic that will see this experiment. */
   ExclusionGroupTrafficAllocation?: number;
   /** Type of experiment. */
-  ExperimentType?: string;
+  ExperimentType?: ExperimentType;
   /** Id of the experiment. */
   Id?: string;
   /** Friendly name of the experiment. */
@@ -124,7 +124,7 @@ export interface Experiment {
   /** When experiment should start/was started. */
   StartDate: string;
   /** State experiment is currently in. */
-  State?: string;
+  State?: ExperimentState;
   /**
    * List of title player account IDs that automatically receive treatments in the experiment, but are not included when
    * calculating experiment metrics.
@@ -248,7 +248,7 @@ export interface Scorecard {
   /** Friendly name of the experiment. */
   ExperimentName?: string;
   /** Represents the latest compute job status. */
-  LatestJobStatus?: string;
+  LatestJobStatus?: AnalysisTaskState;
   /** Represents the presence of a sample ratio mismatch in the scorecard data. */
   SampleRatioMismatch: boolean;
   /** Scorecard containing list of analysis. */
@@ -315,7 +315,7 @@ export interface UpdateExperimentRequest extends IPlayFabRequestCommon {
   /** Percentage of exclusion group traffic that will see this experiment. */
   ExclusionGroupTrafficAllocation?: number;
   /** Type of experiment. */
-  ExperimentType?: string;
+  ExperimentType?: ExperimentType;
   /** Id of the experiment. */
   Id: string;
   /** Friendly name of the experiment. */

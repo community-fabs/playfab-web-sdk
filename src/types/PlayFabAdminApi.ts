@@ -60,7 +60,7 @@ export interface ActionsOnPlayersInSegmentTaskSummary {
   /** UTC timestamp when the task started. */
   StartedAt: string;
   /** Current status of the task instance. */
-  Status?: string;
+  Status?: TaskInstanceStatus;
   /** Identifier of the task this instance belongs to. */
   TaskIdentifier?: NameIdentifier;
   /** ID of the task instance. */
@@ -95,7 +95,7 @@ export interface AdCampaignSegmentFilter {
   /** Campaign source. */
   CampaignSource?: string;
   /** Campaign comparison. */
-  Comparison?: string;
+  Comparison?: SegmentFilterComparison;
 }
 
 export interface AddInventoryItemsV2SegmentAction {
@@ -171,7 +171,7 @@ export interface AddPlayerTagResult extends IPlayFabResultCommon {
 /** @deprecated Do not use */
 export interface AddServerBuildRequest extends IPlayFabRequestCommon {
   /** server host regions in which this build should be running and available */
-  ActiveRegions?: string[];
+  ActiveRegions?: Region[];
   /** unique identifier for the build executable */
   BuildId: string;
   /**
@@ -200,7 +200,7 @@ export interface AddServerBuildRequest extends IPlayFabRequestCommon {
 /** @deprecated Do not use */
 export interface AddServerBuildResult extends IPlayFabResultCommon {
   /** array of regions where this build can used, when it is active */
-  ActiveRegions?: string[];
+  ActiveRegions?: Region[];
   /** unique identifier for this build executable */
   BuildId?: string;
   /**
@@ -223,7 +223,7 @@ export interface AddServerBuildResult extends IPlayFabResultCommon {
    */
   MinFreeGameSlots: number;
   /** the current status of the build validation and processing steps */
-  Status?: string;
+  Status?: GameBuildStatus;
   /** time this build was last modified (or uploaded, if this build has never been modified) */
   Timestamp: string;
   /**
@@ -260,7 +260,7 @@ export interface AllPlayersSegmentFilter {
 
 export interface ApiCondition {
   /** Require that API calls contain an RSA encrypted payload or signed headers. */
-  HasSignatureOrEncryption?: string;
+  HasSignatureOrEncryption?: Conditionals;
 }
 
 type AuthTokenType = "Email"
@@ -331,7 +331,7 @@ export interface BanRequest {
   /** The reason for this ban. Maximum 140 characters. */
   Reason?: string;
   /** The family type of the user that should be included in the ban if applicable. May affect multiple players. */
-  UserFamilyType?: string;
+  UserFamilyType?: UserFamilyType;
 }
 
 export interface BanUsersRequest extends IPlayFabRequestCommon {
@@ -465,9 +465,9 @@ export interface CheckLimitedEditionItemAvailabilityResult extends IPlayFabResul
 
 export interface ChurnPredictionSegmentFilter {
   /** Comparison */
-  Comparison?: string;
+  Comparison?: SegmentFilterComparison;
   /** RiskLevel */
-  RiskLevel?: string;
+  RiskLevel?: ChurnRiskLevel;
 }
 
 type ChurnRiskLevel = "NoData"
@@ -498,7 +498,7 @@ export interface CloudScriptAzureFunctionsTaskSummary {
   /** UTC timestamp when the task started. */
   StartedAt: string;
   /** Current status of the task instance. */
-  Status?: string;
+  Status?: TaskInstanceStatus;
   /** Identifier of the task this instance belongs to. */
   TaskIdentifier?: NameIdentifier;
   /** ID of the task instance. */
@@ -536,7 +536,7 @@ export interface CloudScriptTaskSummary {
   /** UTC timestamp when the task started. */
   StartedAt: string;
   /** Current status of the task instance. */
-  Status?: string;
+  Status?: TaskInstanceStatus;
   /** Identifier of the task this instance belongs to. */
   TaskIdentifier?: NameIdentifier;
   /** ID of the task instance. */
@@ -562,7 +562,7 @@ export interface ContactEmailInfo {
   /** The name of the email info data */
   Name?: string;
   /** The verification status of the email */
-  VerificationStatus?: string;
+  VerificationStatus?: EmailVerificationStatus;
 }
 
 export interface ContactEmailInfoModel {
@@ -571,7 +571,7 @@ export interface ContactEmailInfoModel {
   /** The name of the email info data */
   Name?: string;
   /** The verification status of the email */
-  VerificationStatus?: string;
+  VerificationStatus?: EmailVerificationStatus;
 }
 
 export interface ContentInfo {
@@ -937,13 +937,13 @@ export interface CreatePlayerSharedSecretResult extends IPlayFabResultCommon {
 
 export interface CreatePlayerStatisticDefinitionRequest extends IPlayFabRequestCommon {
   /** the aggregation method to use in updating the statistic (defaults to last) */
-  AggregationMethod?: string;
+  AggregationMethod?: StatisticAggregationMethod;
   /** The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.). */
   CustomTags?: Record<string, string | null>;
   /** unique name of the statistic */
   StatisticName: string;
   /** interval at which the values of the statistic for all players are reset (resets begin at the next interval boundary) */
-  VersionChangeInterval?: string;
+  VersionChangeInterval?: StatisticResetIntervalOption;
 }
 
 export interface CreatePlayerStatisticDefinitionResult extends IPlayFabResultCommon {
@@ -1133,7 +1133,7 @@ type Currency = "AED"
 
 export interface CustomPropertyBooleanSegmentFilter {
   /** Custom property comparison. */
-  Comparison?: string;
+  Comparison?: SegmentFilterComparison;
   /** Custom property name. */
   PropertyName?: string;
   /** Custom property boolean value. */
@@ -1142,7 +1142,7 @@ export interface CustomPropertyBooleanSegmentFilter {
 
 export interface CustomPropertyDateTimeSegmentFilter {
   /** Custom property comparison. */
-  Comparison?: string;
+  Comparison?: SegmentFilterComparison;
   /** Custom property name. */
   PropertyName?: string;
   /** Custom property datetime value. */
@@ -1158,7 +1158,7 @@ export interface CustomPropertyDetails {
 
 export interface CustomPropertyNumericSegmentFilter {
   /** Custom property comparison. */
-  Comparison?: string;
+  Comparison?: SegmentFilterComparison;
   /** Custom property name. */
   PropertyName?: string;
   /** Custom property numeric value. */
@@ -1167,7 +1167,7 @@ export interface CustomPropertyNumericSegmentFilter {
 
 export interface CustomPropertyStringSegmentFilter {
   /** Custom property comparison. */
-  Comparison?: string;
+  Comparison?: SegmentFilterComparison;
   /** Custom property name. */
   PropertyName?: string;
   /** Custom property string value. */
@@ -1400,7 +1400,7 @@ export interface ErrorDetails {
 
 export interface EventSink {
   /** The type of event sink. Currently only supports AzureBlobStorage. */
-  DestinationType: string;
+  DestinationType: ExternalDestinationType;
   /** Error status for the sink. */
   Error?: ErrorDetails;
   /** The usage status of the sink. */
@@ -1530,14 +1530,14 @@ type ExternalDestinationType = "AzureBlobStorage"
 
 export interface FirstLoginDateSegmentFilter {
   /** First player login date comparison. */
-  Comparison?: string;
+  Comparison?: SegmentFilterComparison;
   /** First player login date. */
   LogInDate: string;
 }
 
 export interface FirstLoginTimespanSegmentFilter {
   /** First player login duration comparison. */
-  Comparison?: string;
+  Comparison?: SegmentFilterComparison;
   /** First player login duration. */
   DurationInMinutes: number;
 }
@@ -2662,7 +2662,7 @@ export interface GetMatchmakerGameInfoResult extends IPlayFabResultCommon {
   /** array of unique PlayFab identifiers for users currently connected to this Game Server Instance */
   Players?: string[];
   /** region in which the Game Server Instance is running */
-  Region?: string;
+  Region?: Region;
   /**
    * IPV4 address of the game server instance
    * @deprecated Please use ServerIPV4Address instead.
@@ -2727,7 +2727,7 @@ export interface GetPlayerIdFromAuthTokenRequest extends IPlayFabRequestCommon {
   /** The auth token of the player requesting the password reset. */
   Token: string;
   /** The type of auth token of the player requesting the password reset. */
-  TokenType: string;
+  TokenType: AuthTokenType;
 }
 
 export interface GetPlayerIdFromAuthTokenResult extends IPlayFabResultCommon {
@@ -2922,7 +2922,7 @@ export interface GetServerBuildInfoRequest extends IPlayFabRequestCommon {
 /** @deprecated Do not use */
 export interface GetServerBuildInfoResult extends IPlayFabResultCommon {
   /** array of regions where this build can used, when it is active */
-  ActiveRegions?: string[];
+  ActiveRegions?: Region[];
   /** unique identifier for this build executable */
   BuildId?: string;
   /** developer comment(s) for this build */
@@ -2937,7 +2937,7 @@ export interface GetServerBuildInfoResult extends IPlayFabResultCommon {
    */
   MinFreeGameSlots: number;
   /** the current status of the build validation and processing steps */
-  Status?: string;
+  Status?: GameBuildStatus;
   /** time this build was last modified (or uploaded, if this build has never been modified) */
   Timestamp: string;
   /**
@@ -2960,7 +2960,7 @@ export interface GetStoreItemsResult extends IPlayFabResultCommon {
   /** Additional data about the store. */
   MarketingData?: StoreMarketingModel;
   /** How the store was last updated (Admin or a third party). */
-  Source?: string;
+  Source?: SourceType;
   /** Array of items which can be purchased from this store. */
   Store?: StoreItem[];
   /** The ID of this store. */
@@ -2978,7 +2978,7 @@ export interface GetTaskInstancesRequest extends IPlayFabRequestCommon {
   /** Optional range-to filter for task instances&#39; StartedAt timestamp. */
   StartedAtRangeTo?: string;
   /** Optional filter for task instances that are of a specific status. */
-  StatusFilter?: string;
+  StatusFilter?: TaskInstanceStatus;
   /**
    * Name or ID of the task whose instances are being queried. If not specified, return all task instances that satisfy
    * conditions set by other filters.
@@ -3270,14 +3270,14 @@ export interface ItemInstance {
 
 export interface LastLoginDateSegmentFilter {
   /** Last player login date comparison. */
-  Comparison?: string;
+  Comparison?: SegmentFilterComparison;
   /** Last player login date. */
   LogInDate: string;
 }
 
 export interface LastLoginTimespanSegmentFilter {
   /** Last player login duration comparison. */
-  Comparison?: string;
+  Comparison?: SegmentFilterComparison;
   /** Last player login duration. */
   DurationInMinutes: number;
 }
@@ -3286,7 +3286,7 @@ export interface LinkedPlatformAccountModel {
   /** Linked account email of the user on the platform, if available */
   Email?: string;
   /** Authentication platform */
-  Platform?: string;
+  Platform?: LoginIdentityProvider;
   /** Unique account identifier of the user on the platform */
   PlatformUserId?: string;
   /** Linked account username of the user on the platform, if available */
@@ -3295,14 +3295,14 @@ export interface LinkedPlatformAccountModel {
 
 export interface LinkedUserAccountHasEmailSegmentFilter {
   /** Login provider comparison. */
-  Comparison?: string;
+  Comparison?: SegmentFilterComparison;
   /** Login provider. */
-  LoginProvider?: string;
+  LoginProvider?: SegmentLoginIdentityProvider;
 }
 
 export interface LinkedUserAccountSegmentFilter {
   /** Login provider. */
-  LoginProvider?: string;
+  LoginProvider?: SegmentLoginIdentityProvider;
 }
 
 /** @deprecated Do not use */
@@ -3352,9 +3352,9 @@ export interface LocationModel {
   /** City name. */
   City?: string;
   /** The two-character continent code for this location */
-  ContinentCode?: string;
+  ContinentCode?: ContinentCode;
   /** The two-character ISO 3166-1 country code for the country associated with the location */
-  CountryCode?: string;
+  CountryCode?: CountryCode;
   /** Latitude coordinate of the geographic location. */
   Latitude?: number;
   /** Longitude coordinate of the geographic location. */
@@ -3363,7 +3363,7 @@ export interface LocationModel {
 
 export interface LocationSegmentFilter {
   /** Segment country code. */
-  CountryCode?: string;
+  CountryCode?: SegmentCountryCode;
 }
 
 type LoginIdentityProvider = "Unknown"
@@ -3449,7 +3449,7 @@ export interface ModifyMatchmakerGameModesResult extends IPlayFabResultCommon {
 /** @deprecated Do not use */
 export interface ModifyServerBuildRequest extends IPlayFabRequestCommon {
   /** array of regions where this build can used, when it is active */
-  ActiveRegions?: string[];
+  ActiveRegions?: Region[];
   /** unique identifier of the previously uploaded build executable to be updated */
   BuildId: string;
   /** appended to the end of the command line when starting game servers */
@@ -3474,7 +3474,7 @@ export interface ModifyServerBuildRequest extends IPlayFabRequestCommon {
 /** @deprecated Do not use */
 export interface ModifyServerBuildResult extends IPlayFabResultCommon {
   /** array of regions where this build can used, when it is active */
-  ActiveRegions?: string[];
+  ActiveRegions?: Region[];
   /** unique identifier for this build executable */
   BuildId?: string;
   /** appended to the end of the command line when starting game servers */
@@ -3491,7 +3491,7 @@ export interface ModifyServerBuildResult extends IPlayFabResultCommon {
    */
   MinFreeGameSlots: number;
   /** the current status of the build validation and processing steps */
-  Status?: string;
+  Status?: GameBuildStatus;
   /** time this build was last modified (or uploaded, if this build has never been modified) */
   Timestamp: string;
   /**
@@ -3558,7 +3558,7 @@ export interface PermissionStatement {
   /** A comment about the statement. Intended solely for bookkeeping and debugging. */
   Comment?: string;
   /** The effect this statement will have. It could be either Allow or Deny */
-  Effect: string;
+  Effect: EffectType;
   /** The principal this statement will effect. The only supported principal is &#39;*&#39;. */
   Principal: string;
   /**
@@ -3570,30 +3570,30 @@ export interface PermissionStatement {
 
 export interface PlayerChurnPredictionSegmentFilter {
   /** Comparison */
-  Comparison?: string;
+  Comparison?: SegmentFilterComparison;
   /** RiskLevel */
-  RiskLevel?: string;
+  RiskLevel?: ChurnRiskLevel;
 }
 
 export interface PlayerChurnPredictionTimeSegmentFilter {
   /** Comparison */
-  Comparison?: string;
+  Comparison?: SegmentFilterComparison;
   /** DurationInDays */
   DurationInDays: number;
 }
 
 export interface PlayerChurnPreviousPredictionSegmentFilter {
   /** Comparison */
-  Comparison?: string;
+  Comparison?: SegmentFilterComparison;
   /** RiskLevel */
-  RiskLevel?: string;
+  RiskLevel?: ChurnRiskLevel;
 }
 
 export interface PlayerLinkedAccount {
   /** Linked account&#39;s email */
   Email?: string;
   /** Authentication platform */
-  Platform?: string;
+  Platform?: LoginIdentityProvider;
   /** Platform user identifier */
   PlatformUserId?: string;
   /** Linked account&#39;s username */
@@ -3604,9 +3604,9 @@ export interface PlayerLocation {
   /** City of the player&#39;s geographic location. */
   City?: string;
   /** The two-character continent code for this location */
-  ContinentCode: string;
+  ContinentCode: ContinentCode;
   /** The two-character ISO 3166-1 country code for the country associated with the location */
-  CountryCode: string;
+  CountryCode: CountryCode;
   /** Latitude coordinate of the player&#39;s geographic location. */
   Latitude?: number;
   /** Longitude coordinate of the player&#39;s geographic location. */
@@ -3621,7 +3621,7 @@ export interface PlayerProfile {
   /** Banned until UTC Date. If permanent ban this is set for 20 years after the original ban date. */
   BannedUntil?: string;
   /** The prediction of the player to churn within the next seven days. */
-  ChurnPrediction?: string;
+  ChurnPrediction?: ChurnRiskLevel;
   /** Array of contact email addresses associated with the player */
   ContactEmailAddresses?: ContactEmailInfo[];
   /** Player record created */
@@ -3637,7 +3637,7 @@ export interface PlayerProfile {
   /** Dictionary of player&#39;s locations by type. */
   Locations?: Record<string, PlayerLocation>;
   /** Player account origination */
-  Origination?: string;
+  Origination?: LoginIdentityProvider;
   /** List of player variants for experimentation */
   PlayerExperimentVariants?: string[];
   /** PlayFab Player ID */
@@ -3690,7 +3690,7 @@ export interface PlayerProfileModel {
   /** List of memberships for the player, along with whether are expired. */
   Memberships?: MembershipModel[];
   /** Player account origination */
-  Origination?: string;
+  Origination?: LoginIdentityProvider;
   /** PlayFab player account unique identifier */
   PlayerId?: string;
   /** Publisher this player belongs to */
@@ -3762,13 +3762,13 @@ export interface PlayerStatistic {
 
 export interface PlayerStatisticDefinition {
   /** the aggregation method to use in updating the statistic (defaults to last) */
-  AggregationMethod?: string;
+  AggregationMethod?: StatisticAggregationMethod;
   /** current active version of the statistic, incremented each time the statistic resets */
   CurrentVersion: number;
   /** unique name of the statistic */
   StatisticName?: string;
   /** interval at which the values of the statistic for all players are reset automatically */
-  VersionChangeInterval?: string;
+  VersionChangeInterval?: StatisticResetIntervalOption;
 }
 
 export interface PlayerStatisticVersion {
@@ -3778,7 +3778,7 @@ export interface PlayerStatisticVersion {
    * status of the process of saving player statistic values of the previous version to a downloadable archive
    * @deprecated Please use Status instead.
    */
-  ArchivalStatus?: string;
+  ArchivalStatus?: StatisticVersionArchivalStatus;
   /** URL for the downloadable archive of player statistic values, if available */
   ArchiveDownloadUrl?: string;
   /** time when the statistic version became inactive due to statistic version incrementing */
@@ -3790,7 +3790,7 @@ export interface PlayerStatisticVersion {
   /** name of the statistic when the version became active */
   StatisticName?: string;
   /** status of the statistic version */
-  Status?: string;
+  Status?: StatisticVersionStatus;
   /** version of the statistic */
   Version: number;
 }
@@ -3811,14 +3811,14 @@ export interface PushNotificationRegistration {
   /** Notification configured endpoint */
   NotificationEndpointARN?: string;
   /** Push notification platform */
-  Platform?: string;
+  Platform?: PushNotificationPlatform;
 }
 
 export interface PushNotificationRegistrationModel {
   /** Notification configured endpoint */
   NotificationEndpointARN?: string;
   /** Push notification platform */
-  Platform?: string;
+  Platform?: PushNotificationPlatform;
 }
 
 export interface PushNotificationSegmentAction {
@@ -3828,7 +3828,7 @@ export interface PushNotificationSegmentAction {
 
 export interface PushNotificationSegmentFilter {
   /** Push notification device platform. */
-  PushNotificationDevicePlatform?: string;
+  PushNotificationDevicePlatform?: SegmentPushNotificationDevicePlatform;
 }
 
 type PushSetupPlatform = "GCM"
@@ -3957,7 +3957,7 @@ export interface ResolvePurchaseDisputeRequest extends IPlayFabRequestCommon {
    * Enum for the desired purchase result state after notifying the payment provider. Valid values are Revoke, Reinstate and
    * Manual. Manual will cause no change to the order state.
    */
-  Outcome: string;
+  Outcome: ResolutionOutcome;
   /** Unique PlayFab assigned ID of the user on whom the operation will be performed. */
   PlayFabId: string;
   /**
@@ -3977,7 +3977,7 @@ export interface ResultTableNode {
   /** Either an ItemId, or the TableId of another random result table */
   ResultItem: string;
   /** Whether this entry in the table is an item or a link to another table */
-  ResultItemType: string;
+  ResultItemType: ResultTableNodeType;
   /** How likely this is to be rolled - larger numbers add more weight */
   Weight: number;
 }
@@ -4038,7 +4038,7 @@ export interface RevokeInventoryResult extends IPlayFabResultCommon {
 
 export interface RevokeItemError {
   /** Specific error that was encountered. */
-  Error?: string;
+  Error?: GenericErrorCodes;
   /** Item information that failed to be revoked. */
   Item?: RevokeInventoryItem;
 }
@@ -4079,7 +4079,7 @@ export interface ScheduledTask {
   /** ID of the task */
   TaskId?: string;
   /** Task type. */
-  Type?: string;
+  Type?: ScheduledTaskType;
 }
 
 type ScheduledTaskType = "CloudScript"
@@ -4766,7 +4766,7 @@ export interface SetupPushNotificationRequest extends IPlayFabRequestCommon {
    * supported notification platforms are Apple Push Notification Service (APNS and APNS_SANDBOX) for iOS and Google Cloud
    * Messaging (GCM) for Android
    */
-  Platform: string;
+  Platform: PushSetupPlatform;
 }
 
 export interface SetupPushNotificationResult extends IPlayFabResultCommon {
@@ -4813,7 +4813,7 @@ type StatisticResetIntervalOption = "Never"
 
 export interface StatisticSegmentFilter {
   /** Statistic filter comparison. */
-  Comparison?: string;
+  Comparison?: SegmentFilterComparison;
   /** Statistic filter value. */
   FilterValue?: string;
   /** Statistic name. */
@@ -4869,7 +4869,7 @@ export interface SubscriptionModel {
   /** Whether this subscription is currently active. That is, if Expiration &gt; now. */
   IsActive: boolean;
   /** The status of this subscription, according to the subscription provider. */
-  Status?: string;
+  Status?: SubscriptionProviderStatus;
   /** The id for this subscription */
   SubscriptionId?: string;
   /** The item id for this subscription from the primary catalog */
@@ -4931,7 +4931,7 @@ export interface TagModel {
 
 export interface TagSegmentFilter {
   /** Tag comparison. */
-  Comparison?: string;
+  Comparison?: SegmentFilterComparison;
   /** Tag value. */
   TagValue?: string;
 }
@@ -4950,13 +4950,13 @@ export interface TaskInstanceBasicSummary {
   /** UTC timestamp when the task started. */
   StartedAt: string;
   /** Current status of the task instance. */
-  Status?: string;
+  Status?: TaskInstanceStatus;
   /** Identifier of the task this instance belongs to. */
   TaskIdentifier?: NameIdentifier;
   /** ID of the task instance. */
   TaskInstanceId?: string;
   /** Type of the task. */
-  Type?: string;
+  Type?: ScheduledTaskType;
 }
 
 type TaskInstanceStatus = "Succeeded"
@@ -4986,7 +4986,7 @@ export interface TotalValueToDateInUSDSegmentFilter {
   /** Total value to date USD amount. */
   Amount?: string;
   /** Total value to date USD comparison. */
-  Comparison?: string;
+  Comparison?: SegmentFilterComparison;
 }
 
 export interface UpdateBanRequest {
@@ -5014,7 +5014,7 @@ export interface UpdateBanRequest {
   /** The updated reason for the ban to be updated. Maximum 140 characters. Null for no change. */
   Reason?: string;
   /** The updated family type of the user that should be included in the ban. Null for no change. */
-  UserFamilyType?: string;
+  UserFamilyType?: UserFamilyType;
 }
 
 export interface UpdateBansRequest extends IPlayFabRequestCommon {
@@ -5125,14 +5125,14 @@ export interface UpdatePlayerSharedSecretResult extends IPlayFabResultCommon {
 
 export interface UpdatePlayerStatisticDefinitionRequest extends IPlayFabRequestCommon {
   /** the aggregation method to use in updating the statistic (defaults to last) */
-  AggregationMethod?: string;
+  AggregationMethod?: StatisticAggregationMethod;
   /** unique name of the statistic */
   StatisticName: string;
   /**
    * interval at which the values of the statistic for all players are reset (changes are effective at the next occurance of
    * the new interval boundary)
    */
-  VersionChangeInterval?: string;
+  VersionChangeInterval?: StatisticResetIntervalOption;
 }
 
 export interface UpdatePlayerStatisticDefinitionResult extends IPlayFabResultCommon {
@@ -5224,7 +5224,7 @@ export interface UpdateTaskRequest extends IPlayFabRequestCommon {
   /** Cron expression for the run schedule of the task. The expression should be in UTC. */
   Schedule?: string;
   /** Task type. */
-  Type: string;
+  Type: ScheduledTaskType;
 }
 
 export interface UpdateUserDataRequest extends IPlayFabRequestCommon {
@@ -5241,7 +5241,7 @@ export interface UpdateUserDataRequest extends IPlayFabRequestCommon {
    */
   KeysToRemove?: string[];
   /** Permission to be applied to all user data keys written in this request. Defaults to &quot;private&quot; if not set. */
-  Permission?: string;
+  Permission?: UserDataPermission;
   /** Unique PlayFab assigned ID of the user on whom the operation will be performed. */
   PlayFabId: string;
 }
@@ -5379,7 +5379,7 @@ export interface UserDataRecord {
    * Indicates whether this data can be read by all users (public) or only the user (private). This is used for GetUserData
    * requests being made by one player about another player.
    */
-  Permission?: string;
+  Permission?: UserDataPermission;
   /** Data stored for the specified user data key. */
   Value?: string;
 }
@@ -5488,7 +5488,7 @@ type UserOrigination = "Organic"
 
 export interface UserOriginationSegmentFilter {
   /** User login provider. */
-  LoginProvider?: string;
+  LoginProvider?: SegmentLoginIdentityProvider;
 }
 
 export interface UserPrivateAccountInfo {
@@ -5510,11 +5510,11 @@ export interface UserServerCustomIdInfo {
 
 export interface UserSteamInfo {
   /** what stage of game ownership the user is listed as being in, from Steam */
-  SteamActivationStatus?: string;
+  SteamActivationStatus?: TitleActivationStatus;
   /** the country in which the player resides, from Steam data */
   SteamCountry?: string;
   /** currency type set in the user Steam account */
-  SteamCurrency?: string;
+  SteamCurrency?: Currency;
   /** Steam identifier */
   SteamId?: string;
   /** Steam display name */
@@ -5541,7 +5541,7 @@ export interface UserTitleInfo {
   /** timestamp for the last user login for this title */
   LastLogin?: string;
   /** source by which the user first joined the game, if known */
-  Origination?: string;
+  Origination?: UserOrigination;
   /** Title player account entity for this user */
   TitlePlayerAccount?: EntityKey;
 }
@@ -5579,16 +5579,16 @@ export interface ValueToDateSegmentFilter {
   /** Value to date amount. */
   Amount?: string;
   /** Value to date comparison. */
-  Comparison?: string;
+  Comparison?: SegmentFilterComparison;
   /** Currency using for filter. */
-  Currency?: string;
+  Currency?: SegmentCurrency;
 }
 
 export interface VirtualCurrencyBalanceSegmentFilter {
   /** Total amount. */
   Amount: number;
   /** Amount comparison. */
-  Comparison?: string;
+  Comparison?: SegmentFilterComparison;
   /** Currency code. */
   CurrencyCode?: string;
 }

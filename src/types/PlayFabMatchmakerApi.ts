@@ -128,7 +128,7 @@ export interface RegisterGameRequest extends IPlayFabRequestCommon {
    * Region in which the Game Server Instance is running. For matchmaking using non-AWS region names, set this to any AWS
    * region and use Tags (below) to specify your custom region.
    */
-  Region: string;
+  Region: Region;
   /**
    * IPV4 address of the Game Server Instance.
    * @deprecated Please use ServerIPV4Address instead.
@@ -172,7 +172,7 @@ export interface StartGameRequest extends IPlayFabRequestCommon {
   /** Game mode for this Game Server Instance. */
   GameMode: string;
   /** Region with which to associate the server, for filtering. */
-  Region: string;
+  Region: Region;
 }
 
 /** @deprecated Do not use */

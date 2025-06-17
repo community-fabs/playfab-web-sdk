@@ -267,7 +267,7 @@ export interface CatalogView {
    * The format to use when exporting the view file. Supported file formats are: Json, JsonLines, GZippedJson,
    * GZippedJsonLines
    */
-  FileFormat?: string;
+  FileFormat?: ViewFileFormat;
   /** An OData filter used to refine the search query. */
   Filter?: string;
   /** An optional alternate friendly ID associated with this view. */
@@ -301,7 +301,7 @@ export interface CatalogViewDiagnostics {
   /** The last size of the view in bytes. */
   SizeInBytes?: number;
   /** The last status of the view. */
-  Status?: string;
+  Status?: CatalogViewStatus;
 }
 
 type CatalogViewStatus = "Unknown"
@@ -784,7 +784,7 @@ export interface DisplayPropertyIndexInfo {
   /** The property name in the &#39;DisplayProperties&#39; property to be indexed. */
   Name?: string;
   /** The type of the property to be indexed. */
-  Type?: string;
+  Type?: DisplayPropertyType;
 }
 
 type DisplayPropertyType = "None"
@@ -1135,7 +1135,7 @@ export interface GetItemPublishStatusRequest extends IPlayFabRequestCommon {
 
 export interface GetItemPublishStatusResponse extends IPlayFabResultCommon {
   /** High level status of the published item. */
-  Result?: string;
+  Result?: PublishResult;
   /** Descriptive message about the current status of the publish. */
   StatusMessage?: string;
 }
@@ -1432,7 +1432,7 @@ export interface ModerationState {
   /** The current stated reason for the associated item being moderated. */
   Reason?: string;
   /** The current moderation status for the associated item. */
-  Status?: string;
+  Status?: ModerationStatus;
 }
 
 type ModerationStatus = "Unknown"
@@ -1601,7 +1601,7 @@ export interface RedeemAppleAppStoreInventoryItemsRequest extends IPlayFabReques
   /** The id of the entity&#39;s collection to perform this action on. (Default=&quot;default&quot;) */
   CollectionId?: string;
   /** The country code of the real money transaction. */
-  CountryCode?: string;
+  CountryCode?: CountryCode;
   /** The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.). */
   CustomTags?: Record<string, string | null>;
   /** The entity to perform this action on. */
@@ -1628,7 +1628,7 @@ export interface RedeemGooglePlayInventoryItemsRequest extends IPlayFabRequestCo
   /** The id of the entity&#39;s collection to perform this action on. (Default=&quot;default&quot;) */
   CollectionId?: string;
   /** The country code of the real money transaction. */
-  CountryCode?: string;
+  CountryCode?: CountryCode;
   /** The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.). */
   CustomTags?: Record<string, string | null>;
   /** The entity to perform this action on. */
@@ -1657,7 +1657,7 @@ export interface RedeemMicrosoftStoreInventoryItemsRequest extends IPlayFabReque
   /** The OneStore Collections Id Key used for AAD authentication. */
   CollectionsIdKey?: string;
   /** The country code of the real money transaction. */
-  CountryCode?: string;
+  CountryCode?: CountryCode;
   /** The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.). */
   CustomTags?: Record<string, string | null>;
   /** The entity to perform this action on. */
@@ -1687,7 +1687,7 @@ export interface RedeemNintendoEShopInventoryItemsRequest extends IPlayFabReques
   /** The id of the entity&#39;s collection to perform this action on. (Default=&quot;default&quot;) */
   CollectionId?: string;
   /** The country code of the real money transaction. */
-  CountryCode?: string;
+  CountryCode?: CountryCode;
   /** The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.). */
   CustomTags?: Record<string, string | null>;
   /** The entity to perform this action on. */
@@ -1716,7 +1716,7 @@ export interface RedeemPlayStationStoreInventoryItemsRequest extends IPlayFabReq
   /** The id of the entity&#39;s collection to perform this action on. (Default=&quot;default&quot;) */
   CollectionId?: string;
   /** The country code of the real money transaction. */
-  CountryCode?: string;
+  CountryCode?: CountryCode;
   /** The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.). */
   CustomTags?: Record<string, string | null>;
   /** The entity to perform this action on. */
@@ -1745,7 +1745,7 @@ export interface RedeemSteamInventoryItemsRequest extends IPlayFabRequestCommon 
   /** The id of the entity&#39;s collection to perform this action on. (Default=&quot;default&quot;) */
   CollectionId?: string;
   /** The country code of the real money transaction. */
-  CountryCode?: string;
+  CountryCode?: CountryCode;
   /** The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.). */
   CustomTags?: Record<string, string | null>;
   /** The entity to perform this action on. */
@@ -1790,7 +1790,7 @@ export interface ReportItemRequest extends IPlayFabRequestCommon {
   /** An alternate ID associated with this item. */
   AlternateId?: CatalogAlternateId;
   /** Category of concern for this report. */
-  ConcernCategory?: string;
+  ConcernCategory?: ConcernCategory;
   /** The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.). */
   CustomTags?: Record<string, string | null>;
   /** The entity to perform this action on. */
@@ -1808,7 +1808,7 @@ export interface ReportItemReviewRequest extends IPlayFabRequestCommon {
   /** An alternate ID of the item associated with the review. */
   AlternateId?: CatalogAlternateId;
   /** The reason this review is being reported. */
-  ConcernCategory?: string;
+  ConcernCategory?: ConcernCategory;
   /** The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.). */
   CustomTags?: Record<string, string | null>;
   /** The entity to perform this action on. */
@@ -1929,7 +1929,7 @@ export interface SetItemModerationStateRequest extends IPlayFabRequestCommon {
   /** The reason for the moderation state change for the associated item. */
   Reason?: string;
   /** The status to set for the associated item. */
-  Status?: string;
+  Status?: ModerationStatus;
 }
 
 export interface SetItemModerationStateResponse extends IPlayFabResultCommon {
@@ -1963,7 +1963,7 @@ export interface SubmitItemReviewVoteRequest extends IPlayFabRequestCommon {
   /** The ID of the review to submit a helpfulness vote for. */
   ReviewId?: string;
   /** The helpfulness vote of the review. */
-  Vote?: string;
+  Vote?: HelpfulnessVote;
 }
 
 export interface SubmitItemReviewVoteResponse extends IPlayFabResultCommon {
@@ -2044,7 +2044,7 @@ export interface Transaction {
   /** Additional details about the transaction. Null if it was not a clawback operation. */
   ClawbackDetails?: TransactionClawbackDetails;
   /** The country of the caller of the operation. */
-  CountryCode?: string;
+  CountryCode?: CountryCode;
   /** The type of item that the the operation occurred on. */
   ItemType?: string;
   /** The operations that occurred. */

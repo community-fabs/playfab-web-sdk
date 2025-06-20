@@ -1424,6 +1424,8 @@ export interface ListVersionedCatalogsRequest extends IPlayFabRequestCommon {
 export interface ListVersionedCatalogsResponse extends IPlayFabResultCommon {
   /** The list of versioned catalogs. */
   VersionedCatalogs?: VersionedCatalog[];
+  /** The source from where the versioned catalogs are coming from. */
+  VersionedCatalogsSource?: string;
 }
 
 export interface ModerationState {

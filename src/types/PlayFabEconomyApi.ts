@@ -961,6 +961,13 @@ export interface GetDraftItemResponse extends IPlayFabResultCommon {
 export interface GetDraftItemsRequest extends IPlayFabRequestCommon {
   /** List of item alternate IDs. */
   AlternateIds?: CatalogAlternateId[];
+  /**
+   * An opaque token used to retrieve the next page of items created by the caller, if any are available. Should be null on
+   * initial request.
+   */
+  ContinuationToken?: string;
+  /** Number of items to retrieve. This value is optional. Default value is 10. */
+  Count?: number;
   /** The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.). */
   CustomTags?: Record<string, string | null>;
   /** The entity to perform this action on. */

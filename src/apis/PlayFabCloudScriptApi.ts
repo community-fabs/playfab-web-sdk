@@ -142,7 +142,8 @@ export default class PlayFabCloudScriptApi extends PlayFabCommon {
    *     "FunctionResult": {
    *       "newScore": 25,
    *       "isWinner": false
-   *     }
+   *     },
+   *     "FunctionResultSize": 43
    *   },
    *   "Entity": {
    *     "Id": "ID",
@@ -167,7 +168,8 @@ export default class PlayFabCloudScriptApi extends PlayFabCommon {
    *     "FunctionResult": {
    *       "newScore": 25,
    *       "isWinner": false
-   *     }
+   *     },
+   *     "FunctionResultSize": 43
    *   },
    *   "Entity": {
    *     "Id": "ID",
@@ -208,7 +210,8 @@ export default class PlayFabCloudScriptApi extends PlayFabCommon {
    *     "FunctionResult": {
    *       "newScore": 25,
    *       "isWinner": false
-   *     }
+   *     },
+   *     "FunctionResultSize": 43
    *   }
    * });
    */
@@ -232,7 +235,8 @@ export default class PlayFabCloudScriptApi extends PlayFabCommon {
    *     "FunctionResult": {
    *       "newScore": 25,
    *       "isWinner": false
-   *     }
+   *     },
+   *     "FunctionResultSize": 43
    *   }
    * });
    */

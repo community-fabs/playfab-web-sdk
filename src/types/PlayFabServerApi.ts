@@ -2577,8 +2577,8 @@ export interface GetPlayFabIDsFromBattleNetAccountIdsResult extends IPlayFabResu
 
 export interface GetPlayFabIDsFromFacebookIDsRequest extends IPlayFabRequestCommon {
   /**
-   * Array of unique Facebook identifiers for which the title needs to get PlayFab identifiers. The array cannot exceed 2,000
-   * in length.
+   * Array of unique Facebook identifiers for which the title needs to get PlayFab identifiers. The array cannot exceed 25 in
+   * length.
    */
   FacebookIDs: string[];
 }
@@ -2617,7 +2617,7 @@ export interface GetPlayFabIDsFromGenericIDsResult extends IPlayFabResultCommon 
 export interface GetPlayFabIDsFromNintendoServiceAccountIdsRequest extends IPlayFabRequestCommon {
   /**
    * Array of unique Nintendo Switch Account identifiers for which the title needs to get PlayFab identifiers. The array
-   * cannot exceed 2,000 in length.
+   * cannot exceed 25 in length.
    */
   NintendoAccountIds: string[];
 }
@@ -2630,7 +2630,7 @@ export interface GetPlayFabIDsFromNintendoServiceAccountIdsResult extends IPlayF
 export interface GetPlayFabIDsFromNintendoSwitchDeviceIdsRequest extends IPlayFabRequestCommon {
   /**
    * Array of unique Nintendo Switch Device identifiers for which the title needs to get PlayFab identifiers. The array
-   * cannot exceed 2,000 in length.
+   * cannot exceed 25 in length.
    */
   NintendoSwitchDeviceIds: string[];
 }
@@ -2645,7 +2645,7 @@ export interface GetPlayFabIDsFromPSNAccountIDsRequest extends IPlayFabRequestCo
   IssuerId?: number;
   /**
    * Array of unique PlayStation :tm: Network identifiers for which the title needs to get PlayFab identifiers. The array
-   * cannot exceed 2,000 in length.
+   * cannot exceed 25 in length.
    */
   PSNAccountIDs: string[];
 }
@@ -2660,7 +2660,7 @@ export interface GetPlayFabIDsFromPSNOnlineIDsRequest extends IPlayFabRequestCom
   IssuerId?: number;
   /**
    * Array of unique PlayStation :tm: Network identifiers for which the title needs to get PlayFab identifiers. The array
-   * cannot exceed 2,000 in length.
+   * cannot exceed 25 in length.
    */
   PSNOnlineIDs: string[];
 }
@@ -2678,7 +2678,7 @@ export interface GetPlayFabIDsFromSteamIDsRequest extends IPlayFabRequestCommon 
   SteamIDs?: number[];
   /**
    * Array of unique Steam identifiers (Steam profile IDs) for which the title needs to get PlayFab identifiers. The array
-   * cannot exceed 2,000 in length.
+   * cannot exceed 25 in length.
    */
   SteamStringIDs?: string[];
 }
@@ -2690,7 +2690,7 @@ export interface GetPlayFabIDsFromSteamIDsResult extends IPlayFabResultCommon {
 
 export interface GetPlayFabIDsFromSteamNamesRequest extends IPlayFabRequestCommon {
   /**
-   * Array of unique Steam identifiers for which the title needs to get PlayFab identifiers. The array cannot exceed 2,000 in
+   * Array of unique Steam identifiers for which the title needs to get PlayFab identifiers. The array cannot exceed 25 in
    * length.
    */
   SteamNames: string[];
@@ -2704,7 +2704,7 @@ export interface GetPlayFabIDsFromSteamNamesResult extends IPlayFabResultCommon 
 export interface GetPlayFabIDsFromTwitchIDsRequest extends IPlayFabRequestCommon {
   /**
    * Array of unique Twitch identifiers (Twitch&#39;s _id) for which the title needs to get PlayFab identifiers. The array cannot
-   * exceed 2,000 in length.
+   * exceed 25 in length.
    */
   TwitchIds: string[];
 }
@@ -2719,7 +2719,7 @@ export interface GetPlayFabIDsFromXboxLiveIDsRequest extends IPlayFabRequestComm
   Sandbox?: string;
   /**
    * Array of unique Xbox Live account identifiers for which the title needs to get PlayFab identifiers. The array cannot
-   * exceed 2,000 in length.
+   * exceed 25 in length.
    */
   XboxLiveAccountIDs: string[];
 }

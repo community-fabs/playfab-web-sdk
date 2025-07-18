@@ -21,7 +21,7 @@ export interface CreateLeaderboardDefinitionRequest extends IPlayFabRequestCommo
   /** Maximum number of entries on this leaderboard */
   SizeLimit: number;
   /** The version reset configuration for the leaderboard definition. */
-  VersionConfiguration: VersionConfiguration;
+  VersionConfiguration?: VersionConfiguration;
 }
 
 export interface CreateStatisticDefinitionRequest extends IPlayFabRequestCommon {

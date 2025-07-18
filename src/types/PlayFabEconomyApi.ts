@@ -905,6 +905,8 @@ export interface ExecuteTransferOperationsResponse extends IPlayFabResultCommon 
 export interface ExportVersionedCatalogRequest extends IPlayFabRequestCommon {
   /** The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.). */
   CustomTags?: Record<string, string | null>;
+  /** Whether or not the export should read from BlobCatalog. */
+  ReadFromBlobCatalog: boolean;
   /** Version of the catalog. */
   Version?: string;
 }
@@ -2054,6 +2056,8 @@ export interface Transaction {
   ClawbackDetails?: TransactionClawbackDetails;
   /** The country of the caller of the operation. */
   CountryCode?: CountryCode;
+  /** The custom tags associated with this transactions. */
+  CustomTags?: Record<string, string | null>;
   /** The type of item that the the operation occurred on. */
   ItemType?: string;
   /** The operations that occurred. */

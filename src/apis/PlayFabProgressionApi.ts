@@ -59,7 +59,16 @@ export default class PlayFabProgressionApi extends PlayFabCommon {
    *       "SortDirection": "Descending"
    *     }
    *   ],
-   *   "SizeLimit": 1000
+   *   "SizeLimit": 1000,
+   *   "EventEmissionConfig": {
+   *     "VersionEndConfig": {
+   *       "EventType": "None"
+   *     },
+   *     "EntityRankOnVersionEndConfig": {
+   *       "EventType": "None",
+   *       "RankLimit": 1
+   *     }
+   *   }
    * });
    */
   CreateLeaderboardDefinition (request: CreateLeaderboardDefinitionRequest, extraHeaders?: Record<string, string>) {
@@ -375,7 +384,16 @@ export default class PlayFabProgressionApi extends PlayFabCommon {
    *     "ResetInterval": "Manual",
    *     "MaxQueryableVersions": 1
    *   },
-   *   "SizeLimit": 1000
+   *   "SizeLimit": 1000,
+   *   "EventEmissionConfig": {
+   *     "VersionEndConfig": {
+   *       "EventType": "None"
+   *     },
+   *     "EntityRankOnVersionEndConfig": {
+   *       "EventType": "None",
+   *       "RankLimit": 1
+   *     }
+   *   }
    * });
    */
   UpdateLeaderboardDefinition (request: UpdateLeaderboardDefinitionRequest, extraHeaders?: Record<string, string>) {

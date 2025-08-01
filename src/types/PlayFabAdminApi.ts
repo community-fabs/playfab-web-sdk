@@ -2168,6 +2168,7 @@ type GenericErrorCodes = "Success"
   | "InvalidReportName"
   | "ResourceNotModified"
   | "StudioCreationLimitExceeded"
+  | "StudioDeletionInitiated"
   | "MatchmakingEntityInvalid"
   | "MatchmakingPlayerAttributesInvalid"
   | "MatchmakingQueueNotFound"
@@ -2496,7 +2497,8 @@ type GenericErrorCodes = "Success"
   | "VersionConfigurationIsRequired"
   | "InvalidEntityTypeForAggregation"
   | "MultiLevelAggregationNotAllowed"
-  | "AggregationTypeNotAllowedForLinkedStat";
+  | "AggregationTypeNotAllowedForLinkedStat"
+  | "StoreMetricsRequestInvalidInput";
 
 /** @deprecated Do not use */
 export interface GetActionGroupResult {
@@ -3165,6 +3167,9 @@ export interface GrantVirtualCurrencySegmentAction {
   CurrencyCode?: string;
 }
 
+export interface IEnumerable_TimeSeries {
+}
+
 export interface IncrementLimitedEditionItemAvailabilityRequest extends IPlayFabRequestCommon {
   /** Amount to increase availability by. */
   Amount: number;
@@ -3434,6 +3439,19 @@ export interface MembershipModel {
   OverrideIsSet?: boolean;
   /** The list of subscriptions that this player has for this membership */
   Subscriptions?: SubscriptionModel[];
+}
+
+export interface MetricQueryInfo {
+  From?: string;
+  To?: string;
+}
+
+export interface MetricsMessageModel {
+  ControlId?: string;
+  Error?: string;
+  FilterSignature?: string;
+  Query?: MetricQueryInfo;
+  SeriesCollection?: IEnumerable_TimeSeries;
 }
 
 /** @deprecated Do not use */
@@ -4861,6 +4879,15 @@ export interface StoreMarketingModel {
   DisplayName?: string;
   /** Custom data about a store. */
   Metadata?: any;
+}
+
+export interface StoreMetricsRequest extends IPlayFabRequestCommon {
+  MetricName?: string;
+  MetricPeriod?: string;
+}
+
+export interface StoreMetricsResponse extends IPlayFabResultCommon {
+  MetricData?: MetricsMessageModel;
 }
 
 export interface SubscriptionModel {

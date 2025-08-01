@@ -1686,6 +1686,7 @@ type GenericErrorCodes = "Success"
   | "InvalidReportName"
   | "ResourceNotModified"
   | "StudioCreationLimitExceeded"
+  | "StudioDeletionInitiated"
   | "MatchmakingEntityInvalid"
   | "MatchmakingPlayerAttributesInvalid"
   | "MatchmakingQueueNotFound"
@@ -2014,7 +2015,8 @@ type GenericErrorCodes = "Success"
   | "VersionConfigurationIsRequired"
   | "InvalidEntityTypeForAggregation"
   | "MultiLevelAggregationNotAllowed"
-  | "AggregationTypeNotAllowedForLinkedStat";
+  | "AggregationTypeNotAllowedForLinkedStat"
+  | "StoreMetricsRequestInvalidInput";
 
 export interface GenericPlayFabIdPair {
   /** Unique generic service identifier for a user. */

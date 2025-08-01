@@ -63,6 +63,7 @@ import type {
   GetSegmentsRequest,
   GetServerBuildInfoRequest,
   GetStoreItemsRequest,
+  StoreMetricsRequest,
   GetTaskInstancesRequest,
   GetTasksRequest,
   GetTitleDataRequest,
@@ -175,6 +176,7 @@ import type {
   GetSegmentsResponse,
   GetServerBuildInfoResult,
   GetStoreItemsResult,
+  StoreMetricsResponse,
   GetTaskInstancesResult,
   GetTasksResult,
   GetTitleDataResult,
@@ -1208,6 +1210,15 @@ export default class PlayFabAdminApi extends PlayFabCommon {
    */
   GetStoreItems (request: GetStoreItemsRequest, extraHeaders?: Record<string, string>) {
     return this.ExecuteRequestWrapper<GetStoreItemsResult>("/Admin/GetStoreItems", request, "X-SecretKey", extraHeaders);
+  }
+
+  /**
+   * Retrieves Xbox Store metric data for the authenticated title, based on the specified metric name and reporting period.
+   * 
+   * {@link https://docs.microsoft.com/rest/api/playfab/admin/xbox-store/getstoremetrics Microsoft Documentation}
+   */
+  GetStoreMetrics (request: StoreMetricsRequest, extraHeaders?: Record<string, string>) {
+    return this.ExecuteRequestWrapper<StoreMetricsResponse>("/Admin/GetStoreMetrics", request, "X-SecretKey", extraHeaders);
   }
 
   /**

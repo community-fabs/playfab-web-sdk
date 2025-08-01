@@ -87,7 +87,12 @@ export default class PlayFabProgressionApi extends PlayFabCommon {
    *     {
    *       "AggregationMethod": "Min"
    *     }
-   *   ]
+   *   ],
+   *   "EventEmissionConfig": {
+   *     "UpdateEventConfig": {
+   *       "EventType": "None"
+   *     }
+   *   }
    * });
    */
   CreateStatisticDefinition (request: CreateStatisticDefinitionRequest, extraHeaders?: Record<string, string>) {
@@ -439,6 +444,11 @@ export default class PlayFabProgressionApi extends PlayFabCommon {
    *   "VersionConfiguration": {
    *     "ResetInterval": "Manual",
    *     "MaxQueryableVersions": 2
+   *   },
+   *   "EventEmissionConfig": {
+   *     "UpdateEventConfig": {
+   *       "EventType": "PlayStream"
+   *     }
    *   }
    * });
    */

@@ -3,6 +3,7 @@ import type {
   IPlayFabResultCommon
 } from "./PlayFab";
 
+/** @deprecated Do not use */
 export interface AdCampaignAttribution {
   /** UTC time stamp of attribution */
   AttributedAt: string;
@@ -374,6 +375,7 @@ export interface ConsumeItemResult extends IPlayFabResultCommon {
   RemainingUses: number;
 }
 
+/** @deprecated Do not use */
 export interface ContactEmailInfo {
   /** The email address */
   EmailAddress?: string;
@@ -2474,6 +2476,7 @@ export interface GetPlayerSegmentsResult extends IPlayFabResultCommon {
   Segments?: GetSegmentResult[];
 }
 
+/** @deprecated Do not use */
 export interface GetPlayersInSegmentRequest extends IPlayFabRequestCommon {
   /** Continuation token if retrieving subsequent pages of results. */
   ContinuationToken?: string;
@@ -2499,6 +2502,7 @@ export interface GetPlayersInSegmentRequest extends IPlayFabRequestCommon {
   SegmentId: string;
 }
 
+/** @deprecated Do not use */
 export interface GetPlayersInSegmentResult extends IPlayFabResultCommon {
   /** Continuation token to use to retrieve subsequent pages of results. If token returns null there are no more results. */
   ContinuationToken?: string;
@@ -3658,6 +3662,7 @@ export interface PlayerLeaderboardEntry {
   StatValue: number;
 }
 
+/** @deprecated Do not use */
 export interface PlayerLinkedAccount {
   /** Linked account&#39;s email */
   Email?: string;
@@ -3669,6 +3674,7 @@ export interface PlayerLinkedAccount {
   Username?: string;
 }
 
+/** @deprecated Do not use */
 export interface PlayerLocation {
   /** City of the player&#39;s geographic location. */
   City?: string;
@@ -3682,6 +3688,7 @@ export interface PlayerLocation {
   Longitude?: number;
 }
 
+/** @deprecated Do not use */
 export interface PlayerProfile {
   /** Array of ad campaigns player has been attributed to */
   AdCampaignAttributions?: AdCampaignAttribution[];
@@ -3818,6 +3825,7 @@ export interface PlayerProfileViewConstraints {
   ShowValuesToDate: boolean;
 }
 
+/** @deprecated Do not use */
 export interface PlayerStatistic {
   /** Statistic ID */
   Id?: string;
@@ -3888,6 +3896,7 @@ export interface PushNotificationPackage {
 type PushNotificationPlatform = "ApplePushNotificationService"
   | "GoogleCloudMessaging";
 
+/** @deprecated Do not use */
 export interface PushNotificationRegistration {
   /** Notification configured endpoint */
   NotificationEndpointARN?: string;

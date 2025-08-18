@@ -71,6 +71,7 @@ export interface ActionsOnPlayersInSegmentTaskSummary {
   TotalPlayersProcessed?: number;
 }
 
+/** @deprecated Do not use */
 export interface AdCampaignAttribution {
   /** UTC time stamp of attribution */
   AttributedAt: string;
@@ -556,6 +557,7 @@ type Conditionals = "Any"
   | "True"
   | "False";
 
+/** @deprecated Do not use */
 export interface ContactEmailInfo {
   /** The email address */
   EmailAddress?: string;
@@ -1360,6 +1362,29 @@ export interface DeleteUsersRequest extends IPlayFabRequestCommon {
 
 /** @deprecated Do not use */
 export interface DeleteUsersResult extends IPlayFabResultCommon {
+}
+
+export interface DimensionFilters {
+  /** Store metric age group */
+  AgeGroup?: string;
+  /** Store campaign. */
+  Campaign?: string;
+  /** Store user country. */
+  Country?: string;
+  /** Purchase currency. */
+  Currency?: string;
+  /** User device type. */
+  DeviceType?: string;
+  /** Is the product in sale? */
+  HasInSale?: string;
+  /** Product id. */
+  ProductId?: string;
+  /** Source page of the user presence. */
+  Source?: string;
+  /** Xbox store front. */
+  StoreFront?: string;
+  /** Xbox title id. */
+  XboxTitleId?: string;
 }
 
 type EffectType = "Allow"
@@ -2785,6 +2810,7 @@ export interface GetPlayersInSegmentExportResponse extends IPlayFabResultCommon 
   State?: string;
 }
 
+/** @deprecated Do not use */
 export interface GetPlayersInSegmentRequest extends IPlayFabRequestCommon {
   /** Continuation token if retrieving subsequent pages of results. */
   ContinuationToken?: string;
@@ -2810,6 +2836,7 @@ export interface GetPlayersInSegmentRequest extends IPlayFabRequestCommon {
   SegmentId: string;
 }
 
+/** @deprecated Do not use */
 export interface GetPlayersInSegmentResult extends IPlayFabResultCommon {
   /** Continuation token to use to retrieve subsequent pages of results. If token returns null there are no more results. */
   ContinuationToken?: string;
@@ -3609,6 +3636,7 @@ export interface PlayerChurnPreviousPredictionSegmentFilter {
   RiskLevel?: ChurnRiskLevel;
 }
 
+/** @deprecated Do not use */
 export interface PlayerLinkedAccount {
   /** Linked account&#39;s email */
   Email?: string;
@@ -3620,6 +3648,7 @@ export interface PlayerLinkedAccount {
   Username?: string;
 }
 
+/** @deprecated Do not use */
 export interface PlayerLocation {
   /** City of the player&#39;s geographic location. */
   City?: string;
@@ -3633,6 +3662,7 @@ export interface PlayerLocation {
   Longitude?: number;
 }
 
+/** @deprecated Do not use */
 export interface PlayerProfile {
   /** Array of ad campaigns player has been attributed to */
   AdCampaignAttributions?: AdCampaignAttribution[];
@@ -3769,6 +3799,7 @@ export interface PlayerProfileViewConstraints {
   ShowValuesToDate: boolean;
 }
 
+/** @deprecated Do not use */
 export interface PlayerStatistic {
   /** Statistic ID */
   Id?: string;
@@ -3827,6 +3858,7 @@ export interface PushNotificationContent {
 type PushNotificationPlatform = "ApplePushNotificationService"
   | "GoogleCloudMessaging";
 
+/** @deprecated Do not use */
 export interface PushNotificationRegistration {
   /** Notification configured endpoint */
   NotificationEndpointARN?: string;
@@ -4882,7 +4914,14 @@ export interface StoreMarketingModel {
 }
 
 export interface StoreMetricsRequest extends IPlayFabRequestCommon {
+  /** Dimension filters. */
+  DimensionFilters?: DimensionFilters;
+  /**
+   * Store metric name. page_view_count, purchase_count, purchase_revenue, unique_user_count, wish_list_add_count are
+   * supported metrics.
+   */
   MetricName?: string;
+  /** Store metric period. 1h, 24h, 2d, 7d, 30d are supported periods. */
   MetricPeriod?: string;
 }
 

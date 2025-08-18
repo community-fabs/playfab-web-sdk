@@ -938,12 +938,7 @@ export default class PlayFabServerApi extends PlayFabCommon {
    * called 30 times in one minute. You will be returned an error if you exceed this threshold.
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/server/playstream/getplayersinsegment Microsoft Documentation}
-   * @example
-   * await serverClient.GetPlayersInSegment({
-   *   "SegmentId": "1337AA00",
-   *   "SecondsToLive": 5,
-   *   "MaxBatchSize": 500
-   * });
+   * @deprecated Do not use
    */
   GetPlayersInSegment (request: GetPlayersInSegmentRequest, extraHeaders?: Record<string, string>) {
     return this.ExecuteRequestWrapper<GetPlayersInSegmentResult>("/Server/GetPlayersInSegment", request, "X-SecretKey", extraHeaders);

@@ -1065,12 +1065,7 @@ export default class PlayFabAdminApi extends PlayFabCommon {
    * called 30 times in one minute. You will be returned an error if you exceed this threshold.
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/admin/playstream/getplayersinsegment Microsoft Documentation}
-   * @example
-   * await adminClient.GetPlayersInSegment({
-   *   "SegmentId": "1337AA00",
-   *   "SecondsToLive": 5,
-   *   "MaxBatchSize": 500
-   * });
+   * @deprecated Please use ExportPlayersInSegment instead.
    */
   GetPlayersInSegment (request: GetPlayersInSegmentRequest, extraHeaders?: Record<string, string>) {
     return this.ExecuteRequestWrapper<GetPlayersInSegmentResult>("/Admin/GetPlayersInSegment", request, "X-SecretKey", extraHeaders);
@@ -1213,9 +1208,27 @@ export default class PlayFabAdminApi extends PlayFabCommon {
   }
 
   /**
-   * Retrieves Xbox Store metric data for the authenticated title, based on the specified metric name and reporting period.
+   * Retrieves Xbox Store metric data for the authenticated title, based on the specified metric name, reporting period and
+   * metric dimension values.
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/admin/xbox-store/getstoremetrics Microsoft Documentation}
+   * @example
+   * await adminClient.GetStoreMetrics({
+   *   "MetricName": "page_view_count",
+   *   "MetricPeriod": "24h",
+   *   "DimensionFilters": {
+   *     "AgeGroup": "Youth",
+   *     "Campaign": "Summer Sale",
+   *     "Country": "USA",
+   *     "Currency": "USD",
+   *     "DeviceType": "PC",
+   *     "ProductId": "ABC123",
+   *     "Source": "Homepage",
+   *     "StoreFront": "Xbox",
+   *     "HasInSale": "true",
+   *     "XboxTitleId": "XYZ456"
+   *   }
+   * });
    */
   GetStoreMetrics (request: StoreMetricsRequest, extraHeaders?: Record<string, string>) {
     return this.ExecuteRequestWrapper<StoreMetricsResponse>("/Admin/GetStoreMetrics", request, "X-SecretKey", extraHeaders);

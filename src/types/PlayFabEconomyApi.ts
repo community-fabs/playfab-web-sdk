@@ -2099,6 +2099,10 @@ export interface TransactionOperation {
 }
 
 export interface TransactionPurchaseDetails {
+  /** The friendly id of the item that was purchased. */
+  ItemFriendlyId?: string;
+  /** The id of the item that was purchased. */
+  ItemId?: string;
   /** The friendly id of the Store the item was purchased from or null. */
   StoreFriendlyId?: string;
   /** The id of the Store the item was purchased from or null. */
@@ -2435,16 +2439,16 @@ export interface VersionedCatalogItemPriceInstance {
   UnitDurationInSeconds?: number;
 }
 
-export interface VersionedCatalogItemPriceOverride {
-  /** The currency amounts utilized in the override for a singular price. */
-  Amounts?: VersionedCatalogItemOverride[];
-}
-
-export interface VersionedCatalogItemPricesOverride {
+export interface VersionedCatalogItemPriceOptionsOverride {
   /** The payout amount utilized in the override. */
   PayoutAmount?: VersionedCatalogItemOverride;
   /** The prices utilized in the override. */
   Prices?: VersionedCatalogItemPriceOverride[];
+}
+
+export interface VersionedCatalogItemPriceOverride {
+  /** The currency amounts utilized in the override for a singular price. */
+  Amounts?: VersionedCatalogItemOverride[];
 }
 
 export interface VersionedCatalogItemRealMoneyPriceDetails {
@@ -2481,7 +2485,7 @@ export interface VersionedCatalogItemStoreDetails {
   /** The permissions that control which players can purchase from the store. */
   Permissions?: VersionedCatalogItemPermissions;
   /** The global prices utilized in the store. These options are mutually exclusive with price options in item references. */
-  PricesOverride?: VersionedCatalogItemPricesOverride;
+  PriceOptionsOverride?: VersionedCatalogItemPriceOptionsOverride;
 }
 
 type ViewFileFormat = "Unknown"

@@ -1689,6 +1689,8 @@ type GenericErrorCodes = "Success"
   | "ResourceNotModified"
   | "StudioCreationLimitExceeded"
   | "StudioDeletionInitiated"
+  | "ProductDisabledForTitle"
+  | "PreconditionFailed"
   | "MatchmakingEntityInvalid"
   | "MatchmakingPlayerAttributesInvalid"
   | "MatchmakingQueueNotFound"
@@ -1821,6 +1823,7 @@ type GenericErrorCodes = "Success"
   | "AsyncExportNotFound"
   | "AsyncExportRateLimitExceeded"
   | "AnalyticsSegmentCountOverLimit"
+  | "GetPlayersInSegmentDeprecated"
   | "SnapshotNotFound"
   | "InventoryApiNotImplemented"
   | "InventoryCollectionDeletionDisallowed"
@@ -2018,7 +2021,13 @@ type GenericErrorCodes = "Success"
   | "InvalidEntityTypeForAggregation"
   | "MultiLevelAggregationNotAllowed"
   | "AggregationTypeNotAllowedForLinkedStat"
-  | "StoreMetricsRequestInvalidInput";
+  | "OperationDeniedDueToDefinitionPolicy"
+  | "StatisticUpdateNotAllowedWhileLinked"
+  | "UnsupportedEntityType"
+  | "EntityTypeSpecifiedRequiresAggregationSource"
+  | "PlayFabErrorEventNotSupportedForEntityType"
+  | "StoreMetricsRequestInvalidInput"
+  | "StoreMetricsErrorRetrievingMetrics";
 
 export interface GenericPlayFabIdPair {
   /** Unique generic service identifier for a user. */
@@ -3226,7 +3235,7 @@ export interface LinkSteamIdRequest extends IPlayFabRequestCommon {
   CustomTags?: Record<string, string | null>;
   /** If another user is already linked to the account, unlink the other user and re-link. */
   ForceLink?: boolean;
-  /** Unique PlayFab identifier for a user, or null if no PlayFab account is linked to the Xbox Live identifier. */
+  /** PlayFab unique identifier of the user to link. */
   PlayFabId: string;
   /** Unique Steam identifier for a user. */
   SteamId: string;
@@ -3240,13 +3249,26 @@ export interface LinkXboxAccountRequest extends IPlayFabRequestCommon {
   CustomTags?: Record<string, string | null>;
   /** If another user is already linked to the account, unlink the other user and re-link. */
   ForceLink?: boolean;
-  /** Unique PlayFab identifier for a user, or null if no PlayFab account is linked to the Xbox Live identifier. */
+  /** PlayFab unique identifier of the user to link. */
   PlayFabId: string;
   /** Token provided by the Xbox Live SDK/XDK method GetTokenAndSignatureAsync(&quot;POST&quot;, &quot;https://playfabapi.com/&quot;, &quot;&quot;). */
   XboxToken: string;
 }
 
 export interface LinkXboxAccountResult extends IPlayFabResultCommon {
+}
+
+export interface LinkXboxIdRequest extends IPlayFabRequestCommon {
+  /** The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.). */
+  CustomTags?: Record<string, string | null>;
+  /** If another user is already linked to the account, unlink the other user and re-link. */
+  ForceLink?: boolean;
+  /** PlayFab unique identifier of the user to link. */
+  PlayFabId: string;
+  /** The id of Xbox Live sandbox. */
+  Sandbox: string;
+  /** Unique Xbox identifier for a user. */
+  XboxId: string;
 }
 
 export interface ListPlayerCustomPropertiesRequest extends IPlayFabRequestCommon {
@@ -4598,7 +4620,7 @@ export interface UnlinkSteamIdResult extends IPlayFabResultCommon {
 export interface UnlinkXboxAccountRequest extends IPlayFabRequestCommon {
   /** The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.). */
   CustomTags?: Record<string, string | null>;
-  /** Unique PlayFab identifier for a user, or null if no PlayFab account is linked to the Xbox Live identifier. */
+  /** PlayFab unique identifier of the user to unlink. */
   PlayFabId: string;
   /**
    * Token provided by the Xbox Live SDK/XDK method GetTokenAndSignatureAsync(&quot;POST&quot;, &quot;https://playfabapi.com/&quot;, &quot;&quot;).

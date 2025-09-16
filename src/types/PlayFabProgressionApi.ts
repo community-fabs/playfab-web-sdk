@@ -542,6 +542,15 @@ export interface StatisticUpdate {
   Version?: number;
 }
 
+export interface UnlinkAggregationSourceFromStatisticRequest extends IPlayFabRequestCommon {
+  /** The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.). */
+  CustomTags?: Record<string, string | null>;
+  /** The name of the statistic to unlink. */
+  Name: string;
+  /** The name of the aggregation source statistic to unlink. */
+  SourceStatisticName: string;
+}
+
 export interface UnlinkLeaderboardFromStatisticRequest extends IPlayFabRequestCommon {
   /** The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.). */
   CustomTags?: Record<string, string | null>;

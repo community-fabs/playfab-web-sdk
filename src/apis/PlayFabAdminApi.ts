@@ -1208,20 +1208,20 @@ export default class PlayFabAdminApi extends PlayFabCommon {
   }
 
   /**
-   * Retrieves Xbox Store metric data for the authenticated title, based on the specified metric name, reporting period and
-   * metric dimension values.
+   * Retrieves Xbox Store metric data for the authenticated title, based on the specified metric name, time window, and
+   * optional dimension filters.
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/admin/xbox-store/getstoremetrics Microsoft Documentation}
    * @example
    * await adminClient.GetStoreMetrics({
    *   "MetricName": "page_view_count",
-   *   "MetricPeriod": "24h",
+   *   "LookbackPeriod": "24h",
    *   "DimensionFilters": {
    *     "AgeGroup": "Youth",
    *     "Campaign": "Summer Sale",
    *     "Country": "USA",
    *     "Currency": "USD",
-   *     "DeviceType": "PC",
+   *     "DeviceFamily": "PC",
    *     "ProductId": "ABC123",
    *     "Source": "Homepage",
    *     "StoreFront": "Xbox",

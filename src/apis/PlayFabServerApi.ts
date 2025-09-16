@@ -81,6 +81,7 @@ import type {
   LinkServerCustomIdRequest,
   LinkSteamIdRequest,
   LinkXboxAccountRequest,
+  LinkXboxIdRequest,
   ListPlayerCustomPropertiesRequest,
   LogEventRequest,
   LoginWithAndroidDeviceIDRequest,
@@ -1704,6 +1705,22 @@ export default class PlayFabServerApi extends PlayFabCommon {
    */
   LinkXboxAccount (request: LinkXboxAccountRequest, extraHeaders?: Record<string, string>) {
     return this.ExecuteRequestWrapper<LinkXboxAccountResult>("/Server/LinkXboxAccount", request, "X-SecretKey", extraHeaders);
+  }
+
+  /**
+   * Links the Xbox Live account associated with the provided Xbox ID and Sandbox to the user's PlayFab account
+   * 
+   * {@link https://docs.microsoft.com/rest/api/playfab/server/account-management/linkxboxid Microsoft Documentation}
+   * @example
+   * await serverClient.LinkXboxId({
+   *   "XboxId": "12344553",
+   *   "Sandbox": "RETAIL",
+   *   "PlayFabId": "5A446C83645201",
+   *   "ForceLink": false
+   * });
+   */
+  LinkXboxId (request: LinkXboxIdRequest, extraHeaders?: Record<string, string>) {
+    return this.ExecuteRequestWrapper<LinkXboxAccountResult>("/Server/LinkXboxId", request, "X-SecretKey", extraHeaders);
   }
 
   /**

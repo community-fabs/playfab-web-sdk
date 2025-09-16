@@ -1176,6 +1176,13 @@ export interface CustomPropertyStringSegmentFilter {
   PropertyValue?: string;
 }
 
+export interface CustomTimeRange {
+  /** End time of the metric period in ISO 8601 format. */
+  EndTime: string;
+  /** Start time of the metric period in ISO 8601 format. */
+  StartTime: string;
+}
+
 export interface DeleteContentRequest extends IPlayFabRequestCommon {
   /** Key of the content item to be deleted */
   Key: string;
@@ -1373,8 +1380,8 @@ export interface DimensionFilters {
   Country?: string;
   /** Purchase currency. */
   Currency?: string;
-  /** User device type. */
-  DeviceType?: string;
+  /** User device family type. */
+  DeviceFamily?: string;
   /** Is the product in sale? */
   HasInSale?: string;
   /** Product id. */
@@ -2194,6 +2201,8 @@ type GenericErrorCodes = "Success"
   | "ResourceNotModified"
   | "StudioCreationLimitExceeded"
   | "StudioDeletionInitiated"
+  | "ProductDisabledForTitle"
+  | "PreconditionFailed"
   | "MatchmakingEntityInvalid"
   | "MatchmakingPlayerAttributesInvalid"
   | "MatchmakingQueueNotFound"
@@ -2326,6 +2335,7 @@ type GenericErrorCodes = "Success"
   | "AsyncExportNotFound"
   | "AsyncExportRateLimitExceeded"
   | "AnalyticsSegmentCountOverLimit"
+  | "GetPlayersInSegmentDeprecated"
   | "SnapshotNotFound"
   | "InventoryApiNotImplemented"
   | "InventoryCollectionDeletionDisallowed"
@@ -2523,7 +2533,13 @@ type GenericErrorCodes = "Success"
   | "InvalidEntityTypeForAggregation"
   | "MultiLevelAggregationNotAllowed"
   | "AggregationTypeNotAllowedForLinkedStat"
-  | "StoreMetricsRequestInvalidInput";
+  | "OperationDeniedDueToDefinitionPolicy"
+  | "StatisticUpdateNotAllowedWhileLinked"
+  | "UnsupportedEntityType"
+  | "EntityTypeSpecifiedRequiresAggregationSource"
+  | "PlayFabErrorEventNotSupportedForEntityType"
+  | "StoreMetricsRequestInvalidInput"
+  | "StoreMetricsErrorRetrievingMetrics";
 
 /** @deprecated Do not use */
 export interface GetActionGroupResult {
@@ -4914,15 +4930,20 @@ export interface StoreMarketingModel {
 }
 
 export interface StoreMetricsRequest extends IPlayFabRequestCommon {
-  /** Dimension filters. */
+  /** Optional filters to apply (e.g., store ID, region, device type). */
   DimensionFilters?: DimensionFilters;
   /**
-   * Store metric name. page_view_count, purchase_count, purchase_revenue, unique_user_count, wish_list_add_count are
-   * supported metrics.
+   * Specifies the relative lookback period for the metric. Supported values: 1h (1 hour), 24h (24 hours), 2d (2 days), 7d (7
+   * days), 30d (30 days). Either LookbackPeriod or TimeRange must be set, but not both.
    */
-  MetricName?: string;
-  /** Store metric period. 1h, 24h, 2d, 7d, 30d are supported periods. */
-  MetricPeriod?: string;
+  LookbackPeriod?: string;
+  /**
+   * The name of the store metric to retrieve. Supported values include: page_view_count, purchase_count, purchase_revenue,
+   * unique_user_count, and wish_list_add_count.
+   */
+  MetricName: string;
+  /** Time range for the metric. Set either TimeRange or LookbackPeriod, not both. */
+  TimeRange?: CustomTimeRange;
 }
 
 export interface StoreMetricsResponse extends IPlayFabResultCommon {

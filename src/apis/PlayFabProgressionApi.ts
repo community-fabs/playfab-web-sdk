@@ -19,6 +19,7 @@ import type {
   IncrementStatisticVersionRequest,
   ListLeaderboardDefinitionsRequest,
   ListStatisticDefinitionsRequest,
+  UnlinkAggregationSourceFromStatisticRequest,
   UnlinkLeaderboardFromStatisticRequest,
   UpdateLeaderboardDefinitionRequest,
   UpdateLeaderboardEntriesRequest,
@@ -362,6 +363,20 @@ export default class PlayFabProgressionApi extends PlayFabCommon {
    */
   ListStatisticDefinitions (request: ListStatisticDefinitionsRequest, extraHeaders?: Record<string, string>) {
     return this.ExecuteRequestWrapper<ListStatisticDefinitionsResponse>("/Statistic/ListStatisticDefinitions", request, "X-EntityToken", extraHeaders);
+  }
+
+  /**
+   * Unlinks an aggregation source from a statistic definition.
+   * 
+   * {@link https://docs.microsoft.com/rest/api/playfab/statistic/statistics/unlinkaggregationsourcefromstatistic Microsoft Documentation}
+   * @example
+   * await statisticClient.UnlinkAggregationSourceFromStatistic({
+   *   "Name": "TotalKills",
+   *   "SourceStatisticName": "KillsPerPlayer"
+   * });
+   */
+  UnlinkAggregationSourceFromStatistic (request: UnlinkAggregationSourceFromStatisticRequest, extraHeaders?: Record<string, string>) {
+    return this.ExecuteRequestWrapper<EmptyResponse>("/Statistic/UnlinkAggregationSourceFromStatistic", request, "X-EntityToken", extraHeaders);
   }
 
   /**

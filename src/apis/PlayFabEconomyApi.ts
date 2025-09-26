@@ -40,6 +40,7 @@ import type {
   PublishDraftItemRequest,
   PurchaseInventoryItemsRequest,
   RedeemAppleAppStoreInventoryItemsRequest,
+  RedeemAppleAppStoreWithJwsInventoryItemsRequest,
   RedeemGooglePlayInventoryItemsRequest,
   RedeemMicrosoftStoreInventoryItemsRequest,
   RedeemNintendoEShopInventoryItemsRequest,
@@ -97,6 +98,7 @@ import type {
   PublishDraftItemResponse,
   PurchaseInventoryItemsResponse,
   RedeemAppleAppStoreInventoryItemsResponse,
+  RedeemAppleAppStoreWithJwsInventoryItemsResponse,
   RedeemGooglePlayInventoryItemsResponse,
   RedeemMicrosoftStoreInventoryItemsResponse,
   RedeemNintendoEShopInventoryItemsResponse,
@@ -556,7 +558,9 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/inventory/inventory/getinventoryoperationstatus Microsoft Documentation}
    * @example
-   * await inventoryClient.GetInventoryOperationStatus({});
+   * await inventoryClient.GetInventoryOperationStatus({
+   *   "OperationToken": "token"
+   * });
    */
   GetInventoryOperationStatus (request: GetInventoryOperationStatusRequest, extraHeaders?: Record<string, string>) {
     return this.ExecuteRequestWrapper<GetInventoryOperationStatusResponse>("/Inventory/GetInventoryOperationStatus", request, "X-EntityToken", extraHeaders);
@@ -808,6 +812,22 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    */
   RedeemAppleAppStoreInventoryItems (request: RedeemAppleAppStoreInventoryItemsRequest, extraHeaders?: Record<string, string>) {
     return this.ExecuteRequestWrapper<RedeemAppleAppStoreInventoryItemsResponse>("/Inventory/RedeemAppleAppStoreInventoryItems", request, "X-EntityToken", extraHeaders);
+  }
+
+  /**
+   * Redeem items.
+   * 
+   * {@link https://docs.microsoft.com/rest/api/playfab/inventory/inventory/redeemappleappstorewithjwsinventoryitems Microsoft Documentation}
+   * @example
+   * await inventoryClient.RedeemAppleAppStoreWithJwsInventoryItems({
+   *   "JWSTransactions": [
+   *     "JWS1",
+   *     "JWS2"
+   *   ]
+   * });
+   */
+  RedeemAppleAppStoreWithJwsInventoryItems (request: RedeemAppleAppStoreWithJwsInventoryItemsRequest, extraHeaders?: Record<string, string>) {
+    return this.ExecuteRequestWrapper<RedeemAppleAppStoreWithJwsInventoryItemsResponse>("/Inventory/RedeemAppleAppStoreWithJwsInventoryItems", request, "X-EntityToken", extraHeaders);
   }
 
   /**

@@ -1085,6 +1085,8 @@ export interface GetInventoryOperationStatusRequest extends IPlayFabRequestCommo
   CustomTags?: Record<string, string | null>;
   /** The entity to perform this action on. */
   Entity?: EntityKey;
+  /** The token to get the status of the inventory operation. */
+  OperationToken?: string;
 }
 
 export interface GetInventoryOperationStatusResponse extends IPlayFabResultCommon {
@@ -1564,7 +1566,25 @@ export interface PurchaseInventoryItemsResponse extends IPlayFabResultCommon {
   TransactionIds?: string[];
 }
 
+export interface PurchaseOverride {
+  /** The exact value that should be utilized in the override. */
+  FixedValue?: number;
+  /** The id of the item this override should utilize. */
+  ItemId?: string;
+  /**
+   * The multiplier that will be applied to the base Catalog value to determine what value should be utilized in the
+   * override.
+   */
+  Multiplier?: number;
+}
+
 export interface PurchaseOverridesInfo {
+  /** Details the overrides of item amounts granted in a purchase operation. */
+  ItemsAmounts?: PurchaseOverride[];
+  /** Details the payout information override used in a purchase operation. */
+  PayoutAmount?: PurchaseOverride;
+  /** Details the override of price amounts used in a purchase operation. */
+  PriceAmounts?: PurchaseOverride[];
 }
 
 export interface PurchasePriceAmount {
@@ -1627,6 +1647,33 @@ export interface RedeemAppleAppStoreInventoryItemsRequest extends IPlayFabReques
 }
 
 export interface RedeemAppleAppStoreInventoryItemsResponse extends IPlayFabResultCommon {
+  /** The list of failed redemptions from the external marketplace. */
+  Failed?: RedemptionFailure[];
+  /** The list of successful redemptions from the external marketplace. */
+  Succeeded?: RedemptionSuccess[];
+  /** The Transaction IDs associated with the inventory modifications */
+  TransactionIds?: string[];
+}
+
+export interface RedeemAppleAppStoreWithJwsInventoryItemsRequest extends IPlayFabRequestCommon {
+  /** The id of the entity&#39;s collection to perform this action on. (Default=&quot;default&quot;) */
+  CollectionId?: string;
+  /** The country code of the real money transaction. */
+  CountryCode?: CountryCode;
+  /** The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.). */
+  CustomTags?: Record<string, string | null>;
+  /** The entity to perform this action on. */
+  Entity?: EntityKey;
+  /**
+   * The inventory items to redeem. These items are required to have an alternate id that corresponds to the marketplace to
+   * redeem from.
+   */
+  Items?: InventoryItemReference[];
+  /** The JWS representation of a transaction. */
+  JWSTransactions: string[];
+}
+
+export interface RedeemAppleAppStoreWithJwsInventoryItemsResponse extends IPlayFabResultCommon {
   /** The list of failed redemptions from the external marketplace. */
   Failed?: RedemptionFailure[];
   /** The list of successful redemptions from the external marketplace. */

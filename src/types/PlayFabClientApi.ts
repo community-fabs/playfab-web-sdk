@@ -5000,10 +5000,12 @@ export interface ValidateIOSReceiptRequest extends IPlayFabRequestCommon {
   CurrencyCode?: string;
   /** The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.). */
   CustomTags?: Record<string, string | null>;
+  /** Base64 encoded receipt data, passed back by the App Store as a result of a successful purchase. */
+  JwsReceiptData?: string;
   /** Amount of the stated currency paid, in centesimal units. */
   PurchasePrice: number;
   /** Base64 encoded receipt data, passed back by the App Store as a result of a successful purchase. */
-  ReceiptData: string;
+  ReceiptData?: string;
 }
 
 export interface ValidateIOSReceiptResult extends IPlayFabResultCommon {

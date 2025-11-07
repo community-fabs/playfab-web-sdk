@@ -437,21 +437,35 @@ export interface LinkedStatisticColumn {
 export interface ListLeaderboardDefinitionsRequest extends IPlayFabRequestCommon {
   /** The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.). */
   CustomTags?: Record<string, string | null>;
+  /** The page size for the request. */
+  PageSize?: number;
+  /** The skip token for the paged request. */
+  SkipToken?: string;
 }
 
 export interface ListLeaderboardDefinitionsResponse extends IPlayFabResultCommon {
   /** List of leaderboard definitions for the title. */
   LeaderboardDefinitions?: LeaderboardDefinition[];
+  /** The page size on the response. */
+  PageSize: number;
+  /** The skip token for the paged response. */
+  SkipToken?: string;
 }
 
 export interface ListStatisticDefinitionsRequest extends IPlayFabRequestCommon {
   /** The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.). */
   CustomTags?: Record<string, string | null>;
+  /** The page size for the request. */
+  PageSize?: number;
+  /** The skip token for the paged request. */
+  SkipToken?: string;
 }
 
 export interface ListStatisticDefinitionsResponse extends IPlayFabResultCommon {
-  /** The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.). */
-  CustomTags?: Record<string, string | null>;
+  /** The page size on the response. */
+  PageSize: number;
+  /** The skip token for the paged response. */
+  SkipToken?: string;
   /** List of statistic definitions for the title. */
   StatisticDefinitions?: StatisticDefinition[];
 }
@@ -600,10 +614,7 @@ export interface UpdateStatisticsRequest extends IPlayFabRequestCommon {
   Entity?: EntityKey;
   /** Collection of statistics to update, maximum 50. */
   Statistics: StatisticUpdate[];
-  /**
-   * Optional transactionId of this update which can be used to ensure idempotence. Using this field is still in testing
-   * stage.
-   */
+  /** Optional transactionId of this update which can be used to ensure idempotence. */
   TransactionId?: string;
 }
 

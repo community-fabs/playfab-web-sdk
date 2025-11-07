@@ -1277,6 +1277,10 @@ export interface GetTransactionHistoryResponse extends IPlayFabResultCommon {
 }
 
 export interface GetVersionedCatalogItemRequest extends IPlayFabRequestCommon {
+  /** Alternate Id type of the item. */
+  AlternateIdType?: string;
+  /** Alternate Id value of the item. */
+  AlternateIdValue?: string;
   /** The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.). */
   CustomTags?: Record<string, string | null>;
   /** Id of the item. */

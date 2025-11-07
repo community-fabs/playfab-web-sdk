@@ -703,8 +703,6 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * Get versioned catalog item.
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/versionedcatalog/versionedcatalog/getversionedcatalogitem Microsoft Documentation}
-   * @example
-   * await versionedcatalogClient.GetVersionedCatalogItem({});
    */
   GetVersionedCatalogItem (request: GetVersionedCatalogItemRequest, extraHeaders?: Record<string, string>) {
     return this.ExecuteRequestWrapper<GetVersionedCatalogItemResponse>("/VersionedCatalog/GetVersionedCatalogItem", request, "X-EntityToken", extraHeaders);

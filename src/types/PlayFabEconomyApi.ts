@@ -1759,6 +1759,8 @@ export interface RedeemNintendoEShopInventoryItemsRequest extends IPlayFabReques
    * redeem from.
    */
   Items?: InventoryItemReference[];
+  /** The configuration name to determine which MarketplaceConfiguration to use */
+  MarketplaceConfigurationName?: string;
   /** The Nintendo provided token authorizing redemption */
   NintendoServiceAccountIdToken?: string;
 }

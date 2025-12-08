@@ -283,12 +283,6 @@ export interface BanInfo {
   IncludeMicrosoftFamily?: boolean;
   /** The IP address on which the ban was applied. May affect multiple players. */
   IPAddress?: string;
-  /**
-   * The MAC address on which the ban was applied. May affect multiple players. This property is deprecated and does not work
-   * anymore.
-   * @deprecated Do not use
-   */
-  MACAddress?: string;
   /** Unique PlayFab assigned ID of the user on whom the operation will be performed. */
   PlayFabId?: string;
   /** The reason why this ban was applied. */
@@ -322,11 +316,6 @@ export interface BanRequest {
   IncludeMicrosoftFamily?: boolean;
   /** IP address to be banned. May affect multiple players. */
   IPAddress?: string;
-  /**
-   * MAC address to be banned. May affect multiple players. This property is deprecated and does not work anymore.
-   * @deprecated Do not use
-   */
-  MACAddress?: string;
   /** Unique PlayFab assigned ID of the user on whom the operation will be performed. */
   PlayFabId: string;
   /** The reason for this ban. Maximum 140 characters. */
@@ -2543,6 +2532,7 @@ type GenericErrorCodes = "Success"
   | "UnsupportedEntityType"
   | "EntityTypeSpecifiedRequiresAggregationSource"
   | "PlayFabErrorEventNotSupportedForEntityType"
+  | "MetadataLengthExceeded"
   | "StoreMetricsRequestInvalidInput"
   | "StoreMetricsErrorRetrievingMetrics";
 
@@ -5098,11 +5088,6 @@ export interface UpdateBanRequest {
   IncludeMicrosoftFamily?: boolean;
   /** The updated IP address for the ban. Null for no change. */
   IPAddress?: string;
-  /**
-   * The updated MAC address for the ban. Null for no change. This property is deprecated and does not work anymore.
-   * @deprecated Do not use
-   */
-  MACAddress?: string;
   /** Whether to make this ban permanent. Set to true to make this ban permanent. This will not modify Active state. */
   Permanent?: boolean;
   /** The updated reason for the ban to be updated. Maximum 140 characters. Null for no change. */

@@ -60,6 +60,7 @@ import type {
   GetPlayFabIDsFromKongregateIDsRequest,
   GetPlayFabIDsFromNintendoServiceAccountIdsRequest,
   GetPlayFabIDsFromNintendoSwitchDeviceIdsRequest,
+  GetPlayFabIDsFromOpenIdsRequest,
   GetPlayFabIDsFromPSNAccountIDsRequest,
   GetPlayFabIDsFromPSNOnlineIDsRequest,
   GetPlayFabIDsFromSteamIDsRequest,
@@ -239,6 +240,7 @@ import type {
   GetPlayFabIDsFromKongregateIDsResult,
   GetPlayFabIDsFromNintendoServiceAccountIdsResult,
   GetPlayFabIDsFromNintendoSwitchDeviceIdsResult,
+  GetPlayFabIDsFromOpenIdsResult,
   GetPlayFabIDsFromPSNAccountIDsResult,
   GetPlayFabIDsFromPSNOnlineIDsResult,
   GetPlayFabIDsFromSteamIDsResult,
@@ -1278,6 +1280,30 @@ export default class PlayFabClientApi extends PlayFabCommon {
    */
   GetPlayFabIDsFromNintendoSwitchDeviceIds (request: GetPlayFabIDsFromNintendoSwitchDeviceIdsRequest, extraHeaders?: Record<string, string>) {
     return this.ExecuteRequestWrapper<GetPlayFabIDsFromNintendoSwitchDeviceIdsResult>("/Client/GetPlayFabIDsFromNintendoSwitchDeviceIds", request, "X-Authorization", extraHeaders);
+  }
+
+  /**
+   * Retrieves the unique PlayFab identifiers for the given set of OpenId subject identifiers. A OpenId identifier is the
+   * service name plus the service-specific ID for the player, as specified by the title when the OpenId identifier was added
+   * to the player account.
+   * 
+   * {@link https://docs.microsoft.com/rest/api/playfab/client/account-management/getplayfabidsfromopenidsubjectidentifiers Microsoft Documentation}
+   * @example
+   * await clientClient.GetPlayFabIDsFromOpenIdSubjectIdentifiers({
+   *   "OpenIdSubjectIdentifiers": [
+   *     {
+   *       "Issuer": "https://example.com",
+   *       "Subject": "123456789012345678"
+   *     },
+   *     {
+   *       "Issuer": "https://example-2.com",
+   *       "Subject": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
+   *     }
+   *   ]
+   * });
+   */
+  GetPlayFabIDsFromOpenIdSubjectIdentifiers (request: GetPlayFabIDsFromOpenIdsRequest, extraHeaders?: Record<string, string>) {
+    return this.ExecuteRequestWrapper<GetPlayFabIDsFromOpenIdsResult>("/Client/GetPlayFabIDsFromOpenIdSubjectIdentifiers", request, "X-Authorization", extraHeaders);
   }
 
   /**

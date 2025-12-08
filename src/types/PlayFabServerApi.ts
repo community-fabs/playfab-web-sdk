@@ -154,12 +154,6 @@ export interface BanInfo {
   IncludeMicrosoftFamily?: boolean;
   /** The IP address on which the ban was applied. May affect multiple players. */
   IPAddress?: string;
-  /**
-   * The MAC address on which the ban was applied. May affect multiple players. This property is deprecated and does not work
-   * anymore.
-   * @deprecated Do not use
-   */
-  MACAddress?: string;
   /** Unique PlayFab assigned ID of the user on whom the operation will be performed. */
   PlayFabId?: string;
   /** The reason why this ban was applied. */
@@ -179,11 +173,6 @@ export interface BanRequest {
   IncludeMicrosoftFamily?: boolean;
   /** IP address to be banned. May affect multiple players. */
   IPAddress?: string;
-  /**
-   * MAC address to be banned. May affect multiple players. This property is deprecated and does not work anymore.
-   * @deprecated Do not use
-   */
-  MACAddress?: string;
   /** Unique PlayFab assigned ID of the user on whom the operation will be performed. */
   PlayFabId: string;
   /** The reason for this ban. Maximum 140 characters. */
@@ -2031,6 +2020,7 @@ type GenericErrorCodes = "Success"
   | "UnsupportedEntityType"
   | "EntityTypeSpecifiedRequiresAggregationSource"
   | "PlayFabErrorEventNotSupportedForEntityType"
+  | "MetadataLengthExceeded"
   | "StoreMetricsRequestInvalidInput"
   | "StoreMetricsErrorRetrievingMetrics";
 
@@ -2660,6 +2650,19 @@ export interface GetPlayFabIDsFromNintendoSwitchDeviceIdsResult extends IPlayFab
   Data?: NintendoSwitchPlayFabIdPair[];
 }
 
+export interface GetPlayFabIDsFromOpenIdsRequest extends IPlayFabRequestCommon {
+  /**
+   * Array of unique OpenId Connect identifiers for which the title needs to get PlayFab identifiers. The array cannot exceed
+   * 10 in length.
+   */
+  OpenIdSubjectIdentifiers: OpenIdSubjectIdentifier[];
+}
+
+export interface GetPlayFabIDsFromOpenIdsResult extends IPlayFabResultCommon {
+  /** Mapping of OpenId Connect identifiers to PlayFab identifiers. */
+  Data?: OpenIdSubjectIdentifierPlayFabIdPair[];
+}
+
 export interface GetPlayFabIDsFromPSNAccountIDsRequest extends IPlayFabRequestCommon {
   /** Id of the PlayStation :tm: Network issuer environment. If null, defaults to production environment. */
   IssuerId?: number;
@@ -3249,6 +3252,17 @@ export interface LinkSteamIdRequest extends IPlayFabRequestCommon {
 export interface LinkSteamIdResult extends IPlayFabResultCommon {
 }
 
+export interface LinkTwitchAccountRequest extends IPlayFabRequestCommon {
+  /** Twitch access token for authentication. */
+  AccessToken: string;
+  /** The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.). */
+  CustomTags?: Record<string, string | null>;
+  /** If another user is already linked to the account, unlink the other user and re-link. */
+  ForceLink?: boolean;
+  /** PlayFab unique identifier of the user to link. */
+  PlayFabId: string;
+}
+
 export interface LinkXboxAccountRequest extends IPlayFabRequestCommon {
   /** The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.). */
   CustomTags?: Record<string, string | null>;
@@ -3501,6 +3515,21 @@ export interface LoginWithSteamIdRequest extends IPlayFabRequestCommon {
   SteamId: string;
 }
 
+export interface LoginWithTwitchRequest extends IPlayFabRequestCommon {
+  /** Twitch access token for authentication. */
+  AccessToken: string;
+  /** If true, create a new PlayFab account if one does not exist. */
+  CreateAccount?: boolean;
+  /** The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.). */
+  CustomTags?: Record<string, string | null>;
+  /** Parameters for requesting additional player info. */
+  InfoRequestParameters?: GetPlayerCombinedInfoRequestParams;
+  /** Player secret for additional authentication. */
+  PlayerSecret?: string;
+  /** PlayFab unique identifier of the user. */
+  PlayFabId: string;
+}
+
 export interface LoginWithXboxIdRequest extends IPlayFabRequestCommon {
   /** Automatically create a PlayFab account if one is not currently linked to this ID. */
   CreateAccount?: boolean;
@@ -3669,6 +3698,20 @@ export interface NotifyMatchmakerPlayerLeftRequest extends IPlayFabRequestCommon
 export interface NotifyMatchmakerPlayerLeftResult extends IPlayFabResultCommon {
   /** State of user leaving the Game Server Instance. */
   PlayerState?: PlayerConnectionState;
+}
+
+export interface OpenIdSubjectIdentifier {
+  /** The issuer URL for the OpenId Connect provider, or the override URL if an override exists. */
+  Issuer: string;
+  /** The unique subject identifier within the context of the issuer. */
+  Subject: string;
+}
+
+export interface OpenIdSubjectIdentifierPlayFabIdPair {
+  /** Unique OpenId Connect identifier for a user. */
+  OpenIdSubjectIdentifier?: OpenIdSubjectIdentifier;
+  /** Unique PlayFab identifier for a user, or null if no PlayFab account is linked to the OpenId Connect identifier. */
+  PlayFabId?: string;
 }
 
 type PlayerConnectionState = "Unassigned"
@@ -4622,6 +4665,18 @@ export interface UnlinkSteamIdRequest extends IPlayFabRequestCommon {
 export interface UnlinkSteamIdResult extends IPlayFabResultCommon {
 }
 
+export interface UnlinkTwitchAccountRequest extends IPlayFabRequestCommon {
+  /**
+   * Valid token issued by Twitch. Used to specify which twitch account to unlink from the profile. By default it uses the
+   * one that is present on the profile.
+   */
+  AccessToken?: string;
+  /** The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.). */
+  CustomTags?: Record<string, string | null>;
+  /** PlayFab unique identifier of the user to unlink. */
+  PlayFabId: string;
+}
+
 export interface UnlinkXboxAccountRequest extends IPlayFabRequestCommon {
   /** The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.). */
   CustomTags?: Record<string, string | null>;
@@ -4707,11 +4762,6 @@ export interface UpdateBanRequest {
   IncludeMicrosoftFamily?: boolean;
   /** The updated IP address for the ban. Null for no change. */
   IPAddress?: string;
-  /**
-   * The updated MAC address for the ban. Null for no change. This property is deprecated and does not work anymore.
-   * @deprecated Do not use
-   */
-  MACAddress?: string;
   /** Whether to make this ban permanent. Set to true to make this ban permanent. This will not modify Active state. */
   Permanent?: boolean;
   /** The updated reason for the ban to be updated. Maximum 140 characters. Null for no change. */

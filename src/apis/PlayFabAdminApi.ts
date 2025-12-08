@@ -343,7 +343,7 @@ export default class PlayFabAdminApi extends PlayFabCommon {
   }
 
   /**
-   * Bans users by PlayFab ID with optional IP address, or MAC address for the provided game.
+   * Bans users by PlayFab ID with optional IP address for the provided game.
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/admin/account-management/banusers Microsoft Documentation}
    * @example

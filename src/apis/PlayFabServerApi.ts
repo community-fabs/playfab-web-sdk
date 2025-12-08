@@ -49,6 +49,7 @@ import type {
   GetPlayFabIDsFromGenericIDsRequest,
   GetPlayFabIDsFromNintendoServiceAccountIdsRequest,
   GetPlayFabIDsFromNintendoSwitchDeviceIdsRequest,
+  GetPlayFabIDsFromOpenIdsRequest,
   GetPlayFabIDsFromPSNAccountIDsRequest,
   GetPlayFabIDsFromPSNOnlineIDsRequest,
   GetPlayFabIDsFromSteamIDsRequest,
@@ -80,6 +81,7 @@ import type {
   LinkPSNIdRequest,
   LinkServerCustomIdRequest,
   LinkSteamIdRequest,
+  LinkTwitchAccountRequest,
   LinkXboxAccountRequest,
   LinkXboxIdRequest,
   ListPlayerCustomPropertiesRequest,
@@ -91,6 +93,7 @@ import type {
   LoginWithPSNRequest,
   LoginWithServerCustomIdRequest,
   LoginWithSteamIdRequest,
+  LoginWithTwitchRequest,
   LoginWithXboxRequest,
   LoginWithXboxIdRequest,
   ModifyItemUsesRequest,
@@ -131,6 +134,7 @@ import type {
   UnlinkPSNAccountRequest,
   UnlinkServerCustomIdRequest,
   UnlinkSteamIdRequest,
+  UnlinkTwitchAccountRequest,
   UnlinkXboxAccountRequest,
   UnlockContainerInstanceRequest,
   UnlockContainerItemRequest,
@@ -194,6 +198,7 @@ import type {
   GetPlayFabIDsFromGenericIDsResult,
   GetPlayFabIDsFromNintendoServiceAccountIdsResult,
   GetPlayFabIDsFromNintendoSwitchDeviceIdsResult,
+  GetPlayFabIDsFromOpenIdsResult,
   GetPlayFabIDsFromPSNAccountIDsResult,
   GetPlayFabIDsFromPSNOnlineIDsResult,
   GetPlayFabIDsFromSteamIDsResult,
@@ -410,7 +415,7 @@ export default class PlayFabServerApi extends PlayFabCommon {
   }
 
   /**
-   * Bans users by PlayFab ID with optional IP address, or MAC address for the provided game.
+   * Bans users by PlayFab ID with optional IP address for the provided game.
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/server/account-management/banusers Microsoft Documentation}
    * @example
@@ -1094,6 +1099,30 @@ export default class PlayFabServerApi extends PlayFabCommon {
   }
 
   /**
+   * Retrieves the unique PlayFab identifiers for the given set of OpenId subject identifiers. A OpenId subject identifier is
+   * the OpenId issuer plus the OpenId subject for the player, as specified by the title when the OpenId identifier was added
+   * to the player account.
+   * 
+   * {@link https://docs.microsoft.com/rest/api/playfab/server/account-management/getplayfabidsfromopenidsubjectidentifiers Microsoft Documentation}
+   * @example
+   * await serverClient.GetPlayFabIDsFromOpenIdSubjectIdentifiers({
+   *   "OpenIdSubjectIdentifiers": [
+   *     {
+   *       "Issuer": "https://example.com",
+   *       "Subject": "123456789012345678"
+   *     },
+   *     {
+   *       "Issuer": "https://example-2.com",
+   *       "Subject": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
+   *     }
+   *   ]
+   * });
+   */
+  GetPlayFabIDsFromOpenIdSubjectIdentifiers (request: GetPlayFabIDsFromOpenIdsRequest, extraHeaders?: Record<string, string>) {
+    return this.ExecuteRequestWrapper<GetPlayFabIDsFromOpenIdsResult>("/Server/GetPlayFabIDsFromOpenIdSubjectIdentifiers", request, "X-SecretKey", extraHeaders);
+  }
+
+  /**
    * Retrieves the unique PlayFab identifiers for the given set of PlayStation :tm: Network identifiers.
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/server/account-management/getplayfabidsfrompsnaccountids Microsoft Documentation}
@@ -1694,6 +1723,21 @@ export default class PlayFabServerApi extends PlayFabCommon {
   }
 
   /**
+   * Links the Twitch account associated with the token to the user's PlayFab account.
+   * 
+   * {@link https://docs.microsoft.com/rest/api/playfab/server/account-management/linktwitchaccount Microsoft Documentation}
+   * @example
+   * await serverClient.LinkTwitchAccount({
+   *   "PlayFabId": "1234FA342",
+   *   "AccessToken": "twitch-access-token",
+   *   "ForceLink": false
+   * });
+   */
+  LinkTwitchAccount (request: LinkTwitchAccountRequest, extraHeaders?: Record<string, string>) {
+    return this.ExecuteRequestWrapper<EmptyResult>("/Server/LinkTwitchAccount", request, "X-SecretKey", extraHeaders);
+  }
+
+  /**
    * Links the Xbox Live account associated with the provided access code to the user's PlayFab account
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/server/account-management/linkxboxaccount Microsoft Documentation}
@@ -1852,6 +1896,21 @@ export default class PlayFabServerApi extends PlayFabCommon {
    */
   LoginWithSteamId (request: LoginWithSteamIdRequest, extraHeaders?: Record<string, string>) {
     return this.ExecuteRequestWrapper<ServerLoginResult>("/Server/LoginWithSteamId", request, "X-SecretKey", extraHeaders);
+  }
+
+  /**
+   * Sign in the user with a Twitch access token
+   * 
+   * {@link https://docs.microsoft.com/rest/api/playfab/server/authentication/loginwithtwitch Microsoft Documentation}
+   * @example
+   * await serverClient.LoginWithTwitch({
+   *   "PlayFabId": "1234FA342",
+   *   "AccessToken": "twitch-access-token",
+   *   "CreateAccount": true
+   * });
+   */
+  LoginWithTwitch (request: LoginWithTwitchRequest, extraHeaders?: Record<string, string>) {
+    return this.ExecuteRequestWrapper<ServerLoginResult>("/Server/LoginWithTwitch", request, "X-SecretKey", extraHeaders);
   }
 
   /**
@@ -2452,6 +2511,19 @@ export default class PlayFabServerApi extends PlayFabCommon {
    */
   UnlinkSteamId (request: UnlinkSteamIdRequest, extraHeaders?: Record<string, string>) {
     return this.ExecuteRequestWrapper<UnlinkSteamIdResult>("/Server/UnlinkSteamId", request, "X-SecretKey", extraHeaders);
+  }
+
+  /**
+   * Unlinks the related Twitch account from the user's PlayFab account.
+   * 
+   * {@link https://docs.microsoft.com/rest/api/playfab/server/account-management/unlinktwitchaccount Microsoft Documentation}
+   * @example
+   * await serverClient.UnlinkTwitchAccount({
+   *   "PlayFabId": "1234FA342"
+   * });
+   */
+  UnlinkTwitchAccount (request: UnlinkTwitchAccountRequest, extraHeaders?: Record<string, string>) {
+    return this.ExecuteRequestWrapper<EmptyResult>("/Server/UnlinkTwitchAccount", request, "X-SecretKey", extraHeaders);
   }
 
   /**

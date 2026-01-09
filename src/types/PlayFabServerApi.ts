@@ -1799,6 +1799,7 @@ type GenericErrorCodes = "Success"
   | "ExperimentationExclusionGroupInvalidTrafficAllocation"
   | "ExperimentationExclusionGroupInvalidName"
   | "ExperimentationLegacyExperimentInvalidOperation"
+  | "ExperimentationExperimentStopFailed"
   | "MaxActionDepthExceeded"
   | "TitleNotOnUpdatedPricingPlan"
   | "SegmentManagementTitleNotInFlight"
@@ -4612,6 +4613,28 @@ export interface UnlinkBattleNetAccountRequest extends IPlayFabRequestCommon {
   CustomTags?: Record<string, string | null>;
   /** Unique PlayFab assigned ID of the user on whom the operation will be performed. */
   PlayFabId: string;
+}
+
+export interface UnlinkFacebookAccountRequest extends IPlayFabRequestCommon {
+  /** The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.). */
+  CustomTags?: Record<string, string | null>;
+  /** PlayFab unique identifier of the user to unlink. */
+  PlayFabId: string;
+}
+
+export interface UnlinkFacebookAccountResult extends IPlayFabResultCommon {
+}
+
+export interface UnlinkFacebookInstantGamesIdRequest extends IPlayFabRequestCommon {
+  /** The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.). */
+  CustomTags?: Record<string, string | null>;
+  /** Facebook Instant Games identifier for the user. If not specified, the most recently linked identifier will be used. */
+  FacebookInstantGamesId?: string;
+  /** PlayFab unique identifier of the user to unlink. */
+  PlayFabId: string;
+}
+
+export interface UnlinkFacebookInstantGamesIdResult extends IPlayFabResultCommon {
 }
 
 export interface UnlinkNintendoServiceAccountRequest extends IPlayFabRequestCommon {

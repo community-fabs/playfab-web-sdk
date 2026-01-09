@@ -1398,6 +1398,8 @@ export interface InventoryItem {
   Id?: string;
   /** The stack id of the item. */
   StackId?: string;
+  /** Only used for subscriptions. The date of when the item started in UTC. */
+  StartDate?: string;
   /** The type of the item. This should correspond to the item type in the catalog. */
   Type?: string;
 }

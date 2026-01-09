@@ -847,7 +847,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
   }
 
   /**
-   * Redeem items.
+   * Redeem items from the Microsoft Store. Supported entitlement types are Developer Manager Consumable and Durable.
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/inventory/inventory/redeemmicrosoftstoreinventoryitems Microsoft Documentation}
    * @example

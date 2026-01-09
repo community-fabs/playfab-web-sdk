@@ -129,6 +129,8 @@ import type {
   SubtractCharacterVirtualCurrencyRequest,
   SubtractUserVirtualCurrencyRequest,
   UnlinkBattleNetAccountRequest,
+  UnlinkFacebookAccountRequest,
+  UnlinkFacebookInstantGamesIdRequest,
   UnlinkNintendoServiceAccountRequest,
   UnlinkNintendoSwitchDeviceIdRequest,
   UnlinkPSNAccountRequest,
@@ -257,6 +259,8 @@ import type {
   SetPlayerSecretResult,
   SetPublisherDataResult,
   SetTitleDataResult,
+  UnlinkFacebookAccountResult,
+  UnlinkFacebookInstantGamesIdResult,
   UnlinkNintendoSwitchDeviceIdResult,
   UnlinkPSNAccountResult,
   UnlinkServerCustomIdResult,
@@ -2444,6 +2448,33 @@ export default class PlayFabServerApi extends PlayFabCommon {
    */
   UnlinkBattleNetAccount (request: UnlinkBattleNetAccountRequest, extraHeaders?: Record<string, string>) {
     return this.ExecuteRequestWrapper<EmptyResponse>("/Server/UnlinkBattleNetAccount", request, "X-SecretKey", extraHeaders);
+  }
+
+  /**
+   * Unlinks the related Facebook account from the user's PlayFab account
+   * 
+   * {@link https://docs.microsoft.com/rest/api/playfab/server/account-management/unlinkfacebookaccount Microsoft Documentation}
+   * @example
+   * await serverClient.UnlinkFacebookAccount({
+   *   "PlayFabId": "1234FA342"
+   * });
+   */
+  UnlinkFacebookAccount (request: UnlinkFacebookAccountRequest, extraHeaders?: Record<string, string>) {
+    return this.ExecuteRequestWrapper<UnlinkFacebookAccountResult>("/Server/UnlinkFacebookAccount", request, "X-SecretKey", extraHeaders);
+  }
+
+  /**
+   * Unlinks the related Facebook Instant Games identifier from the user's PlayFab account
+   * 
+   * {@link https://docs.microsoft.com/rest/api/playfab/server/account-management/unlinkfacebookinstantgamesid Microsoft Documentation}
+   * @example
+   * await serverClient.UnlinkFacebookInstantGamesId({
+   *   "PlayFabId": "1234FA342",
+   *   "FacebookInstantGamesId": "123456789012345"
+   * });
+   */
+  UnlinkFacebookInstantGamesId (request: UnlinkFacebookInstantGamesIdRequest, extraHeaders?: Record<string, string>) {
+    return this.ExecuteRequestWrapper<UnlinkFacebookInstantGamesIdResult>("/Server/UnlinkFacebookInstantGamesId", request, "X-SecretKey", extraHeaders);
   }
 
   /**

@@ -30,7 +30,6 @@ import type {
   GetItemReviewsRequest,
   GetItemReviewSummaryRequest,
   GetItemsRequest,
-  GetMicrosoftStoreAccessTokensRequest,
   GetTransactionHistoryRequest,
   GetVersionedCatalogItemRequest,
   GetVersionedCatalogUploadStatusRequest,
@@ -88,7 +87,6 @@ import type {
   GetItemReviewsResponse,
   GetItemReviewSummaryResponse,
   GetItemsResponse,
-  GetMicrosoftStoreAccessTokensResponse,
   GetTransactionHistoryResponse,
   GetVersionedCatalogItemResponse,
   GetVersionedCatalogUploadStatusResponse,
@@ -673,17 +671,6 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
   }
 
   /**
-   * Gets the access tokens.
-   * 
-   * {@link https://docs.microsoft.com/rest/api/playfab/inventory/inventory/getmicrosoftstoreaccesstokens Microsoft Documentation}
-   * @example
-   * await inventoryClient.GetMicrosoftStoreAccessTokens({});
-   */
-  GetMicrosoftStoreAccessTokens (request: GetMicrosoftStoreAccessTokensRequest, extraHeaders?: Record<string, string>) {
-    return this.ExecuteRequestWrapper<GetMicrosoftStoreAccessTokensResponse>("/Inventory/GetMicrosoftStoreAccessTokens", request, "X-EntityToken", extraHeaders);
-  }
-
-  /**
    * Get transaction history for a player. Up to 250 Events can be returned at once. You can use continuation tokens to
    * paginate through results that return greater than the limit. Getting transaction history has a lower RPS limit than
    * getting a Player's inventory with Player Entities having a limit of 30 requests in 300 seconds.
@@ -851,9 +838,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/inventory/inventory/redeemmicrosoftstoreinventoryitems Microsoft Documentation}
    * @example
-   * await inventoryClient.RedeemMicrosoftStoreInventoryItems({
-   *   "CollectionsIdKey": "collectionsIdKey"
-   * });
+   * await inventoryClient.RedeemMicrosoftStoreInventoryItems({});
    */
   RedeemMicrosoftStoreInventoryItems (request: RedeemMicrosoftStoreInventoryItemsRequest, extraHeaders?: Record<string, string>) {
     return this.ExecuteRequestWrapper<RedeemMicrosoftStoreInventoryItemsResponse>("/Inventory/RedeemMicrosoftStoreInventoryItems", request, "X-EntityToken", extraHeaders);

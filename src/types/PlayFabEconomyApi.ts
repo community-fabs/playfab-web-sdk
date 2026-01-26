@@ -1228,21 +1228,6 @@ export interface GetItemsResponse extends IPlayFabResultCommon {
   Items?: CatalogItem[];
 }
 
-export interface GetMicrosoftStoreAccessTokensRequest extends IPlayFabRequestCommon {
-  /** The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.). */
-  CustomTags?: Record<string, string | null>;
-}
-
-export interface GetMicrosoftStoreAccessTokensResponse extends IPlayFabResultCommon {
-  /**
-   * The collections access token for calling https://onestore.microsoft.com/b2b/keys/create/collections to obtain a
-   * CollectionsIdKey for the user
-   */
-  CollectionsAccessToken?: string;
-  /** The date the collections access token expires */
-  CollectionsAccessTokenExpirationDate: string;
-}
-
 export interface GetTransactionHistoryRequest extends IPlayFabRequestCommon {
   /** The id of the entity&#39;s collection to perform this action on. (Default=&quot;default&quot;) */
   CollectionId?: string;
@@ -1718,8 +1703,6 @@ export interface RedeemGooglePlayInventoryItemsResponse extends IPlayFabResultCo
 export interface RedeemMicrosoftStoreInventoryItemsRequest extends IPlayFabRequestCommon {
   /** The id of the entity&#39;s collection to perform this action on. (Default=&quot;default&quot;) */
   CollectionId?: string;
-  /** The OneStore Collections Id Key used for AAD authentication. */
-  CollectionsIdKey?: string;
   /** The country code of the real money transaction. */
   CountryCode?: CountryCode;
   /** The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.). */
@@ -1844,6 +1827,8 @@ export interface RedemptionFailure {
 }
 
 export interface RedemptionSuccess {
+  /** The timestamp for when the redeem expired. */
+  ExpirationTimestamp?: string;
   /** The Marketplace Alternate ID being redeemed. */
   MarketplaceAlternateId?: string;
   /** The transaction id in the external marketplace. */

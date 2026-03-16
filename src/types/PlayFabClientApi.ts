@@ -1492,7 +1492,10 @@ export interface GetFriendsListRequest extends IPlayFabRequestCommon {
    * the Game Manager &quot;Client Profile Options&quot; tab in the &quot;Settings&quot; section.
    */
   ProfileConstraints?: PlayerProfileViewConstraints;
-  /** Xbox token if Xbox friends should be included. Requires Xbox be configured on PlayFab. */
+  /**
+   * Xbox token if Xbox friends should be included. Requires Xbox be configured on PlayFab. When provided, all Xbox Live
+   * users the caller is following are included regardless of whether they follow the caller back.
+   */
   XboxToken?: string;
 }
 

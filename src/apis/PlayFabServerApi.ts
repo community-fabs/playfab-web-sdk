@@ -3,6 +3,7 @@ import type {
   AddCharacterVirtualCurrencyRequest,
   AddFriendRequest,
   AddGenericIDRequest,
+  AddOrUpdateContactEmailRequest,
   AddPlayerTagRequest,
   AddSharedGroupMembersRequest,
   AddUserVirtualCurrencyRequest,
@@ -156,6 +157,7 @@ import type {
   WriteTitleEventRequest,
   ModifyCharacterVirtualCurrencyResult,
   EmptyResult,
+  AddOrUpdateContactEmailResult,
   AddPlayerTagResult,
   AddSharedGroupMembersResult,
   ModifyUserVirtualCurrencyResult,
@@ -329,6 +331,20 @@ export default class PlayFabServerApi extends PlayFabCommon {
    */
   AddGenericID (request: AddGenericIDRequest, extraHeaders?: Record<string, string>) {
     return this.ExecuteRequestWrapper<EmptyResult>("/Server/AddGenericID", request, "X-SecretKey", extraHeaders);
+  }
+
+  /**
+   * Adds or updates a contact email to the specified player's profile.
+   * 
+   * {@link https://docs.microsoft.com/rest/api/playfab/server/account-management/addorupdatecontactemail Microsoft Documentation}
+   * @example
+   * await serverClient.AddOrUpdateContactEmail({
+   *   "PlayFabId": "A01DC15D8E12E230",
+   *   "EmailAddress": "user@example.com"
+   * });
+   */
+  AddOrUpdateContactEmail (request: AddOrUpdateContactEmailRequest, extraHeaders?: Record<string, string>) {
+    return this.ExecuteRequestWrapper<AddOrUpdateContactEmailResult>("/Server/AddOrUpdateContactEmail", request, "X-SecretKey", extraHeaders);
   }
 
   /**

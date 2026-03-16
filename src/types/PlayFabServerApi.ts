@@ -58,6 +58,18 @@ export interface AddGenericIDRequest extends IPlayFabRequestCommon {
   PlayFabId: string;
 }
 
+export interface AddOrUpdateContactEmailRequest extends IPlayFabRequestCommon {
+  /** The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.). */
+  CustomTags?: Record<string, string | null>;
+  /** The new contact email to associate with the player. */
+  EmailAddress: string;
+  /** Unique PlayFab assigned ID of the user on whom the operation will be performed. */
+  PlayFabId: string;
+}
+
+export interface AddOrUpdateContactEmailResult extends IPlayFabResultCommon {
+}
+
 export interface AddPlayerTagRequest extends IPlayFabRequestCommon {
   /** The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.). */
   CustomTags?: Record<string, string | null>;
@@ -1818,7 +1830,7 @@ type GenericErrorCodes = "Success"
   | "AsyncExportNotFound"
   | "AsyncExportRateLimitExceeded"
   | "AnalyticsSegmentCountOverLimit"
-  | "GetPlayersInSegmentDeprecated"
+  | "GetPlayersInSegmentRetired"
   | "SnapshotNotFound"
   | "InventoryApiNotImplemented"
   | "InventoryCollectionDeletionDisallowed"
@@ -2023,6 +2035,7 @@ type GenericErrorCodes = "Success"
   | "EntityTypeSpecifiedRequiresAggregationSource"
   | "PlayFabErrorEventNotSupportedForEntityType"
   | "MetadataLengthExceeded"
+  | "MaxQueryableVersionsExceeded"
   | "StoreMetricsRequestInvalidInput"
   | "StoreMetricsErrorRetrievingMetrics";
 
@@ -2246,7 +2259,10 @@ export interface GetFriendsListRequest extends IPlayFabRequestCommon {
    * the Game Manager &quot;Client Profile Options&quot; tab in the &quot;Settings&quot; section.
    */
   ProfileConstraints?: PlayerProfileViewConstraints;
-  /** Xbox token if Xbox friends should be included. Requires Xbox be configured on PlayFab. */
+  /**
+   * Xbox token if Xbox friends should be included. Requires Xbox be configured on PlayFab. When provided, all Xbox Live
+   * users the caller is following are included regardless of whether they follow the caller back.
+   */
   XboxToken?: string;
 }
 

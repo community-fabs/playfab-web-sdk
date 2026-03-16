@@ -86,7 +86,8 @@ type AzureVmFamily = "A"
   | "Ddsv4"
   | "HBv3"
   | "Ddv5"
-  | "Ddsv5";
+  | "Ddsv5"
+  | "Ddsv6";
 
 type AzureVmSize = "Standard_A1"
   | "Standard_A2"
@@ -170,7 +171,11 @@ type AzureVmSize = "Standard_A1"
   | "Standard_D4ds_v5"
   | "Standard_D8ds_v5"
   | "Standard_D16ds_v5"
-  | "Standard_D32ds_v5";
+  | "Standard_D32ds_v5"
+  | "Standard_D2ds_v6"
+  | "Standard_D4ds_v6"
+  | "Standard_D8ds_v6"
+  | "Standard_D16ds_v6";
 
 export interface BatchParameters {
   /**
@@ -1317,7 +1322,11 @@ export interface FindFriendLobbiesRequest extends IPlayFabRequestCommon {
   OrderBy?: string;
   /** Request pagination information. */
   Pagination?: PaginationRequest;
-  /** Xbox token if Xbox friends should be included. Requires Xbox be configured on PlayFab. */
+  /**
+   * Xbox token if Xbox friends should be included. Requires Xbox be configured on PlayFab. Only mutual Xbox Live friends
+   * (where both users follow each other) are included, unlike GetFriendsList which includes all users the caller is
+   * following.
+   */
   XboxToken?: string;
 }
 
@@ -2990,6 +2999,18 @@ export interface PublicIpAddress {
   IpAddress: string;
   /** Routing Type of the public IP. */
   RoutingType: string;
+}
+
+export interface PubSubExtendConnectionLifetimeRequest extends IPlayFabRequestCommon {
+  /** The opaque connection handle, given to a client upon creating a connection with PubSub. */
+  ConnectionHandle: string;
+  /** The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.). */
+  CustomTags?: Record<string, string | null>;
+}
+
+export interface PubSubExtendConnectionLifetimeResult extends IPlayFabResultCommon {
+  /** The expiration time of the entity token used to extend the connection lifetime. Only populated on success. */
+  ExpirationTimeUtc?: string;
 }
 
 export interface QosServer {

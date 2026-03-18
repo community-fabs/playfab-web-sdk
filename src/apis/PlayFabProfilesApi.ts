@@ -29,7 +29,7 @@ export default class PlayFabProfilesApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/profile/account-management/getglobalpolicy Microsoft Documentation}
    * @example
-   * await profileClient.GetGlobalPolicy({});
+   * await profilesClient.GetGlobalPolicy({});
    */
   GetGlobalPolicy (request: GetGlobalPolicyRequest, extraHeaders?: Record<string, string>) {
     return this.ExecuteRequestWrapper<GetGlobalPolicyResponse>("/Profile/GetGlobalPolicy", request, "X-EntityToken", extraHeaders);
@@ -40,7 +40,7 @@ export default class PlayFabProfilesApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/profile/account-management/getprofile Microsoft Documentation}
    * @example
-   * await profileClient.GetProfile({
+   * await profilesClient.GetProfile({
    *   "Entity": {
    *     "Id": "1234567787392",
    *     "Type": "title_player_account",
@@ -57,7 +57,7 @@ export default class PlayFabProfilesApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/profile/account-management/getprofiles Microsoft Documentation}
    * @example
-   * await profileClient.GetProfiles({
+   * await profilesClient.GetProfiles({
    *   "Entities": [
    *     {
    *       "Id": "1234567787392",
@@ -81,7 +81,7 @@ export default class PlayFabProfilesApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/profile/account-management/gettitleplayersfrommasterplayeraccountids Microsoft Documentation}
    * @example
-   * await profileClient.GetTitlePlayersFromMasterPlayerAccountIds({
+   * await profilesClient.GetTitlePlayersFromMasterPlayerAccountIds({
    *   "MasterPlayerAccountIds": [
    *     "1233455677"
    *   ],
@@ -97,7 +97,7 @@ export default class PlayFabProfilesApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/profile/account-management/gettitleplayersfromxboxliveids Microsoft Documentation}
    * @example
-   * await profileClient.GetTitlePlayersFromXboxLiveIDs({
+   * await profilesClient.GetTitlePlayersFromXboxLiveIDs({
    *   "XboxLiveIds": [
    *     "1233455677"
    *   ],
@@ -113,7 +113,7 @@ export default class PlayFabProfilesApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/profile/account-management/setavatarurl Microsoft Documentation}
    * @example
-   * await profileClient.SetAvatarUrl({
+   * await profilesClient.SetAvatarUrl({
    *   "AvatarUrl": "https://test.com/image.png",
    *   "ProfileVersion": 123,
    *   "Entity": {
@@ -132,7 +132,7 @@ export default class PlayFabProfilesApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/profile/account-management/setdisplayname Microsoft Documentation}
    * @example
-   * await profileClient.SetDisplayName({
+   * await profilesClient.SetDisplayName({
    *   "DisplayName": "My new display name",
    *   "ExpectedVersion": 123,
    *   "Entity": {
@@ -151,7 +151,7 @@ export default class PlayFabProfilesApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/profile/account-management/setglobalpolicy Microsoft Documentation}
    * @example
-   * await profileClient.SetGlobalPolicy({
+   * await profilesClient.SetGlobalPolicy({
    *   "Permissions": [
    *     {
    *       "Resource": "pfrn:data--title_player_account!90901000/Profile/SomethingCool",
@@ -177,7 +177,7 @@ export default class PlayFabProfilesApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/profile/account-management/setprofilelanguage Microsoft Documentation}
    * @example
-   * await profileClient.SetProfileLanguage({
+   * await profilesClient.SetProfileLanguage({
    *   "Language": "en",
    *   "ExpectedVersion": 123,
    *   "Entity": {
@@ -196,7 +196,7 @@ export default class PlayFabProfilesApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/profile/account-management/setprofilepolicy Microsoft Documentation}
    * @example
-   * await profileClient.SetProfilePolicy({
+   * await profilesClient.SetProfilePolicy({
    *   "Statements": [
    *     {
    *       "Resource": "pfrn:data--*!*\/Profile/Files/avatar.png",

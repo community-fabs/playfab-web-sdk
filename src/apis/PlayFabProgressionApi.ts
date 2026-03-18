@@ -47,7 +47,7 @@ export default class PlayFabProgressionApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/leaderboard/leaderboards/createleaderboarddefinition Microsoft Documentation}
    * @example
-   * await leaderboardClient.CreateLeaderboardDefinition({
+   * await progressionClient.CreateLeaderboardDefinition({
    *   "Name": "HighestScoresByLevel",
    *   "EntityType": "title_player_account",
    *   "VersionConfiguration": {
@@ -81,7 +81,7 @@ export default class PlayFabProgressionApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/statistic/statistics/createstatisticdefinition Microsoft Documentation}
    * @example
-   * await statisticClient.CreateStatisticDefinition({
+   * await progressionClient.CreateStatisticDefinition({
    *   "Name": "HighestScoresByLevel",
    *   "AggregationMethod": "Last",
    *   "Columns": [
@@ -105,7 +105,7 @@ export default class PlayFabProgressionApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/leaderboard/leaderboards/deleteleaderboarddefinition Microsoft Documentation}
    * @example
-   * await leaderboardClient.DeleteLeaderboardDefinition({
+   * await progressionClient.DeleteLeaderboardDefinition({
    *   "Name": "HighestScoresByLevel"
    * });
    */
@@ -118,7 +118,7 @@ export default class PlayFabProgressionApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/leaderboard/leaderboards/deleteleaderboardentries Microsoft Documentation}
    * @example
-   * await leaderboardClient.DeleteLeaderboardEntries({
+   * await progressionClient.DeleteLeaderboardEntries({
    *   "Name": "Points",
    *   "EntityIds": [
    *     "12802710371",
@@ -135,7 +135,7 @@ export default class PlayFabProgressionApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/statistic/statistics/deletestatisticdefinition Microsoft Documentation}
    * @example
-   * await statisticClient.DeleteStatisticDefinition({
+   * await progressionClient.DeleteStatisticDefinition({
    *   "Name": "HighestScoresByLevel"
    * });
    */
@@ -148,7 +148,7 @@ export default class PlayFabProgressionApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/statistic/statistics/deletestatistics Microsoft Documentation}
    * @example
-   * await statisticClient.DeleteStatistics({
+   * await progressionClient.DeleteStatistics({
    *   "Statistics": [
    *     {
    *       "Name": "TotalCarTime"
@@ -169,7 +169,7 @@ export default class PlayFabProgressionApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/leaderboard/leaderboards/getfriendleaderboardforentity Microsoft Documentation}
    * @example
-   * await leaderboardClient.GetFriendLeaderboardForEntity({
+   * await progressionClient.GetFriendLeaderboardForEntity({
    *   "LeaderboardName": "Points",
    *   "ExternalFriendSources": "None"
    * });
@@ -183,7 +183,7 @@ export default class PlayFabProgressionApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/leaderboard/leaderboards/getleaderboard Microsoft Documentation}
    * @example
-   * await leaderboardClient.GetLeaderboard({
+   * await progressionClient.GetLeaderboard({
    *   "LeaderboardName": "Points",
    *   "Version": 2,
    *   "StartingPosition": 100,
@@ -199,7 +199,7 @@ export default class PlayFabProgressionApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/leaderboard/leaderboards/getleaderboardaroundentity Microsoft Documentation}
    * @example
-   * await leaderboardClient.GetLeaderboardAroundEntity({
+   * await progressionClient.GetLeaderboardAroundEntity({
    *   "LeaderboardName": "Points",
    *   "Version": 2,
    *   "MaxSurroundingEntries": 0,
@@ -219,7 +219,7 @@ export default class PlayFabProgressionApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/leaderboard/leaderboards/getleaderboarddefinition Microsoft Documentation}
    * @example
-   * await leaderboardClient.GetLeaderboardDefinition({
+   * await progressionClient.GetLeaderboardDefinition({
    *   "Name": "HighestScoresByLevel"
    * });
    */
@@ -232,7 +232,7 @@ export default class PlayFabProgressionApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/leaderboard/leaderboards/getleaderboardforentities Microsoft Documentation}
    * @example
-   * await leaderboardClient.GetLeaderboardForEntities({
+   * await progressionClient.GetLeaderboardForEntities({
    *   "LeaderboardName": "Points",
    *   "Version": 2,
    *   "EntityIds": [
@@ -250,7 +250,7 @@ export default class PlayFabProgressionApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/statistic/statistics/getstatisticdefinition Microsoft Documentation}
    * @example
-   * await statisticClient.GetStatisticDefinition({
+   * await progressionClient.GetStatisticDefinition({
    *   "Name": "Points"
    * });
    */
@@ -273,7 +273,7 @@ export default class PlayFabProgressionApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/statistic/statistics/getstatistics Microsoft Documentation}
    * @example
-   * await statisticClient.GetStatistics({
+   * await progressionClient.GetStatistics({
    *   "StatisticNames": [
    *     "SpeedRuns",
    *     "Boosts"
@@ -294,7 +294,7 @@ export default class PlayFabProgressionApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/statistic/statistics/getstatisticsforentities Microsoft Documentation}
    * @example
-   * await statisticClient.GetStatisticsForEntities({
+   * await progressionClient.GetStatisticsForEntities({
    *   "Entities": [
    *     {
    *       "Id": "A197412JDA",
@@ -322,7 +322,7 @@ export default class PlayFabProgressionApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/leaderboard/leaderboards/incrementleaderboardversion Microsoft Documentation}
    * @example
-   * await leaderboardClient.IncrementLeaderboardVersion({
+   * await progressionClient.IncrementLeaderboardVersion({
    *   "Name": "HighestScoresByLevel"
    * });
    */
@@ -335,7 +335,7 @@ export default class PlayFabProgressionApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/statistic/statistics/incrementstatisticversion Microsoft Documentation}
    * @example
-   * await statisticClient.IncrementStatisticVersion({
+   * await progressionClient.IncrementStatisticVersion({
    *   "Name": "HighestScoresByLevel"
    * });
    */
@@ -348,7 +348,7 @@ export default class PlayFabProgressionApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/leaderboard/leaderboards/listleaderboarddefinitions Microsoft Documentation}
    * @example
-   * await leaderboardClient.ListLeaderboardDefinitions({});
+   * await progressionClient.ListLeaderboardDefinitions({});
    */
   ListLeaderboardDefinitions (request: ListLeaderboardDefinitionsRequest, extraHeaders?: Record<string, string>) {
     return this.ExecuteRequestWrapper<ListLeaderboardDefinitionsResponse>("/Leaderboard/ListLeaderboardDefinitions", request, "X-EntityToken", extraHeaders);
@@ -359,7 +359,7 @@ export default class PlayFabProgressionApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/statistic/statistics/liststatisticdefinitions Microsoft Documentation}
    * @example
-   * await statisticClient.ListStatisticDefinitions({});
+   * await progressionClient.ListStatisticDefinitions({});
    */
   ListStatisticDefinitions (request: ListStatisticDefinitionsRequest, extraHeaders?: Record<string, string>) {
     return this.ExecuteRequestWrapper<ListStatisticDefinitionsResponse>("/Statistic/ListStatisticDefinitions", request, "X-EntityToken", extraHeaders);
@@ -370,7 +370,7 @@ export default class PlayFabProgressionApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/statistic/statistics/unlinkaggregationsourcefromstatistic Microsoft Documentation}
    * @example
-   * await statisticClient.UnlinkAggregationSourceFromStatistic({
+   * await progressionClient.UnlinkAggregationSourceFromStatistic({
    *   "Name": "TotalKills",
    *   "SourceStatisticName": "KillsPerPlayer"
    * });
@@ -384,7 +384,7 @@ export default class PlayFabProgressionApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/leaderboard/leaderboards/unlinkleaderboardfromstatistic Microsoft Documentation}
    * @example
-   * await leaderboardClient.UnlinkLeaderboardFromStatistic({
+   * await progressionClient.UnlinkLeaderboardFromStatistic({
    *   "Name": "HighestScoresByLevel",
    *   "StatisticName": "HighestScoresByLevel"
    * });
@@ -398,7 +398,7 @@ export default class PlayFabProgressionApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/leaderboard/leaderboards/updateleaderboarddefinition Microsoft Documentation}
    * @example
-   * await leaderboardClient.UpdateLeaderboardDefinition({
+   * await progressionClient.UpdateLeaderboardDefinition({
    *   "Name": "HighestScoresByLevel",
    *   "VersionConfiguration": {
    *     "ResetInterval": "Manual",
@@ -425,7 +425,7 @@ export default class PlayFabProgressionApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/leaderboard/leaderboards/updateleaderboardentries Microsoft Documentation}
    * @example
-   * await leaderboardClient.UpdateLeaderboardEntries({
+   * await progressionClient.UpdateLeaderboardEntries({
    *   "LeaderboardName": "Points",
    *   "Entries": [
    *     {
@@ -454,7 +454,7 @@ export default class PlayFabProgressionApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/statistic/statistics/updatestatisticdefinition Microsoft Documentation}
    * @example
-   * await statisticClient.UpdateStatisticDefinition({
+   * await progressionClient.UpdateStatisticDefinition({
    *   "Name": "HighestScoresByLevel",
    *   "VersionConfiguration": {
    *     "ResetInterval": "Manual",
@@ -477,7 +477,7 @@ export default class PlayFabProgressionApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/statistic/statistics/updatestatistics Microsoft Documentation}
    * @example
-   * await statisticClient.UpdateStatistics({
+   * await progressionClient.UpdateStatistics({
    *   "Statistics": [
    *     {
    *       "Name": "RoundsWon",

@@ -17,7 +17,7 @@ export default class PlayFabAuthenticationApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/gameserveridentity/authentication/authenticategameserverwithcustomid Microsoft Documentation}
    * @example
-   * await gameserveridentityClient.AuthenticateGameServerWithCustomId({
+   * await authenticationClient.AuthenticateGameServerWithCustomId({
    *   "CustomId": "12345678123412341234123456789abc"
    * });
    */
@@ -35,7 +35,7 @@ export default class PlayFabAuthenticationApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/gameserveridentity/authentication/delete Microsoft Documentation}
    * @example
-   * await gameserveridentityClient.Delete({
+   * await authenticationClient.Delete({
    *   "Entity": {
    *     "Id": "3D00C64954",
    *     "Type": "game_server",

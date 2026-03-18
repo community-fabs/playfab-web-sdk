@@ -11,7 +11,7 @@ export default class PlayFabLocalizationApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/locale/localization/getlanguagelist Microsoft Documentation}
    * @example
-   * await localeClient.GetLanguageList({});
+   * await localizationClient.GetLanguageList({});
    */
   GetLanguageList (request: GetLanguageListRequest, extraHeaders?: Record<string, string>) {
     return this.ExecuteRequestWrapper<GetLanguageListResponse>("/Locale/GetLanguageList", request, "X-EntityToken", extraHeaders);

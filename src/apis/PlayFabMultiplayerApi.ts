@@ -206,7 +206,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/match/matchmaking/cancelallmatchmakingticketsforplayer Microsoft Documentation}
    * @example
-   * await matchClient.CancelAllMatchmakingTicketsForPlayer({
+   * await multiplayerClient.CancelAllMatchmakingTicketsForPlayer({
    *   "Entity": {
    *     "Id": "123123123",
    *     "Type": "title_player_account",
@@ -224,7 +224,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/match/matchmaking/cancelallserverbackfillticketsforplayer Microsoft Documentation}
    * @example
-   * await matchClient.CancelAllServerBackfillTicketsForPlayer({
+   * await multiplayerClient.CancelAllServerBackfillTicketsForPlayer({
    *   "Entity": {
    *     "Id": "123123123",
    *     "Type": "title_player_account",
@@ -242,7 +242,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/match/matchmaking/cancelmatchmakingticket Microsoft Documentation}
    * @example
-   * await matchClient.CancelMatchmakingTicket({
+   * await multiplayerClient.CancelMatchmakingTicket({
    *   "TicketId": "1c4b0daa-150e-47ae-9923-d770c0f9b07c",
    *   "QueueName": "custom123"
    * });
@@ -256,7 +256,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/trueskill/trueskill-admin/cancelmodel Microsoft Documentation}
    * @example
-   * await trueskillClient.CancelModel({
+   * await multiplayerClient.CancelModel({
    *   "ScenarioId": "f9f0331e-0149-42ba-a994-29b18cac4e4d",
    *   "ModelId": "73a2506e-9fd3-4d84-8dd7-570c8e9e02cf"
    * });
@@ -270,7 +270,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/match/matchmaking/cancelserverbackfillticket Microsoft Documentation}
    * @example
-   * await matchClient.CancelServerBackfillTicket({
+   * await multiplayerClient.CancelServerBackfillTicket({
    *   "TicketId": "1c4b0daa-150e-47ae-9923-d770c0f9b07c",
    *   "QueueName": "custom123"
    * });
@@ -284,7 +284,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/trueskill/trueskill-admin/createbasemodel Microsoft Documentation}
    * @example
-   * await trueskillClient.CreateBaseModel({
+   * await multiplayerClient.CreateBaseModel({
    *   "ScenarioId": "f9f0331e-0149-42ba-a994-29b18cac4e4d",
    *   "ModelName": "Test Batch Model",
    *   "Conditions": [
@@ -308,7 +308,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/trueskill/trueskill-admin/createbatchmodel Microsoft Documentation}
    * @example
-   * await trueskillClient.CreateBatchModel({
+   * await multiplayerClient.CreateBatchModel({
    *   "ScenarioId": "f9f0331e-0149-42ba-a994-29b18cac4e4d",
    *   "ModelName": "Test Batch Model",
    *   "Conditions": [
@@ -341,7 +341,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/createbuildalias Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.CreateBuildAlias({
+   * await multiplayerClient.CreateBuildAlias({
    *   "AliasName": "AliasName",
    *   "BuildSelectionCriteria": [
    *     {
@@ -361,7 +361,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/createbuildwithcustomcontainer Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.CreateBuildWithCustomContainer({
+   * await multiplayerClient.CreateBuildWithCustomContainer({
    *   "ContainerRunCommand": "/data/Assets -startserver",
    *   "GameAssetReferences": [
    *     {
@@ -477,7 +477,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/createbuildwithmanagedcontainer Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.CreateBuildWithManagedContainer({
+   * await multiplayerClient.CreateBuildWithManagedContainer({
    *   "StartMultiplayerServerCommand": "gameserver.exe -startserver",
    *   "GameAssetReferences": [
    *     {
@@ -583,7 +583,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/createbuildwithprocessbasedserver Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.CreateBuildWithProcessBasedServer({
+   * await multiplayerClient.CreateBuildWithProcessBasedServer({
    *   "OsPlatform": "Windows",
    *   "GameAssetReferences": [
    *     {
@@ -647,7 +647,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/lobby/lobby/createlobby Microsoft Documentation}
    * @example
-   * await lobbyClient.CreateLobby({
+   * await multiplayerClient.CreateLobby({
    *   "MaxPlayers": 50,
    *   "Owner": {
    *     "Id": "1234",
@@ -684,7 +684,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/match/matchmaking/creatematchmakingticket Microsoft Documentation}
    * @example
-   * await matchClient.CreateMatchmakingTicket({
+   * await multiplayerClient.CreateMatchmakingTicket({
    *   "Creator": {},
    *   "MembersToMatchWith": [],
    *   "GiveUpAfterSeconds": 100,
@@ -700,7 +700,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/createremoteuser Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.CreateRemoteUser({
+   * await multiplayerClient.CreateRemoteUser({
    *   "BuildId": "21781fa8-096d-4d9c-b699-75433d579285",
    *   "Region": "SouthCentralUs",
    *   "VmId": "VmID1",
@@ -718,7 +718,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/trueskill/trueskill-admin/createscenario Microsoft Documentation}
    * @example
-   * await trueskillClient.CreateScenario({
+   * await multiplayerClient.CreateScenario({
    *   "Name": "Test Scenario",
    *   "Conditions": [
    *     {
@@ -753,7 +753,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/match/matchmaking/createserverbackfillticket Microsoft Documentation}
    * @example
-   * await matchClient.CreateServerBackfillTicket({
+   * await multiplayerClient.CreateServerBackfillTicket({
    *   "Members": [],
    *   "GiveUpAfterSeconds": 100,
    *   "ServerDetails": {
@@ -782,7 +782,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/match/matchmaking/createservermatchmakingticket Microsoft Documentation}
    * @example
-   * await matchClient.CreateServerMatchmakingTicket({
+   * await multiplayerClient.CreateServerMatchmakingTicket({
    *   "Members": [
    *     null
    *   ],
@@ -799,7 +799,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/createtitlemultiplayerserversquotachange Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.CreateTitleMultiplayerServersQuotaChange({
+   * await multiplayerClient.CreateTitleMultiplayerServersQuotaChange({
    *   "ContactEmail": "john@mygamestudio.com",
    *   "StartDate": "2020-01-23T00:00:00Z",
    *   "ChangeDescription": "Season 3 Launch",
@@ -827,7 +827,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/trueskill/trueskill-admin/deactivatemodel Microsoft Documentation}
    * @example
-   * await trueskillClient.DeactivateModel({
+   * await multiplayerClient.DeactivateModel({
    *   "ScenarioId": "f9f0331e-0149-42ba-a994-29b18cac4e4d",
    *   "ModelId": "73a2506e-9fd3-4d84-8dd7-570c8e9e02cf"
    * });
@@ -841,7 +841,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/deleteasset Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.DeleteAsset({
+   * await multiplayerClient.DeleteAsset({
    *   "FileName": "gameserver.zip"
    * });
    */
@@ -854,7 +854,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/deletebuild Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.DeleteBuild({
+   * await multiplayerClient.DeleteBuild({
    *   "BuildId": "21781fa8-096d-4d9c-b699-75433d579285"
    * });
    */
@@ -867,7 +867,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/deletebuildalias Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.DeleteBuildAlias({
+   * await multiplayerClient.DeleteBuildAlias({
    *   "AliasId": "21781fa8-096d-4d9c-b699-75433d579285"
    * });
    */
@@ -880,7 +880,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/deletebuildregion Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.DeleteBuildRegion({
+   * await multiplayerClient.DeleteBuildRegion({
    *   "BuildId": "21781fa8-096d-4d9c-b699-75433d579285",
    *   "Region": "JapanEast"
    * });
@@ -894,7 +894,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/deletecertificate Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.DeleteCertificate({
+   * await multiplayerClient.DeleteCertificate({
    *   "Name": "GameCertificate1"
    * });
    */
@@ -907,7 +907,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/deletecontainerimagerepository Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.DeleteContainerImageRepository({
+   * await multiplayerClient.DeleteContainerImageRepository({
    *   "ImageName": "imageName1"
    * });
    */
@@ -920,7 +920,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/lobby/lobby/deletelobby Microsoft Documentation}
    * @example
-   * await lobbyClient.DeleteLobby({
+   * await multiplayerClient.DeleteLobby({
    *   "LobbyId": "12345678-1234-1234-1234-123456789ABC"
    * });
    */
@@ -933,7 +933,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/trueskill/trueskill-admin/deletemodel Microsoft Documentation}
    * @example
-   * await trueskillClient.DeleteModel({
+   * await multiplayerClient.DeleteModel({
    *   "ScenarioId": "f9f0331e-0149-42ba-a994-29b18cac4e4d",
    *   "ModelId": "73a2506e-9fd3-4d84-8dd7-570c8e9e02cf"
    * });
@@ -947,7 +947,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/deleteremoteuser Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.DeleteRemoteUser({
+   * await multiplayerClient.DeleteRemoteUser({
    *   "BuildId": "21781fa8-096d-4d9c-b699-75433d579285",
    *   "Region": "SouthCentralUs",
    *   "VmId": "VmID1",
@@ -963,7 +963,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/trueskill/trueskill-admin/deletescenario Microsoft Documentation}
    * @example
-   * await trueskillClient.DeleteScenario({
+   * await multiplayerClient.DeleteScenario({
    *   "ScenarioId": "f9f0331e-0149-42ba-a994-29b18cac4e4d",
    *   "ForceDelete": true
    * });
@@ -977,7 +977,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/deletesecret Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.DeleteSecret({
+   * await multiplayerClient.DeleteSecret({
    *   "Name": "GameSecret1"
    * });
    */
@@ -990,7 +990,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/enablemultiplayerserversfortitle Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.EnableMultiplayerServersForTitle({});
+   * await multiplayerClient.EnableMultiplayerServersForTitle({});
    */
   EnableMultiplayerServersForTitle (request: EnableMultiplayerServersForTitleRequest, extraHeaders?: Record<string, string>) {
     return this.ExecuteRequestWrapper<EnableMultiplayerServersForTitleResponse>("/MultiplayerServer/EnableMultiplayerServersForTitle", request, "X-EntityToken", extraHeaders);
@@ -1001,7 +1001,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/party/multiplayerserver/enablepartiesfortitle Microsoft Documentation}
    * @example
-   * await partyClient.EnablePartiesForTitle({});
+   * await multiplayerClient.EnablePartiesForTitle({});
    */
   EnablePartiesForTitle (request: EnablePartiesForTitleRequest, extraHeaders?: Record<string, string>) {
     return this.ExecuteRequestWrapper<EmptyResponse>("/Party/EnablePartiesForTitle", request, "X-EntityToken", extraHeaders);
@@ -1012,7 +1012,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/lobby/lobby/findfriendlobbies Microsoft Documentation}
    * @example
-   * await lobbyClient.FindFriendLobbies({
+   * await multiplayerClient.FindFriendLobbies({
    *   "Filter": "string_key1 eq 'Wizard' and number_key5 gt 5",
    *   "OrderBy": "number_key5 desc",
    *   "ExternalPlatformFriends": "Xbox",
@@ -1032,7 +1032,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/lobby/lobby/findlobbies Microsoft Documentation}
    * @example
-   * await lobbyClient.FindLobbies({
+   * await multiplayerClient.FindLobbies({
    *   "Filter": "string_key1 eq 'Wizard' and number_key5 gt 5",
    *   "OrderBy": "number_key5 desc",
    *   "Pagination": {
@@ -1051,7 +1051,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/getassetdownloadurl Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.GetAssetDownloadUrl({
+   * await multiplayerClient.GetAssetDownloadUrl({
    *   "FileName": "gameserver.zip"
    * });
    */
@@ -1065,7 +1065,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/getassetuploadurl Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.GetAssetUploadUrl({
+   * await multiplayerClient.GetAssetUploadUrl({
    *   "FileName": "gameserver.zip"
    * });
    */
@@ -1078,7 +1078,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/getbuild Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.GetBuild({
+   * await multiplayerClient.GetBuild({
    *   "BuildId": "53781fa8-006d-4e9c-b733-57433d579285"
    * });
    */
@@ -1091,7 +1091,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/getbuildalias Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.GetBuildAlias({
+   * await multiplayerClient.GetBuildAlias({
    *   "AliasId": "21781fa8-096d-4d9c-b699-75433d579285"
    * });
    */
@@ -1104,7 +1104,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/getcognitiveserviceslocales Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.GetCognitiveServicesLocales({
+   * await multiplayerClient.GetCognitiveServicesLocales({
    *   "CognitiveServicesType": "SpeechToText",
    *   "Region": "WestUs"
    * });
@@ -1118,7 +1118,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/getcognitiveservicestoken Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.GetCognitiveServicesToken({
+   * await multiplayerClient.GetCognitiveServicesToken({
    *   "CognitiveServicesType": "SpeechToText",
    *   "Region": "AustraliaEast"
    * });
@@ -1132,7 +1132,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/getcontainerregistrycredentials Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.GetContainerRegistryCredentials({});
+   * await multiplayerClient.GetContainerRegistryCredentials({});
    */
   GetContainerRegistryCredentials (request: GetContainerRegistryCredentialsRequest, extraHeaders?: Record<string, string>) {
     return this.ExecuteRequestWrapper<GetContainerRegistryCredentialsResponse>("/MultiplayerServer/GetContainerRegistryCredentials", request, "X-EntityToken", extraHeaders);
@@ -1143,7 +1143,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/lobby/lobby/getlobby Microsoft Documentation}
    * @example
-   * await lobbyClient.GetLobby({
+   * await multiplayerClient.GetLobby({
    *   "LobbyId": "12345678-1234-1234-1234-123456789ABC"
    * });
    */
@@ -1156,7 +1156,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/match/matchmaking/getmatch Microsoft Documentation}
    * @example
-   * await matchClient.GetMatch({
+   * await multiplayerClient.GetMatch({
    *   "MatchId": "4e0c5fd7-80e9-4744-b0ce-061a7f067ff5",
    *   "QueueName": "custom123",
    *   "EscapeObject": false,
@@ -1172,7 +1172,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/match/matchmaking-admin/getmatchmakingqueue Microsoft Documentation}
    * @example
-   * await matchClient.GetMatchmakingQueue({
+   * await multiplayerClient.GetMatchmakingQueue({
    *   "QueueName": "custom123"
    * });
    */
@@ -1185,7 +1185,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/match/matchmaking/getmatchmakingticket Microsoft Documentation}
    * @example
-   * await matchClient.GetMatchmakingTicket({
+   * await multiplayerClient.GetMatchmakingTicket({
    *   "TicketId": "1c4b0daa-150e-47ae-9923-d770c0f9b07c",
    *   "QueueName": "custom123",
    *   "EscapeObject": false
@@ -1200,7 +1200,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/trueskill/trueskill-admin/getmodeldetails Microsoft Documentation}
    * @example
-   * await trueskillClient.GetModelDetails({
+   * await multiplayerClient.GetModelDetails({
    *   "ScenarioId": "f9f0331e-0149-42ba-a994-29b18cac4e4d",
    *   "ModelId": "73a2506e-9fd3-4d84-8dd7-570c8e9e02cf"
    * });
@@ -1214,7 +1214,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/trueskill/trueskill-admin/getmodelsbyscenario Microsoft Documentation}
    * @example
-   * await trueskillClient.GetModelsByScenario({
+   * await multiplayerClient.GetModelsByScenario({
    *   "ScenarioId": "f9f0331e-0149-42ba-a994-29b18cac4e4d"
    * });
    */
@@ -1227,7 +1227,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/getmultiplayerserverandtoken Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.GetMultiplayerServerAndToken({
+   * await multiplayerClient.GetMultiplayerServerAndToken({
    *   "TokenPlayerIds": [
    *     "User1",
    *     "User2"
@@ -1244,7 +1244,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/getmultiplayerserverdetails Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.GetMultiplayerServerDetails({
+   * await multiplayerClient.GetMultiplayerServerDetails({
    *   "SessionId": "02bdef0e-e01e-4b29-8efe-ff9f47a06d8c"
    * });
    */
@@ -1257,7 +1257,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/getmultiplayerserverlogs Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.GetMultiplayerServerLogs({
+   * await multiplayerClient.GetMultiplayerServerLogs({
    *   "Region": "AustraliaEast",
    *   "ServerId": "SomeServerId"
    * });
@@ -1271,7 +1271,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/getmultiplayersessionlogsbysessionid Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.GetMultiplayerSessionLogsBySessionId({
+   * await multiplayerClient.GetMultiplayerSessionLogsBySessionId({
    *   "SessionId": "92e29db9-4004-4349-9a1f-b70ac01bdc08"
    * });
    */
@@ -1284,7 +1284,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/trueskill/trueskill/getplayerskill Microsoft Documentation}
    * @example
-   * await trueskillClient.GetPlayerSkill({
+   * await multiplayerClient.GetPlayerSkill({
    *   "Conditions": {
    *     "Platform": "Xbox",
    *     "Mode": "Deathmatch"
@@ -1319,7 +1319,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/trueskill/trueskill/getplayerskillforconditions Microsoft Documentation}
    * @example
-   * await trueskillClient.GetPlayerSkillForConditions({
+   * await multiplayerClient.GetPlayerSkillForConditions({
    *   "Conditions": [
    *     {
    *       "Conditions": {
@@ -1364,7 +1364,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/trueskill/trueskill/getplayerskillforconditionsfrommodel Microsoft Documentation}
    * @example
-   * await trueskillClient.GetPlayerSkillForConditionsFromModel({
+   * await multiplayerClient.GetPlayerSkillForConditionsFromModel({
    *   "ModelId": "73a2506e-9fd3-4d84-8dd7-570c8e9e02cf",
    *   "Conditions": [
    *     {
@@ -1410,7 +1410,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/trueskill/trueskill/getplayerskillfrommodel Microsoft Documentation}
    * @example
-   * await trueskillClient.GetPlayerSkillFromModel({
+   * await multiplayerClient.GetPlayerSkillFromModel({
    *   "ModelId": "73a2506e-9fd3-4d84-8dd7-570c8e9e02cf",
    *   "Conditions": {
    *     "Platform": "Xbox",
@@ -1446,7 +1446,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/match/matchmaking/getqueuestatistics Microsoft Documentation}
    * @example
-   * await matchClient.GetQueueStatistics({
+   * await multiplayerClient.GetQueueStatistics({
    *   "QueueName": "custom123"
    * });
    */
@@ -1459,7 +1459,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/getremoteloginendpoint Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.GetRemoteLoginEndpoint({
+   * await multiplayerClient.GetRemoteLoginEndpoint({
    *   "BuildId": "21781fa8-096d-4d9c-b699-75433d579285",
    *   "Region": "SouthCentralUs",
    *   "VmId": "VmID1"
@@ -1474,7 +1474,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/trueskill/trueskill-admin/getscenarioconfiguration Microsoft Documentation}
    * @example
-   * await trueskillClient.GetScenarioConfiguration({
+   * await multiplayerClient.GetScenarioConfiguration({
    *   "ScenarioId": "f9f0331e-0149-42ba-a994-29b18cac4e4d"
    * });
    */
@@ -1496,7 +1496,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/match/matchmaking/getserverbackfillticket Microsoft Documentation}
    * @example
-   * await matchClient.GetServerBackfillTicket({
+   * await multiplayerClient.GetServerBackfillTicket({
    *   "TicketId": "1c4b0daa-150e-47ae-9923-d770c0f9b07c",
    *   "QueueName": "custom123",
    *   "EscapeObject": false
@@ -1511,7 +1511,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/gettitleenabledformultiplayerserversstatus Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.GetTitleEnabledForMultiplayerServersStatus({});
+   * await multiplayerClient.GetTitleEnabledForMultiplayerServersStatus({});
    */
   GetTitleEnabledForMultiplayerServersStatus (request: GetTitleEnabledForMultiplayerServersStatusRequest, extraHeaders?: Record<string, string>) {
     return this.ExecuteRequestWrapper<GetTitleEnabledForMultiplayerServersStatusResponse>("/MultiplayerServer/GetTitleEnabledForMultiplayerServersStatus", request, "X-EntityToken", extraHeaders);
@@ -1522,7 +1522,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/gettitlemultiplayerserversquotachange Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.GetTitleMultiplayerServersQuotaChange({
+   * await multiplayerClient.GetTitleMultiplayerServersQuotaChange({
    *   "RequestId": "1234"
    * });
    */
@@ -1535,7 +1535,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/gettitlemultiplayerserversquotas Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.GetTitleMultiplayerServersQuotas({});
+   * await multiplayerClient.GetTitleMultiplayerServersQuotas({});
    */
   GetTitleMultiplayerServersQuotas (request: GetTitleMultiplayerServersQuotasRequest, extraHeaders?: Record<string, string>) {
     return this.ExecuteRequestWrapper<GetTitleMultiplayerServersQuotasResponse>("/MultiplayerServer/GetTitleMultiplayerServersQuotas", request, "X-EntityToken", extraHeaders);
@@ -1546,7 +1546,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/lobby/lobby/invitetolobby Microsoft Documentation}
    * @example
-   * await lobbyClient.InviteToLobby({
+   * await multiplayerClient.InviteToLobby({
    *   "LobbyId": "12345678-1234-1234-1234-123456789ABC",
    *   "MemberEntity": {
    *     "Id": "1234",
@@ -1569,7 +1569,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/lobby/lobby/joinarrangedlobby Microsoft Documentation}
    * @example
-   * await lobbyClient.JoinArrangedLobby({
+   * await multiplayerClient.JoinArrangedLobby({
    *   "MaxPlayers": 50,
    *   "OwnerMigrationPolicy": "Automatic",
    *   "UseConnections": true,
@@ -1595,7 +1595,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/lobby/lobby/joinlobby Microsoft Documentation}
    * @example
-   * await lobbyClient.JoinLobby({
+   * await multiplayerClient.JoinLobby({
    *   "MemberEntity": {
    *     "Id": "1234",
    *     "Type": "title_player_account",
@@ -1616,7 +1616,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/lobby/lobby/joinlobbyasserver Microsoft Documentation}
    * @example
-   * await lobbyClient.JoinLobbyAsServer({
+   * await multiplayerClient.JoinLobbyAsServer({
    *   "ServerEntity": {
    *     "Id": "1234",
    *     "Type": "game_server",
@@ -1637,7 +1637,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/match/matchmaking/joinmatchmakingticket Microsoft Documentation}
    * @example
-   * await matchClient.JoinMatchmakingTicket({
+   * await multiplayerClient.JoinMatchmakingTicket({
    *   "TicketId": "1c4b0daa-150e-47ae-9923-d770c0f9b07c",
    *   "QueueName": "custom123",
    *   "Member": {}
@@ -1652,7 +1652,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/lobby/lobby/leavelobby Microsoft Documentation}
    * @example
-   * await lobbyClient.LeaveLobby({
+   * await multiplayerClient.LeaveLobby({
    *   "LobbyId": "12345678-1234-1234-1234-123456789ABC",
    *   "MemberEntity": {
    *     "Id": "1234",
@@ -1670,7 +1670,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/lobby/lobby/leavelobbyasserver Microsoft Documentation}
    * @example
-   * await lobbyClient.LeaveLobbyAsServer({
+   * await multiplayerClient.LeaveLobbyAsServer({
    *   "ServerEntity": {
    *     "Id": "1234",
    *     "Type": "game_server",
@@ -1688,7 +1688,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/listarchivedmultiplayerservers Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.ListArchivedMultiplayerServers({
+   * await multiplayerClient.ListArchivedMultiplayerServers({
    *   "BuildId": "21781fa8-096d-4d9c-b699-75433d579285",
    *   "Region": "SouthCentralUs"
    * });
@@ -1702,7 +1702,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/listassetsummaries Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.ListAssetSummaries({
+   * await multiplayerClient.ListAssetSummaries({
    *   "PageSize": 10
    * });
    */
@@ -1716,7 +1716,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/listbuildaliases Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.ListBuildAliases({
+   * await multiplayerClient.ListBuildAliases({
    *   "PageSize": 10
    * });
    */
@@ -1741,7 +1741,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/listbuildsummariesv2 Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.ListBuildSummariesV2({
+   * await multiplayerClient.ListBuildSummariesV2({
    *   "PageSize": 10
    * });
    */
@@ -1754,7 +1754,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/listcertificatesummaries Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.ListCertificateSummaries({
+   * await multiplayerClient.ListCertificateSummaries({
    *   "PageSize": 10
    * });
    */
@@ -1767,7 +1767,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/listcontainerimages Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.ListContainerImages({
+   * await multiplayerClient.ListContainerImages({
    *   "PageSize": 10
    * });
    */
@@ -1780,7 +1780,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/listcontainerimagetags Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.ListContainerImageTags({
+   * await multiplayerClient.ListContainerImageTags({
    *   "ImageName": "imageName1",
    *   "PageSize": 10
    * });
@@ -1794,7 +1794,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/match/matchmaking-admin/listmatchmakingqueues Microsoft Documentation}
    * @example
-   * await matchClient.ListMatchmakingQueues({});
+   * await multiplayerClient.ListMatchmakingQueues({});
    */
   ListMatchmakingQueues (request: ListMatchmakingQueuesRequest, extraHeaders?: Record<string, string>) {
     return this.ExecuteRequestWrapper<ListMatchmakingQueuesResult>("/Match/ListMatchmakingQueues", request, "X-EntityToken", extraHeaders);
@@ -1805,7 +1805,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/match/matchmaking/listmatchmakingticketsforplayer Microsoft Documentation}
    * @example
-   * await matchClient.ListMatchmakingTicketsForPlayer({
+   * await multiplayerClient.ListMatchmakingTicketsForPlayer({
    *   "Entity": {
    *     "Id": "123123123",
    *     "Type": "title_player_account",
@@ -1823,7 +1823,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/listmultiplayerservers Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.ListMultiplayerServers({
+   * await multiplayerClient.ListMultiplayerServers({
    *   "BuildId": "21781fa8-096d-4d9c-b699-75433d579285",
    *   "Region": "SouthCentralUs"
    * });
@@ -1837,7 +1837,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/listpartyqosservers Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.ListPartyQosServers({
+   * await multiplayerClient.ListPartyQosServers({
    *   "Version": "1.0.0"
    * });
    */
@@ -1861,7 +1861,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/listqosserversfortitle Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.ListQosServersForTitle({
+   * await multiplayerClient.ListQosServersForTitle({
    *   "IncludeAllRegions": true,
    *   "RoutingPreference": "Microsoft"
    * });
@@ -1875,7 +1875,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/listsecretsummaries Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.ListSecretSummaries({
+   * await multiplayerClient.ListSecretSummaries({
    *   "PageSize": 10
    * });
    */
@@ -1888,7 +1888,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/match/matchmaking/listserverbackfillticketsforplayer Microsoft Documentation}
    * @example
-   * await matchClient.ListServerBackfillTicketsForPlayer({
+   * await multiplayerClient.ListServerBackfillTicketsForPlayer({
    *   "Entity": {
    *     "Id": "123123123",
    *     "Type": "title_player_account",
@@ -1906,7 +1906,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/listtitlemultiplayerserversquotachanges Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.ListTitleMultiplayerServersQuotaChanges({});
+   * await multiplayerClient.ListTitleMultiplayerServersQuotaChanges({});
    */
   ListTitleMultiplayerServersQuotaChanges (request: ListTitleMultiplayerServersQuotaChangesRequest, extraHeaders?: Record<string, string>) {
     return this.ExecuteRequestWrapper<ListTitleMultiplayerServersQuotaChangesResponse>("/MultiplayerServer/ListTitleMultiplayerServersQuotaChanges", request, "X-EntityToken", extraHeaders);
@@ -1917,7 +1917,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/listvirtualmachinesummaries Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.ListVirtualMachineSummaries({
+   * await multiplayerClient.ListVirtualMachineSummaries({
    *   "BuildId": "21781fa8-096d-4d9c-b699-75433d579285",
    *   "Region": "SouthCentralUs",
    *   "PageSize": 10
@@ -1932,7 +1932,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/match/matchmaking-admin/removematchmakingqueue Microsoft Documentation}
    * @example
-   * await matchClient.RemoveMatchmakingQueue({
+   * await multiplayerClient.RemoveMatchmakingQueue({
    *   "QueueName": "custom123"
    * });
    */
@@ -1945,7 +1945,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/lobby/lobby/removemember Microsoft Documentation}
    * @example
-   * await lobbyClient.RemoveMember({
+   * await multiplayerClient.RemoveMember({
    *   "LobbyId": "12345678-1234-1234-1234-123456789ABC",
    *   "MemberEntity": {
    *     "Id": "1234",
@@ -1965,7 +1965,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/requestmultiplayerserver Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.RequestMultiplayerServer({
+   * await multiplayerClient.RequestMultiplayerServer({
    *   "BuildId": "21781fa8-096d-4d9c-b699-75433d579285",
    *   "SessionId": "02bdef0e-e01e-4b29-8efe-ff9f47a06d8c",
    *   "SessionCookie": "U2Vzc2lvbkNvb2tpZQ==",
@@ -1989,7 +1989,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/requestmultiplayerserverandtoken Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.RequestMultiplayerServerAndToken({
+   * await multiplayerClient.RequestMultiplayerServerAndToken({
    *   "TokenPlayerIds": [
    *     "gamer1",
    *     "gamer2"
@@ -2016,7 +2016,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/party/multiplayerserver/requestparty Microsoft Documentation}
    * @example
-   * await partyClient.RequestParty({
+   * await multiplayerClient.RequestParty({
    *   "PartyId": "23781fa9-e01e-4b29-4f0b-dd9f37a06a1e",
    *   "PreferredRegions": [
    *     "EastUs",
@@ -2035,7 +2035,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/party/multiplayerserver/requestpartyservice Microsoft Documentation}
    * @example
-   * await partyClient.RequestPartyService({
+   * await multiplayerClient.RequestPartyService({
    *   "TitleId": "12345",
    *   "PartyId": "23781fa9-e01e-4b29-4f0b-dd9f37a06a1e",
    *   "PreferredRegions": [
@@ -2066,7 +2066,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/rollovercontainerregistrycredentials Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.RolloverContainerRegistryCredentials({});
+   * await multiplayerClient.RolloverContainerRegistryCredentials({});
    */
   RolloverContainerRegistryCredentials (request: RolloverContainerRegistryCredentialsRequest, extraHeaders?: Record<string, string>) {
     return this.ExecuteRequestWrapper<RolloverContainerRegistryCredentialsResponse>("/MultiplayerServer/RolloverContainerRegistryCredentials", request, "X-EntityToken", extraHeaders);
@@ -2077,7 +2077,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/match/matchmaking-admin/setmatchmakingqueue Microsoft Documentation}
    * @example
-   * await matchClient.SetMatchmakingQueue({
+   * await multiplayerClient.SetMatchmakingQueue({
    *   "MatchmakingQueue": {
    *     "Name": "ExampleQueueName",
    *     "MinMatchSize": 7,
@@ -2245,7 +2245,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/shutdownmultiplayerserver Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.ShutdownMultiplayerServer({
+   * await multiplayerClient.ShutdownMultiplayerServer({
    *   "Region": "AustraliaEast",
    *   "SessionId": "02bdef0e-e01e-4b29-8efe-ff9f47a06d8c"
    * });
@@ -2259,7 +2259,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/lobby/lobby/subscribetolobbyresource Microsoft Documentation}
    * @example
-   * await lobbyClient.SubscribeToLobbyResource({
+   * await multiplayerClient.SubscribeToLobbyResource({
    *   "Type": "LobbyChange",
    *   "ResourceId": "5c905725-0184-4112-a563-2f4187710d06",
    *   "SubscriptionVersion": 1,
@@ -2280,7 +2280,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/match/matchmaking/subscribetomatchmakingresource Microsoft Documentation}
    * @example
-   * await matchClient.SubscribeToMatchmakingResource({
+   * await multiplayerClient.SubscribeToMatchmakingResource({
    *   "Type": "MatchTicketStatusChange",
    *   "ResourceId": "5a58afee-a9d7-4a47-875b-48bae4dc0590",
    *   "SubscriptionVersion": 1,
@@ -2297,7 +2297,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/lobby/lobby/unsubscribefromlobbyresource Microsoft Documentation}
    * @example
-   * await lobbyClient.UnsubscribeFromLobbyResource({
+   * await multiplayerClient.UnsubscribeFromLobbyResource({
    *   "Type": "LobbyChange",
    *   "ResourceId": "5c905725-0184-4112-a563-2f4187710d06",
    *   "SubscriptionVersion": 1,
@@ -2318,7 +2318,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/match/matchmaking/unsubscribefrommatchmakingresource Microsoft Documentation}
    * @example
-   * await matchClient.UnsubscribeFromMatchmakingResource({
+   * await multiplayerClient.UnsubscribeFromMatchmakingResource({
    *   "Type": "MatchTicketStatusChange",
    *   "ResourceId": "5a58afee-a9d7-4a47-875b-48bae4dc0590",
    *   "SubscriptionVersion": 1,
@@ -2335,7 +2335,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/untagcontainerimage Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.UntagContainerImage({
+   * await multiplayerClient.UntagContainerImage({
    *   "ImageName": "imageName1",
    *   "Tag": "tag1"
    * });
@@ -2349,7 +2349,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/updatebuildalias Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.UpdateBuildAlias({
+   * await multiplayerClient.UpdateBuildAlias({
    *   "AliasName": "AliasName",
    *   "BuildSelectionCriteria": [
    *     {
@@ -2370,7 +2370,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/updatebuildname Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.UpdateBuildName({
+   * await multiplayerClient.UpdateBuildName({
    *   "BuildId": "21781fa8-096d-4d9c-b699-75433d579285",
    *   "BuildName": "GameBuildName"
    * });
@@ -2384,7 +2384,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/updatebuildregion Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.UpdateBuildRegion({
+   * await multiplayerClient.UpdateBuildRegion({
    *   "BuildId": "21781fa8-096d-4d9c-b699-75433d579285",
    *   "BuildRegion": {
    *     "Region": "NorthEurope",
@@ -2402,7 +2402,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/updatebuildregions Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.UpdateBuildRegions({
+   * await multiplayerClient.UpdateBuildRegions({
    *   "BuildId": "21781fa8-096d-4d9c-b699-75433d579285",
    *   "BuildRegions": [
    *     {
@@ -2432,7 +2432,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/lobby/lobby/updatelobby Microsoft Documentation}
    * @example
-   * await lobbyClient.UpdateLobby({
+   * await multiplayerClient.UpdateLobby({
    *   "LobbyId": "12345678-1234-1234-1234-123456789ABC",
    *   "MaxPlayers": 50,
    *   "AccessPolicy": "Friends",
@@ -2471,7 +2471,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/lobby/lobby/updatelobbyasserver Microsoft Documentation}
    * @example
-   * await lobbyClient.UpdateLobbyAsServer({
+   * await multiplayerClient.UpdateLobbyAsServer({
    *   "LobbyId": "12345678-1234-1234-1234-123456789ABC",
    *   "ServerEntity": {
    *     "Id": "1234",
@@ -2495,7 +2495,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/trueskill/trueskill-admin/updatemodel Microsoft Documentation}
    * @example
-   * await trueskillClient.UpdateModel({
+   * await multiplayerClient.UpdateModel({
    *   "ScenarioId": "f9f0331e-0149-42ba-a994-29b18cac4e4d",
    *   "ModelId": "73a2506e-9fd3-4d84-8dd7-570c8e9e02cf",
    *   "ModelName": "New Model Name",
@@ -2511,7 +2511,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/trueskill/trueskill-admin/updateprimarymodel Microsoft Documentation}
    * @example
-   * await trueskillClient.UpdatePrimaryModel({
+   * await multiplayerClient.UpdatePrimaryModel({
    *   "ScenarioId": "f9f0331e-0149-42ba-a994-29b18cac4e4d",
    *   "ModelId": "73a2506e-9fd3-4d84-8dd7-570c8e9e02cf"
    * });
@@ -2525,7 +2525,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/trueskill/trueskill-admin/updatescenarioconfiguration Microsoft Documentation}
    * @example
-   * await trueskillClient.UpdateScenarioConfiguration({
+   * await multiplayerClient.UpdateScenarioConfiguration({
    *   "ScenarioId": "f9f0331e-0149-42ba-a994-29b18cac4e4d",
    *   "ConditionsToUpdateOrAdd": [
    *     {
@@ -2547,7 +2547,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/uploadcertificate Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.UploadCertificate({
+   * await multiplayerClient.UploadCertificate({
    *   "GameCertificate": {
    *     "Name": "GameCertificate1",
    *     "Base64EncodedValue": "UGxheUZhYlJvY2tzISEhTGV0J3NtYWtlYWxvdG9mZ2FtZXMh",
@@ -2565,7 +2565,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/trueskill/trueskill/uploadmatchresult Microsoft Documentation}
    * @example
-   * await trueskillClient.UploadMatchResult({
+   * await multiplayerClient.UploadMatchResult({
    *   "MatchResult": {
    *     "ScenarioId": "f9f0331e-0149-42ba-a994-29b18cac4e4d",
    *     "Teams": [
@@ -2677,7 +2677,7 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/multiplayerserver/multiplayerserver/uploadsecret Microsoft Documentation}
    * @example
-   * await multiplayerserverClient.UploadSecret({
+   * await multiplayerClient.UploadSecret({
    *   "GameSecret": {
    *     "Name": "GameSecret1",
    *     "Value": "Value123",

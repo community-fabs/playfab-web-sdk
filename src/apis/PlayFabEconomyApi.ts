@@ -125,7 +125,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/inventory/inventory/addinventoryitems Microsoft Documentation}
    * @example
-   * await inventoryClient.AddInventoryItems({
+   * await economyClient.AddInventoryItems({
    *   "Item": {
    *     "Id": "11111111-1111-1111-1111-111111111111"
    *   },
@@ -142,7 +142,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/versionedcatalog/versionedcatalog/completeversionedcatalogupload Microsoft Documentation}
    * @example
-   * await versionedcatalogClient.CompleteVersionedCatalogUpload({});
+   * await economyClient.CompleteVersionedCatalogUpload({});
    */
   CompleteVersionedCatalogUpload (request: CompleteVersionedCatalogUploadRequest, extraHeaders?: Record<string, string>) {
     return this.ExecuteRequestWrapper<CompleteVersionedCatalogUploadResponse>("/VersionedCatalog/CompleteVersionedCatalogUpload", request, "X-EntityToken", extraHeaders);
@@ -153,7 +153,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/catalog/catalog/createdraftitem Microsoft Documentation}
    * @example
-   * await catalogClient.CreateDraftItem({
+   * await economyClient.CreateDraftItem({
    *   "Item": {
    *     "Type": "ugc",
    *     "Title": {
@@ -225,7 +225,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/catalog/catalog/createuploadurls Microsoft Documentation}
    * @example
-   * await catalogClient.CreateUploadUrls({
+   * await economyClient.CreateUploadUrls({
    *   "Files": [
    *     {
    *       "FileName": "textures.zip"
@@ -246,7 +246,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/versionedcatalog/versionedcatalog/createversionedcataloguploadurl Microsoft Documentation}
    * @example
-   * await versionedcatalogClient.CreateVersionedCatalogUploadURL({});
+   * await economyClient.CreateVersionedCatalogUploadURL({});
    */
   CreateVersionedCatalogUploadURL (request: CreateVersionedCatalogUploadURLRequest, extraHeaders?: Record<string, string>) {
     return this.ExecuteRequestWrapper<CreateVersionedCatalogUploadURLResponse>("/VersionedCatalog/CreateVersionedCatalogUploadURL", request, "X-EntityToken", extraHeaders);
@@ -257,7 +257,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/catalog/catalog/createview Microsoft Documentation}
    * @example
-   * await catalogClient.CreateView({
+   * await economyClient.CreateView({
    *   "View": {
    *     "FriendlyId": "exampleView",
    *     "IsTitleView": false,
@@ -277,7 +277,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/catalog/catalog/deleteentityitemreviews Microsoft Documentation}
    * @example
-   * await catalogClient.DeleteEntityItemReviews({
+   * await economyClient.DeleteEntityItemReviews({
    *   "Entity": {
    *     "Id": "ABC123",
    *     "Type": "title_player_account",
@@ -295,7 +295,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/inventory/inventory/deleteinventorycollection Microsoft Documentation}
    * @example
-   * await inventoryClient.DeleteInventoryCollection({
+   * await economyClient.DeleteInventoryCollection({
    *   "CollectionId": "backpack"
    * });
    */
@@ -308,7 +308,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/inventory/inventory/deleteinventoryitems Microsoft Documentation}
    * @example
-   * await inventoryClient.DeleteInventoryItems({
+   * await economyClient.DeleteInventoryItems({
    *   "Item": {
    *     "Id": "11111111-1111-1111-1111-111111111111"
    *   }
@@ -323,7 +323,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/catalog/catalog/deleteitem Microsoft Documentation}
    * @example
-   * await catalogClient.DeleteItem({
+   * await economyClient.DeleteItem({
    *   "Id": "dddddddd-dddd-dddd-dddd-dddddddddddd"
    * });
    */
@@ -336,7 +336,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/versionedcatalog/versionedcatalog/deleteversionedcatalog Microsoft Documentation}
    * @example
-   * await versionedcatalogClient.DeleteVersionedCatalog({});
+   * await economyClient.DeleteVersionedCatalog({});
    */
   DeleteVersionedCatalog (request: DeleteVersionedCatalogRequest, extraHeaders?: Record<string, string>) {
     return this.ExecuteRequestWrapper<EmptyResponse>("/VersionedCatalog/DeleteVersionedCatalog", request, "X-EntityToken", extraHeaders);
@@ -347,7 +347,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/catalog/catalog/deleteview Microsoft Documentation}
    * @example
-   * await catalogClient.DeleteView({
+   * await economyClient.DeleteView({
    *   "Id": "dddddddd-dddd-dddd-dddd-dddddddddddd"
    * });
    */
@@ -363,7 +363,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/inventory/inventory/executeinventoryoperations Microsoft Documentation}
    * @example
-   * await inventoryClient.ExecuteInventoryOperations({
+   * await economyClient.ExecuteInventoryOperations({
    *   "Operations": [
    *     {
    *       "Add": {
@@ -397,7 +397,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/inventory/inventory/executetransferoperations Microsoft Documentation}
    * @example
-   * await inventoryClient.ExecuteTransferOperations({
+   * await economyClient.ExecuteTransferOperations({
    *   "Operations": [
    *     {
    *       "GivingItem": {
@@ -435,7 +435,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/versionedcatalog/versionedcatalog/exportversionedcatalog Microsoft Documentation}
    * @example
-   * await versionedcatalogClient.ExportVersionedCatalog({});
+   * await economyClient.ExportVersionedCatalog({});
    */
   ExportVersionedCatalog (request: ExportVersionedCatalogRequest, extraHeaders?: Record<string, string>) {
     return this.ExecuteRequestWrapper<IActionResult>("/VersionedCatalog/ExportVersionedCatalog", request, "X-EntityToken", extraHeaders);
@@ -448,7 +448,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/catalog/catalog/getcatalogconfig Microsoft Documentation}
    * @example
-   * await catalogClient.GetCatalogConfig({});
+   * await economyClient.GetCatalogConfig({});
    */
   GetCatalogConfig (request: GetCatalogConfigRequest, extraHeaders?: Record<string, string>) {
     return this.ExecuteRequestWrapper<GetCatalogConfigResponse>("/Catalog/GetCatalogConfig", request, "X-EntityToken", extraHeaders);
@@ -462,7 +462,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/catalog/catalog/getdraftitem Microsoft Documentation}
    * @example
-   * await catalogClient.GetDraftItem({
+   * await economyClient.GetDraftItem({
    *   "Id": "dddddddd-dddd-dddd-dddd-dddddddddddd"
    * });
    */
@@ -477,7 +477,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/catalog/catalog/getdraftitems Microsoft Documentation}
    * @example
-   * await catalogClient.GetDraftItems({
+   * await economyClient.GetDraftItems({
    *   "Ids": [
    *     "dddddddd-dddd-dddd-dddd-dddddddddddd",
    *     "eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee"
@@ -495,7 +495,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/catalog/catalog/getentitydraftitems Microsoft Documentation}
    * @example
-   * await catalogClient.GetEntityDraftItems({
+   * await economyClient.GetEntityDraftItems({
    *   "Count": 2,
    *   "Entity": {
    *     "Id": "someId",
@@ -514,7 +514,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/catalog/catalog/getentityitemreview Microsoft Documentation}
    * @example
-   * await catalogClient.GetEntityItemReview({
+   * await economyClient.GetEntityItemReview({
    *   "Id": "dddddddd-dddd-dddd-dddd-dddddddddddd"
    * });
    */
@@ -529,7 +529,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/inventory/inventory/getinventorycollectionids Microsoft Documentation}
    * @example
-   * await inventoryClient.GetInventoryCollectionIds({
+   * await economyClient.GetInventoryCollectionIds({
    *   "Count": 5
    * });
    */
@@ -542,7 +542,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/inventory/inventory/getinventoryitems Microsoft Documentation}
    * @example
-   * await inventoryClient.GetInventoryItems({
+   * await economyClient.GetInventoryItems({
    *   "Count": 5
    * });
    */
@@ -556,7 +556,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/inventory/inventory/getinventoryoperationstatus Microsoft Documentation}
    * @example
-   * await inventoryClient.GetInventoryOperationStatus({
+   * await economyClient.GetInventoryOperationStatus({
    *   "OperationToken": "token"
    * });
    */
@@ -571,7 +571,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/catalog/catalog/getitem Microsoft Documentation}
    * @example
-   * await catalogClient.GetItem({
+   * await economyClient.GetItem({
    *   "Id": "dddddddd-dddd-dddd-dddd-dddddddddddd"
    * });
    */
@@ -587,7 +587,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/catalog/catalog/getitemcontainers Microsoft Documentation}
    * @example
-   * await catalogClient.GetItemContainers({
+   * await economyClient.GetItemContainers({
    *   "Count": 5,
    *   "Id": "dddddddd-dddd-dddd-dddd-dddddddddddd"
    * });
@@ -602,7 +602,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/catalog/catalog/getitemmoderationstate Microsoft Documentation}
    * @example
-   * await catalogClient.GetItemModerationState({
+   * await economyClient.GetItemModerationState({
    *   "Id": "dddddddd-dddd-dddd-dddd-dddddddddddd"
    * });
    */
@@ -615,7 +615,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/catalog/catalog/getitempublishstatus Microsoft Documentation}
    * @example
-   * await catalogClient.GetItemPublishStatus({
+   * await economyClient.GetItemPublishStatus({
    *   "Id": "dddddddd-dddd-dddd-dddd-dddddddddddd"
    * });
    */
@@ -629,7 +629,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/catalog/catalog/getitemreviews Microsoft Documentation}
    * @example
-   * await catalogClient.GetItemReviews({
+   * await economyClient.GetItemReviews({
    *   "Count": 2,
    *   "Id": "dddddddd-dddd-dddd-dddd-dddddddddddd"
    * });
@@ -644,7 +644,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/catalog/catalog/getitemreviewsummary Microsoft Documentation}
    * @example
-   * await catalogClient.GetItemReviewSummary({
+   * await economyClient.GetItemReviewSummary({
    *   "Id": "dddddddd-dddd-dddd-dddd-dddddddddddd"
    * });
    */
@@ -659,7 +659,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/catalog/catalog/getitems Microsoft Documentation}
    * @example
-   * await catalogClient.GetItems({
+   * await economyClient.GetItems({
    *   "Ids": [
    *     "dddddddd-dddd-dddd-dddd-dddddddddddd",
    *     "eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee"
@@ -677,7 +677,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/inventory/inventory/gettransactionhistory Microsoft Documentation}
    * @example
-   * await inventoryClient.GetTransactionHistory({
+   * await economyClient.GetTransactionHistory({
    *   "Count": 10,
    *   "CollectionId": "default"
    * });
@@ -700,7 +700,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/versionedcatalog/versionedcatalog/getversionedcataloguploadstatus Microsoft Documentation}
    * @example
-   * await versionedcatalogClient.GetVersionedCatalogUploadStatus({});
+   * await economyClient.GetVersionedCatalogUploadStatus({});
    */
   GetVersionedCatalogUploadStatus (request: GetVersionedCatalogUploadStatusRequest, extraHeaders?: Record<string, string>) {
     return this.ExecuteRequestWrapper<GetVersionedCatalogUploadStatusResponse>("/VersionedCatalog/GetVersionedCatalogUploadStatus", request, "X-EntityToken", extraHeaders);
@@ -711,7 +711,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/catalog/catalog/getview Microsoft Documentation}
    * @example
-   * await catalogClient.GetView({
+   * await economyClient.GetView({
    *   "Id": "dddddddd-dddd-dddd-dddd-dddddddddddd"
    * });
    */
@@ -724,7 +724,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/catalog/catalog/getviews Microsoft Documentation}
    * @example
-   * await catalogClient.GetViews({
+   * await economyClient.GetViews({
    *   "Count": 5,
    *   "Entity": {
    *     "Id": "someId",
@@ -742,7 +742,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/versionedcatalog/versionedcatalog/listversionedcatalogs Microsoft Documentation}
    * @example
-   * await versionedcatalogClient.ListVersionedCatalogs({});
+   * await economyClient.ListVersionedCatalogs({});
    */
   ListVersionedCatalogs (request: ListVersionedCatalogsRequest, extraHeaders?: Record<string, string>) {
     return this.ExecuteRequestWrapper<ListVersionedCatalogsResponse>("/VersionedCatalog/ListVersionedCatalogs", request, "X-EntityToken", extraHeaders);
@@ -754,7 +754,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/catalog/catalog/publishdraftitem Microsoft Documentation}
    * @example
-   * await catalogClient.PublishDraftItem({
+   * await economyClient.PublishDraftItem({
    *   "Id": "dddddddd-dddd-dddd-dddd-dddddddddddd"
    * });
    */
@@ -768,7 +768,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/inventory/inventory/purchaseinventoryitems Microsoft Documentation}
    * @example
-   * await inventoryClient.PurchaseInventoryItems({
+   * await economyClient.PurchaseInventoryItems({
    *   "Item": {
    *     "Id": "11111111-1111-1111-1111-111111111111"
    *   },
@@ -791,7 +791,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/inventory/inventory/redeemappleappstoreinventoryitems Microsoft Documentation}
    * @example
-   * await inventoryClient.RedeemAppleAppStoreInventoryItems({
+   * await economyClient.RedeemAppleAppStoreInventoryItems({
    *   "Receipt": "receipt"
    * });
    */
@@ -804,7 +804,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/inventory/inventory/redeemappleappstorewithjwsinventoryitems Microsoft Documentation}
    * @example
-   * await inventoryClient.RedeemAppleAppStoreWithJwsInventoryItems({
+   * await economyClient.RedeemAppleAppStoreWithJwsInventoryItems({
    *   "JWSTransactions": [
    *     "JWS1",
    *     "JWS2"
@@ -820,7 +820,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/inventory/inventory/redeemgoogleplayinventoryitems Microsoft Documentation}
    * @example
-   * await inventoryClient.RedeemGooglePlayInventoryItems({
+   * await economyClient.RedeemGooglePlayInventoryItems({
    *   "Purchases": [
    *     {
    *       "ProductId": "productId",
@@ -838,7 +838,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/inventory/inventory/redeemmicrosoftstoreinventoryitems Microsoft Documentation}
    * @example
-   * await inventoryClient.RedeemMicrosoftStoreInventoryItems({});
+   * await economyClient.RedeemMicrosoftStoreInventoryItems({});
    */
   RedeemMicrosoftStoreInventoryItems (request: RedeemMicrosoftStoreInventoryItemsRequest, extraHeaders?: Record<string, string>) {
     return this.ExecuteRequestWrapper<RedeemMicrosoftStoreInventoryItemsResponse>("/Inventory/RedeemMicrosoftStoreInventoryItems", request, "X-EntityToken", extraHeaders);
@@ -849,7 +849,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/inventory/inventory/redeemnintendoeshopinventoryitems Microsoft Documentation}
    * @example
-   * await inventoryClient.RedeemNintendoEShopInventoryItems({
+   * await economyClient.RedeemNintendoEShopInventoryItems({
    *   "NintendoServiceAccountIdToken": "nsaIdToken"
    * });
    */
@@ -862,7 +862,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/inventory/inventory/redeemplaystationstoreinventoryitems Microsoft Documentation}
    * @example
-   * await inventoryClient.RedeemPlayStationStoreInventoryItems({
+   * await economyClient.RedeemPlayStationStoreInventoryItems({
    *   "AuthorizationCode": "authorizationCode",
    *   "RedirectUri": "orbis://games",
    *   "ServiceLabel": "0"
@@ -877,7 +877,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/inventory/inventory/redeemsteaminventoryitems Microsoft Documentation}
    * @example
-   * await inventoryClient.RedeemSteamInventoryItems({});
+   * await economyClient.RedeemSteamInventoryItems({});
    */
   RedeemSteamInventoryItems (request: RedeemSteamInventoryItemsRequest, extraHeaders?: Record<string, string>) {
     return this.ExecuteRequestWrapper<RedeemSteamInventoryItemsResponse>("/Inventory/RedeemSteamInventoryItems", request, "X-EntityToken", extraHeaders);
@@ -888,7 +888,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/catalog/catalog/reportitem Microsoft Documentation}
    * @example
-   * await catalogClient.ReportItem({
+   * await economyClient.ReportItem({
    *   "ConcernCategory": "Profanity",
    *   "Reason": "There was swearing in the description.",
    *   "Id": "dddddddd-dddd-dddd-dddd-dddddddddddd"
@@ -903,7 +903,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/catalog/catalog/reportitemreview Microsoft Documentation}
    * @example
-   * await catalogClient.ReportItemReview({
+   * await economyClient.ReportItemReview({
    *   "ReviewId": "dddddddd-dddd-dddd-dddd-dddddddddddd",
    *   "ItemId": "eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee",
    *   "ConcernCategory": "OffensiveContent",
@@ -921,7 +921,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/catalog/catalog/reviewitem Microsoft Documentation}
    * @example
-   * await catalogClient.ReviewItem({
+   * await economyClient.ReviewItem({
    *   "Review": {
    *     "ItemVersion": "2.4.1",
    *     "Title": "Best Game Ever",
@@ -947,7 +947,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/catalog/catalog/searchitems Microsoft Documentation}
    * @example
-   * await catalogClient.SearchItems({
+   * await economyClient.SearchItems({
    *   "Search": "Pirates",
    *   "Filter": "tags/any(t:t eq 'desert') and contentType eq 'map'",
    *   "OrderBy": "lastModifiedDate asc",
@@ -965,7 +965,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/catalog/catalog/setitemmoderationstate Microsoft Documentation}
    * @example
-   * await catalogClient.SetItemModerationState({
+   * await economyClient.SetItemModerationState({
    *   "Status": "AwaitingModeration",
    *   "Reason": "User reports over threshold",
    *   "Id": "dddddddd-dddd-dddd-dddd-dddddddddddd"
@@ -980,7 +980,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/catalog/catalog/submititemreviewvote Microsoft Documentation}
    * @example
-   * await catalogClient.SubmitItemReviewVote({
+   * await economyClient.SubmitItemReviewVote({
    *   "ReviewId": "dddddddd-dddd-dddd-dddd-dddddddddddd",
    *   "ItemId": "eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee",
    *   "Vote": "Helpful"
@@ -995,7 +995,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/inventory/inventory/subtractinventoryitems Microsoft Documentation}
    * @example
-   * await inventoryClient.SubtractInventoryItems({
+   * await economyClient.SubtractInventoryItems({
    *   "Item": {
    *     "Id": "11111111-1111-1111-1111-111111111111"
    *   },
@@ -1013,7 +1013,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/catalog/catalog/takedownitemreviews Microsoft Documentation}
    * @example
-   * await catalogClient.TakedownItemReviews({
+   * await economyClient.TakedownItemReviews({
    *   "Reviews": [
    *     {
    *       "ItemId": "00000000-0000-0000-0000-000000000003",
@@ -1036,7 +1036,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/inventory/inventory/transferinventoryitems Microsoft Documentation}
    * @example
-   * await inventoryClient.TransferInventoryItems({
+   * await economyClient.TransferInventoryItems({
    *   "GivingItem": {
    *     "Id": "11111111-1111-1111-1111-111111111111"
    *   },
@@ -1060,7 +1060,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/catalog/catalog/updatecatalogconfig Microsoft Documentation}
    * @example
-   * await catalogClient.UpdateCatalogConfig({
+   * await economyClient.UpdateCatalogConfig({
    *   "Config": {
    *     "IsCatalogEnabled": true,
    *     "AdminEntities": [
@@ -1106,7 +1106,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/catalog/catalog/updatedraftitem Microsoft Documentation}
    * @example
-   * await catalogClient.UpdateDraftItem({
+   * await economyClient.UpdateDraftItem({
    *   "Item": {
    *     "Id": "qqqqqqqq-qqqq-qqqq-qqqq-qqqqqqqqqqqq",
    *     "Type": "ugc",
@@ -1176,7 +1176,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/inventory/inventory/updateinventoryitems Microsoft Documentation}
    * @example
-   * await inventoryClient.UpdateInventoryItems({
+   * await economyClient.UpdateInventoryItems({
    *   "Item": {
    *     "Id": "11111111-1111-1111-1111-111111111111",
    *     "Amount": 3
@@ -1193,7 +1193,7 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/catalog/catalog/updateview Microsoft Documentation}
    * @example
-   * await catalogClient.UpdateView({
+   * await economyClient.UpdateView({
    *   "View": {
    *     "Id": "dddddddd-dddd-dddd-dddd-dddddddddddd",
    *     "FriendlyId": "exampleView",

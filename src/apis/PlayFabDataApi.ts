@@ -23,7 +23,7 @@ export default class PlayFabDataApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/file/file/abortfileuploads Microsoft Documentation}
    * @example
-   * await fileClient.AbortFileUploads({
+   * await dataClient.AbortFileUploads({
    *   "FileNames": [
    *     "avatar",
    *     "game_state"
@@ -44,7 +44,7 @@ export default class PlayFabDataApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/file/file/deletefiles Microsoft Documentation}
    * @example
-   * await fileClient.DeleteFiles({
+   * await dataClient.DeleteFiles({
    *   "FileNames": [
    *     "game_state",
    *     "avatar"
@@ -65,7 +65,7 @@ export default class PlayFabDataApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/file/file/finalizefileuploads Microsoft Documentation}
    * @example
-   * await fileClient.FinalizeFileUploads({
+   * await dataClient.FinalizeFileUploads({
    *   "ProfileVersion": 0,
    *   "FileNames": [
    *     "avatar",
@@ -87,7 +87,7 @@ export default class PlayFabDataApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/file/file/getfiles Microsoft Documentation}
    * @example
-   * await fileClient.GetFiles({
+   * await dataClient.GetFiles({
    *   "Entity": {
    *     "Id": "ID",
    *     "Type": "title_player_account",
@@ -104,7 +104,7 @@ export default class PlayFabDataApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/object/object/getobjects Microsoft Documentation}
    * @example
-   * await objectClient.GetObjects({
+   * await dataClient.GetObjects({
    *   "Entity": {
    *     "Id": "ABC90712ABC",
    *     "Type": "title_player_account",
@@ -121,7 +121,7 @@ export default class PlayFabDataApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/file/file/initiatefileuploads Microsoft Documentation}
    * @example
-   * await fileClient.InitiateFileUploads({
+   * await dataClient.InitiateFileUploads({
    *   "FileNames": [
    *     "avatar",
    *     "game_state"
@@ -142,7 +142,7 @@ export default class PlayFabDataApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/object/object/setobjects Microsoft Documentation}
    * @example
-   * await objectClient.SetObjects({
+   * await dataClient.SetObjects({
    *   "ExpectedProfileVersion": 5,
    *   "Objects": [
    *     {

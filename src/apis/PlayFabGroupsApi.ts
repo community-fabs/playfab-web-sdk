@@ -49,7 +49,7 @@ export default class PlayFabGroupsApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/group/groups/acceptgroupapplication Microsoft Documentation}
    * @example
-   * await groupClient.AcceptGroupApplication({
+   * await groupsClient.AcceptGroupApplication({
    *   "Group": {
    *     "Id": "ABC1234ABC"
    *   },
@@ -69,7 +69,7 @@ export default class PlayFabGroupsApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/group/groups/acceptgroupinvitation Microsoft Documentation}
    * @example
-   * await groupClient.AcceptGroupInvitation({
+   * await groupsClient.AcceptGroupInvitation({
    *   "Group": {
    *     "Id": "ABC1234ABC"
    *   }
@@ -84,7 +84,7 @@ export default class PlayFabGroupsApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/group/groups/addmembers Microsoft Documentation}
    * @example
-   * await groupClient.AddMembers({
+   * await groupsClient.AddMembers({
    *   "Group": {
    *     "Id": "ABC1234ABC"
    *   },
@@ -106,7 +106,7 @@ export default class PlayFabGroupsApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/group/groups/applytogroup Microsoft Documentation}
    * @example
-   * await groupClient.ApplyToGroup({
+   * await groupsClient.ApplyToGroup({
    *   "Group": {
    *     "Id": "ABC1234ABC"
    *   }
@@ -121,7 +121,7 @@ export default class PlayFabGroupsApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/group/groups/blockentity Microsoft Documentation}
    * @example
-   * await groupClient.BlockEntity({
+   * await groupsClient.BlockEntity({
    *   "Group": {
    *     "Id": "ABC1234ABC"
    *   },
@@ -141,7 +141,7 @@ export default class PlayFabGroupsApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/group/groups/changememberrole Microsoft Documentation}
    * @example
-   * await groupClient.ChangeMemberRole({
+   * await groupsClient.ChangeMemberRole({
    *   "Group": {
    *     "Id": "ABC1234ABC"
    *   },
@@ -165,7 +165,7 @@ export default class PlayFabGroupsApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/group/groups/creategroup Microsoft Documentation}
    * @example
-   * await groupClient.CreateGroup({
+   * await groupsClient.CreateGroup({
    *   "GroupName": "Example Group"
    * });
    */
@@ -178,7 +178,7 @@ export default class PlayFabGroupsApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/group/groups/createrole Microsoft Documentation}
    * @example
-   * await groupClient.CreateRole({
+   * await groupsClient.CreateRole({
    *   "RoleId": "example",
    *   "RoleName": "Example Role",
    *   "Group": {
@@ -195,7 +195,7 @@ export default class PlayFabGroupsApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/group/groups/deletegroup Microsoft Documentation}
    * @example
-   * await groupClient.DeleteGroup({
+   * await groupsClient.DeleteGroup({
    *   "Group": {
    *     "Id": "ABC1234ABC"
    *   }
@@ -210,7 +210,7 @@ export default class PlayFabGroupsApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/group/groups/deleterole Microsoft Documentation}
    * @example
-   * await groupClient.DeleteRole({
+   * await groupsClient.DeleteRole({
    *   "Group": {
    *     "Id": "ABC1234ABC"
    *   },
@@ -226,7 +226,7 @@ export default class PlayFabGroupsApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/group/groups/getgroup Microsoft Documentation}
    * @example
-   * await groupClient.GetGroup({
+   * await groupsClient.GetGroup({
    *   "Group": {
    *     "Id": "ABC1234ABC"
    *   }
@@ -241,7 +241,7 @@ export default class PlayFabGroupsApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/group/groups/invitetogroup Microsoft Documentation}
    * @example
-   * await groupClient.InviteToGroup({
+   * await groupsClient.InviteToGroup({
    *   "Group": {
    *     "Id": "ABC1234ABC"
    *   },
@@ -262,7 +262,7 @@ export default class PlayFabGroupsApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/group/groups/ismember Microsoft Documentation}
    * @example
-   * await groupClient.IsMember({
+   * await groupsClient.IsMember({
    *   "Group": {
    *     "Id": "ABC1234ABC"
    *   },
@@ -283,7 +283,7 @@ export default class PlayFabGroupsApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/group/groups/listgroupapplications Microsoft Documentation}
    * @example
-   * await groupClient.ListGroupApplications({
+   * await groupsClient.ListGroupApplications({
    *   "Group": {
    *     "Id": "ABC1234ABC"
    *   }
@@ -298,7 +298,7 @@ export default class PlayFabGroupsApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/group/groups/listgroupblocks Microsoft Documentation}
    * @example
-   * await groupClient.ListGroupBlocks({
+   * await groupsClient.ListGroupBlocks({
    *   "Group": {
    *     "Id": "ABC1234ABC"
    *   }
@@ -313,7 +313,7 @@ export default class PlayFabGroupsApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/group/groups/listgroupinvitations Microsoft Documentation}
    * @example
-   * await groupClient.ListGroupInvitations({
+   * await groupsClient.ListGroupInvitations({
    *   "Group": {
    *     "Id": "ABC1234ABC"
    *   }
@@ -328,7 +328,7 @@ export default class PlayFabGroupsApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/group/groups/listgroupmembers Microsoft Documentation}
    * @example
-   * await groupClient.ListGroupMembers({
+   * await groupsClient.ListGroupMembers({
    *   "Group": {
    *     "Id": "ABC1234ABC"
    *   }
@@ -343,7 +343,7 @@ export default class PlayFabGroupsApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/group/groups/listmembership Microsoft Documentation}
    * @example
-   * await groupClient.ListMembership({});
+   * await groupsClient.ListMembership({});
    */
   ListMembership (request: ListMembershipRequest, extraHeaders?: Record<string, string>) {
     return this.ExecuteRequestWrapper<ListMembershipResponse>("/Group/ListMembership", request, "X-EntityToken", extraHeaders);
@@ -354,7 +354,7 @@ export default class PlayFabGroupsApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/group/groups/listmembershipopportunities Microsoft Documentation}
    * @example
-   * await groupClient.ListMembershipOpportunities({});
+   * await groupsClient.ListMembershipOpportunities({});
    */
   ListMembershipOpportunities (request: ListMembershipOpportunitiesRequest, extraHeaders?: Record<string, string>) {
     return this.ExecuteRequestWrapper<ListMembershipOpportunitiesResponse>("/Group/ListMembershipOpportunities", request, "X-EntityToken", extraHeaders);
@@ -365,7 +365,7 @@ export default class PlayFabGroupsApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/group/groups/removegroupapplication Microsoft Documentation}
    * @example
-   * await groupClient.RemoveGroupApplication({
+   * await groupsClient.RemoveGroupApplication({
    *   "Group": {
    *     "Id": "ABC1234ABC"
    *   },
@@ -385,7 +385,7 @@ export default class PlayFabGroupsApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/group/groups/removegroupinvitation Microsoft Documentation}
    * @example
-   * await groupClient.RemoveGroupInvitation({
+   * await groupsClient.RemoveGroupInvitation({
    *   "Group": {
    *     "Id": "ABC1234ABC"
    *   },
@@ -405,7 +405,7 @@ export default class PlayFabGroupsApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/group/groups/removemembers Microsoft Documentation}
    * @example
-   * await groupClient.RemoveMembers({
+   * await groupsClient.RemoveMembers({
    *   "Group": {
    *     "Id": "ABC1234ABC"
    *   },
@@ -428,7 +428,7 @@ export default class PlayFabGroupsApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/group/groups/unblockentity Microsoft Documentation}
    * @example
-   * await groupClient.UnblockEntity({
+   * await groupsClient.UnblockEntity({
    *   "Group": {
    *     "Id": "ABC1234ABC"
    *   },
@@ -448,7 +448,7 @@ export default class PlayFabGroupsApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/group/groups/updategroup Microsoft Documentation}
    * @example
-   * await groupClient.UpdateGroup({
+   * await groupsClient.UpdateGroup({
    *   "Group": {
    *     "Id": "ABC1234ABC"
    *   },
@@ -465,7 +465,7 @@ export default class PlayFabGroupsApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/group/groups/updaterole Microsoft Documentation}
    * @example
-   * await groupClient.UpdateRole({
+   * await groupsClient.UpdateRole({
    *   "Group": {
    *     "Id": "ABC1234ABC"
    *   },

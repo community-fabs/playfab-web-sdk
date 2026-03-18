@@ -39,7 +39,7 @@ export default class PlayFabEventsApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/event/playstream-events/createtelemetrykey Microsoft Documentation}
    * @example
-   * await eventClient.CreateTelemetryKey({
+   * await eventsClient.CreateTelemetryKey({
    *   "KeyName": "MyTelemetryKey"
    * });
    */
@@ -52,7 +52,7 @@ export default class PlayFabEventsApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/event/playstream-events/deletedataconnection Microsoft Documentation}
    * @example
-   * await eventClient.DeleteDataConnection({
+   * await eventsClient.DeleteDataConnection({
    *   "Name": "MyDataConnection"
    * });
    */
@@ -74,7 +74,7 @@ export default class PlayFabEventsApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/event/playstream-events/deletetelemetrykey Microsoft Documentation}
    * @example
-   * await eventClient.DeleteTelemetryKey({
+   * await eventsClient.DeleteTelemetryKey({
    *   "KeyName": "MyTelemetryKey"
    * });
    */
@@ -87,7 +87,7 @@ export default class PlayFabEventsApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/event/playstream-events/getdataconnection Microsoft Documentation}
    * @example
-   * await eventClient.GetDataConnection({
+   * await eventsClient.GetDataConnection({
    *   "Name": "MyDataConnection"
    * });
    */
@@ -100,7 +100,7 @@ export default class PlayFabEventsApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/event/playstream/geteventsamplingratio Microsoft Documentation}
    * @example
-   * await eventClient.GetEventSamplingRatio({
+   * await eventsClient.GetEventSamplingRatio({
    *   "EventNamespace": "com.playfab",
    *   "EventName": "player_executed_cloudscript"
    * });
@@ -123,7 +123,7 @@ export default class PlayFabEventsApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/event/playstream-events/gettelemetrykey Microsoft Documentation}
    * @example
-   * await eventClient.GetTelemetryKey({
+   * await eventsClient.GetTelemetryKey({
    *   "KeyName": "MyTelemetryKey"
    * });
    */
@@ -136,7 +136,7 @@ export default class PlayFabEventsApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/event/playstream-events/listdataconnections Microsoft Documentation}
    * @example
-   * await eventClient.ListDataConnections({});
+   * await eventsClient.ListDataConnections({});
    */
   ListDataConnections (request: ListDataConnectionsRequest, extraHeaders?: Record<string, string>) {
     return this.ExecuteRequestWrapper<ListDataConnectionsResponse>("/Event/ListDataConnections", request, "X-EntityToken", extraHeaders);
@@ -147,7 +147,7 @@ export default class PlayFabEventsApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/event/playstream-events/listtelemetrykeys Microsoft Documentation}
    * @example
-   * await eventClient.ListTelemetryKeys({});
+   * await eventsClient.ListTelemetryKeys({});
    */
   ListTelemetryKeys (request: ListTelemetryKeysRequest, extraHeaders?: Record<string, string>) {
     return this.ExecuteRequestWrapper<ListTelemetryKeysResponse>("/Event/ListTelemetryKeys", request, "X-EntityToken", extraHeaders);
@@ -158,7 +158,7 @@ export default class PlayFabEventsApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/event/playstream-events/setdataconnection Microsoft Documentation}
    * @example
-   * await eventClient.SetDataConnection({
+   * await eventsClient.SetDataConnection({
    *   "Name": "MyDataConnection",
    *   "Type": "AzureDataExplorer",
    *   "IsActive": true,
@@ -180,7 +180,7 @@ export default class PlayFabEventsApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/event/playstream-events/setdataconnectionactive Microsoft Documentation}
    * @example
-   * await eventClient.SetDataConnectionActive({
+   * await eventsClient.SetDataConnectionActive({
    *   "Name": "MyDataConnection",
    *   "Active": false
    * });
@@ -203,7 +203,7 @@ export default class PlayFabEventsApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/event/playstream-events/settelemetrykeyactive Microsoft Documentation}
    * @example
-   * await eventClient.SetTelemetryKeyActive({
+   * await eventsClient.SetTelemetryKeyActive({
    *   "KeyName": "MyTelemetryKey",
    *   "Active": false
    * });
@@ -217,7 +217,7 @@ export default class PlayFabEventsApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/event/playstream-events/writeevents Microsoft Documentation}
    * @example
-   * await eventClient.WriteEvents({
+   * await eventsClient.WriteEvents({
    *   "Events": [
    *     {
    *       "Entity": {
@@ -249,7 +249,7 @@ export default class PlayFabEventsApi extends PlayFabCommon {
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/event/playstream-events/writetelemetryevents Microsoft Documentation}
    * @example
-   * await eventClient.WriteTelemetryEvents({
+   * await eventsClient.WriteTelemetryEvents({
    *   "Events": [
    *     {
    *       "Entity": {

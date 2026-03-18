@@ -1,6 +1,6 @@
-import { wordWrap } from './utils.js';
+import { wordWrap, lowerFirst } from './utils.js';
 
-function generateApiSummaryLines(apiElement, summaryParam, linkToDocs) {
+function generateApiSummaryLines(apiElement, summaryParam, linkToDocs, docName = "") {
   let fullSummary;
   if (!apiElement[summaryParam]) {
     fullSummary = [""];
@@ -17,7 +17,6 @@ function generateApiSummaryLines(apiElement, summaryParam, linkToDocs) {
   } else {
     lines = [];
   }
-
 
   // Add extra documentation lines linking to PlayFab documentation
   const apiName = apiElement.url?.split("/")[1];
@@ -39,8 +38,8 @@ function generateApiSummaryLines(apiElement, summaryParam, linkToDocs) {
 
   if (!apiElement.deprecation && apiElement.requestExample && apiName) {
     const exampleLines = apiElement.requestExample.replaceAll('*/', '*\\/').split('\n');
-    const examplePrefix = `await ${apiName.toLowerCase()}Client.${apiElement.name}(`;
-    const exampleSuffix = `);`;
+    const examplePrefix = `await ${lowerFirst(docName)}Client.${apiElement.name}(`;
+    const exampleSuffix = ');';
 
     lines.push('@example');
     if (exampleLines.length > 1) {
@@ -61,8 +60,8 @@ function generateApiSummaryLines(apiElement, summaryParam, linkToDocs) {
   return lines;
 }
 
-export function generateApiSummary(tabbing, apiElement, summaryParam, addDocsLink = false) {
-  const lines = generateApiSummaryLines(apiElement, summaryParam, addDocsLink);
+export function generateApiSummary(tabbing, apiElement, summaryParam, addDocsLink = false, docName = "") {
+  const lines = generateApiSummaryLines(apiElement, summaryParam, addDocsLink, docName);
 
   for (var i = 0; i < lines.length; i++)
     if (lines[0]?.includes("*/"))

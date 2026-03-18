@@ -20,7 +20,7 @@ export default class PlayFab<%= it.doc.name %>Api extends PlayFabCommon {
 
 <% } %>
 <% for (const apiCall of it.doc.calls) { %>
-<%~ it.generateApiSummary("  ", apiCall, "summary", true) %>
+<%~ it.generateApiSummary("  ", apiCall, "summary", true, it.doc.name) %>
   <%= apiCall.name %> (request: <%~ apiCall.request %>, extraHeaders?: Record<string, string>) {
 <%~ it.getRequestActions("    ", apiCall) %>
 <% const resultActions = it.getResultActions("        ", apiCall); %>

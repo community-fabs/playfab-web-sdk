@@ -27,3 +27,13 @@ export function wordWrap(string, width = 120, brk = "\n", cut = false) {
   }
   return this;
 };
+
+/**
+ * Lowercases the first letter of a string
+ * @param {string} str 
+ * @returns string
+ */
+export function lowerFirst(str) {
+  if (!str) return "";
+  return str.charAt(0).toLowerCase() + str.slice(1);
+}

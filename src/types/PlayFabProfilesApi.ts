@@ -88,6 +88,8 @@ export interface EntityProfileBody {
   Permissions?: EntityPermissionStatement[];
   /** The statistics on this profile. */
   Statistics?: Record<string, EntityStatisticValue>;
+  /** A mapping of statistic name to the columns defined in the corresponding definition. */
+  StatisticsColumnDetails?: Record<string, StatisticColumnCollection>;
   /**
    * The version number of the profile in persistent storage at the time of the read. Used for optional optimistic
    * concurrency during update.
@@ -127,6 +129,8 @@ export interface GetEntityProfileRequest extends IPlayFabRequestCommon {
   DataAsObject?: boolean;
   /** The optional entity to perform this action on. Defaults to the currently logged in entity. */
   Entity?: EntityKey;
+  /** Determines whether the entity statistics will be returned in the entity profile. Default is false. */
+  IncludeStatistics: boolean;
 }
 
 export interface GetEntityProfileResponse extends IPlayFabResultCommon {
@@ -144,6 +148,8 @@ export interface GetEntityProfilesRequest extends IPlayFabRequestCommon {
   DataAsObject?: boolean;
   /** Entity keys of the profiles to load. Must be between 1 and 25 */
   Entities: EntityKey[];
+  /** Determines whether the entity statistics will be returned in the entity profile. Default is false. */
+  IncludeStatistics: boolean;
 }
 
 export interface GetEntityProfilesResponse extends IPlayFabResultCommon {
@@ -286,5 +292,22 @@ export interface SetProfileLanguageResponse extends IPlayFabResultCommon {
   OperationResult?: OperationTypes;
   /** The updated version of the profile after the language update */
   VersionNumber?: number;
+}
+
+type StatisticAggregationMethod = "Last"
+  | "Min"
+  | "Max"
+  | "Sum";
+
+export interface StatisticColumn {
+  /** Aggregation method for calculating new value of a statistic. */
+  AggregationMethod: StatisticAggregationMethod;
+  /** Name of the statistic column, as originally configured. */
+  Name: string;
+}
+
+export interface StatisticColumnCollection {
+  /** Columns for the statistic defining the aggregation method for each column. */
+  Columns?: StatisticColumn[];
 }
 

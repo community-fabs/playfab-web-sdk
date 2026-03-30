@@ -41,6 +41,7 @@ export default class PlayFabProfilesApi extends PlayFabCommon {
    * {@link https://docs.microsoft.com/rest/api/playfab/profile/account-management/getprofile Microsoft Documentation}
    * @example
    * await profilesClient.GetProfile({
+   *   "IncludeStatistics": false,
    *   "Entity": {
    *     "Id": "1234567787392",
    *     "Type": "title_player_account",
@@ -58,6 +59,7 @@ export default class PlayFabProfilesApi extends PlayFabCommon {
    * {@link https://docs.microsoft.com/rest/api/playfab/profile/account-management/getprofiles Microsoft Documentation}
    * @example
    * await profilesClient.GetProfiles({
+   *   "IncludeStatistics": false,
    *   "Entities": [
    *     {
    *       "Id": "1234567787392",

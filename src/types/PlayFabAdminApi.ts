@@ -2334,6 +2334,8 @@ type GenericErrorCodes = "Success"
   | "AsyncExportRateLimitExceeded"
   | "AnalyticsSegmentCountOverLimit"
   | "GetPlayersInSegmentRetired"
+  | "GetSegmentPlayerCountNotInFlight"
+  | "GetSegmentPlayerCountRateLimitExceeded"
   | "SnapshotNotFound"
   | "InventoryApiNotImplemented"
   | "InventoryCollectionDeletionDisallowed"
@@ -2514,6 +2516,7 @@ type GenericErrorCodes = "Success"
   | "GameSaveManifestNotEligibleForRollback"
   | "GameSaveTitleClientAnonymousAccountCreationNotDisabled"
   | "GameSaveTitleConfigNoUpdatesRequested"
+  | "GameSavePlayerNotEligibleForTransfer"
   | "StateShareForbidden"
   | "StateShareTitleNotInFlight"
   | "StateShareStateNotFound"
@@ -3870,6 +3873,22 @@ export interface PlayerStatisticVersion {
   Status?: StatisticVersionStatus;
   /** version of the statistic */
   Version: number;
+}
+
+export interface PolicyDiffSummary {
+  /** Number of new statements that would be added. */
+  StatementsAdded: number;
+  /** Number of existing statements that would be removed. Only applicable when OverwritePolicy is true. */
+  StatementsRemoved: number;
+  /**
+   * Number of existing statements that would be replaced by functionally equivalent incoming statements (e.g., same
+   * resource/effect/principal but different comment).
+   */
+  StatementsReplaced: number;
+  /** Number of existing statements that would remain unchanged. */
+  StatementsUnchanged: number;
+  /** Total number of statements in the resulting policy. */
+  TotalResultingStatements: number;
 }
 
 export interface PushNotificationContent {
@@ -5660,6 +5679,37 @@ export interface UserXboxInfo {
   XboxUserId?: string;
   /** XBox user sandbox */
   XboxUserSandbox?: string;
+}
+
+export interface ValidateApiPolicyRequest extends IPlayFabRequestCommon {
+  /** Whether the validation should simulate overwriting or appending to the existing policy. */
+  OverwritePolicy: boolean;
+  /**
+   * The name of the policy to validate. Only &#39;ApiPolicy&#39; is supported. This parameter is optional and defaults to
+   * &#39;ApiPolicy&#39; if omitted.
+   */
+  PolicyName?: string;
+  /** Version of the policy to validate against. Must be the latest (as returned by GetPolicy). */
+  PolicyVersion: number;
+  /** The statements to validate. */
+  Statements: PermissionStatement[];
+}
+
+export interface ValidateApiPolicyResponse extends IPlayFabResultCommon {
+  /** Summary of what would change compared to the current policy. */
+  Diff?: PolicyDiffSummary;
+  /** Whether the proposed policy is valid and would be accepted by UpdatePolicy. */
+  IsValid: boolean;
+  /** The name of the policy validated. */
+  PolicyName?: string;
+  /** Policy version. */
+  PolicyVersion: number;
+  /** The full set of statements that would result from applying this update. */
+  ResultingStatements?: PermissionStatement[];
+  /** Validation errors that would cause UpdatePolicy to reject this request. Empty if IsValid is true. */
+  ValidationErrors?: string[];
+  /** Non-blocking warnings about the proposed policy (e.g., near statement limit, duplicate statements). */
+  Warnings?: string[];
 }
 
 export interface ValueToDateModel {

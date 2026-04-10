@@ -21,6 +21,7 @@ import type {
   DeregisterGameRequest,
   EvaluateRandomResultTableRequest,
   ExecuteCloudScriptServerRequest,
+  ExportPlayersInSegmentRequest,
   GetAllActionGroupsRequest,
   GetAllSegmentsRequest,
   ListUsersCharactersRequest,
@@ -59,6 +60,7 @@ import type {
   GetPlayFabIDsFromXboxLiveIDsRequest,
   GetPublisherDataRequest,
   GetRandomResultTablesRequest,
+  GetPlayersInSegmentExportRequest,
   GetServerCustomIDsFromPlayFabIDsRequest,
   GetSharedGroupDataRequest,
   GetStoreItemsServerRequest,
@@ -174,6 +176,7 @@ import type {
   DeregisterGameResponse,
   EvaluateRandomResultTableResult,
   ExecuteCloudScriptResult,
+  ExportPlayersInSegmentResult,
   GetAllActionGroupsResult,
   GetAllSegmentsResult,
   ListUsersCharactersResult,
@@ -211,6 +214,7 @@ import type {
   GetPlayFabIDsFromXboxLiveIDsResult,
   GetPublisherDataResult,
   GetRandomResultTablesResult,
+  GetPlayersInSegmentExportResponse,
   GetServerCustomIDsFromPlayFabIDsResult,
   GetSharedGroupDataResult,
   GetStoreItemsResult,
@@ -620,6 +624,21 @@ export default class PlayFabServerApi extends PlayFabCommon {
    */
   ExecuteCloudScript (request: ExecuteCloudScriptServerRequest, extraHeaders?: Record<string, string>) {
     return this.ExecuteRequestWrapper<ExecuteCloudScriptResult>("/Server/ExecuteCloudScript", request, "X-SecretKey", extraHeaders);
+  }
+
+  /**
+   * Starts an export for the player profiles in a segment. This API creates a snapshot of all the player profiles which
+   * match the segment definition at the time of the API call. Profiles which change while an export is in progress will not
+   * be reflected in the results.
+   * 
+   * {@link https://docs.microsoft.com/rest/api/playfab/server/playstream/exportplayersinsegment Microsoft Documentation}
+   * @example
+   * await serverClient.ExportPlayersInSegment({
+   *   "SegmentId": "ABCDEF1234567890"
+   * });
+   */
+  ExportPlayersInSegment (request: ExportPlayersInSegmentRequest, extraHeaders?: Record<string, string>) {
+    return this.ExecuteRequestWrapper<ExportPlayersInSegmentResult>("/Server/ExportPlayersInSegment", request, "X-SecretKey", extraHeaders);
   }
 
   /**
@@ -1277,6 +1296,22 @@ export default class PlayFabServerApi extends PlayFabCommon {
    */
   GetRandomResultTables (request: GetRandomResultTablesRequest, extraHeaders?: Record<string, string>) {
     return this.ExecuteRequestWrapper<GetRandomResultTablesResult>("/Server/GetRandomResultTables", request, "X-SecretKey", extraHeaders);
+  }
+
+  /**
+   * Retrieves the result of an export started by ExportPlayersInSegment API. If the ExportPlayersInSegment is successful and
+   * complete, this API returns the IndexUrl from which the index file can be downloaded. The index file has a list of urls
+   * from which the files containing the player profile data can be downloaded. Otherwise, it returns the current 'State' of
+   * the export
+   * 
+   * {@link https://docs.microsoft.com/rest/api/playfab/server/playstream/getsegmentexport Microsoft Documentation}
+   * @example
+   * await serverClient.GetSegmentExport({
+   *   "ExportId": "ABCDEF1234567890"
+   * });
+   */
+  GetSegmentExport (request: GetPlayersInSegmentExportRequest, extraHeaders?: Record<string, string>) {
+    return this.ExecuteRequestWrapper<GetPlayersInSegmentExportResponse>("/Server/GetSegmentExport", request, "X-SecretKey", extraHeaders);
   }
 
   /**

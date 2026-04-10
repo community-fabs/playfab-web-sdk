@@ -1037,6 +1037,18 @@ export interface ExecuteCloudScriptServerRequest extends IPlayFabRequestCommon {
   SpecificRevision?: number;
 }
 
+export interface ExportPlayersInSegmentRequest extends IPlayFabRequestCommon {
+  /** Unique identifier of the requested segment. */
+  SegmentId: string;
+}
+
+export interface ExportPlayersInSegmentResult extends IPlayFabResultCommon {
+  /** Unique identifier of the export for the requested Segment. */
+  ExportId?: string;
+  /** Unique identifier of the requested Segment. */
+  SegmentId?: string;
+}
+
 type ExternalFriendSources = "None"
   | "Steam"
   | "Facebook"
@@ -1834,6 +1846,8 @@ type GenericErrorCodes = "Success"
   | "AsyncExportRateLimitExceeded"
   | "AnalyticsSegmentCountOverLimit"
   | "GetPlayersInSegmentRetired"
+  | "GetSegmentPlayerCountNotInFlight"
+  | "GetSegmentPlayerCountRateLimitExceeded"
   | "SnapshotNotFound"
   | "InventoryApiNotImplemented"
   | "InventoryCollectionDeletionDisallowed"
@@ -2014,6 +2028,7 @@ type GenericErrorCodes = "Success"
   | "GameSaveManifestNotEligibleForRollback"
   | "GameSaveTitleClientAnonymousAccountCreationNotDisabled"
   | "GameSaveTitleConfigNoUpdatesRequested"
+  | "GameSavePlayerNotEligibleForTransfer"
   | "StateShareForbidden"
   | "StateShareTitleNotInFlight"
   | "StateShareStateNotFound"
@@ -2500,6 +2515,18 @@ export interface GetPlayerProfileResult extends IPlayFabResultCommon {
 export interface GetPlayerSegmentsResult extends IPlayFabResultCommon {
   /** Array of segments the requested player currently belongs to. */
   Segments?: GetSegmentResult[];
+}
+
+export interface GetPlayersInSegmentExportRequest extends IPlayFabRequestCommon {
+  /** Unique identifier of the export for the requested Segment. */
+  ExportId: string;
+}
+
+export interface GetPlayersInSegmentExportResponse extends IPlayFabResultCommon {
+  /** Url from which the index file can be downloaded. */
+  IndexUrl?: string;
+  /** Shows the current status of the export */
+  State?: string;
 }
 
 /** @deprecated Do not use */

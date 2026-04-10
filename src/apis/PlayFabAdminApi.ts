@@ -119,6 +119,7 @@ import type {
   UpdateUserDataRequest,
   UpdateUserInternalDataRequest,
   UpdateUserTitleDisplayNameRequest,
+  ValidateApiPolicyRequest,
   AddLocalizedNewsResult,
   AddNewsResult,
   AddPlayerTagResult,
@@ -226,6 +227,7 @@ import type {
   UpdateSegmentResponse,
   UpdateUserDataResult,
   UpdateUserTitleDisplayNameResult,
+  ValidateApiPolicyResponse,
 } from "../types/PlayFabAdminApi";
 import { PlayFabCommon } from "../PlayFabCommon";
 
@@ -3045,6 +3047,30 @@ export default class PlayFabAdminApi extends PlayFabCommon {
    */
   UpdateUserTitleDisplayName (request: UpdateUserTitleDisplayNameRequest, extraHeaders?: Record<string, string>) {
     return this.ExecuteRequestWrapper<UpdateUserTitleDisplayNameResult>("/Admin/UpdateUserTitleDisplayName", request, "X-SecretKey", extraHeaders);
+  }
+
+  /**
+   * Validates the result of a policy update without persisting it.
+   * 
+   * {@link https://docs.microsoft.com/rest/api/playfab/admin/authentication/validateapipolicy Microsoft Documentation}
+   * @example
+   * await adminClient.ValidateApiPolicy({
+   *   "PolicyName": "ApiPolicy",
+   *   "Statements": [
+   *     {
+   *       "Resource": "pfrn:api--/Client/*",
+   *       "Action": "*",
+   *       "Effect": "Allow",
+   *       "Principal": "*",
+   *       "Comment": "Allow all client APIs"
+   *     }
+   *   ],
+   *   "OverwritePolicy": true,
+   *   "PolicyVersion": 13
+   * });
+   */
+  ValidateApiPolicy (request: ValidateApiPolicyRequest, extraHeaders?: Record<string, string>) {
+    return this.ExecuteRequestWrapper<ValidateApiPolicyResponse>("/Admin/ValidateApiPolicy", request, "X-SecretKey", extraHeaders);
   }
 
 };

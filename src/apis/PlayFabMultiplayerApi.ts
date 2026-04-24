@@ -207,12 +207,12 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * {@link https://docs.microsoft.com/rest/api/playfab/match/matchmaking/cancelallmatchmakingticketsforplayer Microsoft Documentation}
    * @example
    * await multiplayerClient.CancelAllMatchmakingTicketsForPlayer({
+   *   "QueueName": "custom123",
    *   "Entity": {
    *     "Id": "123123123",
    *     "Type": "title_player_account",
    *     "TypeString": "title_player_account"
-   *   },
-   *   "QueueName": "custom123"
+   *   }
    * });
    */
   CancelAllMatchmakingTicketsForPlayer (request: CancelAllMatchmakingTicketsForPlayerRequest, extraHeaders?: Record<string, string>) {
@@ -225,12 +225,12 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * {@link https://docs.microsoft.com/rest/api/playfab/match/matchmaking/cancelallserverbackfillticketsforplayer Microsoft Documentation}
    * @example
    * await multiplayerClient.CancelAllServerBackfillTicketsForPlayer({
+   *   "QueueName": "custom123",
    *   "Entity": {
    *     "Id": "123123123",
    *     "Type": "title_player_account",
    *     "TypeString": "title_player_account"
-   *   },
-   *   "QueueName": "custom123"
+   *   }
    * });
    */
   CancelAllServerBackfillTicketsForPlayer (request: CancelAllServerBackfillTicketsForPlayerRequest, extraHeaders?: Record<string, string>) {
@@ -326,8 +326,8 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    *     "Deaths"
    *   ],
    *   "InitialSettingsModelId": "73a2506e-9fd3-4d84-8dd7-570c8e9e02cf",
-   *   "MatchResultStartTimeUtc": "2026-04-10T13:33:13.627Z",
-   *   "MatchResultEndTimeUtc": "2026-04-10T14:03:13.627Z",
+   *   "MatchResultStartTimeUtc": "2026-04-24T13:31:41.698Z",
+   *   "MatchResultEndTimeUtc": "2026-04-24T14:01:41.698Z",
    *   "MaxIterations": 100,
    *   "AnomalousMatchResultIgnoreThreshold": -20.0
    * });
@@ -1806,12 +1806,12 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * {@link https://docs.microsoft.com/rest/api/playfab/match/matchmaking/listmatchmakingticketsforplayer Microsoft Documentation}
    * @example
    * await multiplayerClient.ListMatchmakingTicketsForPlayer({
+   *   "QueueName": "custom123",
    *   "Entity": {
    *     "Id": "123123123",
    *     "Type": "title_player_account",
    *     "TypeString": "title_player_account"
-   *   },
-   *   "QueueName": "custom123"
+   *   }
    * });
    */
   ListMatchmakingTicketsForPlayer (request: ListMatchmakingTicketsForPlayerRequest, extraHeaders?: Record<string, string>) {
@@ -1889,12 +1889,12 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    * {@link https://docs.microsoft.com/rest/api/playfab/match/matchmaking/listserverbackfillticketsforplayer Microsoft Documentation}
    * @example
    * await multiplayerClient.ListServerBackfillTicketsForPlayer({
+   *   "QueueName": "custom123",
    *   "Entity": {
    *     "Id": "123123123",
    *     "Type": "title_player_account",
    *     "TypeString": "title_player_account"
-   *   },
-   *   "QueueName": "custom123"
+   *   }
    * });
    */
   ListServerBackfillTicketsForPlayer (request: ListServerBackfillTicketsForPlayerRequest, extraHeaders?: Record<string, string>) {
@@ -2663,8 +2663,8 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
    *         "Rank": 1
    *       }
    *     ],
-   *     "StartDateTimeUtc": "2026-04-10T13:33:13.618Z",
-   *     "EndDateTimeUtc": "2026-04-10T14:03:13.619Z"
+   *     "StartDateTimeUtc": "2026-04-24T13:31:41.687Z",
+   *     "EndDateTimeUtc": "2026-04-24T14:01:41.687Z"
    *   }
    * });
    */

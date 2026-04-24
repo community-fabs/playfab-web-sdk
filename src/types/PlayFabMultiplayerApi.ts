@@ -340,7 +340,7 @@ export interface BuildSummary {
 export interface CancelAllMatchmakingTicketsForPlayerRequest extends IPlayFabRequestCommon {
   /** The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.). */
   CustomTags?: Record<string, string | null>;
-  /** The entity key of the player whose tickets should be canceled. */
+  /** The optional entity to perform this action on. Defaults to the currently logged in entity. */
   Entity?: EntityKey;
   /** The name of the queue from which a player&#39;s tickets should be canceled. */
   QueueName: string;
@@ -352,7 +352,7 @@ export interface CancelAllMatchmakingTicketsForPlayerResult extends IPlayFabResu
 export interface CancelAllServerBackfillTicketsForPlayerRequest extends IPlayFabRequestCommon {
   /** The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.). */
   CustomTags?: Record<string, string | null>;
-  /** The entity key of the player whose backfill tickets should be canceled. */
+  /** The entity to perform this action on. */
   Entity: EntityKey;
   /** The name of the queue from which a player&#39;s backfill tickets should be canceled. */
   QueueName: string;
@@ -2387,7 +2387,7 @@ export interface ListMatchmakingQueuesResult extends IPlayFabResultCommon {
 export interface ListMatchmakingTicketsForPlayerRequest extends IPlayFabRequestCommon {
   /** The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.). */
   CustomTags?: Record<string, string | null>;
-  /** The entity key for which to find the ticket Ids. */
+  /** The optional entity to perform this action on. Defaults to the currently logged in entity. */
   Entity?: EntityKey;
   /** The name of the queue to find a match for. */
   QueueName: string;
@@ -2497,7 +2497,7 @@ export interface ListSecretSummariesResponse extends IPlayFabResultCommon {
 export interface ListServerBackfillTicketsForPlayerRequest extends IPlayFabRequestCommon {
   /** The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.). */
   CustomTags?: Record<string, string | null>;
-  /** The entity key for which to find the ticket Ids. */
+  /** The entity to perform this action on. */
   Entity: EntityKey;
   /** The name of the queue the tickets are in. */
   QueueName: string;
@@ -3306,6 +3306,8 @@ export interface RequestPartyServiceResponse extends IPlayFabResultCommon {
   InvitationId?: string;
   /** The guid string party ID of the party session. */
   PartyId?: string;
+  /** The region the party session is located in. */
+  Region?: string;
   /** A base-64 encoded string containing the serialized network descriptor for this party. */
   SerializedNetworkDescriptor?: string;
 }

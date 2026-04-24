@@ -170,8 +170,7 @@ export default class PlayFabProgressionApi extends PlayFabCommon {
    * {@link https://docs.microsoft.com/rest/api/playfab/leaderboard/leaderboards/getfriendleaderboardforentity Microsoft Documentation}
    * @example
    * await progressionClient.GetFriendLeaderboardForEntity({
-   *   "LeaderboardName": "Points",
-   *   "ExternalFriendSources": "None"
+   *   "LeaderboardName": "Points"
    * });
    */
   GetFriendLeaderboardForEntity (request: GetFriendLeaderboardForEntityRequest, extraHeaders?: Record<string, string>) {

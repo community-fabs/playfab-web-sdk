@@ -2,10 +2,18 @@ name: Publish to NPM
 
 on:
   workflow_dispatch:
+    inputs:
+      build_tag:
+        description: "Build Tag"
+        required: true
+        default: "latest"
 
 permissions:
   id-token: write
   contents: read
+
+env:
+  BUILD_TAG: ${{ github.event.inputs.build_tag }}
 
 jobs:
   publish:
@@ -31,4 +39,4 @@ jobs:
         run: npm run test
 
       - name: Publish
-        run: npm publish --access public
+        run: npm publish --access public --tag ${BUILD_TAG}

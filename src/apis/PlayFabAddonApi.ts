@@ -446,3 +446,5 @@ export default class PlayFabAddonApi extends PlayFabCommon {
   }
 
 };
+
+export type * from "../types/PlayFabAddonApi";

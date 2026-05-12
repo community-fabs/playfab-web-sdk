@@ -3074,3 +3074,5 @@ export default class PlayFabAdminApi extends PlayFabCommon {
   }
 
 };
+
+export type * from "../types/PlayFabAdminApi";

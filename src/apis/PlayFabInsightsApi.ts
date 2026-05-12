@@ -91,3 +91,5 @@ export default class PlayFabInsightsApi extends PlayFabCommon {
   }
 
 };
+
+export type * from "../types/PlayFabInsightsApi";

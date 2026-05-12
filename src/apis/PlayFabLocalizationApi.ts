@@ -18,3 +18,5 @@ export default class PlayFabLocalizationApi extends PlayFabCommon {
   }
 
 };
+
+export type * from "../types/PlayFabLocalizationApi";

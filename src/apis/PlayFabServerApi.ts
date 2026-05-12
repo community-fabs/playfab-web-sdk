@@ -3065,3 +3065,5 @@ export default class PlayFabServerApi extends PlayFabCommon {
   }
 
 };
+
+export type * from "../types/PlayFabServerApi";

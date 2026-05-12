@@ -302,3 +302,5 @@ export default class PlayFabCloudScriptApi extends PlayFabCommon {
   }
 
 };
+
+export type * from "../types/PlayFabCloudScriptApi";

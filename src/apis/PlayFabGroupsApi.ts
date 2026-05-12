@@ -479,3 +479,5 @@ export default class PlayFabGroupsApi extends PlayFabCommon {
   }
 
 };
+
+export type * from "../types/PlayFabGroupsApi";

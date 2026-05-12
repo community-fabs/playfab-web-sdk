@@ -1219,3 +1219,5 @@ export default class PlayFabEconomyApi extends PlayFabCommon {
   }
 
 };
+
+export type * from "../types/PlayFabEconomyApi";

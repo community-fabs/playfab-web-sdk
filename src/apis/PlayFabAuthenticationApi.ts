@@ -81,3 +81,5 @@ export default class PlayFabAuthenticationApi extends PlayFabCommon {
   }
 
 };
+
+export type * from "../types/PlayFabAuthenticationApi";

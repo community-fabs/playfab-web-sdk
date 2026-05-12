@@ -90,3 +90,5 @@ export default class PlayFabMatchmakerApi extends PlayFabCommon {
   }
 
 };
+
+export type * from "../types/PlayFabMatchmakerApi";

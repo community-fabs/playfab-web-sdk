@@ -222,3 +222,5 @@ export default class PlayFabProfilesApi extends PlayFabCommon {
   }
 
 };
+
+export type * from "../types/PlayFabProfilesApi";

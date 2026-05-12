@@ -2691,3 +2691,5 @@ export default class PlayFabMultiplayerApi extends PlayFabCommon {
   }
 
 };
+
+export type * from "../types/PlayFabMultiplayerApi";

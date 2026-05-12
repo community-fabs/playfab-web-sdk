@@ -252,3 +252,5 @@ export default class PlayFabExperimentationApi extends PlayFabCommon {
   }
 
 };
+
+export type * from "../types/PlayFabExperimentationApi";

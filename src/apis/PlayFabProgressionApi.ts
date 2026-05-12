@@ -517,3 +517,5 @@ export default class PlayFabProgressionApi extends PlayFabCommon {
   }
 
 };
+
+export type * from "../types/PlayFabProgressionApi";

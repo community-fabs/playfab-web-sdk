@@ -189,3 +189,5 @@ export default class PlayFabDataApi extends PlayFabCommon {
   }
 
 };
+
+export type * from "../types/PlayFabDataApi";

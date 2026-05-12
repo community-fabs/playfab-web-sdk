@@ -276,3 +276,5 @@ export default class PlayFabEventsApi extends PlayFabCommon {
   }
 
 };
+
+export type * from "../types/PlayFabEventsApi";

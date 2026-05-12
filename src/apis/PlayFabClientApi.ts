@@ -3544,3 +3544,5 @@ export default class PlayFabClientApi extends PlayFabCommon {
   }
 
 };
+
+export type * from "../types/PlayFabClientApi";

@@ -1,6 +1,6 @@
 {
   "name": "@community-fabs/playfab-web-sdk",
-  "version": "1.214.260424-1",
+  "version": "1.214.260424-2",
   "description": "Unofficial Playfab SDK for JS client applications",
   "license": "Apache-2.0",
   "type": "module",
@@ -10,9 +10,22 @@
     "test": "jest --config jest.config.js"
   },
   "main": "dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "import": "./dist/*.js",
+      "default": "./dist/*.js"
+    }
+  },
   "files": [
     "/dist"
   ],
+  "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/community-fabs/playfab-web-sdk.git"

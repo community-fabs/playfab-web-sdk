@@ -38,3 +38,5 @@ export default class PlayFab<%= it.doc.name %>Api extends PlayFabCommon {
 
 <% } %>
 };
+
+export type * from "../types/PlayFab<%= it.doc.name %>Api";

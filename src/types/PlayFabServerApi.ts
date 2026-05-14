@@ -2055,6 +2055,7 @@ type GenericErrorCodes = "Success"
   | "PlayFabErrorEventNotSupportedForEntityType"
   | "MetadataLengthExceeded"
   | "MaxQueryableVersionsExceeded"
+  | "StatisticVersionIncrementNotAllowedWhileLinked"
   | "StoreMetricsRequestInvalidInput"
   | "StoreMetricsErrorRetrievingMetrics";
 
@@ -4656,6 +4657,16 @@ export interface TwitchPlayFabIdPair {
   TwitchId?: string;
 }
 
+export interface UnlinkAppleRequest extends IPlayFabRequestCommon {
+  /** The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.). */
+  CustomTags?: Record<string, string | null>;
+  /** Unique PlayFab assigned ID of the user on whom the operation will be performed. */
+  PlayFabId: string;
+}
+
+export interface UnlinkAppleResult extends IPlayFabResultCommon {
+}
+
 export interface UnlinkBattleNetAccountRequest extends IPlayFabRequestCommon {
   /** The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.). */
   CustomTags?: Record<string, string | null>;
@@ -4683,6 +4694,16 @@ export interface UnlinkFacebookInstantGamesIdRequest extends IPlayFabRequestComm
 }
 
 export interface UnlinkFacebookInstantGamesIdResult extends IPlayFabResultCommon {
+}
+
+export interface UnlinkGameCenterAccountRequest extends IPlayFabRequestCommon {
+  /** The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.). */
+  CustomTags?: Record<string, string | null>;
+  /** Unique PlayFab assigned ID of the user on whom the operation will be performed. */
+  PlayFabId: string;
+}
+
+export interface UnlinkGameCenterAccountResult extends IPlayFabResultCommon {
 }
 
 export interface UnlinkNintendoServiceAccountRequest extends IPlayFabRequestCommon {

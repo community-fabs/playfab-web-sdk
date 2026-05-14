@@ -216,7 +216,13 @@ export interface SetAvatarUrlRequest extends IPlayFabRequestCommon {
   CustomTags?: Record<string, string | null>;
   /** The optional entity to perform this action on. Defaults to the currently logged in entity. */
   Entity?: EntityKey;
-  /** The expected version of the profile to perform this update on */
+  /**
+   * Optional field used for concurrency control. By specifying the previously returned ProfileVersion value from the
+   * GetProfile API, you can ensure that the avatar URL update is performed only if the profile has not been updated since
+   * you last loaded that version. If the profile for the same entity has been updated, the operation will fail with an
+   * EntityProfileVersionMismatch error. The conflicting update can be caused by any operation that modifies the entity
+   * profile, including SetObjects, FinalizeFileUploads, and UpdateStatistics.
+   */
   ProfileVersion?: number;
 }
 

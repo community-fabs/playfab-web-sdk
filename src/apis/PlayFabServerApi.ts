@@ -131,9 +131,11 @@ import type {
   SetTitleDataRequest,
   SubtractCharacterVirtualCurrencyRequest,
   SubtractUserVirtualCurrencyRequest,
+  UnlinkAppleRequest,
   UnlinkBattleNetAccountRequest,
   UnlinkFacebookAccountRequest,
   UnlinkFacebookInstantGamesIdRequest,
+  UnlinkGameCenterAccountRequest,
   UnlinkNintendoServiceAccountRequest,
   UnlinkNintendoSwitchDeviceIdRequest,
   UnlinkPSNAccountRequest,
@@ -265,8 +267,10 @@ import type {
   SetPlayerSecretResult,
   SetPublisherDataResult,
   SetTitleDataResult,
+  UnlinkAppleResult,
   UnlinkFacebookAccountResult,
   UnlinkFacebookInstantGamesIdResult,
+  UnlinkGameCenterAccountResult,
   UnlinkNintendoSwitchDeviceIdResult,
   UnlinkPSNAccountResult,
   UnlinkServerCustomIdResult,
@@ -2489,6 +2493,19 @@ export default class PlayFabServerApi extends PlayFabCommon {
   }
 
   /**
+   * Unlinks the related Apple account from the specified user's PlayFab account.
+   * 
+   * {@link https://docs.microsoft.com/rest/api/playfab/server/account-management/unlinkapple Microsoft Documentation}
+   * @example
+   * await serverClient.UnlinkApple({
+   *   "PlayFabId": "1234FA342"
+   * });
+   */
+  UnlinkApple (request: UnlinkAppleRequest, extraHeaders?: Record<string, string>) {
+    return this.ExecuteRequestWrapper<UnlinkAppleResult>("/Server/UnlinkApple", request, "X-SecretKey", extraHeaders);
+  }
+
+  /**
    * Unlinks the related Battle.net account from the user's PlayFab account.
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/server/account-management/unlinkbattlenetaccount Microsoft Documentation}
@@ -2526,6 +2543,19 @@ export default class PlayFabServerApi extends PlayFabCommon {
    */
   UnlinkFacebookInstantGamesId (request: UnlinkFacebookInstantGamesIdRequest, extraHeaders?: Record<string, string>) {
     return this.ExecuteRequestWrapper<UnlinkFacebookInstantGamesIdResult>("/Server/UnlinkFacebookInstantGamesId", request, "X-SecretKey", extraHeaders);
+  }
+
+  /**
+   * Unlinks the related Game Center account from the specified user's PlayFab account.
+   * 
+   * {@link https://docs.microsoft.com/rest/api/playfab/server/account-management/unlinkgamecenteraccount Microsoft Documentation}
+   * @example
+   * await serverClient.UnlinkGameCenterAccount({
+   *   "PlayFabId": "1234FA342"
+   * });
+   */
+  UnlinkGameCenterAccount (request: UnlinkGameCenterAccountRequest, extraHeaders?: Record<string, string>) {
+    return this.ExecuteRequestWrapper<UnlinkGameCenterAccountResult>("/Server/UnlinkGameCenterAccount", request, "X-SecretKey", extraHeaders);
   }
 
   /**

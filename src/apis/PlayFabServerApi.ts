@@ -41,7 +41,6 @@ import type {
   GetPlayerCustomPropertyRequest,
   GetPlayerProfileRequest,
   GetPlayersSegmentsRequest,
-  GetPlayersInSegmentRequest,
   GetPlayerStatisticsRequest,
   GetPlayerStatisticVersionsRequest,
   GetPlayerTagsRequest,
@@ -61,6 +60,7 @@ import type {
   GetPublisherDataRequest,
   GetRandomResultTablesRequest,
   GetPlayersInSegmentExportRequest,
+  GetSegmentPlayerCountRequest,
   GetServerCustomIDsFromPlayFabIDsRequest,
   GetSharedGroupDataRequest,
   GetStoreItemsServerRequest,
@@ -197,7 +197,6 @@ import type {
   GetPlayerCustomPropertyResult,
   GetPlayerProfileResult,
   GetPlayerSegmentsResult,
-  GetPlayersInSegmentResult,
   GetPlayerStatisticsResult,
   GetPlayerStatisticVersionsResult,
   GetPlayerTagsResult,
@@ -217,6 +216,7 @@ import type {
   GetPublisherDataResult,
   GetRandomResultTablesResult,
   GetPlayersInSegmentExportResponse,
+  GetSegmentPlayerCountResult,
   GetServerCustomIDsFromPlayFabIDsResult,
   GetSharedGroupDataResult,
   GetStoreItemsResult,
@@ -657,7 +657,8 @@ export default class PlayFabServerApi extends PlayFabCommon {
 
   /**
    * Retrieves an array of player segment definitions. Results from this can be used in subsequent API calls such as
-   * GetPlayersInSegment which requires a Segment ID. While segment names can change the ID for that segment will not change.
+   * ExportPlayersInSegment which requires a Segment ID. While segment names can change the ID for that segment will not
+   * change.
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/server/playstream/getallsegments Microsoft Documentation}
    * @example
@@ -977,20 +978,6 @@ export default class PlayFabServerApi extends PlayFabCommon {
    */
   GetPlayerSegments (request: GetPlayersSegmentsRequest, extraHeaders?: Record<string, string>) {
     return this.ExecuteRequestWrapper<GetPlayerSegmentsResult>("/Server/GetPlayerSegments", request, "X-SecretKey", extraHeaders);
-  }
-
-  /**
-   * Allows for paging through all players in a given segment. This API creates a snapshot of all player profiles that match
-   * the segment definition at the time of its creation and lives through the Total Seconds to Live, refreshing its life span
-   * on each subsequent use of the Continuation Token. Profiles that change during the course of paging will not be reflected
-   * in the results. AB Test segments are currently not supported by this operation. NOTE: This API is limited to being
-   * called 30 times in one minute. You will be returned an error if you exceed this threshold.
-   * 
-   * {@link https://docs.microsoft.com/rest/api/playfab/server/playstream/getplayersinsegment Microsoft Documentation}
-   * @deprecated Do not use
-   */
-  GetPlayersInSegment (request: GetPlayersInSegmentRequest, extraHeaders?: Record<string, string>) {
-    return this.ExecuteRequestWrapper<GetPlayersInSegmentResult>("/Server/GetPlayersInSegment", request, "X-SecretKey", extraHeaders);
   }
 
   /**
@@ -1316,6 +1303,19 @@ export default class PlayFabServerApi extends PlayFabCommon {
    */
   GetSegmentExport (request: GetPlayersInSegmentExportRequest, extraHeaders?: Record<string, string>) {
     return this.ExecuteRequestWrapper<GetPlayersInSegmentExportResponse>("/Server/GetSegmentExport", request, "X-SecretKey", extraHeaders);
+  }
+
+  /**
+   * Returns the total number of players in a given segment.
+   * 
+   * {@link https://docs.microsoft.com/rest/api/playfab/server/playstream/getsegmentplayercount Microsoft Documentation}
+   * @example
+   * await serverClient.GetSegmentPlayerCount({
+   *   "SegmentId": "1337AA00"
+   * });
+   */
+  GetSegmentPlayerCount (request: GetSegmentPlayerCountRequest, extraHeaders?: Record<string, string>) {
+    return this.ExecuteRequestWrapper<GetSegmentPlayerCountResult>("/Server/GetSegmentPlayerCount", request, "X-SecretKey", extraHeaders);
   }
 
   /**

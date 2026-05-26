@@ -69,7 +69,10 @@ export interface EntityTokenResponse {
 export interface GetEntityTokenRequest extends IPlayFabRequestCommon {
   /** The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.). */
   CustomTags?: Record<string, string | null>;
-  /** The optional entity to perform this action on. Defaults to the currently logged in entity. */
+  /**
+   * The optional entity to perform this action on. Defaults to the currently logged in entity.
+   * @deprecated Do not use
+   */
   Entity?: EntityKey;
 }
 

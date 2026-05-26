@@ -3,16 +3,6 @@ import type {
   IPlayFabResultCommon
 } from "./PlayFab";
 
-/** @deprecated Do not use */
-export interface AdCampaignAttribution {
-  /** UTC time stamp of attribution */
-  AttributedAt: string;
-  /** Attribution campaign identifier */
-  CampaignId?: string;
-  /** Attribution network name */
-  Platform?: string;
-}
-
 export interface AdCampaignAttributionModel {
   /** UTC time stamp of attribution */
   AttributedAt: string;
@@ -347,11 +337,6 @@ export interface CharacterResult {
   CharacterType?: string;
 }
 
-type ChurnRiskLevel = "NoData"
-  | "LowRisk"
-  | "MediumRisk"
-  | "HighRisk";
-
 type CloudScriptRevisionOption = "Live"
   | "Latest"
   | "Specific";
@@ -374,16 +359,6 @@ export interface ConsumeItemResult extends IPlayFabResultCommon {
   ItemInstanceId?: string;
   /** Number of uses remaining on the item. */
   RemainingUses: number;
-}
-
-/** @deprecated Do not use */
-export interface ContactEmailInfo {
-  /** The email address */
-  EmailAddress?: string;
-  /** The name of the email info data */
-  Name?: string;
-  /** The verification status of the email */
-  VerificationStatus?: EmailVerificationStatus;
 }
 
 export interface ContactEmailInfoModel {
@@ -1586,7 +1561,6 @@ type GenericErrorCodes = "Success"
   | "InsightsManagementGetOperationStatusInvalidParameter"
   | "DuplicatePurchaseTransactionId"
   | "EvaluationModePlayerCountExceeded"
-  | "GetPlayersInSegmentRateLimitExceeded"
   | "CloudScriptFunctionNameSizeExceeded"
   | "PaidInsightsFeaturesNotEnabled"
   | "CloudScriptAzureFunctionsQueueRequestError"
@@ -1845,7 +1819,6 @@ type GenericErrorCodes = "Success"
   | "AsyncExportNotFound"
   | "AsyncExportRateLimitExceeded"
   | "AnalyticsSegmentCountOverLimit"
-  | "GetPlayersInSegmentRetired"
   | "GetSegmentPlayerCountNotInFlight"
   | "GetSegmentPlayerCountRateLimitExceeded"
   | "SnapshotNotFound"
@@ -1923,8 +1896,6 @@ type GenericErrorCodes = "Success"
   | "PlayerCustomPropertiesPropertyDoesNotExist"
   | "AddonAlreadyExists"
   | "AddonDoesntExist"
-  | "CopilotDisabled"
-  | "CopilotInvalidRequest"
   | "TrueSkillUnauthorized"
   | "TrueSkillInvalidTitleId"
   | "TrueSkillInvalidScenarioId"
@@ -2530,42 +2501,6 @@ export interface GetPlayersInSegmentExportResponse extends IPlayFabResultCommon 
   State?: string;
 }
 
-/** @deprecated Do not use */
-export interface GetPlayersInSegmentRequest extends IPlayFabRequestCommon {
-  /** Continuation token if retrieving subsequent pages of results. */
-  ContinuationToken?: string;
-  /** The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.). */
-  CustomTags?: Record<string, string | null>;
-  /**
-   * If set to true, the profiles are loaded asynchronously and the response will include a continuation token and
-   * approximate profile count until the first batch of profiles is loaded. Use this parameter to help avoid network
-   * timeouts.
-   */
-  GetProfilesAsync?: boolean;
-  /**
-   * Maximum is 10,000. The value 0 will prevent loading any profiles and return only the count of profiles matching this
-   * segment.
-   */
-  MaxBatchSize?: number;
-  /**
-   * Number of seconds to keep the continuation token active. After token expiration it is not possible to continue paging
-   * results. Default is 300 (5 minutes). Maximum is 5,400 (90 minutes).
-   */
-  SecondsToLive?: number;
-  /** Unique identifier for this segment. */
-  SegmentId: string;
-}
-
-/** @deprecated Do not use */
-export interface GetPlayersInSegmentResult extends IPlayFabResultCommon {
-  /** Continuation token to use to retrieve subsequent pages of results. If token returns null there are no more results. */
-  ContinuationToken?: string;
-  /** Array of player profiles in this segment. */
-  PlayerProfiles?: PlayerProfile[];
-  /** Count of profiles matching this segment. */
-  ProfilesInSegment: number;
-}
-
 export interface GetPlayersSegmentsRequest extends IPlayFabRequestCommon {
   /** The optional custom tags associated with the request (e.g. build number, external trace identifiers, etc.). */
   CustomTags?: Record<string, string | null>;
@@ -2825,6 +2760,16 @@ export interface GetRandomResultTablesRequest extends IPlayFabRequestCommon {
 export interface GetRandomResultTablesResult extends IPlayFabResultCommon {
   /** array of random result tables currently available */
   Tables?: Record<string, RandomResultTableListing>;
+}
+
+export interface GetSegmentPlayerCountRequest extends IPlayFabRequestCommon {
+  /** Unique identifier for the requested segment. */
+  SegmentId: string;
+}
+
+export interface GetSegmentPlayerCountResult extends IPlayFabResultCommon {
+  /** Count of profiles matching this segment. */
+  ProfilesInSegment: number;
 }
 
 export interface GetSegmentResult {
@@ -3782,82 +3727,6 @@ export interface PlayerLeaderboardEntry {
   StatValue: number;
 }
 
-/** @deprecated Do not use */
-export interface PlayerLinkedAccount {
-  /** Linked account&#39;s email */
-  Email?: string;
-  /** Authentication platform */
-  Platform?: LoginIdentityProvider;
-  /** Platform user identifier */
-  PlatformUserId?: string;
-  /** Linked account&#39;s username */
-  Username?: string;
-}
-
-/** @deprecated Do not use */
-export interface PlayerLocation {
-  /** City of the player&#39;s geographic location. */
-  City?: string;
-  /** The two-character continent code for this location */
-  ContinentCode: ContinentCode;
-  /** The two-character ISO 3166-1 country code for the country associated with the location */
-  CountryCode: CountryCode;
-  /** Latitude coordinate of the player&#39;s geographic location. */
-  Latitude?: number;
-  /** Longitude coordinate of the player&#39;s geographic location. */
-  Longitude?: number;
-}
-
-/** @deprecated Do not use */
-export interface PlayerProfile {
-  /** Array of ad campaigns player has been attributed to */
-  AdCampaignAttributions?: AdCampaignAttribution[];
-  /** Image URL of the player&#39;s avatar. */
-  AvatarUrl?: string;
-  /** Banned until UTC Date. If permanent ban this is set for 20 years after the original ban date. */
-  BannedUntil?: string;
-  /** The prediction of the player to churn within the next seven days. */
-  ChurnPrediction?: ChurnRiskLevel;
-  /** Array of contact email addresses associated with the player */
-  ContactEmailAddresses?: ContactEmailInfo[];
-  /** Player record created */
-  Created?: string;
-  /** Dictionary of player&#39;s custom properties. */
-  CustomProperties?: Record<string, any>;
-  /** Player Display Name */
-  DisplayName?: string;
-  /** Last login */
-  LastLogin?: string;
-  /** Array of third party accounts linked to this player */
-  LinkedAccounts?: PlayerLinkedAccount[];
-  /** Dictionary of player&#39;s locations by type. */
-  Locations?: Record<string, PlayerLocation>;
-  /** Player account origination */
-  Origination?: LoginIdentityProvider;
-  /** List of player variants for experimentation */
-  PlayerExperimentVariants?: string[];
-  /** PlayFab Player ID */
-  PlayerId?: string;
-  /** Array of player statistics */
-  PlayerStatistics?: PlayerStatistic[];
-  /** Publisher this player belongs to */
-  PublisherId?: string;
-  /** Array of configured push notification end points */
-  PushNotificationRegistrations?: PushNotificationRegistration[];
-  /** Dictionary of player&#39;s statistics using only the latest version&#39;s value */
-  Statistics?: Record<string, number>;
-  /** List of player&#39;s tags for segmentation. */
-  Tags?: string[];
-  /** Title ID this profile applies to */
-  TitleId?: string;
-  /** A sum of player&#39;s total purchases in USD across all currencies. */
-  TotalValueToDateInUSD?: number;
-  /** Dictionary of player&#39;s total purchases by currency. */
-  ValuesToDate?: Record<string, number>;
-  /** Dictionary of player&#39;s virtual currency balances */
-  VirtualCurrencyBalances?: Record<string, number>;
-}
-
 export interface PlayerProfileModel {
   /** List of advertising campaigns the player has been attributed to */
   AdCampaignAttributions?: AdCampaignAttributionModel[];
@@ -3945,18 +3814,6 @@ export interface PlayerProfileViewConstraints {
   ShowValuesToDate: boolean;
 }
 
-/** @deprecated Do not use */
-export interface PlayerStatistic {
-  /** Statistic ID */
-  Id?: string;
-  /** Statistic name */
-  Name?: string;
-  /** Current statistic value */
-  StatisticValue: number;
-  /** Statistic version (0 if not a versioned statistic) */
-  StatisticVersion: number;
-}
-
 export interface PlayerStatisticVersion {
   /** time when the statistic version became active */
   ActivationTime: string;
@@ -4015,14 +3872,6 @@ export interface PushNotificationPackage {
 
 type PushNotificationPlatform = "ApplePushNotificationService"
   | "GoogleCloudMessaging";
-
-/** @deprecated Do not use */
-export interface PushNotificationRegistration {
-  /** Notification configured endpoint */
-  NotificationEndpointARN?: string;
-  /** Push notification platform */
-  Platform?: PushNotificationPlatform;
-}
 
 export interface PushNotificationRegistrationModel {
   /** Notification configured endpoint */

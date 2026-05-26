@@ -52,7 +52,6 @@ import type {
   GetPlayerProfileRequest,
   GetPlayersSegmentsRequest,
   GetPlayerSharedSecretsRequest,
-  GetPlayersInSegmentRequest,
   GetPlayerStatisticDefinitionsRequest,
   GetPlayerStatisticVersionsRequest,
   GetPlayerTagsRequest,
@@ -60,6 +59,7 @@ import type {
   GetPublisherDataRequest,
   GetRandomResultTablesRequest,
   GetPlayersInSegmentExportRequest,
+  GetSegmentPlayerCountRequest,
   GetSegmentsRequest,
   GetServerBuildInfoRequest,
   GetStoreItemsRequest,
@@ -166,7 +166,6 @@ import type {
   GetPlayerProfileResult,
   GetPlayerSegmentsResult,
   GetPlayerSharedSecretsResult,
-  GetPlayersInSegmentResult,
   GetPlayerStatisticDefinitionsResult,
   GetPlayerStatisticVersionsResult,
   GetPlayerTagsResult,
@@ -174,6 +173,7 @@ import type {
   GetPublisherDataResult,
   GetRandomResultTablesResult,
   GetPlayersInSegmentExportResponse,
+  GetSegmentPlayerCountResult,
   GetSegmentsResponse,
   GetServerBuildInfoResult,
   GetStoreItemsResult,
@@ -270,7 +270,8 @@ export default class PlayFabAdminApi extends PlayFabCommon {
    * await adminClient.AddNews({
    *   "Timestamp": "2014-04-06T00:00:00Z",
    *   "Title": "News of the Day",
-   *   "Body": "<b>We have a new object to buy!</b>"
+   *   "Body": "<b>We have a new object to buy!</b>",
+   *   "Status": "Published"
    * });
    */
   AddNews (request: AddNewsRequest, extraHeaders?: Record<string, string>) {
@@ -829,7 +830,8 @@ export default class PlayFabAdminApi extends PlayFabCommon {
 
   /**
    * Retrieves an array of player segment definitions. Results from this can be used in subsequent API calls such as
-   * GetPlayersInSegment which requires a Segment ID. While segment names can change the ID for that segment will not change.
+   * ExportPlayersInSegment which requires a Segment ID. While segment names can change the ID for that segment will not
+   * change.
    * 
    * {@link https://docs.microsoft.com/rest/api/playfab/admin/playstream/getallsegments Microsoft Documentation}
    * @example
@@ -1060,20 +1062,6 @@ export default class PlayFabAdminApi extends PlayFabCommon {
   }
 
   /**
-   * Allows for paging through all players in a given segment. This API creates a snapshot of all player profiles that match
-   * the segment definition at the time of its creation and lives through the Total Seconds to Live, refreshing its life span
-   * on each subsequent use of the Continuation Token. Profiles that change during the course of paging will not be reflected
-   * in the results. AB Test segments are currently not supported by this operation. NOTE: This API is limited to being
-   * called 30 times in one minute. You will be returned an error if you exceed this threshold.
-   * 
-   * {@link https://docs.microsoft.com/rest/api/playfab/admin/playstream/getplayersinsegment Microsoft Documentation}
-   * @deprecated Please use ExportPlayersInSegment instead.
-   */
-  GetPlayersInSegment (request: GetPlayersInSegmentRequest, extraHeaders?: Record<string, string>) {
-    return this.ExecuteRequestWrapper<GetPlayersInSegmentResult>("/Admin/GetPlayersInSegment", request, "X-SecretKey", extraHeaders);
-  }
-
-  /**
    * Retrieves the configuration information for all player statistics defined in the title, regardless of whether they have
    * a reset interval.
    * 
@@ -1167,6 +1155,19 @@ export default class PlayFabAdminApi extends PlayFabCommon {
    */
   GetSegmentExport (request: GetPlayersInSegmentExportRequest, extraHeaders?: Record<string, string>) {
     return this.ExecuteRequestWrapper<GetPlayersInSegmentExportResponse>("/Admin/GetSegmentExport", request, "X-SecretKey", extraHeaders);
+  }
+
+  /**
+   * Returns the total number of players in a given segment.
+   * 
+   * {@link https://docs.microsoft.com/rest/api/playfab/admin/playstream/getsegmentplayercount Microsoft Documentation}
+   * @example
+   * await adminClient.GetSegmentPlayerCount({
+   *   "SegmentId": "1337AA00"
+   * });
+   */
+  GetSegmentPlayerCount (request: GetSegmentPlayerCountRequest, extraHeaders?: Record<string, string>) {
+    return this.ExecuteRequestWrapper<GetSegmentPlayerCountResult>("/Admin/GetSegmentPlayerCount", request, "X-SecretKey", extraHeaders);
   }
 
   /**

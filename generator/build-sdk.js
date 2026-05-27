@@ -16,24 +16,26 @@ const staticDir = path.join(__dirname, "sdk", "static");
 
 const eta = new Eta({ views: templatesDir })
 
-function cleanSdk() {
-  fs.readdirSync(sdkDir).forEach(item => {
-    const itemPath = path.join(sdkDir, item);
-    const stat = fs.statSync(itemPath);
+function updatePackageVersion(newVersion) {
+  try {
+    const packagePath = path.join(sdkDir, "package.json");
+    const rawData = fs.readFileSync(packagePath, 'utf8');
+    const packageObj = JSON.parse(rawData);
 
-    // delete all source files, but leave behind things like package-lock.json and readme.md
-    const itemsToDelete = [
-      /^dist$/,
-      /^src$/,
-    ];
-    if (itemsToDelete.some(regex => regex.test(item))) {
-      if (stat.isDirectory()) {
-        fs.rmSync(itemPath, { recursive: true, force: true });
-      } else {
-        fs.unlinkSync(itemPath);
-      }
-    }
-  });
+    packageObj.version = newVersion;
+    
+    const updatedData = JSON.stringify(packageObj, null, 2);
+    
+    fs.writeFileSync(packagePath, updatedData, 'utf8');
+  } catch (error) {
+    console.error('Error handling package.json:', error);
+  }
+}
+
+function cleanSdk() {
+  fs.rmSync(path.join(sdkDir, "dist"), { recursive: true, force: true });
+  fs.rmSync(path.join(sdkDir, "src", "apis"), { recursive: true, force: true });
+  fs.rmSync(path.join(sdkDir, "src", "types"), { recursive: true, force: true });
 }
 
 function copyStaticFiles() {
@@ -120,6 +122,8 @@ async function main() {
 
   renderTemplatesToDir(templatesDir, sdkDir, renderData);
   renderCustomTemplates(renderData);
+
+  updatePackageVersion(renderData.publishVersion);
 
   console.timeEnd("SDK generated")
 }
